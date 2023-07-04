@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-function Brand() {
+function Brand({ styles }) {
    return (
       <Image
          src="/assets/logo.png"
@@ -8,7 +8,7 @@ function Brand() {
          width={136}
          height={70}
          priority
-         className="inline-block"
+         className={`inline-block ${styles}`}
       />
    )
 }
