@@ -1,17 +1,24 @@
 import NavLink from "./NavLink"
+import DonateLink from "./DonateLink"
 
 export default function NavBar({ showNav, setShowNav }) {
    const handleClick = () => setShowNav(false)
    return (
       <div
-         className={`z-40 fixed w-full h-full top-0 ${
+         className={`max-lg:z-40 max-lg:fixed w-full h-full top-0 ${
             showNav ? "left-0 duration-500" : "left-full duration-0"
-         } bg-black/90 transition-left`}
+         } bg-black/90 lg:bg-transparent transition-left`}
       >
-         <nav className="mt-14 md:mt-[90px]">
-            <ul className="w-5/6 mx-auto text-white md:text-lg">
-               <NavLink handleClick={handleClick} href="/" text="Home" />
+         <nav className="mt-14 md:mt-[90px] lg:mt-0">
+            <ul className="lg:flex lg:items-center lg:justify-end w-5/6 lg:w-full mx-auto md:text-lg lg:text-base">
                <NavLink handleClick={handleClick} href="/about" text="About" />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/events"
+                  text="Events"
+               />
+               <NavLink handleClick={handleClick} href="#" text="Shop" />
+               <NavLink handleClick={handleClick} href="#" text="Blog" />
                <NavLink
                   handleClick={handleClick}
                   href="/education"
@@ -23,22 +30,7 @@ export default function NavBar({ showNav, setShowNav }) {
                   href="/contact"
                   text="Contact"
                />
-               <NavLink
-                  handleClick={handleClick}
-                  href="/sponsor"
-                  text="Sponsor"
-               />
-               <NavLink handleClick={handleClick} href="/join" text="Join" />
-               <NavLink
-                  handleClick={handleClick}
-                  href="/events"
-                  text="Events"
-               />
-               <NavLink
-                  handleClick={handleClick}
-                  href="/donate"
-                  text="Donate"
-               />
+               <DonateLink handleClick={handleClick} />
             </ul>
          </nav>
       </div>

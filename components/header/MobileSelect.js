@@ -2,7 +2,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 
 export default function MobileSelect({ showNav, setShowNav }) {
    return (
-      <div className="z-50 flex items-center">
+      <div className="lg:hidden z-50 flex items-center">
          <button onClick={() => setShowNav(showNav ? false : true)}>
             {showNav ? (
                <div>
