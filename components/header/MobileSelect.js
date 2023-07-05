@@ -6,11 +6,11 @@ export default function MobileSelect({ showNav, setShowNav }) {
          <button onClick={() => setShowNav(showNav ? false : true)}>
             {showNav ? (
                <div>
-                  <XMarkIcon className="h-10 w-10 md:h-12 md:w-12 text-white" />
+                  <XMarkIcon className="h-10 w-10 md:h-14 md:w-14 text-white" />
                </div>
             ) : (
                <div>
-                  <Bars3Icon className="h-10 w-10 md:h-12 md:w-12 text-white" />
+                  <Bars3Icon className="h-10 w-10 md:h-14 md:w-14 text-white" />
                </div>
             )}
          </button>

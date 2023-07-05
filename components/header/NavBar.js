@@ -1,65 +1,44 @@
-import Link from "next/link"
+import NavLink from "./NavLink"
 
 export default function NavBar({ showNav, setShowNav }) {
    const handleClick = () => setShowNav(false)
    return (
       <div
          className={`z-40 fixed w-full h-full top-0 ${
-            showNav ? "right-0 duration-500" : "right-full duration-0"
-         } bg-black/90 transition-right`}
+            showNav ? "left-0 duration-500" : "left-full duration-0"
+         } bg-black/90 transition-left`}
       >
-         <nav className="mt-16 md:mt-20 border">
+         <nav className="mt-14 md:mt-[90px]">
             <ul className="w-5/6 mx-auto text-white md:text-lg">
-               <div className="w-full mx-auto border-b border-dark-grey">
-                  <Link href="/">
-                     <li
-                        className="py-4 md:py-6  text-left"
-                        onClick={handleClick}
-                     >
-                        Home
-                     </li>
-                  </Link>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/about">About</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/education">Education</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/faq">FAQ</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/contact">Contact</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/sponsor">Sponsor</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/join">Join the Team</Link>
-                  </li>
-               </div>
-               <div className="mx-auto border-b border-dark-grey">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/events">Events</Link>
-                  </li>
-               </div>
-               <div className="mx-auto">
-                  <li className="py-4 md:py-6 text-left" onClick={handleClick}>
-                     <Link href="/donate">Donate</Link>
-                  </li>
-               </div>
+               <NavLink handleClick={handleClick} href="/" text="Home" />
+               <NavLink handleClick={handleClick} href="/about" text="About" />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/education"
+                  text="Education"
+               />
+               <NavLink handleClick={handleClick} href="/faq" text="FAQ" />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/contact"
+                  text="Contact"
+               />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/sponsor"
+                  text="Sponsor"
+               />
+               <NavLink handleClick={handleClick} href="/join" text="Join" />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/events"
+                  text="Events"
+               />
+               <NavLink
+                  handleClick={handleClick}
+                  href="/donate"
+                  text="Donate"
+               />
             </ul>
          </nav>
       </div>
