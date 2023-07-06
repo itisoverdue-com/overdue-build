@@ -2,14 +2,81 @@ import React from "react"
 import { SOCIALS } from "@/lib/constants"
 import Image from "next/image"
 import Link from "next/link"
+import Brand from "../Brand"
 
 export default function Footer() {
+   const quickLinks = [
+      { text: "About Us", link: "https://www.itisoverdue.org/about/" },
+      { text: "What We Do", link: "https://www.itisoverdue.org/about/" },
+      { text: "Our Members", link: "https://www.itisoverdue.org/members/" },
+      {
+         text: "Shop With Us",
+         link: "https://itsoverdue.myshopify.com/collections/all",
+      },
+      { text: "Latest Blogs", link: "https://www.itisoverdue.org/posts/" },
+      { text: "Education", link: "https://www.itisoverdue.org/education/" },
+      {
+         text: "Become a Volunteer",
+         link: "https://www.itisoverdue.org/events/",
+      },
+      { text: "FAQ", link: "https://www.itisoverdue.org/faq/" },
+   ]
+
+   const contactUs = [
+      {
+         link: "mailto:hello@itisoverdue.com",
+         text: "hello@itisoverdue.com",
+         icon: (
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               fill="none"
+               viewBox="0 0 24 24"
+               strokeWidth={1.5}
+               stroke="currentColor"
+               className="w-6 h-6"
+            >
+               <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+               />
+            </svg>
+         ),
+         sx: "items-center border-b border-b-black",
+      },
+      {
+         link: null,
+         text: "California, Washington, Florida, Japan, China, and more to come!",
+         icon: (
+            <svg
+               xmlns="http://www.w3.org/2000/svg"
+               fill="none"
+               viewBox="0 0 24 24"
+               strokeWidth={1.5}
+               stroke="currentColor"
+               className="w-6 h-6"
+            >
+               <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+               />
+               <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+               />
+            </svg>
+         ),
+         sx: "items-start",
+      },
+   ]
    return (
       <footer className="bg-primary w-screen">
          <div className="max-w-screen-xl mx-auto p-20 grid grid-cols-4">
             {/* Brand, Subheader, Social Links */}
-            <div className="flex flex-col space-y-5">
-               <h1 className="text-3xl font-black">OVERDUE</h1>
+            <div className="flex flex-col space-y-6">
+               <Brand />
                <p>
                   To inspire and educate communities to take action for a better
                   tomorrow.
@@ -19,6 +86,43 @@ export default function Footer() {
                      <IconButton key={link} link={link} value={social} />
                   ))}
                </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+               <h6 className="mb-6 text-2xl">Quick Links</h6>
+               <ul className="space-y-6">
+                  {quickLinks.map((item) => (
+                     <li key={item.text}>
+                        <Link href={item.link}>{item.text}</Link>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+
+            {/* Contact Us */}
+            <div>
+               <h6 className="mb-6 text-2xl">Contact Us</h6>
+               <ul className="space-y-6">
+                  {contactUs.map((item) => (
+                     <li
+                        key={item.text}
+                        className={`flex space-x-3 pb-6 ${item.sx}`}
+                     >
+                        <span>{item.icon}</span>
+
+                        {item.link ? (
+                           <Link href={item.link}>{item.text}</Link>
+                        ) : (
+                           <span>{item.text}</span>
+                        )}
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            {/* Call To Action: Join Our Team */}
+            <div>
+               
             </div>
          </div>
       </footer>
