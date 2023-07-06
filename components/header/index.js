@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 
-import Brand from "../Brand" // default size = w 136, h 70
+import Brand from "../Brand" // default size = w 117, h 60
 import MobileSelect from "./MobileSelect"
 import NavBar from "./NavBar"
 

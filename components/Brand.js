@@ -3,10 +3,10 @@ import Image from "next/image"
 function Brand({ styles }) {
    return (
       <Image
-         src="/assets/logo.png"
+         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688603896/overdue-logo_ozw8xb.svg"
          alt="OVERDUE"
-         width={136}
-         height={70}
+         width={117}
+         height={60}
          priority
          className={`inline-block ${styles}`}
       />
