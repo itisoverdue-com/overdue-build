@@ -4,7 +4,7 @@ import Image from "next/image"
 export default function Home() {
    return (
       <main>
-         <p className="text-5xl font-bold">Hello World</p>
+         <p className="text-5xl font-bold">Hello World!</p>
       </main>
    )
 }
