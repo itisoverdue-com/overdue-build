@@ -2,7 +2,12 @@ import React from "react"
 import Container from "."
 import Image from "next/image"
 
-function FullBleedContainer({ children, sx = "", backgroundImageSrc = "" }) {
+function FullBleedContainer({
+   children,
+   sx = "",
+   childSx = "",
+   backgroundImageSrc = "",
+}) {
    return (
       <div className={`w-full relative ${sx}`}>
          {backgroundImageSrc && (
@@ -14,7 +19,7 @@ function FullBleedContainer({ children, sx = "", backgroundImageSrc = "" }) {
                className="-z-10"
             />
          )}
-         <Container sx="z-10">{children}</Container>
+         <Container sx={`z-10 ${childSx}`}>{children}</Container>
       </div>
    )
 }
