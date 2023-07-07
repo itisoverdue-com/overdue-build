@@ -1,4 +1,4 @@
-import Brand from "@/components/Brand"
+import Brand from "@/components/Layout/Brand"
 import Image from "next/image"
 
 export default function Home() {
