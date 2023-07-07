@@ -17,7 +17,9 @@ export default function NavBar({ showNav, setShowNav }) {
                   href="/events"
                   text="Events"
                />
+               {/* Todo: Add link to Shop */}
                <NavLink handleClick={handleClick} href="#" text="Shop" />
+               {/* Todo: Add link to Blog */}
                <NavLink handleClick={handleClick} href="#" text="Blog" />
                <NavLink
                   handleClick={handleClick}
