@@ -1,3 +1,8 @@
+import PageHeader from "@/components/shared/PageHeader"
 export default function Contact() {
-   return <div>Contact</div>
+   return (
+      <div>
+         <PageHeader />
+      </div>
+   )
 }
