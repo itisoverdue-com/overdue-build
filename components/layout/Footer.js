@@ -2,7 +2,7 @@ import React from "react"
 import { SOCIALS } from "@/lib/constants"
 import Image from "next/image"
 import Link from "next/link"
-import Brand from "../Brand"
+import Brand from "./Brand"
 
 export default function Footer() {
    const quickLinks = [
