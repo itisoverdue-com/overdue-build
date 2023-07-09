@@ -18,28 +18,26 @@ function generateClassName(variant, imgWidth, imgAspect) {
 
 /**
  * Card componenent generated using the returned className string and optional styles prop.
- * @param {string} styles - Additional CSS rules (will override any existing rules for the same property)
+ * @param {string} sx - Additional CSS rules (will override any existing rules for the same property)
  * @returns
  */
 export default function Card({
    children,
-   styles,
+   sx = "",
    variant,
    imgWidth,
    imgAspect,
 }) {
    const className = generateClassName(variant, imgWidth, imgAspect)
 
-   return (
-      <div className={`${className} ${styles ? styles : ""}`}>{children}</div>
-   )
+   return <div className={`${className} ${sx}`}>{children}</div>
 }
 
 {
    /*
 Example Card with "text" variant
 
-  <Card variant="text" styles="top-[-35px]">
+  <Card variant="text" sx="top-[-35px]">
     <h4>Header Text</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi non arcu risus quis varius quam quisque.
@@ -52,7 +50,7 @@ Example Card with "image" variant
     variant="image"
     imgWidth="w-[90%] lg:w-[700px]"
     imgAspect="aspect-[7/5]"
-    styles="border-2"
+    sx="border-2"
   >
     <Image
         src="..."
