@@ -1,6 +1,7 @@
 import PageHero from "@/components/shared/PageHero"
 import Card from "@/components/shared/Card"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
+
 export default function FAQ() {
    const cards = [
       {
