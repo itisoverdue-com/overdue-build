@@ -49,7 +49,7 @@ export default function Contact() {
          content: (
             <>
                <div className="w-full">
-                  <ul className="flex  justify-evenly mb-8">
+                  <ul className="flex justify-around mb-8 md:justify-evenly">
                      <SocialMediaIcon
                         link={SOCIALS.facebook}
                         value={"facebook"}
@@ -78,19 +78,19 @@ export default function Contact() {
          />
          <FullBleedContainer
             sx="bg-background"
-            childSx="py-32 flex flex-col justify-center items-center"
+            childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
          >
             {/* Title, Accent Line, Subheader */}
             <>
-               <h2 className="text-5xl font-bold">IT IS OVERDUE</h2>
-               <div className="border-t-8 border-primary w-28 rounded-full my-5" />
-               <h3 className="text-2xl font-bold">
+               <h2 className="text-4xl md:text-5xl font-bold">IT IS OVERDUE</h2>
+               <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28" />
+               <h3 className="text-xl md:text-2xl font-bold">
                   We are a team based in Woodland Hills, CA.
                </h3>
             </>
 
             {/* Cards */}
-            <div className="grid grid-cols-3 gap-x-16 mt-20">
+            <div className="grid grid-cols-1 max-w-lg gap-y-8 mt-20 lg:max-w-none lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
                {cards.map((item) => (
                   <Card
                      key={item.header}
@@ -107,7 +107,7 @@ export default function Contact() {
 
 const Card = ({ icon, header, content }) => {
    return (
-      <div className="flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 text-center md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
+      <div className="flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
          {/* Icon, Header */}
          <div className="mb-10">
             <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
