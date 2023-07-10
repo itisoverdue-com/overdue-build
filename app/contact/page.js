@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { SOCIALS } from "@/lib/constants"
 import Link from "next/link"
+import Card from "@/components/shared/Card"
 
 export default function Contact() {
    const cards = [
@@ -92,7 +93,7 @@ export default function Contact() {
             {/* Cards */}
             <div className="grid grid-cols-1 max-w-lg gap-y-8 mt-20 lg:max-w-none lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
                {cards.map((item) => (
-                  <Card
+                  <ContactCard
                      key={item.header}
                      icon={item.icon}
                      header={item.header}
@@ -105,9 +106,9 @@ export default function Contact() {
    )
 }
 
-const Card = ({ icon, header, content }) => {
+const ContactCard = ({ icon, header, content }) => {
    return (
-      <div className="flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
+      <Card sx="w-full flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
          {/* Icon, Header */}
          <div className="mb-10">
             <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
@@ -118,7 +119,7 @@ const Card = ({ icon, header, content }) => {
 
          {/* Content */}
          {content}
-      </div>
+      </Card>
    )
 }
 
