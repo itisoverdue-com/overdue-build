@@ -6,7 +6,6 @@ import {
    AtSymbolIcon,
 } from "@heroicons/react/24/outline"
 import { SOCIALS } from "@/lib/constants"
-
 import Link from "next/link"
 
 export default function Contact() {
@@ -90,6 +89,7 @@ export default function Contact() {
                </h3>
             </>
 
+            {/* Cards */}
             <div className="grid grid-cols-3 gap-x-16 mt-20">
                {cards.map((item) => (
                   <Card
@@ -108,12 +108,15 @@ export default function Contact() {
 const Card = ({ icon, header, content }) => {
    return (
       <div className="flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 text-center md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
+         {/* Icon, Header */}
          <div className="mb-10">
             <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
                {icon}
             </span>
             <h4 className="text-2xl font-bold">{header}</h4>
          </div>
+
+         {/* Content */}
          {content}
       </div>
    )
@@ -171,9 +174,12 @@ const SocialMediaIcon = ({ link, value }) => {
       <li>
          <Link href={link} target="_blank">
             <button className="flex flex-col -space-y-1 items-center hover:fill-primary hover:text-primary">
+               {/* Icon */}
                <span className="flex justify-center items-center fill-inherit">
                   {icons[value]}
                </span>
+
+               {/* Domain Name */}
                <span className="capitalize text-xs">{value}</span>
             </button>
          </Link>
