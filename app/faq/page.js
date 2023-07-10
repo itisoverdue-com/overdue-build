@@ -66,7 +66,7 @@ export default function FAQ() {
 
    const renderAnswer = (answer) => {
       return (
-         <p className="text-lg">
+         <p className="md:text-lg">
             {answer.split("\n").map((t, key) => {
                return (
                   <span key={key} className="block">
@@ -84,21 +84,23 @@ export default function FAQ() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/faq_z3arfk.jpg"
          />
 
-         <FullBleedContainer sx="bg-background" childSx="py-32">
-            <div className="columns-1 md:columns-2 gap-10">
+         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+            <div className="columns-1 md:columns-2 md:gap-8 lg:gap-10">
                {cards.map((item) => (
                   <Card
                      key={item.question}
-                     sx={`flex flex-col space-y-4 p-10 border mb-10 shadow-lg w-full h-auto overflow-hidden even:bg-dark-grey even:text-white`}
+                     sx={`flex flex-col space-y-4 p-6 md:p-8 lg:p-10 border mb-8 lg:mb-10 shadow-lg w-full h-auto overflow-hidden even:bg-darker-grey even:text-white`}
                   >
-                     <span className="text-primary text-5xl font-black">
+                     <span className="text-primary text-4xl md:text-5xl font-black">
                         Q.
                      </span>
-                     <p className="text-3xl font-bold">{item.question}</p>
+                     <p className="text-2xl lg:text-3xl font-bold">
+                        {item.question}
+                     </p>
                      {item.lineBreak ? (
                         renderAnswer(item.answer)
                      ) : (
-                        <p className="text-lg">{item.answer}</p>
+                        <p className="lg:text-lg">{item.answer}</p>
                      )}
                   </Card>
                ))}
