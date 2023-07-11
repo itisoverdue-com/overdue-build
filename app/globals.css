@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+   /* 
+   
+   Tailwind / Roboto font weights
+   
+   font-thin: 100
+   font-light: 300
+   font-normal: 400
+   font-medium: 500
+   font-bold: 700
+   font-black: 900
+   
+   */
+
+   h1 {
+      @apply text-6xl md:text-7xl font-bold text-primary capitalize;
+   }
+   h2 {
+      @apply text-4xl md:text-5xl font-bold;
+   }
+   h3 {
+      @apply text-xl md:text-2xl font-bold;
+   }
+   h4 {
+      @apply text-2xl font-bold;
+   }
+   h5 {
+      @apply text-lg font-bold;
+   }
+   h6 {
+      @apply text-2xl font-medium;
+   }
+}
+
 * {
    box-sizing: border-box;
    padding: 0;

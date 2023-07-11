@@ -162,7 +162,7 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="">
-               <h6 className="mb-8 text-2xl font-medium w-max">Quick Links</h6>
+               <h6 className="mb-8 w-max">Quick Links</h6>
                <ul className="space-y-4  w-max">
                   {quickLinks.map((item) => (
                      <li key={item.text}>
@@ -179,7 +179,7 @@ export default function Footer() {
 
             {/* Contact Us */}
             <div>
-               <h6 className="mb-8 text-2xl font-medium">Contact Us</h6>
+               <h6 className="mb-8">Contact Us</h6>
                <ul className="space-y-4">
                   {contactUs.map((item) => (
                      <li
@@ -238,9 +238,7 @@ export default function Footer() {
                      </defs>
                   </svg>
                   {/* Header */}
-                  <h6 className="text-2xl font-semibold ml-4">
-                     Join Our Team!
-                  </h6>
+                  <h6 className="ml-4">Join Our Team!</h6>
                </div>
 
                {/* Subheader */}
@@ -251,7 +249,7 @@ export default function Footer() {
 
                {/* Sign Up Link */}
                <Link href="https://www.itisoverdue.org/joinus/">
-                  <button className="bg-primary w-full py-4 font-semibold rounded-md transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
+                  <button className="bg-primary w-full py-4 font-medium rounded-md transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
                      Sign Up Now!
                   </button>
                </Link>

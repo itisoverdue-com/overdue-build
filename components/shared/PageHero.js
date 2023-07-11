@@ -10,13 +10,13 @@ export default function PageHero({ page, backgroundImageSrc = "" }) {
          childSx="flex justify-center items-center h-full relative"
       >
          {/* Header w/ underline */}
-         <h1 className="text-6xl md:text-7xl font-bold text-primary capitalize">
+         <h1>
             {page}
             <span className="mt-2 block w-1/3 border-t-8 border-primary rounded-2xl mx-auto" />
          </h1>
 
          {/* Breadcrumbs: Home --> {page} */}
-         <div className="absolute left-3 -bottom-6 flex item-center space-x-3 text-white bg-darker-grey px-5 py-4 rounded-xl font-semibold shadow-md">
+         <div className="absolute left-3 -bottom-6 flex item-center space-x-3 text-white bg-darker-grey px-5 py-4 rounded-xl font-medium shadow-md">
             <Link
                href="/"
                className="hover:text-primary transition-colors duration-200"
