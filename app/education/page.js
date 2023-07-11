@@ -124,22 +124,26 @@ export default function Education() {
 
             {/* Student Chapter Locations */}
             <section className="w-full mt-20">
-               <h4 className="text-3xl mb-8 md:text-4xl md:mb-10">
-                  Student Chapter Locations
-               </h4>
-               <ul className="grid grid-cols-2 gap-3 md:gap-0 md:flex md:flex-wrap md:items-center md:justify-evenly">
-                  {locations.map((item) => (
-                     <li
-                        key={item}
-                        className="text-start w-full md:text-center md:mb-6 md:w-1/4"
-                     >
-                        <span className="py-2 px-4 bg-darkest-grey block  text-white rounded-full text-sm md:text-base md:inline-block lg:text-lg">
-                           📍 {item}
-                        </span>
-                     </li>
-                  ))}
-               </ul>
+               {/* Header, List of Locations */}
+               <>
+                  <h4 className="text-3xl mb-8 md:text-4xl md:mb-10">
+                     Student Chapter Locations
+                  </h4>
+                  <ul className="grid grid-cols-2 gap-3 md:gap-0 md:flex md:flex-wrap md:items-center md:justify-evenly">
+                     {locations.map((item) => (
+                        <li
+                           key={item}
+                           className="text-start w-full md:text-center md:mb-6 md:w-1/4"
+                        >
+                           <span className="py-2 px-4 bg-darkest-grey block  text-white rounded-full text-sm md:text-base md:inline-block lg:text-lg">
+                              📍 {item}
+                           </span>
+                        </li>
+                     ))}
+                  </ul>
+               </>
 
+               {/* Image of Students */}
                <div className="relative aspect-video rounded-2xl overflow-hidden mt-10 md:mt-8 md:rounded-3xl">
                   <Image
                      src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441394/education/end_lbfetc.jpg"
