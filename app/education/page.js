@@ -98,7 +98,7 @@ export default function Education() {
             </>
 
             {/* Events Grid Masonry */}
-            <div className="columns-1  mt-20 md:columns-2 md:gap-8 lg:gap-12 h-auto w-full">
+            <div className="h-auto w-full columns-1 mt-16 md:gap-6 md:columns-2 lg:gap-12 lg:mt-20 ">
                {events.map((item, index) => (
                   <EventCard
                      key={`event-${index}`}
@@ -123,10 +123,10 @@ const EventCard = ({ image, aspect, title, text }) => {
 
    const renderText = (text) => {
       return (
-         <p className="md:text-lg">
+         <p className="lg:text-lg">
             {text.split("\n").map((t, key) => {
                return (
-                  <span key={key} className="block mt-3">
+                  <span key={key} className="block mt-1 lg:mt-3">
                      {t}
                   </span>
                )
@@ -136,7 +136,7 @@ const EventCard = ({ image, aspect, title, text }) => {
    }
    return (
       <Card
-         sx={`mb-8 lg:mb-12 shadow-lg w-full h-auto overflow-hidden transtion-all duration-150 ${aspectRatio[aspect]} lg:hover:scale-105 lg:hover:shadow-xl`}
+         sx={`mb-8 shadow-lg w-full h-auto overflow-hidden ${aspectRatio[aspect]} md:mb-6 lg:transtion-all lg:duration-150 lg:mb-12 lg:hover:scale-105 lg:hover:shadow-xl`}
       >
          <Image
             src={image}
@@ -145,8 +145,10 @@ const EventCard = ({ image, aspect, title, text }) => {
             style={{ objectFit: "cover" }}
             sizes="(min-width: 768px) 50vw, 100vw"
          />
-         <div className=" bg-black text-white bg-opacity-80 p-4 rounded-2xl absolute bottom-8 left-1/2 -translate-x-1/2 text-start w-11/12">
-            <h3 className="mb-6 text-4xl text-primary">{title}</h3>
+         <div className=" bg-black text-white bg-opacity-80  text-start p-6 w-full absolute left-1/2 -translate-x-1/2 bottom-0 lg:rounded-2xl lg:w-11/12 lg:bottom-8">
+            <h3 className="text-primary mb-1 text-2xl lg:mb-3 lg:text-4xl">
+               {title}
+            </h3>
             {renderText(text)}
          </div>
       </Card>
