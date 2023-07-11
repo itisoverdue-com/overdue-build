@@ -138,8 +138,14 @@ const EventCard = ({ image, aspect, title, text }) => {
       <Card
          sx={`mb-8 lg:mb-12 shadow-lg w-full h-auto overflow-hidden transtion-all duration-150 ${aspectRatio[aspect]} lg:hover:scale-105 lg:hover:shadow-xl`}
       >
-         <Image src={image} alt={title} fill style={{ objectFit: "cover" }} />
-         <div className="bg-black text-white bg-opacity-80 p-4 rounded-2xl absolute bottom-8 left-1/2 -translate-x-1/2 text-start w-11/12">
+         <Image
+            src={image}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(min-width: 768px) 50vw, 100vw"
+         />
+         <div className=" bg-black text-white bg-opacity-80 p-4 rounded-2xl absolute bottom-8 left-1/2 -translate-x-1/2 text-start w-11/12">
             <h3 className="mb-6 text-4xl text-primary">{title}</h3>
             {renderText(text)}
          </div>
