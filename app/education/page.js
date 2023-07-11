@@ -2,6 +2,7 @@ import PageHero from "@/components/shared/PageHero"
 import Card from "@/components/shared/Card"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Image from "next/image"
+import Button from "@/components/shared/Button"
 
 const ASPECTS = {
    square: "square",
@@ -76,7 +77,7 @@ export default function Education() {
          text: "Host Monthly Meetings\nCoordinate Frequent Cleanup Events\nEngage the Students in their Community\nEarn Community Hours\nLearn Leadership in Sustainability",
       },
    ]
-
+   const locations = ["Sunrise, FL", "Seattle, WA", "Los Gatos, CA"]
    return (
       <div>
          <PageHero
@@ -85,7 +86,7 @@ export default function Education() {
          />
          <FullBleedContainer
             sx="bg-background"
-            childSx="py-20 lg:py-32 flex flex-col justify-center items-center text-center"
+            childSx="py-20 lg:py-32 flex flex-col justify-center items-center  text-center"
          >
             {/* Title, Accent Line, Subheader */}
             <>
@@ -98,7 +99,7 @@ export default function Education() {
             </>
 
             {/* Events Grid Masonry */}
-            <div className="h-auto w-full columns-1 mt-16 md:gap-6 md:columns-2 lg:gap-12 lg:mt-20 ">
+            <section className="h-auto w-full columns-1 my-16 md:gap-6 md:columns-2 lg:gap-12 lg:my-20 ">
                {events.map((item, index) => (
                   <EventCard
                      key={`event-${index}`}
@@ -108,7 +109,47 @@ export default function Education() {
                      text={item.text}
                   />
                ))}
-            </div>
+            </section>
+
+            {/* Call to Action: School Chapter App */}
+            <Button
+               href="https://forms.gle/rNqwfswyfF1v7Ke28"
+               size="xl"
+               variant="dark"
+               target="_blank"
+               style={{ fontWeight: 400 }}
+            >
+               Submit a School Chapter Application Now
+            </Button>
+
+            {/* Student Chapter Locations */}
+            <section className="w-full mt-20">
+               <h4 className="text-3xl mb-8 md:text-4xl md:mb-10">
+                  Student Chapter Locations
+               </h4>
+               <ul className="grid grid-cols-2 gap-3 md:gap-0 md:flex md:flex-wrap md:items-center md:justify-evenly">
+                  {locations.map((item) => (
+                     <li
+                        key={item}
+                        className="text-start w-full md:text-center md:mb-6 md:w-1/4"
+                     >
+                        <span className="py-2 px-4 bg-darkest-grey block  text-white rounded-full text-sm md:text-base md:inline-block lg:text-lg">
+                           📍 {item}
+                        </span>
+                     </li>
+                  ))}
+               </ul>
+
+               <div className="relative aspect-video rounded-2xl overflow-hidden mt-10 md:mt-8 md:rounded-3xl">
+                  <Image
+                     src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441394/education/end_lbfetc.jpg"
+                     alt="student-chapter-locations"
+                     fill
+                     quality={100}
+                     style={{ objectFit: "cover" }}
+                  />
+               </div>
+            </section>
          </FullBleedContainer>
       </div>
    )
