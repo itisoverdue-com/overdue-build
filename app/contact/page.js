@@ -17,7 +17,7 @@ export default function Contact() {
          content: (
             <>
                <div>
-                  <h5 className="font-bold mb-8 text-lg">+1 818 854-5273</h5>
+                  <h5 className="mb-8">+1 818 854-5273</h5>
                   <p className="">We are available 9:00 AM - 4 PM PST</p>
                </div>
             </>
@@ -30,14 +30,12 @@ export default function Contact() {
             <>
                <div className="flex flex-col space-y-8">
                   <div>
-                     <h5 className="font-bold text-lg">
-                        General/Administrative
-                     </h5>
+                     <h5>General/Administrative</h5>
                      <p>admin@itisoverdue.org</p>
                   </div>
 
                   <div>
-                     <h5 className="font-bold text-lg">Education</h5>
+                     <h5>Education</h5>
                      <p>education@itisoverdue.org</p>
                   </div>
                </div>
@@ -83,11 +81,9 @@ export default function Contact() {
          >
             {/* Title, Accent Line, Subheader */}
             <>
-               <h2 className="text-4xl md:text-5xl font-bold">IT IS OVERDUE</h2>
+               <h2>IT IS OVERDUE</h2>
                <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28" />
-               <h3 className="text-xl md:text-2xl font-bold">
-                  We are a team based in Woodland Hills, CA.
-               </h3>
+               <h3>We are a team based in Woodland Hills, CA.</h3>
             </>
 
             {/* Cards */}
@@ -114,7 +110,7 @@ const ContactCard = ({ icon, header, content }) => {
             <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
                {icon}
             </span>
-            <h4 className="text-2xl font-bold">{header}</h4>
+            <h4>{header}</h4>
          </div>
 
          {/* Content */}
