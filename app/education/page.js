@@ -15,15 +15,49 @@ export default function Education() {
       },
       {
          img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/education/1b_yegvfp.jpg",
-         title: "OVERDUE Environmental Festivals At School",
+         title: "OVERDUE Environmental Festivals at School",
          text: "Recycle art festival coming up soon!",
       },
       {
          img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/education/3_uopfwj.jpg",
-         title: "Viewpoint High School",
-         text: "Recycle art festival coming up soon!",
+         title: "We Are Educating School All About Waste",
+         text: "Students at Viewpoint High School, St. Bernardine of Siena School, & USC Engineering Department\nLearned all about:\nE-Waste Recycling Lessons\nBeach Cleanups\nUpcycling Art Class\nLA River Project - Capstone Class",
+      },
+      {
+         img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/education/2a_x1scri.jpg",
+         title: "Education Program News",
+         text: "We visit local schools to speak in class/ zoom call about E- waste/ plastic waste.",
+      },
+      {
+         img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/education/2b_dfvkyz.jpg",
+         title: "Student Chapter at Local Schools",
+         text: "We have 12 hubs (and more to come!) that are led by local leaders. Sign up to make a chapter at your school and inspire other students! Get a hands on experience about environmentalism!",
+      },
+      {
+         img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/education/4_kzsovb.jpg",
+         title: "Our Time @ Notre Dame High School",
+         text: "Ocean Microplastics and Marine Life Lessons\nKahoot Quiz\nBeach Cleanup",
+      },
+      {
+         img: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441389/education/5_gdzbyl.jpg",
+         title: "Student Chapters",
+         text: "Host Monthly Meetings\nCoordinate Frequent Cleanup Events\nEngage the Students in their Community\nEarn Community Hours\nLearn Leadership in Sustainability",
       },
    ]
+
+   const renderText = (text) => {
+      return (
+         <p className="md:text-lg">
+            {text.split("\n").map((t, key) => {
+               return (
+                  <span key={key} className="block">
+                     {t}
+                  </span>
+               )
+            })}
+         </p>
+      )
+   }
    return (
       <div>
          <PageHero
