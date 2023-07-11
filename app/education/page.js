@@ -121,6 +121,7 @@ const EventCard = ({ image, aspect, title, text }) => {
       landscape: "aspect-[5/4]",
    }
 
+   // Render text with line breaks
    const renderText = (text) => {
       return (
          <p className="lg:text-lg">
@@ -138,6 +139,7 @@ const EventCard = ({ image, aspect, title, text }) => {
       <Card
          sx={`mb-8 shadow-lg w-full h-auto overflow-hidden ${aspectRatio[aspect]} md:mb-6 lg:transtion-all lg:duration-150 lg:mb-12 lg:hover:scale-105 lg:hover:shadow-xl`}
       >
+         {/* Image */}
          <Image
             src={image}
             alt={title}
@@ -145,6 +147,8 @@ const EventCard = ({ image, aspect, title, text }) => {
             style={{ objectFit: "cover" }}
             sizes="(min-width: 768px) 50vw, 100vw"
          />
+
+         {/* Title, Text */}
          <div className=" bg-black text-white bg-opacity-80  text-start p-6 w-full absolute left-1/2 -translate-x-1/2 bottom-0 lg:rounded-2xl lg:w-11/12 lg:bottom-8">
             <h3 className="text-primary mb-1 text-2xl lg:mb-3 lg:text-4xl">
                {title}
