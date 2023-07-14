@@ -4,7 +4,7 @@ import Image from "next/image"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
-import PageSubheader from "@/components/Pages/shared/PageSubheader"
+import SectionSubheader from "@/components/Pages/shared/SectionSubheader"
 import CleanupEvents from "@/components/Pages/shared/CleanupEvents"
 
 export default function About() {
@@ -22,13 +22,17 @@ export default function About() {
             <section id="about-it-is-overdue">
                {/* Subsection 1 */}
                <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
-                  <PageSubheader header="IT IS OVERDUE">
+                  <SectionSubheader
+                     header="IT IS OVERDUE"
+                     sx="md:w-[55%] md:pr-12 lg:w-[45%] xl:pr-4"
+                     headerSx="md:text-left"
+                  >
                      <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-2xl md:text-3xl md:leading-[3rem] font-medium text-left">
                         OVERDUE is a collective of individuals who pick up trash
                         together to make their communities cleaner, greener and
                         friendlier.
                      </h3>
-                  </PageSubheader>
+                  </SectionSubheader>
                   <Card
                      variant="image"
                      sx="w-[75vw] aspect-[7/5] mt-8 md:h-[400px] md:w-[45%] md:mt-0 lg:w-[55%] lg:max-w-[560px] lg:mr-0"
@@ -133,8 +137,13 @@ export default function About() {
 
             {/* WHAT WE DO */}
             <section id="about-what-we-do">
-               <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
-                  <PageSubheader header="What We Do" sx="mt-12" />
+               <div className="flex flex-col justify-center text-center xl:px-12">
+                  <SectionSubheader
+                     header="What We Do"
+                     sx="mt-24"
+                     headerSx=""
+                     borderSx="md:mx-auto lg:ml-0"
+                  />
                   <CleanupEvents loc="home" />
                </div>
             </section>
