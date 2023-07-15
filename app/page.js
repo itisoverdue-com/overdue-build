@@ -31,8 +31,14 @@ export default function Home() {
                      around, they will feel less inclined to toss it on the
                      street.
                   </p>
-                  {/* add dark variant Button component */}
-                  <Button variant="dark" size="xl" >Learn More</Button>
+                  <Button 
+                     variant="dark" 
+                     href="/about" 
+                     size="xl"
+                     style={{ marginTop: "20px" }}
+                     >
+                     Learn More
+                  </Button>
                </div>
                {/* Image Card */}
                <Card
