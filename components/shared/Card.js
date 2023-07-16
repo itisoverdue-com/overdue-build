@@ -3,7 +3,7 @@
  * @param {string} variant - The variant style of the card.
  * @return {string} - The generated className string.
  */
-function generateClassName(variant, imgWidth) {
+function generateClassName(variant) {
    const baseClasses = "relative mx-auto rounded-3xl"
 
    const variantClasses = {
