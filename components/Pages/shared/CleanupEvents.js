@@ -17,7 +17,7 @@ export default function CleanupEvents({ variant }) {
       <div className="mt-8 md:flex md:flex-wrap lg:flex-col lg:min-h-[535px]">
          <Card
             variant="text"
-            sx={`md:order-1 md:w-full md:max-w-full lg:order-2 lg:w-2/3 lg:mr-2 lg:mt-[-500px] lg:max-w-[800px]`}
+            sx={`max-w-none md:order-1 md:w-[90%] md:mr-0 lg:order-2 lg:w-2/3 lg:mr-2 lg:mt-[-500px] lg:max-w-[800px]`}
          >
             <h3 className="text-xl sm:text-2xl">Cleanup Events</h3>
             <p className="mt-4">{text}</p>
@@ -26,10 +26,10 @@ export default function CleanupEvents({ variant }) {
             variant="image"
             sx={`w-[75vw] max-w-[400px] aspect-[525/700] mt-[-100px] ${
                variant === "home" ? "sm:mt-[-120px]" : "sm:mt-[-180px]"
-            } md:order-2 md:w-3/5 lg:order-1 lg:w-[400px] lg:mt-0 lg:ml-8 xl:ml-12`}
+            } md:order-2 md:w-3/5 md:ml-0 lg:order-1 lg:w-[400px] lg:mt-0`}
          >
             <Image
-               alt="text"
+               alt="itisOVERDUE team gathered outside"
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/events/primaryevent_tum70q.jpg"
                fill
                style={{ objectFit: "cover" }}

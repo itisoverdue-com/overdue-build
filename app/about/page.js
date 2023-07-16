@@ -74,7 +74,7 @@ export default function About() {
                         sx="w-[65vw] max-w-[352px] aspect-[440/629] mt-8 md:ml-0"
                      >
                         <Image
-                           alt="text"
+                           alt="Faithful itisOVERDUE dog resting outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/about/started_fakhjz.jpg"
                            fill
                            style={{ objectFit: "cover" }}
@@ -82,7 +82,7 @@ export default function About() {
                      </Card>
                      <Card
                         variant="text"
-                        sx="mt-[-115px] max-w-none max-sm:text-sm max-sm:leading-8 sm:mt-[-175px] md:w-[90%] md:mr-0 min-[1512px]:mt-[-180px]"
+                        sx="mt-[-115px] max-w-none sm:mt-[-175px] md:w-[90%] md:mr-0 min-[1512px]:mt-[-180px]"
                      >
                         <p>It all begins with one person.</p>
                         <p className="my-4">
@@ -113,7 +113,7 @@ export default function About() {
                         sx="w-[75vw] max-w-[620px] aspect-[620/412] mt-8 md:ml-0 lg:w-[90%] min-[1512px]:w-4/5"
                      >
                         <Image
-                           alt="text"
+                           alt="itisOVERDUE team gathered outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/about/philosophy_espfa8.jpg"
                            fill
                            style={{ objectFit: "cover" }}
@@ -121,7 +121,7 @@ export default function About() {
                      </Card>
                      <Card
                         variant="text"
-                        sx="mt-4 max-w-none max-sm:text-sm max-sm:leading-8 md:mr-0 md:w-[90%] lg:mx-auto"
+                        sx="mt-4 max-w-none md:mr-0 md:w-[90%] lg:mx-auto"
                      >
                         <p>
                            Our philosophy is that if people don&apos;t see

@@ -21,7 +21,7 @@ export default function LARiverBoom({ variant }) {
             sx="order-1 w-[75vw] max-w-[calc(576px*0.8)] aspect-[576/400] md:ml-0 lg:w-[30%] lg:h-[400px] lg:max-w-[576px] lg:mr-4 xl:w-2/5 min-[1512px]:order-2 min-[1512px]:w-full min-[1512px]:mr-0 min-[1512px]:ml-4"
          >
             <Image
-               alt="text"
+               alt="Trash on the ground in a wilderness area"
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441389/events/tertiaryevent_rhegxq.jpg"
                fill
                style={{ objectFit: "cover" }}
@@ -29,7 +29,7 @@ export default function LARiverBoom({ variant }) {
          </Card>
          <Card
             variant="text"
-            sx="order-2 mt-4 max-w-none max-sm:text-sm max-sm:leading-8 md:mr-0 md:w-[90%] lg:mx-auto lg:mt-0 lg:h-[400px] min-[1512px]:order-1"
+            sx="flex flex-col justify-center order-2 mt-4 max-w-none md:mr-0 md:w-[90%] lg:mx-auto lg:mt-0 lg:h-[400px] min-[1512px]:order-1"
          >
             <h3 className="text-xl sm:text-2xl">
                Los Angeles River Trash Boom Project
