@@ -3,6 +3,7 @@ import Hero from "@/components/Landing/Hero"
 import Card from "@/components/shared/Card"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Button from "@/components/shared/Button"
+import EffortStats from "@/components/Landing/EffortStats"
 
 export default function Home() {
    return (
@@ -34,7 +35,7 @@ export default function Home() {
                   <Button 
                      variant="dark" 
                      href="/about" 
-                     size="xl"
+                     size="lg"
                      style={{ marginTop: "20px" }}
                      >
                      Learn More
@@ -55,6 +56,7 @@ export default function Home() {
                   />
                </Card>
             </div>
+            <EffortStats />
          </FullBleedContainer>
       </main>
    )
