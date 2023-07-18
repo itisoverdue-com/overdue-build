@@ -22,8 +22,8 @@ export default function Home() {
                <div className="md:w-[55%] md:pr-12 xl:pr-4 lg:w-[45%]">
                   <h2 className="md:text-left">Who are We?</h2>
                   <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0" />
-                  <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-2xl md:text-3xl md:leading-[3rem] font-medium text-left">
-                     OVERDUE is a collective of individuals who pick up trash
+                  <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-xl md:text-2xl md:leading-[3rem] font-medium text-left">
+                     <span className="font-bold">OVERDUE</span> is a collective of individuals who pick up trash
                      together to make their communities cleaner, greener and
                      friendlier.
                   </h3>
@@ -36,7 +36,7 @@ export default function Home() {
                      variant="dark" 
                      href="/about" 
                      size="lg"
-                     style={{ marginTop: "20px" }}
+                     style={{ marginTop: "20px", width: "fit-content" }}
                      >
                      Learn More
                   </Button>
