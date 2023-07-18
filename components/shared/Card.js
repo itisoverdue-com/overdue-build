@@ -15,9 +15,8 @@ function generateClassName(variant) {
 }
 
 /**
- * Card componenent generated using the returned className string and optional styles prop.
+ * Card componnent generated using the returned className string and optional styles prop.
  * @param {string} sx - Additional CSS rules (will override any existing rules for the same property)
- * @returns
  */
 export default function Card({ children, sx = "", variant }) {
    const className = generateClassName(variant)
@@ -27,7 +26,7 @@ export default function Card({ children, sx = "", variant }) {
 
 {
    /*
-Example Card with "text" variant
+  Example Card with "text" variant
 
   <Card variant="text" sx="m-4 p-4">
     <h4>Header Text</h4>
@@ -36,7 +35,7 @@ Example Card with "text" variant
     </p>
   </Card>
 
-Example Card with "image" variant
+  Example Card with "image" variant
 
   <Card
     variant="image"

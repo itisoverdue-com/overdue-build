@@ -4,10 +4,8 @@ import Image from "next/image"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
-import SectionSubheader from "@/components/Pages/shared/SectionSubheader"
-import CleanupEvents from "@/components/Pages/shared/CleanupEvents"
-import EducationalPrograms from "@/components/Pages/shared/EducationalPrograms"
-import LARiverBoom from "@/components/Pages/shared/LARiverBoom"
+import WhatWeDo from "@/components/Pages/WhatWeDo"
+import SectionSubheader from "@/components/Pages/SectionSubheader"
 
 export default function About() {
    return (
@@ -138,18 +136,7 @@ export default function About() {
             </section>
 
             {/* WHAT WE DO */}
-            <section id="about-what-we-do">
-               <div className="flex flex-col justify-center text-center xl:px-12">
-                  <SectionSubheader
-                     header="What We Do"
-                     sx="mt-24"
-                     borderSx="md:mx-auto lg:ml-0"
-                  />
-                  <CleanupEvents variant="about" />
-                  <EducationalPrograms variant="about" />
-                  <LARiverBoom variant="about" />
-               </div>
-            </section>
+            <WhatWeDo variant="about" />
          </FullBleedContainer>
       </div>
    )
