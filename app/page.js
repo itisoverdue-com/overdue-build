@@ -19,7 +19,7 @@ export default function Home() {
             {/* Who are we - section */}
             <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
                {/* Subheader */}
-               <div className="md:w-[55%] md:pr-12 xl:pr-4 lg:w-[45%]">
+               <div className="flex flex-col items-center justify-center md:w-[55%] md:pr-12 xl:pr-4 lg:w-[45%]">
                   <h2 className="md:text-left">Who are We?</h2>
                   <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0" />
                   <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-xl md:text-2xl md:leading-[3rem] font-medium text-left">
@@ -36,9 +36,9 @@ export default function Home() {
                      variant="dark" 
                      href="/about" 
                      size="lg"
-                     style={{ marginTop: "20px", width: "fit-content" }}
+                     style={{ marginTop: "14px" }}
                      >
-                     Learn More
+                     Know More About Us
                   </Button>
                </div>
                {/* Image Card */}

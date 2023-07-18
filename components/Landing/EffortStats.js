@@ -8,25 +8,28 @@ import { useInterval } from 'react-use';
 const StatItem = ({ stat }) => {
   const [displayedTotal, setDisplayedTotal] = useState(0);
 
-  const finalTotal = typeof stat.total === 'number' 
-    ? stat.total
-    : parseFloat(stat.total) * 1000; // Converting 'K' representation back to actual number
+  // Check whether the stat is not 'Days since we started'
+  const isNotDaysStat = stat.desc !== 'Days since we started';
 
-  useInterval(() => {
-    setDisplayedTotal(prev => {
-      if (prev < finalTotal) {
-        return prev + Math.ceil(finalTotal / 100); // Increase by 1% each time
-      }
-      return finalTotal;
-    });
-  }, 20); // Update every 20 milliseconds
+  const finalTotal = isNotDaysStat 
+    ? parseFloat(stat.total) * 1000  // Converting 'K' representation back to actual number
+    : stat.total;  // Keep as is for 'Days since we started'
+
+    useInterval(() => {
+      setDisplayedTotal(prev => {
+        if (prev < finalTotal) {
+          return prev + Math.ceil(finalTotal / 100); // Increase by 1% each time
+        }
+        return finalTotal;
+      });
+    }, 20); // Update every 20 milliseconds
 
   return (
     <li className="flex flex-col justify-center items-center text-center">
       <div className="flex justify-center">
         <Image src={stat.image} alt={`Icon for ${stat.desc}`} width={80} height={80} placeholder="blur" blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4Ii8+Cg==" />
       </div>
-      <div className="text-4xl font-bold  pt-4 ">{toKFormat(displayedTotal)}</div>
+      <div className="text-4xl font-bold  pt-4 ">{isNotDaysStat ? toKFormat(displayedTotal) : displayedTotal}</div>
       <div className="text-md text-grey">{stat.desc}</div>
     </li>
   );
