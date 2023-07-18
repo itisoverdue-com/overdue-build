@@ -34,7 +34,7 @@ const chapters = [
       zIndex: "z-[12]",
    },
    {
-      location: "Sacremento, CA",
+      location: "Sacramento, CA",
       lat: "left-[16%]",
       lon: "top-[33%]",
       zIndex: "z-[10]",
