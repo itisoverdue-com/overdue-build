@@ -26,7 +26,7 @@ export default function PageHero({
       return (
          <ul className="absolute left-3 -bottom-6 flex item-center space-x-3 text-white bg-darker-grey px-5 py-4 rounded-xl font-medium shadow-md ">
             {links.map((item, index) => (
-               <li key={item.href} className="flex space-x-3">
+               <li key={item.href} className="flex space-x-3 capitalize">
                   <Link
                      href={item.href}
                      className="hover:text-primary transition-colors duration-200 last:text-primary last:hover:text-primaryDark"
