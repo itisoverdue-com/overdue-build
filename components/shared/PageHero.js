@@ -4,6 +4,7 @@ import { ArrowLongRightIcon } from "@heroicons/react/24/outline"
 
 export default function PageHero({
    page,
+   header,
    segments = [],
    backgroundImageSrc = "",
 }) {
@@ -52,7 +53,7 @@ export default function PageHero({
       >
          {/* Header w/ underline */}
          <h1>
-            {page}
+            {header}
             <span className="mt-2 block w-1/3 border-t-8 border-primary rounded-2xl mx-auto" />
          </h1>
 
