@@ -3,7 +3,7 @@ import FullBleedContainer from "../Layout/Container/FullBleedContainer"
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline"
 
 export default function PageHero({
-   page,
+   route,
    header,
    segments = [],
    backgroundImageSrc = "",
@@ -21,7 +21,7 @@ export default function PageHero({
       }
 
       // Add Current Page
-      links.push({ href: `${root}${page}`, text: page })
+      links.push({ href: `${root}${route}`, text: header })
 
       return (
          <ul className="absolute left-3 -bottom-6 flex item-center space-x-3 text-white bg-darker-grey px-5 py-4 rounded-xl font-medium shadow-md ">
@@ -52,7 +52,7 @@ export default function PageHero({
          childSx="flex justify-center items-center h-full relative"
       >
          {/* Header w/ underline */}
-         <h1>
+         <h1 className="capitalize">
             {header}
             <span className="mt-2 block w-1/3 border-t-8 border-primary rounded-2xl mx-auto" />
          </h1>
