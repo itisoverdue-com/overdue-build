@@ -135,6 +135,7 @@ const ChapterMap = () => {
                alt="us-map"
                fill
                style={{ objectFit: "cover" }}
+               sizes="100%"
             />
             {chapters.map((item) => (
                <ChapterPin
