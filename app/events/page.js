@@ -52,7 +52,8 @@ export default function Events() {
    return (
       <div>
          <PageHero
-            page="Events"
+            route="events"
+            header="Events"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
          <FullBleedContainer

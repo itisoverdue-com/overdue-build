@@ -11,7 +11,8 @@ export default function About() {
    return (
       <div>
          <PageHero
-            page="about us"
+            route="about"
+            header="About Us"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/about_avmkds.jpg"
          />
          <FullBleedContainer

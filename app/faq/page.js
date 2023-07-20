@@ -81,7 +81,8 @@ export default function FAQ() {
    return (
       <div>
          <PageHero
-            page="FAQ"
+            route="faq"
+            header="FAQ"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/faq_z3arfk.jpg"
          />
 
