@@ -5,6 +5,7 @@ import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
+import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 
 export default function About() {
@@ -137,6 +138,9 @@ export default function About() {
 
             {/* WHAT WE DO */}
             <WhatWeDo variant="about" />
+
+            {/* WAYS TO HELP */}
+            <WaysToHelp />
          </FullBleedContainer>
       </div>
    )
