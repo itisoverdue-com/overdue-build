@@ -72,7 +72,8 @@ export default function Contact() {
    return (
       <div>
          <PageHero
-            page="contact"
+            route="contact"
+            header="Contact"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/education_fbvmrv.jpg"
          />
          <FullBleedContainer

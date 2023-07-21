@@ -6,13 +6,15 @@ import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer
 import Card from "@/components/shared/Card"
 import Button from "@/components/shared/Button"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
+import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 
 export default function About() {
    return (
       <div>
          <PageHero
-            page="about us"
+            route="about"
+            header="About Us"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/about_avmkds.jpg"
          />
          <FullBleedContainer
@@ -140,6 +142,7 @@ export default function About() {
             <WhatWeDo variant="about" />
 
             {/* WAYS TO HELP */}
+            <WaysToHelp />
 
             {/* GET IN TOUCH */}
             <section className="mx-auto mt-24">
