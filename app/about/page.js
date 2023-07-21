@@ -4,6 +4,7 @@ import Image from "next/image"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
+import Button from "@/components/shared/Button"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
@@ -142,6 +143,22 @@ export default function About() {
 
             {/* WAYS TO HELP */}
             <WaysToHelp />
+
+            {/* GET IN TOUCH */}
+            <section className="mx-auto mt-24">
+               <div className="flex flex-col justify-center text-center xl:px-12">
+                  <SectionSubheader
+                     header="Get In Touch!"
+                     headerSx="lg:text-center"
+                     borderSx="md:mx-auto"
+                  />
+               </div>
+               <div className="mt-8 mx-auto w-fit">
+                  <Button variant="primary" size="xl" href="/contact">
+                     Contact Us
+                  </Button>
+               </div>
+            </section>
          </FullBleedContainer>
       </div>
    )
