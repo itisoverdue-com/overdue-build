@@ -4,6 +4,7 @@ import Card from "@/components/shared/Card"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Button from "@/components/shared/Button"
 import EffortStats from "@/components/Landing/EffortStats"
+import MembersCarousel from "@/components/shared/MembersCarousel"
 
 export default function Home() {
    return (
@@ -22,12 +23,12 @@ export default function Home() {
                <div className="flex flex-col items-center justify-center md:w-[55%] md:pr-12 xl:pr-4 lg:w-[45%]">
                   <h2 className="md:text-left">Who are We?</h2>
                   <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0" />
-                  <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-xl md:text-2xl md:leading-[3rem] font-medium text-left">
+                  <h3 className="mx-auto mt-8  sm:text-xl md:text-2xl md:leading-[3rem] font-medium text-left">
                      <span className="font-bold">OVERDUE</span> is a collective of individuals who pick up trash
                      together to make their communities cleaner, greener and
                      friendlier.
                   </h3>
-                  <p className="mx-auto mt-4 px-4 sm:px-8 md:px-0 md:leading-[2rem] font-normal text-left">
+                  <p className="mx-auto mt-4  md:leading-[2rem] font-normal text-left">
                      Our philosophy is that if people don&apos;t see litter
                      around, they will feel less inclined to toss it on the
                      street.
@@ -57,6 +58,7 @@ export default function Home() {
                </Card>
             </div>
             <EffortStats />
+            <MembersCarousel />
          </FullBleedContainer>
       </main>
    )
