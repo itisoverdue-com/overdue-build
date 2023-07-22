@@ -6,20 +6,20 @@ import Brand from "../Brand"
 
 export default function Footer() {
    const quickLinks = [
-      { text: "About Us", link: "https://www.itisoverdue.org/about/" },
-      { text: "What We Do", link: "https://www.itisoverdue.org/about/" },
-      { text: "Our Members", link: "https://www.itisoverdue.org/members/" },
+      { text: "About Us", link: "/about" },
+      { text: "What We Do", link: "/about" },
+      { text: "Our Members", link: "/members" },
       {
          text: "Shop With Us",
          link: "https://itsoverdue.myshopify.com/collections/all",
       },
-      { text: "Latest Blogs", link: "https://www.itisoverdue.org/posts/" },
-      { text: "Education", link: "https://www.itisoverdue.org/education/" },
+      { text: "Latest Blogs", link: "/posts" },
+      { text: "Education", link: "/education" },
       {
          text: "Become a Volunteer",
-         link: "https://www.itisoverdue.org/events/",
+         link: "/events",
       },
-      { text: "FAQ", link: "https://www.itisoverdue.org/faq/" },
+      { text: "FAQ", link: "/faq" },
    ]
 
    const contactUs = [
@@ -56,7 +56,7 @@ export default function Footer() {
                </defs>
             </svg>
          ),
-         sx: "items-center border-b border-b-dark-grey",
+         sx: "items-start border-b border-b-dark-grey",
       },
       {
          link: null,
@@ -91,7 +91,7 @@ export default function Footer() {
                </defs>
             </svg>
          ),
-         sx: "items-center lg:items-start border-b border-b-dark-grey",
+         sx: "items-start border-b border-b-dark-grey",
       },
       {
          link: null,
@@ -248,7 +248,7 @@ export default function Footer() {
                </p>
 
                {/* Sign Up Link */}
-               <Link href="https://www.itisoverdue.org/joinus/">
+               <Link href="/join">
                   <button className="bg-primary w-full py-4 font-medium rounded-md transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
                      Sign Up Now!
                   </button>
