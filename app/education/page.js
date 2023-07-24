@@ -81,7 +81,8 @@ export default function Education() {
    return (
       <div>
          <PageHero
-            page="Education"
+            route="education"
+            header="Education"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/education_fbvmrv.jpg"
          />
          <FullBleedContainer

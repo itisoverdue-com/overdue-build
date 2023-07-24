@@ -33,7 +33,7 @@ function generateClassName(size, variant, fullWidth, disabled) {
    const variantClasses = {
       primary: "bg-primary text-black hover:bg-black hover:text-primary",
       dark: "bg-darker-grey text-white hover:bg-black hover:text-white",
-      outline: "bg-transparent text-primary outline outline-primary hover:bg-primary hover:text-black",
+      outline: "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black",
    };
 
    const fullWidthClass = fullWidth ? "w-full" : "";
