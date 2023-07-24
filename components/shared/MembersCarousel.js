@@ -11,42 +11,28 @@ import SupportersData from "@/data/supportersData.js";
 export default function MembersCarousel() {
     // State variables
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [itemsToShow, setItemsToShow] = useState(1);
+    const [isPlaying, setIsPlaying] = useState(true);
     const ITEM_WIDTH = 260; // 250px width + 10px right padding
 
-    // Navigate to the next set of items
+    // Navigate to the next item
     function next() {
-        setCurrentIndex(prev => (prev + itemsToShow) % SupportersData.length);
+        setCurrentIndex(prev => (prev + 1) % SupportersData.length);
     }
 
-    // Navigate to the previous set of items
+    // Navigate to the previous item
     function prev() {
         setCurrentIndex(prev => {
-            const newIndex = prev - itemsToShow;
-            return newIndex < 0 ? SupportersData.length + newIndex : newIndex;
+            const newIndex = prev - 1;
+            return newIndex < 0 ? SupportersData.length - 1 : newIndex;
         });
     }
-
-    // Adjust the number of items to show based on window width
-    useEffect(() => {
-        function updateItemsToShow() {
-            if (window.innerWidth >= 1280) setItemsToShow(4);
-            else if (window.innerWidth >= 768) setItemsToShow(2);
-            else setItemsToShow(1);
-        }
-
-        window.addEventListener('resize', updateItemsToShow);
-        updateItemsToShow();
-        return () => window.removeEventListener('resize', updateItemsToShow);
-    }, []);
 
     // Auto-slide functionality when playing
     useEffect(() => {
         let timer;
         if (isPlaying) timer = setInterval(next, 3000);
         return () => timer && clearInterval(timer);
-    }, [isPlaying, currentIndex, itemsToShow]);
+    }, [isPlaying, currentIndex]);
 
     return (
         <div className="flex flex-col w-full xl:px-12 overflow-hidden mt-12 md:mt-20">
@@ -65,7 +51,7 @@ export default function MembersCarousel() {
                             width={250}
                             height={333}
                         />
-                        <h3 className="text-dark-grey" >{item.name}</h3>
+                        <h3 className="text-dark-grey">{item.name}</h3>
                         <div className="font-regular text-sm max-w-[235px]">
                             <p className="text-grey">{item.designation}</p>
                             <p className="text-light-grey">{item.location}</p>
