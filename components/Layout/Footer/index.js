@@ -6,20 +6,19 @@ import Brand from "../Brand"
 
 export default function Footer() {
    const quickLinks = [
-      { text: "About Us", link: "/about" },
-      { text: "What We Do", link: "/about" },
-      { text: "Our Members", link: "/members" },
+      { text: "About", link: "/about" },
       {
-         text: "Shop With Us",
-         link: "https://itsoverdue.myshopify.com/collections/all",
-      },
-      { text: "Latest Blogs", link: "/posts" },
-      { text: "Education", link: "/education" },
-      {
-         text: "Become a Volunteer",
+         text: "Events",
          link: "/events",
       },
+      {
+         text: "Shop",
+         link: "https://itsoverdue.myshopify.com/collections/all",
+      },
+      { text: "Blog", link: "/blog" },
+      { text: "Education", link: "/education" },
       { text: "FAQ", link: "/faq" },
+      { text: "Contact", link: "/contact" },
    ]
 
    const contactUs = [
