@@ -7,6 +7,7 @@ import Button from "@/components/shared/Button"
 import {
    ArrowDownCircleIcon,
    UserCircleIcon,
+   ClipboardIcon,
 } from "@heroicons/react/24/outline"
 
 const positions = [
@@ -135,13 +136,14 @@ export default function Join() {
                   communities clean!
                </p>
                <Button
-                  variant={"primary"}
                   href="/"
+                  size="lg"
+                  variant="primary"
                   target="_blank"
                   fullWidth
-                  size="lg"
                >
-                  Click Here to Apply
+                  <span>Click here to Apply Now!</span>{" "}
+                  <ClipboardIcon className="w-6 h-6 ml-1.5" />
                </Button>
 
                {/* Ref for Scroll */}
