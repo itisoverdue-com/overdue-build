@@ -1,9 +1,8 @@
 "use client"
-import { useState } from "react"
+import { useRef } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Image from "next/image"
-import { useRef } from "react"
 import Button from "@/components/shared/Button"
 import {
    ArrowDownCircleIcon,
@@ -26,17 +25,7 @@ const positions = [
 ]
 export default function Join() {
    const rolesSection = useRef()
-   const [loading, setLoading] = useState(false)
-   const handleFormSubmit = (data) => {
-      console.log(data)
-      setLoading(true)
-
-      // POST
-
-      setLoading(false)
-      return null
-   }
-
+   const applySection = useRef()
    const scrollDown = (ref) => {
       window.scrollTo({
          top: ref.current.offsetTop,
@@ -55,7 +44,7 @@ export default function Join() {
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center"
          >
             {/* Image, Card to Apply Now */}
-            <section className="relative  w-full">
+            <section className="relative w-full">
                {/* Image */}
                <div className="aspect-video h-auto w-10/12 rounded-3xl overflow-hidden relative ml-auto">
                   <Image
@@ -111,6 +100,8 @@ export default function Join() {
                   <h4 className="text-center font-bold tracking-wide ">
                      Available Positions
                   </h4>
+
+                  {/* Grid of Positions */}
                   <ul className="grid grid-cols-3 gap-y-5">
                      {positions.map((item) => (
                         <li
@@ -134,101 +125,32 @@ export default function Join() {
                </div>
             </section>
 
-            {/* Apply Form */}
-            <Form handleFormSubmit={handleFormSubmit} loading={loading} />
+            {/* Apply Card */}
+            <div className="mt-28 bg-darker-grey text-white z-[1] w-1/3 pt-6 pb-3 px-8 sm:pt-8 sm:pb-4 sm:px-14 shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] text-left leading-8 overflow-hidden rounded-3xl md:text-lg md:leading-10 flex flex-col space-y-6">
+               <h4>
+                  Ready to join <span className="text-primary">OVERDUE</span>?
+               </h4>
+               <p className="font-medium text-xl">
+                  We believe that everyone has a role to play in keeping our
+                  communities clean!
+               </p>
+               <Button
+                  variant={"primary"}
+                  href="/"
+                  target="_blank"
+                  fullWidth
+                  size="xl"
+               >
+                  Click Here to Apply
+               </Button>
+
+               {/* Ref for Scroll */}
+               <div
+                  ref={applySection}
+                  className="bg-transparent text-transparent"
+               />
+            </div>
          </FullBleedContainer>
-      </div>
-   )
-}
-
-const Form = ({ handleFormSubmit, loading }) => {
-   const applySection = useRef()
-   const [form, setForm] = useState({
-      fullName: "",
-      email: "",
-      phone: "",
-      role: "",
-   })
-
-   const handleInputChange = (e) => {
-      setForm({
-         ...form,
-         [e.currentTarget.name]: e.currentTarget.value,
-      })
-   }
-
-   const handleSubmit = (e) => {
-      e.preventDefault()
-      const error = handleFormSubmit(form)
-      if (error) {
-         alert("There was an error submitting your application.")
-      } else {
-         alert("Your application was successfully submitted!")
-      }
-   }
-
-   const handleReset = () => {
-      setForm({ fullName: "", email: "", phone: "", role: "" })
-   }
-   return (
-      <form
-         onSubmit={handleSubmit}
-         className="bg-primary p-10 rounded-3xl mt-20"
-      >
-         <h3 className="">Apply Now</h3>
-         <div>
-            <label htmlFor="fullName">Full Name</label>
-            <input
-               id="fullName"
-               type="input"
-               name="fullName"
-               required
-               onChange={handleInputChange}
-            />
-         </div>
-         <div>
-            <label htmlFor="email">Email</label>
-            <input
-               id="email"
-               type="email"
-               name="email"
-               required
-               onChange={handleInputChange}
-            />
-         </div>
-         <div>
-            <label htmlFor="phone">{"Phone Number (optional)"}</label>
-            <input
-               id="phone"
-               type="input"
-               name="phone"
-               onChange={handleInputChange}
-            />
-         </div>
-         <div>
-            <label>{"Role (Choose):"}</label>
-            <select name="role" onChange={handleInputChange} required>
-               {positions.map((item) => (
-                  <option key={item} value={item}>
-                     {item}
-                  </option>
-               ))}
-            </select>
-         </div>
-
-         <Button>Submit Application</Button>
-
-         {/* Ref for Scroll */}
-         <div ref={applySection} className="bg-transparent text-transparent" />
-      </form>
-   )
-}
-
-const FormInput = (id, name, type, label, onChange) => {
-   return (
-      <div>
-         <label htmlFor={id}>{label}</label>
-         <input id={id} type={type} name={name} required onChange={onChange} />
       </div>
    )
 }
