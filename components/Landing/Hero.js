@@ -9,7 +9,7 @@ const SubHeading = ({ children }) => (
 export default function Hero({ page, backgroundImageSrc = "" }) {
     return (
        <FullBleedContainer
-          sx="h-[100vh] md:h-[80vh] lg:h-[70vh] xl:h-[60vh]"
+          sx="h-[92vh] lg:h-[80vh] "
           backgroundImageSrc={`${backgroundImageSrc}`}
           childSx="flex sm:items-start sm:justify-center sm:pl-20 items-center justify-center  flex-col h-full relative text-white text-center text-2xl
           md:text-4xl lg:text-5xl xl:text-6xl font-bold flex-col space-y-5"
