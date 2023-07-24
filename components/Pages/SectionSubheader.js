@@ -7,9 +7,7 @@ export default function SectionSubheader({
 }) {
    return (
       <div className={sx}>
-         <h2
-            className={`text-3xl sm:text-5xl lg:text-4xl lg:text-left xl:text-5xl ${headerSx}`}
-         >
+         <h2 className={`text-3xl sm:text-5xl lg:text-left ${headerSx}`}>
             {header}
          </h2>
          <div
