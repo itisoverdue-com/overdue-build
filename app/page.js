@@ -6,6 +6,8 @@ import Button from "@/components/shared/Button"
 import EffortStats from "@/components/Landing/EffortStats"
 import MembersCarousel from "@/components/shared/MembersCarousel"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
+import WhatWeDo from "@/components/Pages/WhatWeDo"
+import WaysToHelp from "@/components/Pages/WaysToHelp"
 
 export default function Home() {
    return (
@@ -67,7 +69,14 @@ export default function Home() {
                </Card>
          </div>
             <EffortStats />
-            <MembersCarousel />
+            <WhatWeDo variant="about" />
+            <WaysToHelp />
+            {/* Latest Updates & Blogs section */}
+            {/* Fellow Volunteers! section */}
+            {/* Our Partners section */}
+            {/* Become a Sponsor section */}
+            {/* Subscribe to Newsletter section */}
+            <MembersCarousel /> 
          </FullBleedContainer>
       </main>
    )
