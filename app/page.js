@@ -5,6 +5,7 @@ import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer
 import Button from "@/components/shared/Button"
 import EffortStats from "@/components/Landing/EffortStats"
 import MembersCarousel from "@/components/shared/MembersCarousel"
+import SectionSubheader from "@/components/Pages/SectionSubheader"
 
 export default function Home() {
    return (
@@ -17,34 +18,42 @@ export default function Home() {
             sx="bg-background border"
             childSx="py-28 md:py-32 px-6 lg:px-12"
          >
+         {/* Who Are We? section */}
+         <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
             {/* Who are we - section */}
-            <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
-               {/* Subheader */}
-               <div className="flex flex-col items-center justify-center md:w-[55%] md:pr-12 xl:pr-4 lg:w-[45%]">
-                  <h2 className="md:text-left">Who are We?</h2>
-                  <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0" />
-                  <h3 className="mx-auto mt-8  sm:text-xl md:text-2xl md:leading-[3rem] font-medium text-left">
-                     <span className="font-bold">OVERDUE</span> is a collective of individuals who pick up trash
-                     together to make their communities cleaner, greener and
-                     friendlier.
-                  </h3>
-                  <p className="mx-auto mt-4  md:leading-[2rem] font-normal text-left">
-                     Our philosophy is that if people don&apos;t see litter
-                     around, they will feel less inclined to toss it on the
-                     street.
-                  </p>
-                  <Button 
-                     variant="dark" 
-                     href="/about" 
-                     size="lg"
-                     style={{ marginTop: "14px" }}
-                     >
+            <SectionSubheader
+               header="Who Are We?"
+               sx="md:w-[55%] md:pr-12 lg:w-[45%] xl:pr-4"
+               headerSx="md:text-left"
+            >
+               <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-2xl md:text-3xl md:leading-[3rem] font-medium text-left">
+                  OVERDUE is a collective of individuals who pick up trash
+                  together to make their communities cleaner, greener and
+                  friendlier.
+               </h3>
+               <p className="mx-auto mt-4 px-4 sm:px-8 md:px-0 sm:text-l md:text-xlfont-regular text-left">
+                  Our philosophy is that if people don&apos;t see litter
+                  around, they will feel less inclined to toss it on the
+                  street.
+               </p>
+                  <div
+                     // when in md do not display the button 
+                     className="hidden md:flex flex-col  justify-start items-start "
+                  >
+                  <Button
+                     variant="dark"
+                     href="/about"
+                     size="md"
+                     style={{
+                        marginTop: "14px", width: "fit-content",
+                     }}
+                        >
                      Know More About Us
                   </Button>
                </div>
-               {/* Image Card */}
+            </SectionSubheader>
                <Card
-                  sx="w-[75vw] aspect-[1/1] mt-8  md:h-[400px] md:w-[45%] md:mt-0 lg:w-[55%] lg:max-w-[560px] lg:mr-0"
+                  sx="hidden md:flex aspect-[1/1] mt-8  md:h-[400px] md:w-[45%] md:mt-0 lg:w-[55%] lg:max-w-[560px] lg:mr-0"
                   variant="image"
                >
                   <Image
@@ -56,7 +65,7 @@ export default function Home() {
                      }}
                   />
                </Card>
-            </div>
+         </div>
             <EffortStats />
             <MembersCarousel />
          </FullBleedContainer>
