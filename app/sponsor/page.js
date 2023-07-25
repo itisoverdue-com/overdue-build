@@ -16,117 +16,127 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/yelp_vgatkb.png",
          width: 1550,
          height: 625,
-         containerSx: "w-full max-w-[400px]",
+         outerSx: "order-1 w-full",
+         innerSx: "max-w-[400px]",
       },
       {
-         id: 4,
+         id: 2,
          name: "mercedez benz of calabasas",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/mercedes-benz-of-calabasas_bki1d6.jpg",
          width: 200,
          height: 200,
-         containerSx: "w-1/2 max-w-[200px]",
-         imgSx: "",
+         outerSx: "order-4 w-1/2",
+         innerSx: "max-w-[200px]",
       },
       {
          id: 3,
          name: "uniqlo",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/uniqlo_pufdzo.png",
-         containerSx: "w-1/2 max-w-[200px]",
-         imgSx: "",
          width: 849,
          height: 846,
+         outerSx: "order-3 w-1/2",
+         innerSx: "max-w-[200px]",
       },
       {
-         id: 2,
+         id: 4,
          name: "the well",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/the-well_fmbeue.webp",
-         containerSx: "w-1/2 max-w-[200px]",
-         imgSx: "",
+
          width: 1097,
          height: 1118,
+         outerSx: "order-2 w-1/2",
+         innerSx: "max-w-[200px]",
       },
       {
          id: 5,
          name: "8 one 8",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/8-one-8_g3qawz.png",
-         containerSx: "w-1/2 max-w-[200px]",
-         imgSx: "",
+
          width: 400,
          height: 400,
+         outerSx: "order-5 w-1/2",
+         innerSx: "max-w-[200px]",
       },
       {
          id: 6,
          name: "intermix",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/intermix_vbabnv.png",
-         containerSx: "w-full",
-         imgSx: "",
+
          width: 900,
          height: 130,
-      },
-      {
-         id: 8,
-         name: "my valley pass",
-         imgSrc:
-            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/my-valley-pass_brmldx.png",
-         containerSx: "w-1/2",
-         imgSx: "",
-         width: 194,
-         height: 161,
+         outerSx: "order-6 w-full",
+         innerSx: "max-w-[500px]",
       },
       {
          id: 7,
+         name: "my valley pass",
+         imgSrc:
+            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/my-valley-pass_brmldx.png",
+
+         width: 194,
+         height: 161,
+         outerSx: "order-8 w-1/2",
+         innerSx: "max-w-[194px]",
+      },
+      {
+         id: 8,
          name: "prostainable",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/prostainable_nnocpx.png",
-         containerSx: "",
-         imgSx: "",
+
          width: 1500,
          height: 260,
-      },
-      {
-         id: 10,
-         name: "dentsu",
-         imgSrc:
-            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/dentsu_rcmnp4.png",
-         containerSx: "w-1/2",
-         imgSx: "",
-         width: 1250,
-         height: 269,
-      },
-      {
-         id: 11,
-         name: "redone",
-         imgSrc:
-            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/redone_d4jc5m.png",
-         containerSx: "w-1/2",
-         imgSx: "",
-         width: 1200,
-         height: 263,
+         outerSx: "order-7",
+         innerSx: "max-w-[520px]",
       },
       {
          id: 9,
+         name: "dentsu",
+         imgSrc:
+            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/dentsu_rcmnp4.png",
+
+         width: 1250,
+         height: 269,
+         outerSx: "order-9 w-1/2",
+         innerSx: "max-w-[250px]",
+      },
+      {
+         id: 10,
+         name: "redone",
+         imgSrc:
+            "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/redone_d4jc5m.png",
+
+         width: 1200,
+         height: 263,
+         outerSx: "order-11 w-1/2",
+         innerSx: "max-w-[250px]",
+      },
+      {
+         id: 11,
          name: "carat a dentsu company",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/carat-dentsu_pnbntp.png",
-         containerSx: "w-1/2",
-         imgSx: "",
+
          width: 1305,
          height: 429,
+         outerSx: "order-10 w-1/2",
+         innerSx: "max-w-[250px]",
       },
       {
          id: 12,
          name: "topanga new times",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/topanga-new-times_aneghe.png",
-         containerSx: "",
-         imgSx: "",
+
          width: 1854,
          height: 190,
+         outerSx: "order-12",
+         innerSx: "max-w-[540px]",
       },
    ]
 
@@ -188,24 +198,25 @@ export default function Sponsor() {
                <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
                   <SectionSubheader header="Join our Sponsors" />
                   <div className="flex flex-wrap justify-evenly items-center w-full">
-                     {sponsors
-                        .sort((a, b) => a.id - b.id)
-                        .map((logo) => {
-                           return (
+                     {sponsors.map((logo) => {
+                        return (
+                           <div
+                              key={logo.id}
+                              className={`border-none border-red-500 my-6 sm:my-8 ${logo.outerSx}`}
+                           >
                               <div
-                                 key={logo.id}
-                                 className={`my-6 px-4 ${logo.containerSx}`}
+                                 className={`mx-auto border-none border-blue-500 px-4 ${logo.innerSx}`}
                               >
                                  <Image
                                     alt={`${logo.name} logo`}
                                     src={logo.imgSrc}
                                     width={logo.width}
                                     height={logo.height}
-                                    className={logo.imgSx}
                                  />
                               </div>
-                           )
-                        })}
+                           </div>
+                        )
+                     })}
                   </div>
                </div>
             </section>
