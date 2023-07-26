@@ -14,30 +14,30 @@ export default function Sponsor() {
          name: "yelp",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/yelp_vgatkb.png",
-         width: 1550,
-         height: 625,
-         outerSx: "order-1 w-full",
-         innerSx: "max-w-[400px]",
+         // width: 1550,
+         // height: 625,
+         outerSx: "order-1 w-2/3 sm:w-1/3 md:w-2/5",
+         innerSx: "max-w-[300px] aspect-[1550/625]",
       },
       {
          id: 2,
          name: "mercedez benz of calabasas",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/mercedes-benz-of-calabasas_bki1d6.jpg",
-         width: 200,
-         height: 200,
-         outerSx: "order-4 w-1/2",
-         innerSx: "max-w-[200px]",
+         // width: 200,
+         // height: 200,
+         outerSx: "order-5 w-1/3 sm:w-1/3 md:w-1/4",
+         innerSx: "max-w-[150px] aspect-square",
       },
       {
          id: 3,
          name: "uniqlo",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/uniqlo_pufdzo.png",
-         width: 849,
-         height: 846,
-         outerSx: "order-3 w-1/2",
-         innerSx: "max-w-[200px]",
+         // width: 849,
+         // height: 846,
+         outerSx: "order-2 w-1/3 sm:order-3 md:w-1/5",
+         innerSx: "max-w-[150px] aspect-[849/846]",
       },
       {
          id: 4,
@@ -45,98 +45,90 @@ export default function Sponsor() {
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/the-well_fmbeue.webp",
 
-         width: 1097,
-         height: 1118,
-         outerSx: "order-2 w-1/2",
-         innerSx: "max-w-[200px]",
+         // width: 1097,
+         // height: 1118,
+         outerSx: "order-4 w-1/3 md:w-1/5",
+         innerSx: "max-w-[150px] aspect-[1097/1118]",
       },
       {
          id: 5,
          name: "8 one 8",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/8-one-8_g3qawz.png",
-
-         width: 400,
-         height: 400,
-         outerSx: "order-5 w-1/2",
-         innerSx: "max-w-[200px]",
+         // width: 400,
+         // height: 400,
+         outerSx: "order-3 w-1/3 sm:order-2 sm:w-1/3 md:w-1/5",
+         innerSx: "max-w-[150px] aspect-square",
       },
       {
          id: 6,
          name: "intermix",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/intermix_vbabnv.png",
-
-         width: 900,
-         height: 130,
-         outerSx: "order-6 w-full",
-         innerSx: "max-w-[500px]",
+         // width: 900,
+         // height: 130,
+         outerSx: "order-6 w-2/3 sm:w-1/3 sm:order-7 md:w-1/2",
+         innerSx: "max-w-[400px] aspect-[900/130]",
       },
       {
          id: 7,
          name: "my valley pass",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/my-valley-pass_brmldx.png",
-
-         width: 194,
-         height: 161,
-         outerSx: "order-8 w-1/2",
-         innerSx: "max-w-[194px]",
+         // width: 194,
+         // height: 161,
+         outerSx: "order-7 w-1/3 sm:order-10 sm:order-6 sm:w-1/3 md:w-1/4",
+         innerSx: "max-w-[150px] aspect-[194/161]",
       },
       {
          id: 8,
          name: "prostainable",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/prostainable_nnocpx.png",
-
-         width: 1500,
-         height: 260,
-         outerSx: "order-7",
-         innerSx: "max-w-[520px]",
+         // width: 1500,
+         // height: 260,
+         outerSx: "order-8 w-2/3 sm:order-10 md:order-8 md:w-1/2",
+         innerSx: "max-w-[440px] aspect-[1500/260] sm:max-w-[500px]",
       },
       {
          id: 9,
          name: "dentsu",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/dentsu_rcmnp4.png",
-
-         width: 1250,
-         height: 269,
-         outerSx: "order-9 w-1/2",
-         innerSx: "max-w-[250px]",
+         // width: 1250,
+         // height: 269,
+         outerSx: "order-10 w-1/2 sm:order-8 sm:w-1/3 md:order-11 md:w-1/3",
+         innerSx: "max-w-[200px] aspect-[1250/269]",
       },
       {
          id: 10,
          name: "redone",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/redone_d4jc5m.png",
-
-         width: 1200,
-         height: 263,
-         outerSx: "order-11 w-1/2",
-         innerSx: "max-w-[250px]",
+         // width: 1200,
+         // height: 263,
+         outerSx: "order-9 w-1/3 sm:order-11 sm:w-1/3 md:order-10",
+         innerSx: "max-w-[200px] aspect-[1200/263]",
       },
       {
          id: 11,
          name: "carat a dentsu company",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/carat-dentsu_pnbntp.png",
-
-         width: 1305,
-         height: 429,
-         outerSx: "order-10 w-1/2",
-         innerSx: "max-w-[250px]",
+         // width: 1305,
+         // height: 429,
+         outerSx: "order-11 w-1/2 sm:order-9 sm:w-1/3 md:order-12 md:w-1/3",
+         innerSx: "max-w-[200px] aspect-[1305/429]",
       },
       {
          id: 12,
          name: "topanga new times",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/topanga-new-times_aneghe.png",
-
-         width: 1854,
-         height: 190,
-         outerSx: "order-12",
-         innerSx: "max-w-[540px]",
+         // width: 1854,
+         // height: 190,
+         outerSx: "order-12 w-full md:order-9 md:w-1/2",
+         innerSx: "max-w-[420px] aspect-[1854/190] sm:max-w-[600px]",
       },
    ]
 
@@ -196,27 +188,72 @@ export default function Sponsor() {
             {/* <------- JOIN OUR SPONSORS -------> */}
             <section id="join-our-sponsors" className="mt-24">
                <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
-                  <SectionSubheader header="Join our Sponsors" />
-                  <div className="flex flex-wrap justify-evenly items-center w-full">
+                  <SectionSubheader
+                     header="Join our Sponsors"
+                     sx="w-full"
+                     headerSx="text-center md:text-left"
+                  />
+                  {/* SPONSOR LOGOS */}
+                  <div className="flex flex-wrap items-center w-full lg:mt-8 lg:px-12 xl:mt-12 xl:px-20">
                      {sponsors.map((logo) => {
                         return (
                            <div
                               key={logo.id}
-                              className={`border-none border-red-500 my-6 sm:my-8 ${logo.outerSx}`}
+                              className={`border-none border-red-500 p-4 sm:p-6 ${logo.outerSx}`}
                            >
                               <div
-                                 className={`mx-auto border-none border-blue-500 px-4 ${logo.innerSx}`}
+                                 className={`mx-auto border-none border-blue-500 relative ${logo.innerSx}`}
                               >
                                  <Image
                                     alt={`${logo.name} logo`}
                                     src={logo.imgSrc}
-                                    width={logo.width}
-                                    height={logo.height}
+                                    fill
+                                    className="object-contain"
                                  />
                               </div>
                            </div>
                         )
                      })}
+                  </div>
+                  {/* WHY CORPORATE CLEANUP */}
+                  <div className="flex flex-col justify-center mt-12 xl:px-12">
+                     <div className="relative flex flex-col w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center xl:mt-24">
+                        <Card
+                           variant="text"
+                           sx="flex flex-col justify-center max-w-none lg:mt-0 xl:h-[450px]"
+                        >
+                           <h3 className="text-xl sm:text-2xl">
+                              Why Corporate Cleanup?
+                           </h3>
+                           <p className="mt-4 mb-6">
+                              We love giving back to the community, and you know
+                              what? A lot of businesses feel the same way, but
+                              they typically have a hard time finding local
+                              volunteer activities in which they can participate
+                              as a group. That is how we started offering
+                              corporate sponsorship to open up the cleanup/
+                              education event to those wonderful corporate
+                              partners.
+                           </p>
+                           <p>
+                              Having the same goal is a great way to build a
+                              strong team. With our clean-up and environmental
+                              education event, the team will have a greater
+                              sense of environmentalism toward a better future.
+                           </p>
+                        </Card>
+                        <Card
+                           variant="image"
+                           sx="w-[70vw] max-h-[450px] aspect-[381/508] mt-[-25px] md:w-2/5 md:mt-0 lg:w-[45%] lg:mr-0 lg:ml-4"
+                        >
+                           <Image
+                              alt="itisOVERDUE volunteers working outside"
+                              src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690326666/sponsor/sponsor_mr8h5d.jpg"
+                              fill
+                              className="object-contain"
+                           />
+                        </Card>
+                     </div>
                   </div>
                </div>
             </section>
