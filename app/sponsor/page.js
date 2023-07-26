@@ -194,7 +194,7 @@ export default function Sponsor() {
                      headerSx="text-center md:text-left"
                   />
                   {/* SPONSOR LOGOS */}
-                  <div className="flex flex-wrap items-center w-full lg:mt-8 lg:px-12 xl:mt-12 xl:px-20">
+                  <div className="flex flex-wrap items-center w-full mt-4 lg:px-12 xl:px-20">
                      {sponsors.map((logo) => {
                         return (
                            <div
@@ -216,11 +216,12 @@ export default function Sponsor() {
                      })}
                   </div>
                   {/* WHY CORPORATE CLEANUP */}
-                  <div className="flex flex-col justify-center mt-12 xl:px-12">
-                     <div className="relative flex flex-col w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center xl:mt-24">
+                  {/* //* TODO: textbox / image pairs need work with flex grow, shrink, basis properties */}
+                  <div className="flex flex-col justify-center mt-12 xl:px-12 lg:mt-16">
+                     <div className="relative flex flex-col items-center w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center">
                         <Card
                            variant="text"
-                           sx="flex flex-col justify-center max-w-none lg:mt-0 xl:h-[450px]"
+                           sx="flex flex-col justify-center max-w-none lg:mt-0 xl:min-h-[450px]"
                         >
                            <h3 className="text-xl sm:text-2xl">
                               Why Corporate Cleanup?
@@ -244,13 +245,57 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="image"
-                           sx="w-[70vw] max-h-[450px] aspect-[381/508] mt-[-25px] md:w-2/5 md:mt-0 lg:w-[45%] lg:mr-0 lg:ml-4"
+                           sx="w-[70vw] max-h-[450px] aspect-[381/508] mt-[-25px] md:w-2/5 md:mt-0 lg:w-2/5 lg:mr-0 lg:ml-4 xl:h-[450px]"
                         >
                            <Image
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690326666/sponsor/sponsor_mr8h5d.jpg"
                               fill
-                              className="object-contain"
+                              className="object-contain md:object-cover"
+                           />
+                        </Card>
+                     </div>
+                  </div>
+                  {/* PRIVATE EVENT */}
+                  <div className="flex flex-col justify-center mt-12 xl:px-12 lg:mt-16">
+                     <div className="relative flex flex-col items-center w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center">
+                        <Card
+                           variant="text"
+                           sx="flex flex-col justify-center max-w-none md:w-4/5 lg:mt-0 xl:min-h-[450px]"
+                        >
+                           <h3 className="text-xl sm:text-2xl">
+                              Private Event
+                           </h3>
+                           <p className="text-lg py-4">
+                              $1250 tax deductible donation:
+                           </p>
+                           <div className="px-4">
+                              <ul className="list-disc">
+                                 <li className="">You pick the location</li>
+                                 <li className="">
+                                    You can bring as many as 50 people. If more
+                                    than 50 people, additional $5/ person.
+                                 </li>
+                                 <li className="">
+                                    OVERDUE will post on our social media
+                                    during, and after about the event.
+                                 </li>
+                                 <li className="">
+                                    OVERDUE will include your logo on our
+                                    website.
+                                 </li>
+                              </ul>
+                           </div>
+                        </Card>
+                        <Card
+                           variant="image"
+                           sx="w-[70vw] max-h-[557px] aspect-[381/557] mt-[-25px] md:w-1/5 md:mt-0 lg:w-2/5 lg:mr-0 lg:ml-4 xl:h-[450px]"
+                        >
+                           <Image
+                              alt="itisOVERDUE volunteers working outside"
+                              src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690347288/sponsor/sponsor_c2f3a3.jpg"
+                              fill
+                              className="object-contain md:object-cover"
                            />
                         </Card>
                      </div>
