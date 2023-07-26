@@ -69,7 +69,7 @@ export default function Home() {
                </Card>
          </div>
             <EffortStats />
-            <WhatWeDo variant="about" />
+            <WhatWeDo variant="home" />
             <WaysToHelp />
             {/* Latest Updates & Blogs section */}
             {/* Fellow Volunteers! section */}
