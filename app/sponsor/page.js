@@ -199,10 +199,10 @@ export default function Sponsor() {
                         return (
                            <div
                               key={logo.id}
-                              className={`border-none border-red-500 p-4 sm:p-6 ${logo.outerSx}`}
+                              className={`p-4 sm:p-6 ${logo.outerSx}`}
                            >
                               <div
-                                 className={`mx-auto border-none border-blue-500 relative ${logo.innerSx}`}
+                                 className={`mx-auto relative ${logo.innerSx}`}
                               >
                                  <Image
                                     alt={`${logo.name} logo`}
@@ -216,12 +216,11 @@ export default function Sponsor() {
                      })}
                   </div>
                   {/* WHY CORPORATE CLEANUP */}
-                  {/* //* TODO: textbox / image pairs need work with flex grow, shrink, basis properties */}
-                  <div className="flex flex-col justify-center mt-12 xl:px-12 lg:mt-16">
-                     <div className="relative flex flex-col items-center w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center">
+                  <div className="w-full mt-12 lg:mt-16 xl:px-12">
+                     <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
-                           sx="flex flex-col justify-center max-w-none lg:mt-0 xl:min-h-[450px]"
+                           sx="flex flex-col justify-center basis-full max-w-none md:basis-[70%] xl:basis-3/4 xl:min-h-[428px]"
                         >
                            <h3 className="text-xl sm:text-2xl">
                               Why Corporate Cleanup?
@@ -245,7 +244,7 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="image"
-                           sx="w-[70vw] max-h-[450px] aspect-[381/508] mt-[-25px] md:w-2/5 md:mt-0 lg:w-2/5 lg:mr-0 lg:ml-4 xl:h-[450px]"
+                           sx="basis-[70vw] max-h-[508px] aspect-[381/508] mt-[-25px] md:basis-[30%] md:mt-0 md:max-h-[428px] xl:basis-1/4"
                         >
                            <Image
                               alt="itisOVERDUE volunteers working outside"
@@ -257,11 +256,11 @@ export default function Sponsor() {
                      </div>
                   </div>
                   {/* PRIVATE EVENT */}
-                  <div className="flex flex-col justify-center mt-12 xl:px-12 lg:mt-16">
-                     <div className="relative flex flex-col items-center w-full md:flex-row md:gap-x-4 lg:justify-end lg:items-center">
+                  <div className="w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                     <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
-                           sx="flex flex-col justify-center max-w-none md:w-4/5 lg:mt-0 xl:min-h-[450px]"
+                           sx="flex flex-col justify-center basis-full max-w-none md:basis-[70%] lg:order-2 xl:basis-3/4 lg:min-h-[428px]"
                         >
                            <h3 className="text-xl sm:text-2xl">
                               Private Event
@@ -289,13 +288,13 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="image"
-                           sx="w-[70vw] max-h-[557px] aspect-[381/557] mt-[-25px] md:w-1/5 md:mt-0 lg:w-2/5 lg:mr-0 lg:ml-4 xl:h-[450px]"
+                           sx="basis-[70vw] max-h-[508px] aspect-[381/557] mt-[-50px] md:basis-[30%] md:max-h-[428px] md:mt-0 lg:order-1 xl:basis-1/4"
                         >
                            <Image
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690347288/sponsor/sponsor_c2f3a3.jpg"
                               fill
-                              className="object-contain md:object-cover"
+                              className="object-contain md:object-cover md:object-bottom"
                            />
                         </Card>
                      </div>
