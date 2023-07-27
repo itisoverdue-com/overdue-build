@@ -14,8 +14,6 @@ export default function Sponsor() {
          name: "yelp",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/yelp_vgatkb.png",
-         // width: 1550,
-         // height: 625,
          outerSx: "order-1 w-2/3 sm:w-1/3 md:w-2/5",
          innerSx: "max-w-[300px] aspect-[1550/625]",
       },
@@ -24,8 +22,6 @@ export default function Sponsor() {
          name: "mercedez benz of calabasas",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/mercedes-benz-of-calabasas_bki1d6.jpg",
-         // width: 200,
-         // height: 200,
          outerSx: "order-5 w-1/3 sm:w-1/3 md:w-1/4",
          innerSx: "max-w-[150px] aspect-square",
       },
@@ -34,8 +30,6 @@ export default function Sponsor() {
          name: "uniqlo",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/uniqlo_pufdzo.png",
-         // width: 849,
-         // height: 846,
          outerSx: "order-2 w-1/3 sm:order-3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-[849/846]",
       },
@@ -44,9 +38,6 @@ export default function Sponsor() {
          name: "the well",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/the-well_fmbeue.webp",
-
-         // width: 1097,
-         // height: 1118,
          outerSx: "order-4 w-1/3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-[1097/1118]",
       },
@@ -55,8 +46,6 @@ export default function Sponsor() {
          name: "8 one 8",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/8-one-8_g3qawz.png",
-         // width: 400,
-         // height: 400,
          outerSx: "order-3 w-1/3 sm:order-2 sm:w-1/3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-square",
       },
@@ -65,8 +54,6 @@ export default function Sponsor() {
          name: "intermix",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/intermix_vbabnv.png",
-         // width: 900,
-         // height: 130,
          outerSx: "order-6 w-2/3 sm:w-1/3 sm:order-7 md:w-1/2",
          innerSx: "max-w-[400px] aspect-[900/130]",
       },
@@ -75,8 +62,6 @@ export default function Sponsor() {
          name: "my valley pass",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/my-valley-pass_brmldx.png",
-         // width: 194,
-         // height: 161,
          outerSx: "order-7 w-1/3 sm:order-10 sm:order-6 sm:w-1/3 md:w-1/4",
          innerSx: "max-w-[150px] aspect-[194/161]",
       },
@@ -85,8 +70,6 @@ export default function Sponsor() {
          name: "prostainable",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/prostainable_nnocpx.png",
-         // width: 1500,
-         // height: 260,
          outerSx: "order-8 w-2/3 sm:order-10 md:order-8 md:w-1/2",
          innerSx: "max-w-[440px] aspect-[1500/260] sm:max-w-[500px]",
       },
@@ -95,8 +78,6 @@ export default function Sponsor() {
          name: "dentsu",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/dentsu_rcmnp4.png",
-         // width: 1250,
-         // height: 269,
          outerSx: "order-10 w-1/2 sm:order-8 sm:w-1/3 md:order-11 md:w-1/3",
          innerSx: "max-w-[200px] aspect-[1250/269]",
       },
@@ -105,8 +86,6 @@ export default function Sponsor() {
          name: "redone",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/redone_d4jc5m.png",
-         // width: 1200,
-         // height: 263,
          outerSx: "order-9 w-1/3 sm:order-11 sm:w-1/3 md:order-10",
          innerSx: "max-w-[200px] aspect-[1200/263]",
       },
@@ -115,8 +94,6 @@ export default function Sponsor() {
          name: "carat a dentsu company",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/carat-dentsu_pnbntp.png",
-         // width: 1305,
-         // height: 429,
          outerSx: "order-11 w-1/2 sm:order-9 sm:w-1/3 md:order-12 md:w-1/3",
          innerSx: "max-w-[200px] aspect-[1305/429]",
       },
@@ -125,8 +102,6 @@ export default function Sponsor() {
          name: "topanga new times",
          imgSrc:
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/topanga-new-times_aneghe.png",
-         // width: 1854,
-         // height: 190,
          outerSx: "order-12 w-full md:order-9 md:w-1/2",
          innerSx: "max-w-[420px] aspect-[1854/190] sm:max-w-[600px]",
       },
@@ -255,8 +230,8 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  {/* PRIVATE EVENT */}
                   <div className="w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                     {/* PRIVATE EVENT */}
                      <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
@@ -270,16 +245,16 @@ export default function Sponsor() {
                            </p>
                            <div className="px-4">
                               <ul className="list-disc">
-                                 <li className="">You pick the location</li>
-                                 <li className="">
+                                 <li>You pick the location</li>
+                                 <li>
                                     You can bring as many as 50 people. If more
                                     than 50 people, additional $5/ person.
                                  </li>
-                                 <li className="">
+                                 <li>
                                     OVERDUE will post on our social media
                                     during, and after about the event.
                                  </li>
-                                 <li className="">
+                                 <li>
                                     OVERDUE will include your logo on our
                                     website.
                                  </li>
@@ -288,7 +263,7 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="image"
-                           sx="basis-[70vw] max-h-[508px] aspect-[381/557] mt-[-50px] md:basis-[30%] md:max-h-[428px] md:mt-0 lg:order-1 xl:basis-1/4"
+                           sx="basis-[70vw] max-h-[508px] aspect-[381/557] mt-[-35px] md:basis-[30%] md:max-h-[428px] md:mt-0 lg:order-1 xl:basis-1/4"
                         >
                            <Image
                               alt="itisOVERDUE volunteers working outside"
@@ -296,6 +271,80 @@ export default function Sponsor() {
                               fill
                               className="object-contain md:object-cover md:object-bottom"
                            />
+                        </Card>
+                     </div>
+                  </div>
+
+                  <div className="w-full mt-12 md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24 xl:px-12">
+                     {/* SCHEDULE EXAMPLE */}
+                     <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
+                        <Card
+                           variant="image"
+                           sx="w-full max-w-[600px] aspect-[627/836] sm:w-[590px] lg:w-full lg:ml-0"
+                        >
+                           <Image
+                              alt="itisOVERDUE volunteers working outside"
+                              src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690417347/sponsor/sponsor_gb2taz.jpg"
+                              fill
+                              className="object-contain"
+                           />
+                        </Card>
+                        <Card
+                           variant="text"
+                           sx="flex flex-col justify-center w-full max-w-[600px] text-white bg-black/[.85] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:w-[590px] lg:w-full lg:h-auto lg:mt-[-250px] lg:ml-0 min-[1512px]:mt-[-336px]"
+                        >
+                           <h3 className="text-xl sm:text-2xl">
+                              Schedule Example
+                           </h3>
+                           <ul className="list-none text-sm sm:text-base">
+                              <li className="py-2">9:00AM: OVERDUE setup</li>
+                              <li className="py-2">
+                                 9:45AM - 10:00AM: Team meet and greet
+                              </li>
+                              <li className="py-2">
+                                 10:00AM - 10:10AM: Safety talk and quick
+                                 training
+                              </li>
+                              <li className="py-2">
+                                 10:10AM - 12:00PM: Clean up, sort trash @
+                                 Venice Beach
+                              </li>
+                              <li className="py-2">
+                                 12:00PM - 12:20PM: Final sorting for
+                                 recyclables &amp; Report
+                              </li>
+                              <li className="py-2">
+                                 12:20PM: Data collection in detail using
+                                 Litteratti app (optional)
+                              </li>
+                           </ul>
+                        </Card>
+                     </div>
+                     {/* GOOD TO KNOW */}
+                     <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
+                        <Card
+                           variant="image"
+                           sx="w-full max-w-[600px] aspect-[627/836] sm:w-[590px] lg:w-full lg:mr-0"
+                        >
+                           <Image
+                              alt="itisOVERDUE volunteers working outside"
+                              src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690431157/sponsor/sponsor_ax4esc.jpg"
+                              fill
+                              className="object-contain"
+                           />
+                        </Card>
+                        <Card
+                           variant="text"
+                           sx="flex flex-col justify-center w-full max-w-[600px] text-white bg-black/[.85] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:w-[590px] lg:w-full lg:h-auto lg:mt-[-250px] lg:mr-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
+                        >
+                           <h3 className="text-xl sm:text-2xl">Good To Know</h3>
+                           <p className="text-lg py-4">
+                              <b>We will bring:</b> canopy, tarp, trash bags, 40
+                              grabbers, gloves, buckets, water cooler, foldable
+                              table, shifters for microplastics, itisOVERDUE
+                              banners, carts, scale, etc.
+                           </p>
+                           <p>(If you have branded supplies let us know.)</p>
                         </Card>
                      </div>
                   </div>
