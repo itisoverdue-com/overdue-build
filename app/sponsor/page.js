@@ -1,5 +1,10 @@
 import { useMemo } from "react"
 import Image from "next/image"
+import {
+   EnvelopeIcon,
+   PhoneIcon,
+   AtSymbolIcon,
+} from "@heroicons/react/24/outline"
 
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
@@ -274,7 +279,6 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-
                   <div className="w-full mt-12 md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24 xl:px-12">
                      {/* SCHEDULE EXAMPLE */}
                      <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
@@ -290,8 +294,8 @@ export default function Sponsor() {
                            />
                         </Card>
                         <Card
-                           variant="text"
-                           sx="flex flex-col justify-center w-full max-w-[600px] text-white bg-black/[.85] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:w-[590px] lg:w-full lg:h-auto lg:mt-[-250px] lg:ml-0 min-[1512px]:mt-[-336px]"
+                           variant="textDark"
+                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:mt-[-250px] lg:ml-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
                         >
                            <h3 className="text-xl sm:text-2xl">
                               Schedule Example
@@ -334,19 +338,133 @@ export default function Sponsor() {
                            />
                         </Card>
                         <Card
-                           variant="text"
-                           sx="flex flex-col justify-center w-full max-w-[600px] text-white bg-black/[.85] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:w-[590px] lg:w-full lg:h-auto lg:mt-[-250px] lg:mr-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
+                           variant="textDark"
+                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:min-h-[250px] lg:mt-[-250px] lg:mr-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
                         >
                            <h3 className="text-xl sm:text-2xl">Good To Know</h3>
-                           <p className="text-lg py-4">
+                           <p className="py-4 text-sm sm:text-base">
                               <b>We will bring:</b> canopy, tarp, trash bags, 40
                               grabbers, gloves, buckets, water cooler, foldable
                               table, shifters for microplastics, itisOVERDUE
                               banners, carts, scale, etc.
                            </p>
-                           <p>(If you have branded supplies let us know.)</p>
+                           <p className="text-sm sm:text-base">
+                              (If you have branded supplies let us know.)
+                           </p>
                         </Card>
                      </div>
+                  </div>
+                  {/* FOR THE PARTICIPANTS */}
+                  <div className="relative w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                     <Card
+                        variant="image"
+                        sx="w-full h-[90vw] min-h-[416px] max-h-[576px] lg:h-[656px] lg:max-h-[656px] aspect-[1236/656]"
+                     >
+                        <Image
+                           alt="itisOVERDUE team gathered outside"
+                           src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690480845/sponsor/sponsor_sc9ez1.jpg"
+                           fill
+                           className="object-cover scale-100"
+                        />
+                     </Card>
+                     <Card
+                        variant="textDark"
+                        sx="mt-[-150px] sm:mt-[-200px] lg:w-[65%] lg:h-[656px] lg:mt-[-656px] lg:ml-0 lg:rounded-l-3xl lg:rounded-r-none xl:w-[55%] min-[1512px]:w-[45%]"
+                     >
+                        <h3 className="text-xl sm:text-2xl">
+                           For the Participants
+                        </h3>
+                        <p className="py-2 text-sm font-bold sm:text-base">
+                           Appropriate Attire:
+                        </p>
+                        <p className="py-2 text-sm sm:text-base">
+                           Wear bright colors and close-toed shoes
+                        </p>
+                        <p className="py-2 text-sm font-bold sm:text-base">
+                           Gear:
+                        </p>
+                        <p className="py-2 text-sm sm:text-base">
+                           BYO water bottle (Please do not bring single use
+                           plastic bottled drinks)
+                        </p>
+                        <p className="py-2 text-sm font-bold sm:text-base">
+                           Liability:
+                        </p>
+                        <p className="py-2 text-sm sm:text-base">
+                           Since this will be a private event for a sponsorship,
+                           your business will be responsible for any
+                           liabilities.
+                        </p>
+                        <p className="py-2 text-sm font-bold sm:text-base">
+                           Photo/video release:
+                        </p>
+                        <p className="py-2 text-sm sm:text-base">
+                           We will request all participants to e-sign on-site
+                           upon arrival.
+                        </p>
+                        <p className="py-2 text-sm font-bold sm:text-base">
+                           Cancellation/ Rescheduling (due to extreme weather):
+                        </p>
+                        <p className="py-2 text-sm sm:text-base">
+                           It will be up to you, so if you need to cancel or
+                           reschedule, please let us know at least 12 hours in
+                           advance.
+                        </p>
+                     </Card>
+                  </div>
+               </div>
+            </section>
+
+            {/* <------- LET'S DO THIS -------> */}
+            <section id="lets-do-this" className="mt-24">
+               <div className="flex flex-col justify-center items-center">
+                  <SectionSubheader
+                     header="Let's Do This"
+                     sx="w-full"
+                     headerSx="text-center md:text-left"
+                  />
+                  <Card
+                     variant="image"
+                     sx="w-[70vw] aspect-[962/646] max-w-[646px] mt-8 sm:mt-12"
+                  >
+                     <Image
+                        alt="itisOVERDUE team gathered outside"
+                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690498715/sponsor/sponsor_zbhkww.jpg"
+                        fill
+                        className="object-cover scale-110 md:scale-100"
+                     />
+                  </Card>
+                  <Card
+                     variant="text"
+                     sx="w-full mt-[-30px] md:mt-[-60px] lg:w-[440px] lg:mt-[-90px] shadow-[10px_12px_2px_0px_rgba(0,0,0,0.8)]"
+                  >
+                     <div className="w-fit mx-auto text-darker-grey">
+                        <div className="flex items-center">
+                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                              <EnvelopeIcon className="h-6 w-6 sm:h-7 sm:w-7" />
+                           </div>
+                           <span className="sm:text-lg">
+                              admin@itisoverdue.org
+                           </span>
+                        </div>
+                        <div className="flex items-center my-2 sm:my-4">
+                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                              <AtSymbolIcon className="h-6 w-6 sm:h-7 sm:w-7" />
+                           </div>
+                           <span className="sm:text-lg">@itisoverdue</span>
+                        </div>
+                        <div className="flex items-center">
+                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                              <PhoneIcon className="h-6 w-6 sm:h-7 sm:w-7" />
+                           </div>
+                           <span className="sm:text-lg">(818) 854-5273</span>
+                        </div>
+                     </div>
+                  </Card>
+                  <div className="mt-12 sm:mt-16">
+                     <Button variant="primary" size="xl">
+                        Become a Sponsor
+                     </Button>
                   </div>
                </div>
             </section>
