@@ -18,7 +18,7 @@ export default function About() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/about_avmkds.jpg"
          />
          <FullBleedContainer
-            sx="bg-background border"
+            sx="bg-background"
             childSx="py-28 md:py-32 px-6 lg:px-12"
          >
             {/* IT IS OVERDUE */}
