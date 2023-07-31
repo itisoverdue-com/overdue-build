@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
+import Image from "next/image"
 
 export default function BlogPage() {
    const [blogs, setBlogs] = useState([])
@@ -57,7 +58,7 @@ export default function BlogPage() {
 
 const ListOfBlogs = ({ blogs }) => {
    return (
-      <ol>
+      <ol className="grid grid-cols-3 gap-20">
          {blogs.map((item) => (
             <BlogCard
                key={item.id}
@@ -71,7 +72,23 @@ const ListOfBlogs = ({ blogs }) => {
    )
 }
 const BlogCard = ({ date, title, author, slug, image }) => {
-   return <Card />
+   return (
+      <Card sx="flex flex-col overflow-hidden shadow-lg w-full">
+         {/* Image Container */}
+         <div className="relative aspect-video">
+            <Image
+               src={image}
+               alt={slug}
+               fill
+               style={{ objectFit: "cover" }}
+               sizes="450px"
+            />
+         </div>
+         <div className="px-5 py-7 text-start">
+            <h3>{title}</h3>
+         </div>
+      </Card>
+   )
 }
 
 /*
