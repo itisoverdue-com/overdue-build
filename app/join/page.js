@@ -45,9 +45,9 @@ export default function Join() {
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center"
          >
             {/* Image, Card to Apply Now */}
-            <section className="relative w-full">
+            <section className="relative w-full mb-40 md:mb-20 lg:mb-10 lg:h-[70vh]">
                {/* Image */}
-               <div className="aspect-square  h-auto rounded-3xl overflow-hidden relative mx-auto w-full md:aspect-video lg:w-10/12 lg:ml-auto ">
+               <div className="aspect-square h-auto rounded-3xl overflow-hidden relative mx-auto w-full  md:aspect-video lg:w-10/12 lg:ml-auto ">
                   <Image
                      src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690058756/join/IMG_8016_1_cnwb8t.jpg"
                      alt="overdue-team"
@@ -58,7 +58,7 @@ export default function Join() {
                </div>
 
                {/* Card to Apply */}
-               <div className="absolute  bg-white rounded-3xl shadow-lg z-10 flex flex-col space-y-3 top-2/3 p-5 w-11/12 left-1/2 -translate-x-1/2 md:w-3/4 lg:top-auto lg:left-0 lg:-translate-x-0 lg:space-y-6 lg:p-10 lg:w-1/2 lg:-bottom-10">
+               <div className="absolute  bg-white rounded-3xl shadow-lg z-10 flex flex-col space-y-3 p-5 w-11/12 -bottom-40 md:-bottom-20 md:w-3/4 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:left-0 lg:-bottom-10 lg:space-y-6 lg:p-10 lg:w-1/2 ">
                   {/* Card Header */}
                   <h3 className="text-xl lg:text-4xl font-semibold text-start">
                      Join a passionate team that cares about the environment!
@@ -96,7 +96,7 @@ export default function Join() {
             </section>
 
             {/* Roles */}
-            <section className="mt-64 md:mt-44 lg:mt-32 w-full">
+            <section className="w-full mt-12 md:mt-14 lg:mt-28">
                <div className="w-full lg:w-1/2 bg-white rounded-3xl shadow-lg mx-auto pt-10 px-10 pb-2 flex flex-col space-y-8 md:space-y-10">
                   <h4 className="text-center font-bold tracking-wide ">
                      Available Positions
