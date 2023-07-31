@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
+import Card from "@/components/shared/Card"
 
 export default function BlogPage() {
    const [blogs, setBlogs] = useState([])
@@ -28,11 +29,6 @@ export default function BlogPage() {
 
    console.log(blogs)
 
-   // Date
-   // Title
-   // Author
-   // Slug
-   // Image
    return (
       <div>
          <PageHero
@@ -49,7 +45,7 @@ export default function BlogPage() {
                {loading ? (
                   <p>Loading...</p>
                ) : blogs.length ? (
-                  <ol>BLOGS</ol>
+                  <ListOfBlogs blogs={blogs} />
                ) : (
                   <p>NO BLOGS</p>
                )}
@@ -58,3 +54,60 @@ export default function BlogPage() {
       </div>
    )
 }
+
+const ListOfBlogs = ({ blogs }) => {
+   return (
+      <ol>
+         {blogs.map((item) => (
+            <BlogCard
+               key={item.id}
+               date={item.date}
+               image={item.jetpack_featured_media_url}
+               title={item.title.rendered}
+               slug={item.slug}
+            />
+         ))}
+      </ol>
+   )
+}
+const BlogCard = ({ date, title, author, slug, image }) => {
+   return <Card />
+}
+
+/*
+   WordPress Blog Interface
+   acf: [],
+   author: number,
+   categories: number[],
+   comment_status: string,
+   content: {
+      protected: boolean,
+      rendered: string
+   },
+   date: Date,
+   date_gmt: Date,
+   excerpt: {
+      protected: boolean,
+      rendered: string
+   },
+   featured_media: number,
+   format: string,
+   guid: {
+      rendered: string
+   },
+   id: number,
+   jetpack_featured_media_url: string,
+   link: string,
+   meta: [],
+   modified: Date,
+   modified_gmt: Date,
+   ping_status: string,
+   slug: string,
+   sticky: boolean,
+   tags: number[],
+   template: string,
+   title: {
+      rendered: string
+   },
+   type: string
+*/
