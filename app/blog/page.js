@@ -1,34 +1,50 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
+
+async function getBlogs() {
+   const BASE = process.env.NEXT_PUBLIC_BASE_URL
+   const res = await fetch(`${BASE}/api/blogs`)
+   console.log(`${BASE}/api/blogs`)
+   console.log(res)
+   return res
+}
+
+async function getCharacters() {
+   return await (
+      await fetch("https://rickandmortyapi.com/api/character")
+   ).json()
+}
 
 export default function BlogPage() {
    const [blogs, setBlogs] = useState([])
    const [page, setPage] = useState(0)
    const [loading, setLoading] = useState(true)
    const [errors, setErrors] = useState(null)
+   const data = use(getBlogs())
+   console.log(data)
+   // const allCharacters = use(getCharacters())
+   // console.log(allCharacters)
+   // useEffect(() => {
 
-   useEffect(() => {
-      async function getBlogs() {
-         setLoading(true)
-         try {
-            const res = await fetch(
-               "https://blog.itisoverdue.org/wp-json/wp/v2/posts?per_page=100&order=desc&status=publish"
-            )
-            const data = await res.json()
-            setBlogs(data)
-         } catch (error) {
-            setErrors(error)
-         }
-         setLoading(false)
-      }
-      getBlogs()
-   }, [])
+   //    async function getBlogs() {
+   //       setLoading(true)
+   //       try {
+   //          console.log(`${BASE}/api/blogs`)
+   //          const res = await fetch(`${DOMAIN}/api`)
 
-   console.log(blogs)
+   //          const data = await res.json()
+   //          setBlogs(data)
+   //       } catch (error) {
+   //          setErrors(error)
+   //       }
+   //       setLoading(false)
+   //    }
+   //    getBlogs()
+   // }, [])
 
    return (
       <div>
@@ -90,41 +106,3 @@ const BlogCard = ({ date, title, author, slug, image }) => {
       </Card>
    )
 }
-
-/*
-   WordPress Blog Interface
-   acf: [],
-   author: number,
-   categories: number[],
-   comment_status: string,
-   content: {
-      protected: boolean,
-      rendered: string
-   },
-   date: Date,
-   date_gmt: Date,
-   excerpt: {
-      protected: boolean,
-      rendered: string
-   },
-   featured_media: number,
-   format: string,
-   guid: {
-      rendered: string
-   },
-   id: number,
-   jetpack_featured_media_url: string,
-   link: string,
-   meta: [],
-   modified: Date,
-   modified_gmt: Date,
-   ping_status: string,
-   slug: string,
-   sticky: boolean,
-   tags: number[],
-   template: string,
-   title: {
-      rendered: string
-   },
-   type: string
-*/
