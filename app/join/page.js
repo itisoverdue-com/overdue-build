@@ -1,11 +1,11 @@
 "use client"
 import { useRef } from "react"
 import PageHero from "@/components/shared/PageHero"
-import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import Image from "next/image"
 import Button from "@/components/shared/Button"
 import Card from "@/components/shared/Card"
+import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import { UserCircleIcon, ClipboardIcon } from "@heroicons/react/24/outline"
+import Image from "next/image"
 
 const positions = [
    "App Developer",
