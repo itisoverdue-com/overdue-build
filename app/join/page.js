@@ -4,6 +4,7 @@ import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Image from "next/image"
 import Button from "@/components/shared/Button"
+import Card from "@/components/shared/Card"
 import { UserCircleIcon, ClipboardIcon } from "@heroicons/react/24/outline"
 
 const positions = [
@@ -22,7 +23,6 @@ const positions = [
 ]
 export default function Join() {
    const rolesSection = useRef()
-   const applySection = useRef()
    const scrollDown = (ref) => {
       window.scrollTo({
          top: ref.current.offsetTop,
@@ -124,7 +124,7 @@ export default function Join() {
             </section>
 
             {/* Apply Card */}
-            <div className="mt-12 md:mt-14 lg:mt-28 bg-darker-grey text-white z-[1]  pt-6 pb-3 px-8 sm:pt-8 sm:pb-4 sm:px-14 shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] text-left leading-8 overflow-hidden rounded-3xl md:text-lg md:leading-10 flex flex-col space-y-3 md:space-y-6 md:w-2/3 md:text-start lg:w-1/3">
+            <Card sx="py-6 px-8 mt-12 md:mt-14 lg:mt-28 bg-darker-grey text-white overflow-hidden rounded-3xl flex flex-col space-y-3 md:space-y-6 md:w-2/3 md:text-start lg:w-1/3">
                <h4>
                   Ready to join <span className="text-primary">OVERDUE</span>?
                </h4>
@@ -142,13 +142,7 @@ export default function Join() {
                   <span>Click here to Apply Now!</span>{" "}
                   <ClipboardIcon className="w-6 h-6 ml-1.5" />
                </Button>
-
-               {/* Ref for Scroll */}
-               <div
-                  ref={applySection}
-                  className="bg-transparent text-transparent"
-               />
-            </div>
+            </Card>
          </FullBleedContainer>
       </div>
    )
