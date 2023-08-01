@@ -100,7 +100,7 @@ export default function Education() {
             </>
 
             {/* Events Grid Masonry */}
-            <section className="h-auto w-full columns-1 my-16 md:gap-6 md:columns-2 lg:gap-12 lg:my-20 ">
+            <section className="h-auto w-full columns-1 my-16 md:gap-6 md:columns-2 lg:columns-3 lg:gap-8 lg:my-20 ">
                {events.map((item, index) => (
                   <EventCard
                      key={`event-${index}`}
@@ -173,7 +173,7 @@ const EventCard = ({ image, aspect, title, text }) => {
          <p className="lg:text-lg">
             {text.split("\n").map((t, key) => {
                return (
-                  <span key={key} className="block mt-1 lg:mt-3">
+                  <span key={key} className="block mt-1">
                      {t}
                   </span>
                )
@@ -183,7 +183,7 @@ const EventCard = ({ image, aspect, title, text }) => {
    }
    return (
       <Card
-         sx={`mb-8 shadow-lg w-full h-auto overflow-hidden ${aspectRatio[aspect]} md:mb-6 lg:transtion-all lg:duration-150 lg:mb-12 lg:hover:scale-105 lg:hover:shadow-xl`}
+         sx={`mb-8 shadow-lg w-full h-auto overflow-hidden ${aspectRatio[aspect]} md:mb-6 lg:transtion-all lg:duration-150 lg:mb-8 lg:hover:scale-105 lg:hover:shadow-xl`}
       >
          {/* Image */}
          <Image
@@ -195,10 +195,8 @@ const EventCard = ({ image, aspect, title, text }) => {
          />
 
          {/* Title, Text */}
-         <div className=" bg-black text-white bg-opacity-80  text-start p-6 w-full absolute left-1/2 -translate-x-1/2 bottom-0 lg:rounded-2xl lg:w-11/12 lg:bottom-8">
-            <h3 className="text-primary mb-1 text-2xl lg:mb-3 lg:text-4xl">
-               {title}
-            </h3>
+         <div className=" bg-black text-white bg-opacity-80  text-start p-6 w-full absolute left-1/2 -translate-x-1/2 bottom-0">
+            <h3 className="text-primary mb-1 text-2xl">{title}</h3>
             {renderText(text)}
          </div>
       </Card>
