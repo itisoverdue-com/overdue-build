@@ -4,11 +4,7 @@ import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Image from "next/image"
 import Button from "@/components/shared/Button"
-import {
-   ArrowDownCircleIcon,
-   UserCircleIcon,
-   ClipboardIcon,
-} from "@heroicons/react/24/outline"
+import { UserCircleIcon, ClipboardIcon } from "@heroicons/react/24/outline"
 
 const positions = [
    "App Developer",
@@ -74,13 +70,14 @@ export default function Join() {
                   {/* Apply Now, See Roles */}
                   <div className="flex space-y-3 lg:flex-row flex-col lg:space-y-0 lg:space-x-3">
                      <Button
-                        onClick={() => scrollDown(applySection)}
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSc0Z5pflTL4IqI8AECPfMcTc6g9doGUrgr3ZUbp63BR-knRZA/viewform?usp=sharing"
+                        target="_blank"
                         size="lg"
                         variant="primary"
                         fullWidth
                      >
                         <span>Apply Now</span>{" "}
-                        <ArrowDownCircleIcon className="w-6 h-6 ml-1.5" />
+                        <ClipboardIcon className="w-6 h-6 ml-1.5" />
                      </Button>
                      <Button
                         onClick={() => scrollDown(rolesSection)}
@@ -136,7 +133,7 @@ export default function Join() {
                   communities clean!
                </p>
                <Button
-                  href="/"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc0Z5pflTL4IqI8AECPfMcTc6g9doGUrgr3ZUbp63BR-knRZA/viewform?usp=sharing"
                   size="lg"
                   variant="primary"
                   target="_blank"
