@@ -1,14 +1,34 @@
 import { NextResponse } from "next/server"
 export async function GET() {
-   console.log("\n\n\n♥ GET BLOGS")
-   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-   console.log(res)
-   // const res = await fetch(
-   //    "https://blog.itisoverdue.org/wp-json/wp/v2/posts?per_page=100&order=desc&status=publish"
-   // )
-   // const data = await res.json()
+   const res = await fetch(
+      `https://blog.itisoverdue.org/wp-json/wp/v2/posts?_embed=author&per_page=100&order=desc&status=publish`
+   )
+   let data = await res.json()
+   data = sectionArray(data, 6)
 
-   return NextResponse.json(res)
+   return NextResponse.json(data)
+}
+
+/**
+ *
+ * @param {array} array
+ * @param {number} chunkSize
+ * @returns Object of page numbers as keys and "chunkSized" arrays as value
+ * Ex.
+ *    data = {
+ *       0: [{...}, {...}],
+ *       1: [{...}, {...}],
+ *       2: [{...}]
+ *    }
+ */
+function sectionArray(array, chunkSize) {
+   let [res, pageCount] = [{}, 0]
+
+   for (let i = 0; i < array.length; i += chunkSize) {
+      res[pageCount] = array.slice(i, i + chunkSize)
+      pageCount++
+   }
+   return res
 }
 
 /*

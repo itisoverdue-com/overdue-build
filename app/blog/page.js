@@ -1,11 +1,31 @@
 "use client"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import React from "react"
+import { useState, useEffect, use } from "react"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
 
 export default function BlogPage() {
+   const [loading, setLoading] = useState(true)
+   const [errors, setErrors] = useState(null)
+   const [blogs, setBlogs] = useState([])
+
+   useEffect(() => {
+      async function fetchBlogs() {
+         setLoading(true)
+         try {
+            const res = await fetch("/api/blogs")
+            const data = await res.json()
+            console.log(data)
+            setBlogs(data)
+         } catch (error) {
+            console.log(error)
+            setErrors(error)
+         }
+         setLoading(false)
+      }
+      fetchBlogs()
+   }, [])
    return (
       <div>
          <PageHero
