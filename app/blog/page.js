@@ -8,7 +8,8 @@ import Image from "next/image"
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
    const [errors, setErrors] = useState(null)
-   const [blogs, setBlogs] = useState([])
+   const [blogs, setBlogs] = useState(null)
+   const [page, setPage] = useState(0)
 
    useEffect(() => {
       async function fetchBlogs() {
@@ -16,16 +17,16 @@ export default function BlogPage() {
          try {
             const res = await fetch("/api/blogs")
             const data = await res.json()
-            console.log(data)
             setBlogs(data)
          } catch (error) {
-            console.log(error)
             setErrors(error)
          }
          setLoading(false)
       }
       fetchBlogs()
    }, [])
+
+   const handlePageChange = (newPage) => setPage(newPage)
    return (
       <div>
          <PageHero
@@ -37,11 +38,20 @@ export default function BlogPage() {
             sx="bg-background"
             childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
          >
-            <h1>HEI</h1>
-            {/* Title, Accent Line, Subheader */}
-            {/* <section>
-               <Blog blogs={blogs} />
-            </section> */}
+            <section>
+               {loading ? (
+                  <h3>Loading...</h3>
+               ) : (
+                  <>
+                     <ListOfBlogs blogs={blogs[page]} />
+                     <Pagination
+                        numberOfPages={Object.keys(blogs).length}
+                        currentPage={page}
+                        handlePageChange={handlePageChange}
+                     />
+                  </>
+               )}
+            </section>
          </FullBleedContainer>
       </div>
    )
@@ -62,6 +72,7 @@ const ListOfBlogs = ({ blogs }) => {
       </ol>
    )
 }
+
 const BlogCard = ({ date, title, author, slug, image }) => {
    return (
       <Card sx="flex flex-col overflow-hidden shadow-lg w-full">
@@ -79,5 +90,30 @@ const BlogCard = ({ date, title, author, slug, image }) => {
             <h3>{title}</h3>
          </div>
       </Card>
+   )
+}
+
+const Pagination = ({ numberOfPages, currentPage, handlePageChange }) => {
+   const handleClick = (e) => {
+      handlePageChange(parseInt(e.currentTarget.name.split("-")[1]))
+   }
+
+   return (
+      <ol className="flex space-x-3 justify-center">
+         {Array.from({ length: numberOfPages }).map((_item, index) => (
+            <button
+               key={index}
+               name={`pagination-${index}`}
+               onClick={handleClick}
+               className={`${
+                  index === currentPage
+                     ? "bg-primary "
+                     : "bg-darkest-grey text-white hover:text-primary hover:bg-black transition-all"
+               }  aspect-square w-11 rounded-lg`}
+            >
+               {index + 1}
+            </button>
+         ))}
+      </ol>
    )
 }
