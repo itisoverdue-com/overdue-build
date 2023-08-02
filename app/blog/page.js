@@ -1,48 +1,11 @@
+"use client"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import Blog from "@/components/Pages/Blog"
+import React from "react"
+import Card from "@/components/shared/Card"
+import Image from "next/image"
 
-async function getData() {
-   const BASE = process.env.NEXT_PUBLIC_BASE_URL
-   const res = await fetch(`${BASE}/api/blogs`, { method: "GET" })
-   const { data, error } = await res.json()
-
-   if (error >= 400) {
-      console.log("ERROR HERE")
-   }
-   return data
-}
-
-// async function getData() {
-//    const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-//    // The return value is *not* serialized
-//    // You can return Date, Map, Set, etc.
-
-//    if (!res.ok) {
-//       // This will activate the closest `error.js` Error Boundary
-//       throw new Error("Failed to fetch data")
-//    }
-
-//    return res.json()
-// }
-
-// const BASE = process.env.NEXT_PUBLIC_BASE_URL
-// const res = await fetch(`${BASE}/api/user`, {
-//     method: 'POST',
-//     body: JSON.stringify(code),
-// })
-// const { data, error } = await res.json()
-
-// if (error === 401) {
-//     redirect(endpoints.login)
-// } else if (error > 400) {
-//     redirect('/')
-// }
-// return data
-
-export default async function BlogPage() {
-   const data = await getData()
-
+export default function BlogPage() {
    return (
       <div>
          <PageHero
@@ -61,5 +24,40 @@ export default async function BlogPage() {
             </section> */}
          </FullBleedContainer>
       </div>
+   )
+}
+
+const ListOfBlogs = ({ blogs }) => {
+   return (
+      <ol className="grid grid-cols-3 gap-20">
+         {blogs.map((item) => (
+            <BlogCard
+               key={item.id}
+               date={item.date}
+               image={item.jetpack_featured_media_url}
+               title={item.title.rendered}
+               slug={item.slug}
+            />
+         ))}
+      </ol>
+   )
+}
+const BlogCard = ({ date, title, author, slug, image }) => {
+   return (
+      <Card sx="flex flex-col overflow-hidden shadow-lg w-full">
+         {/* Image Container */}
+         <div className="relative aspect-video">
+            <Image
+               src={image}
+               alt={slug}
+               fill
+               style={{ objectFit: "cover" }}
+               sizes="450px"
+            />
+         </div>
+         <div className="px-5 py-7 text-start">
+            <h3>{title}</h3>
+         </div>
+      </Card>
    )
 }
