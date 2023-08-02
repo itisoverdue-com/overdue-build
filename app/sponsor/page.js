@@ -152,7 +152,7 @@ export default function Sponsor() {
                   >
                      <Image
                         alt="itisOVERDUE team gathered outside"
-                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor_iinfeq.jpg"
+                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690480845/sponsor/sponsor_sc9ez1.jpg"
                         fill
                         className="object-cover scale-125 lg:scale-100"
                      />
