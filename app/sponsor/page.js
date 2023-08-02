@@ -174,7 +174,7 @@ export default function Sponsor() {
                      headerSx="text-center md:text-left"
                   />
                   {/* SPONSOR LOGOS */}
-                  <div className="flex flex-wrap items-center w-full mt-4 lg:px-12 xl:px-20">
+                  <Card sx="flex flex-wrap items-center w-full mt-4 lg:px-12 xl:px-20 shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] bg-white">
                      {sponsors.map((logo) => {
                         return (
                            <div
@@ -194,7 +194,7 @@ export default function Sponsor() {
                            </div>
                         )
                      })}
-                  </div>
+                  </Card>
                   {/* WHY CORPORATE CLEANUP */}
                   <div className="w-full mt-12 lg:mt-16 xl:px-12">
                      <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
