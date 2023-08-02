@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server"
-
 export async function GET() {
-   console.log("\n\n\n\nGET BLOGS\n\n\n")
-   const res = await fetch(
-      "https://blog.itisoverdue.org/wp-json/wp/v2/posts?per_page=100&order=desc&status=publish"
-   )
-   const data = await res.json()
+   console.log("\n\n\n♥ GET BLOGS")
+   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+   console.log(res)
+   // const res = await fetch(
+   //    "https://blog.itisoverdue.org/wp-json/wp/v2/posts?per_page=100&order=desc&status=publish"
+   // )
+   // const data = await res.json()
 
-   return NextResponse.json({ hello: "Jane" })
+   return NextResponse.json(res)
 }
 
 /*

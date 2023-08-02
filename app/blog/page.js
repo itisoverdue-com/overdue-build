@@ -1,50 +1,47 @@
-"use client"
-import { useState, useEffect, use } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import Card from "@/components/shared/Card"
-import Image from "next/image"
+import Blog from "@/components/Pages/Blog"
 
-async function getBlogs() {
+async function getData() {
    const BASE = process.env.NEXT_PUBLIC_BASE_URL
-   const res = await fetch(`${BASE}/api/blogs`)
-   console.log(`${BASE}/api/blogs`)
-   console.log(res)
-   return res
+   const res = await fetch(`${BASE}/api/blogs`, { method: "GET" })
+   const { data, error } = await res.json()
+
+   if (error >= 400) {
+      console.log("ERROR HERE")
+   }
+   return data
 }
 
-async function getCharacters() {
-   return await (
-      await fetch("https://rickandmortyapi.com/api/character")
-   ).json()
-}
+// async function getData() {
+//    const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+//    // The return value is *not* serialized
+//    // You can return Date, Map, Set, etc.
 
-export default function BlogPage() {
-   const [blogs, setBlogs] = useState([])
-   const [page, setPage] = useState(0)
-   const [loading, setLoading] = useState(true)
-   const [errors, setErrors] = useState(null)
-   const data = use(getBlogs())
-   console.log(data)
-   // const allCharacters = use(getCharacters())
-   // console.log(allCharacters)
-   // useEffect(() => {
+//    if (!res.ok) {
+//       // This will activate the closest `error.js` Error Boundary
+//       throw new Error("Failed to fetch data")
+//    }
 
-   //    async function getBlogs() {
-   //       setLoading(true)
-   //       try {
-   //          console.log(`${BASE}/api/blogs`)
-   //          const res = await fetch(`${DOMAIN}/api`)
+//    return res.json()
+// }
 
-   //          const data = await res.json()
-   //          setBlogs(data)
-   //       } catch (error) {
-   //          setErrors(error)
-   //       }
-   //       setLoading(false)
-   //    }
-   //    getBlogs()
-   // }, [])
+// const BASE = process.env.NEXT_PUBLIC_BASE_URL
+// const res = await fetch(`${BASE}/api/user`, {
+//     method: 'POST',
+//     body: JSON.stringify(code),
+// })
+// const { data, error } = await res.json()
+
+// if (error === 401) {
+//     redirect(endpoints.login)
+// } else if (error > 400) {
+//     redirect('/')
+// }
+// return data
+
+export default async function BlogPage() {
+   const data = await getData()
 
    return (
       <div>
@@ -57,52 +54,12 @@ export default function BlogPage() {
             sx="bg-background"
             childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
          >
+            <h1>HEI</h1>
             {/* Title, Accent Line, Subheader */}
-            <section>
-               {loading ? (
-                  <p>Loading...</p>
-               ) : blogs.length ? (
-                  <ListOfBlogs blogs={blogs} />
-               ) : (
-                  <p>NO BLOGS</p>
-               )}
-            </section>
+            {/* <section>
+               <Blog blogs={blogs} />
+            </section> */}
          </FullBleedContainer>
       </div>
-   )
-}
-
-const ListOfBlogs = ({ blogs }) => {
-   return (
-      <ol className="grid grid-cols-3 gap-20">
-         {blogs.map((item) => (
-            <BlogCard
-               key={item.id}
-               date={item.date}
-               image={item.jetpack_featured_media_url}
-               title={item.title.rendered}
-               slug={item.slug}
-            />
-         ))}
-      </ol>
-   )
-}
-const BlogCard = ({ date, title, author, slug, image }) => {
-   return (
-      <Card sx="flex flex-col overflow-hidden shadow-lg w-full">
-         {/* Image Container */}
-         <div className="relative aspect-video">
-            <Image
-               src={image}
-               alt={slug}
-               fill
-               style={{ objectFit: "cover" }}
-               sizes="450px"
-            />
-         </div>
-         <div className="px-5 py-7 text-start">
-            <h3>{title}</h3>
-         </div>
-      </Card>
    )
 }
