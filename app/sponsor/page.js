@@ -136,7 +136,7 @@ export default function Sponsor() {
                         Together
                      </h3>
                      <div className="max-md:hidden border-t-8 border-primary w-20 rounded-full my-2 mx-0" />
-                     <p className="mt-4 text-left sm:max-md:text-center">
+                     <p className="mt-4 text-left sm:max-md:text-center leading-10 text-lg">
                         Inspire and educate the community to take action for a
                         better tomorrow.
                      </p>
