@@ -1,15 +1,28 @@
 "use client"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import { useState, useEffect, use } from "react"
+import { useState, useEffect, useRef } from "react"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
+import Button from "@/components/shared/Button"
+import {
+   ArrowLeftCircleIcon,
+   ArrowRightCircleIcon,
+} from "@heroicons/react/24/outline"
 
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
    const [errors, setErrors] = useState(null)
    const [blogs, setBlogs] = useState(null)
    const [page, setPage] = useState(0)
+   const blogSectionRef = useRef(null)
+   const scrollToRef = (ref) => {
+      const offset = ref.current.offsetTop * 3
+      window.scrollTo({
+         top: offset,
+         behavior: "smooth",
+      })
+   }
 
    useEffect(() => {
       async function fetchBlogs() {
@@ -26,7 +39,10 @@ export default function BlogPage() {
       fetchBlogs()
    }, [])
 
-   const handlePageChange = (newPage) => setPage(newPage)
+   const handlePageChange = (newPage) => {
+      setPage(newPage)
+      scrollToRef(blogSectionRef)
+   }
    return (
       <div>
          <PageHero
@@ -36,9 +52,9 @@ export default function BlogPage() {
          />
          <FullBleedContainer
             sx="bg-background"
-            childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
+            childSx="py-28 text-center md:py-32"
          >
-            <section>
+            <section ref={blogSectionRef}>
                {loading ? (
                   <h3>Loading...</h3>
                ) : (
@@ -46,7 +62,7 @@ export default function BlogPage() {
                      <ListOfBlogs blogs={blogs[page]} />
                      <Pagination
                         numberOfPages={Object.keys(blogs).length}
-                        currentPage={page}
+                        page={page}
                         handlePageChange={handlePageChange}
                      />
                   </>
@@ -59,7 +75,7 @@ export default function BlogPage() {
 
 const ListOfBlogs = ({ blogs }) => {
    return (
-      <ol className="grid grid-cols-3 gap-20">
+      <ol className=" grid  w-full gap-6 mb-12 lg:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:h-[800px]">
          {blogs.map((item) => (
             <BlogCard
                key={item.id}
@@ -75,7 +91,7 @@ const ListOfBlogs = ({ blogs }) => {
 
 const BlogCard = ({ date, title, author, slug, image }) => {
    return (
-      <Card sx="flex flex-col overflow-hidden shadow-lg w-full">
+      <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4]">
          {/* Image Container */}
          <div className="relative aspect-video">
             <Image
@@ -93,27 +109,58 @@ const BlogCard = ({ date, title, author, slug, image }) => {
    )
 }
 
-const Pagination = ({ numberOfPages, currentPage, handlePageChange }) => {
-   const handleClick = (e) => {
+const Pagination = ({ numberOfPages, page, handlePageChange }) => {
+   const handlePaginationClick = (e) => {
       handlePageChange(parseInt(e.currentTarget.name.split("-")[1]))
    }
 
+   const handleNavClick = (next) => {
+      next
+         ? handlePageChange((prevState) => prevState + 1)
+         : handlePageChange((prevState) => prevState - 1)
+   }
+
    return (
-      <ol className="flex space-x-3 justify-center">
-         {Array.from({ length: numberOfPages }).map((_item, index) => (
-            <button
-               key={index}
-               name={`pagination-${index}`}
-               onClick={handleClick}
-               className={`${
-                  index === currentPage
-                     ? "bg-primary "
-                     : "bg-darkest-grey text-white hover:text-primary hover:bg-black transition-all"
-               }  aspect-square w-11 rounded-lg`}
-            >
-               {index + 1}
-            </button>
-         ))}
-      </ol>
+      <>
+         <ol className="lg:flex space-x-5 justify-center hidden">
+            {Array.from({ length: numberOfPages }).map((_item, index) => (
+               <button
+                  key={index}
+                  name={`pagination-${index}`}
+                  onClick={handlePaginationClick}
+                  className={`${
+                     index === page
+                        ? "bg-primary "
+                        : "bg-darker-grey text-white hover:text-primary hover:bg-black transition-all"
+                  }  aspect-square w-11 rounded-lg`}
+               >
+                  {index + 1}
+               </button>
+            ))}
+         </ol>
+         <div className="flex w-full justify-center space-x-10 lg:hidden">
+            {page !== 0 && (
+               <Button
+                  variant="dark"
+                  size="xl"
+                  onClick={() => handleNavClick(false)}
+               >
+                  <ArrowLeftCircleIcon className="w-6 h-6 mr-1.5" />
+                  <span>Prev</span>
+               </Button>
+            )}
+
+            {page !== numberOfPages - 1 && (
+               <Button
+                  variant="dark"
+                  size="xl"
+                  onClick={() => handleNavClick(true)}
+               >
+                  <span>Next</span>
+                  <ArrowRightCircleIcon className="w-6 h-6 ml-1.5" />
+               </Button>
+            )}
+         </div>
+      </>
    )
 }
