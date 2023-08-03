@@ -9,7 +9,9 @@ import {
    ArrowLeftCircleIcon,
    ArrowRightCircleIcon,
 } from "@heroicons/react/24/outline"
+import { UserIcon } from "@heroicons/react/24/solid"
 import parse from "html-react-parser"
+import { DateTime } from "luxon"
 
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
@@ -44,10 +46,7 @@ export default function BlogPage() {
       setPage(newPage)
       scrollToRef(blogSectionRef)
    }
-   const renderHTML = (rawHTML, htmlElement) =>
-      React.createElement(htmlElement, {
-         dangerouslySetInnerHTML: { __html: rawHTML },
-      })
+
    return (
       <div>
          <PageHero
@@ -87,6 +86,7 @@ const ListOfBlogs = ({ blogs }) => {
                date={item.date}
                image={item.jetpack_featured_media_url}
                title={item.title.rendered}
+               author={item._embedded.author[0].name}
                slug={item.slug}
             />
          ))}
@@ -95,14 +95,11 @@ const ListOfBlogs = ({ blogs }) => {
 }
 
 const BlogCard = ({ date, title, author, slug, image }) => {
-   const renderHTML = (rawHTML, htmlElement) =>
-      createElement(htmlElement, {
-         dangerouslySetInnerHTML: { __html: rawHTML },
-      })
+   console.log(date)
    return (
-      <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4]">
-         {/* Image Container */}
-         <div className="relative aspect-video">
+      <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white">
+         {/* Card: Image */}
+         <div className="relative aspect-video bg-light-grey">
             <Image
                src={image}
                alt={slug}
@@ -111,8 +108,17 @@ const BlogCard = ({ date, title, author, slug, image }) => {
                sizes="450px"
             />
          </div>
-         <div className="px-5 py-7 text-start">
+         {/* Card: Content */}
+         <div className="px-5 py-7 text-start relative border-t">
+            {/* Blog - Title */}
             <h3>{parse(title)}</h3>
+            {/* Blog - Date */}
+
+            {/* Blog - Author */}
+            <p className="text-sm bg-darkest-grey text-white px-4 py-2 rounded-t-xl w-max absolute bottom-full right-3">
+               <UserIcon className="w-4 h-4 mr-1 inline-block mb-0.5" />{" "}
+               <span>{author}</span>
+            </p>
          </div>
       </Card>
    )
