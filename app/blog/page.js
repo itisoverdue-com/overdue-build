@@ -111,7 +111,7 @@ const ListOfBlogs = ({ blogs }) => {
 
 const BlogCard = ({ date, title, author, slug, image }) => {
    return (
-      <Link href={`/`}>
+      <Link href={`/blog/${slug}`}>
          <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
             {/* Card: Image */}
             <div className="relative aspect-video bg-light-grey">
