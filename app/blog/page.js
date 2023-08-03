@@ -4,6 +4,7 @@ import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer
 import { useState, useEffect, useRef } from "react"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
+import Link from "next/link"
 import Button from "@/components/shared/Button"
 import {
    ArrowLeftCircleIcon,
@@ -110,37 +111,39 @@ const ListOfBlogs = ({ blogs }) => {
 
 const BlogCard = ({ date, title, author, slug, image }) => {
    return (
-      <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white">
-         {/* Card: Image */}
-         <div className="relative aspect-video bg-light-grey">
-            <Image
-               src={image}
-               alt={slug}
-               fill
-               style={{ objectFit: "cover" }}
-               sizes="450px"
-            />
-         </div>
-         {/* Card: Content */}
-         <div className="px-5 pb-5 pt-12 text-start relative border-t">
-            {/* Blog - Title */}
-            <h3>{parse(title)}</h3>
-            {/* Blog - Date */}
-            <div className="bg-primary px-3 py-2 rounded-lg w-max absolute bottom-3/4 bg-opacity-75 backdrop-blur-sm left-5">
-               <span className="text-3xl block text-center font-bold tracking-tighter md:text-4xl lg:text-5xl">
-                  {date.day}
-               </span>
-               <span className="md:text-lg  block text-center lg:text-xl">
-                  {date.monthYear}
-               </span>
+      <Link href={`/`}>
+         <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
+            {/* Card: Image */}
+            <div className="relative aspect-video bg-light-grey">
+               <Image
+                  src={image}
+                  alt={slug}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="450px"
+               />
             </div>
-            {/* Blog - Author */}
-            <p className="text-sm bg-darker-grey text-primary  px-4 py-2 rounded-t-lg w-max absolute bottom-full right-5 lg:text-base">
-               <UserIcon className="w-4 h-4 mr-1 inline-block mb-0.5" />{" "}
-               <span>{author}</span>
-            </p>
-         </div>
-      </Card>
+            {/* Card: Content */}
+            <div className="px-5 pb-5 pt-12 text-start relative ">
+               {/* Blog - Title */}
+               <h3>{parse(title)}</h3>
+               {/* Blog - Date */}
+               <div className="bg-primary px-3 py-2 rounded-lg w-max absolute bottom-3/4 bg-opacity-75 backdrop-blur-sm left-5 shadow-md">
+                  <span className="text-3xl block text-center font-bold tracking-tighter md:text-4xl lg:text-5xl">
+                     {date.day}
+                  </span>
+                  <span className="md:text-lg  block text-center lg:text-xl">
+                     {date.monthYear}
+                  </span>
+               </div>
+               {/* Blog - Author */}
+               <p className="text-sm bg-darker-grey text-primary  px-4 py-2 rounded-t-lg w-max absolute bottom-full right-5 lg:text-base">
+                  <UserIcon className="w-4 h-4 mr-1 inline-block mb-0.5" />{" "}
+                  <span>{author}</span>
+               </p>
+            </div>
+         </Card>
+      </Link>
    )
 }
 
