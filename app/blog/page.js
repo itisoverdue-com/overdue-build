@@ -23,7 +23,7 @@ export default function BlogPage() {
    const [page, setPage] = useState(0)
    const blogSectionRef = useRef(null)
    const scrollToRef = (ref) => {
-      const offset = ref.current.offsetTop * 3
+      const offset = ref.current.offsetTop * 4.8
       window.scrollTo({
          top: offset,
          behavior: "smooth",
@@ -98,7 +98,7 @@ const ListOfBlogs = ({ blogs }) => {
       }
    }
    return (
-      <ol className=" grid  w-full gap-6 mb-12 lg:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:h-[800px]">
+      <ol className=" grid w-full gap-6 mb-12 md:grid-cols-2 lg:gap-10 lg:grid-cols-3 lg:h-[800px]">
          {blogs.map((item) => (
             <BlogCard
                key={item.id}
@@ -163,7 +163,7 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
    return (
       <>
          {/* <--- Pagination for Desktop ---> */}
-         <ol className="lg:flex space-x-5 justify-center hidden">
+         <ol className="lg:flex space-x-4 justify-center hidden">
             {Array.from({ length: numberOfPages }).map((_item, index) => (
                <button
                   key={index}
@@ -173,7 +173,7 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
                      index === page
                         ? "bg-primary "
                         : "bg-darker-grey text-white hover:text-primary hover:bg-black transition-all"
-                  }  aspect-square w-11 rounded-lg`}
+                  }  aspect-square w-10 rounded-lg text-xl`}
                >
                   {index + 1}
                </button>
