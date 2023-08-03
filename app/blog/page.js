@@ -1,7 +1,7 @@
 "use client"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, createElement } from "react"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
 import Button from "@/components/shared/Button"
@@ -9,6 +9,7 @@ import {
    ArrowLeftCircleIcon,
    ArrowRightCircleIcon,
 } from "@heroicons/react/24/outline"
+import parse from "html-react-parser"
 
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
@@ -43,6 +44,10 @@ export default function BlogPage() {
       setPage(newPage)
       scrollToRef(blogSectionRef)
    }
+   const renderHTML = (rawHTML, htmlElement) =>
+      React.createElement(htmlElement, {
+         dangerouslySetInnerHTML: { __html: rawHTML },
+      })
    return (
       <div>
          <PageHero
@@ -90,6 +95,10 @@ const ListOfBlogs = ({ blogs }) => {
 }
 
 const BlogCard = ({ date, title, author, slug, image }) => {
+   const renderHTML = (rawHTML, htmlElement) =>
+      createElement(htmlElement, {
+         dangerouslySetInnerHTML: { __html: rawHTML },
+      })
    return (
       <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4]">
          {/* Image Container */}
@@ -103,7 +112,7 @@ const BlogCard = ({ date, title, author, slug, image }) => {
             />
          </div>
          <div className="px-5 py-7 text-start">
-            <h3>{title}</h3>
+            <h3>{parse(title)}</h3>
          </div>
       </Card>
    )
@@ -122,6 +131,7 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
 
    return (
       <>
+         {/* <--- Pagination for Desktop ---> */}
          <ol className="lg:flex space-x-5 justify-center hidden">
             {Array.from({ length: numberOfPages }).map((_item, index) => (
                <button
@@ -138,6 +148,8 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
                </button>
             ))}
          </ol>
+
+         {/* <--- Navigation for Mobile ---> */}
          <div className="flex w-full justify-center space-x-10 lg:hidden">
             {page !== 0 && (
                <Button
