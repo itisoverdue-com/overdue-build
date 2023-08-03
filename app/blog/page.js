@@ -9,6 +9,8 @@ import Button from "@/components/shared/Button"
 import {
    ArrowLeftCircleIcon,
    ArrowRightCircleIcon,
+   ExclamationTriangleIcon,
+   GlobeAltIcon,
 } from "@heroicons/react/24/outline"
 import { UserIcon } from "@heroicons/react/24/solid"
 import parse from "html-react-parser"
@@ -16,7 +18,7 @@ import { DateTime } from "luxon"
 
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
-   const [errors, setErrors] = useState(null)
+   const [error, setError] = useState(null)
    const [blogs, setBlogs] = useState(null)
    const [page, setPage] = useState(0)
    const blogSectionRef = useRef(null)
@@ -35,8 +37,8 @@ export default function BlogPage() {
             const res = await fetch("/api/blogs")
             const data = await res.json()
             setBlogs(data)
-         } catch (error) {
-            setErrors(error)
+         } catch (err) {
+            setError(err)
          }
          setLoading(false)
       }
@@ -60,8 +62,10 @@ export default function BlogPage() {
             childSx="py-28 text-center md:py-32"
          >
             <section ref={blogSectionRef}>
-               {loading ? (
-                  <h3>Loading...</h3>
+               {error ? (
+                  <Error />
+               ) : loading ? (
+                  <Loading />
                ) : (
                   <>
                      <ListOfBlogs blogs={blogs[page]} />
@@ -148,15 +152,13 @@ const BlogCard = ({ date, title, author, slug, image }) => {
 }
 
 const Pagination = ({ numberOfPages, page, handlePageChange }) => {
-   const handlePaginationClick = (e) => {
+   const handlePaginationClick = (e) =>
       handlePageChange(parseInt(e.currentTarget.name.split("-")[1]))
-   }
 
-   const handleNavClick = (next) => {
+   const handleNavClick = (next) =>
       next
          ? handlePageChange((prevState) => prevState + 1)
          : handlePageChange((prevState) => prevState - 1)
-   }
 
    return (
       <>
@@ -203,5 +205,25 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
             )}
          </div>
       </>
+   )
+}
+
+const Loading = () => {
+   return (
+      <div className="w-1/2 md:w-1/4 lg:w-1/6 mx-auto text-light-grey py-36">
+         <GlobeAltIcon className="animate-pulse  mx-auto inline-block" />
+         <h3 className="text-4xl mt-3">Loading...</h3>
+      </div>
+   )
+}
+
+const Error = () => {
+   return (
+      <div className=" lg:w-1/2 mx-auto text-light-grey py-36">
+         <ExclamationTriangleIcon className="mx-auto inline-block w-1/4 md:w-1/6 lg:w-1/4" />
+         <h3 className="text-2xl md:text-4xl mt-3">
+            Oops, something went wrong.
+         </h3>
+      </div>
    )
 }
