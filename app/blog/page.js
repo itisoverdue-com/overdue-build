@@ -1,7 +1,7 @@
 "use client"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
-import { useState, useEffect, useRef, createElement } from "react"
+import { useState, useEffect, useRef } from "react"
 import Card from "@/components/shared/Card"
 import Image from "next/image"
 import Button from "@/components/shared/Button"
@@ -78,12 +78,26 @@ export default function BlogPage() {
 }
 
 const ListOfBlogs = ({ blogs }) => {
+   function formatDate(date) {
+      const [month, day, year] = DateTime.fromISO(date)
+         .toLocaleString({
+            month: "short",
+            day: "2-digit",
+            year: "2-digit",
+         })
+         .split(" ")
+
+      return {
+         monthYear: `${month}'${year}`,
+         day: `${day.slice(0, 2)}`,
+      }
+   }
    return (
       <ol className=" grid  w-full gap-6 mb-12 lg:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:h-[800px]">
          {blogs.map((item) => (
             <BlogCard
                key={item.id}
-               date={item.date}
+               date={formatDate(item.date)}
                image={item.jetpack_featured_media_url}
                title={item.title.rendered}
                author={item._embedded.author[0].name}
@@ -95,7 +109,6 @@ const ListOfBlogs = ({ blogs }) => {
 }
 
 const BlogCard = ({ date, title, author, slug, image }) => {
-   console.log(date)
    return (
       <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white">
          {/* Card: Image */}
@@ -109,13 +122,20 @@ const BlogCard = ({ date, title, author, slug, image }) => {
             />
          </div>
          {/* Card: Content */}
-         <div className="px-5 py-7 text-start relative border-t">
+         <div className="px-5 pb-5 pt-12 text-start relative border-t">
             {/* Blog - Title */}
             <h3>{parse(title)}</h3>
             {/* Blog - Date */}
-
+            <div className="bg-primary px-3 py-2 rounded-lg w-max absolute bottom-3/4 bg-opacity-75 backdrop-blur-sm left-5">
+               <span className="text-3xl block text-center font-bold tracking-tighter md:text-4xl lg:text-5xl">
+                  {date.day}
+               </span>
+               <span className="md:text-lg  block text-center lg:text-xl">
+                  {date.monthYear}
+               </span>
+            </div>
             {/* Blog - Author */}
-            <p className="text-sm bg-darkest-grey text-white px-4 py-2 rounded-t-xl w-max absolute bottom-full right-3">
+            <p className="text-sm bg-darker-grey text-primary  px-4 py-2 rounded-t-lg w-max absolute bottom-full right-5 lg:text-base">
                <UserIcon className="w-4 h-4 mr-1 inline-block mb-0.5" />{" "}
                <span>{author}</span>
             </p>
