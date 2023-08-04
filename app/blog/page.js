@@ -213,15 +213,16 @@ const ListOfBlogs = ({ blogs }) => {
                title={item.title.rendered}
                author={item._embedded.author[0].name}
                slug={item.slug}
+               blogId={item.id}
             />
          ))}
       </ol>
    )
 }
 
-const BlogCard = ({ date, title, author, slug, image }) => {
+const BlogCard = ({ date, title, author, slug, image, blogId }) => {
    return (
-      <Link href={`/blog/${slug}`}>
+      <Link href={`/blog/${blogId}`}>
          <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
             {/* Card: Image */}
             <div className="relative aspect-video bg-light-grey">

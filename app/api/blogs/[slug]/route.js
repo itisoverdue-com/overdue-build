@@ -1,9 +1,0 @@
-import { NextResponse } from "next/server"
-export async function GET(request, { params }) {
-   console.log("SPECIAL")
-   const res = await fetch(
-      `https://blog.itisoverdue.org/wp-json/wp/v2/categories?per_page=20&orderby=id&hide_empty=true`
-   )
-   const data = await res.json()
-   return NextResponse.json(data)
-}

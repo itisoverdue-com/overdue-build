@@ -1,5 +1,6 @@
-async function getBlog(slug) {
-   const res = await fetch(`/api/blogs/${slug}`)
+async function getBlog(id) {
+   const BASE_URL = process.env.BASE_URL
+   const res = await fetch(`${BASE_URL}/api/blogs/${id}`)
 
    if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -9,9 +10,9 @@ async function getBlog(slug) {
    return res.json()
 }
 
-export default async function BlogSlugPage({ params: { slug } }) {
-   const blog = await getBlog(slug)
-   return <div>My Post: {slug}</div>
+export default async function BlogSlugPage({ params: { id } }) {
+   const blog = await getBlog(id)
+   return <div>My Post: {id}</div>
 }
 
 // export async function generateStaticParams() {
