@@ -1,10 +1,13 @@
 "use client"
-import PageHero from "@/components/shared/PageHero"
-import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import { useState, useEffect, useRef } from "react"
-import Card from "@/components/shared/Card"
 import Image from "next/image"
 import Link from "next/link"
+import parse from "html-react-parser"
+import { DateTime } from "luxon"
+import { sliceArrayByChunks } from "@/lib/utils"
+import PageHero from "@/components/shared/PageHero"
+import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
+import Card from "@/components/shared/Card"
 import Button from "@/components/shared/Button"
 import {
    ArrowLeftCircleIcon,
@@ -13,9 +16,8 @@ import {
    GlobeAltIcon,
 } from "@heroicons/react/24/outline"
 import { UserIcon } from "@heroicons/react/24/solid"
-import parse from "html-react-parser"
-import { DateTime } from "luxon"
 
+const blogsPerPage = 6
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(null)
@@ -37,12 +39,34 @@ export default function BlogPage() {
       async function fetchBlogs() {
          setLoading(true)
          try {
-            const res = await fetch("/api/blogs")
-            const { normal, categorized } = await res.json()
-            originalBlogs.current = normal
+            // Fetching Blogs
+            const blogsRes = await (await fetch("/api/blogs")).json()
+
+            // Fetching Categories
+            const categoryRes = await (
+               await fetch("/api/blogs/categories")
+            ).json()
+
+            // Slicing Blogs by Chunks
+            const sliced = sliceArrayByChunks(blogsRes, blogsPerPage)
+            originalBlogs.current = sliced
+
+            // Categorizing Blogs
+            const categories = {}
+            categoryRes.forEach((item) => {
+               categories[item.id] = {
+                  name: item.name,
+                  slug: item.slug,
+                  blogs: [],
+               }
+            })
+            const categorized = categorizeBlogs(blogsRes, categories)
+
+            // Setting State
             setCategories(categorized)
-            setBlogs(normal)
+            setBlogs(sliced)
          } catch (err) {
+            console.log(err)
             setError(err)
          }
          setLoading(false)
@@ -64,6 +88,30 @@ export default function BlogPage() {
          setFilter(type)
          setBlogs(categories[type].blogs)
       }
+   }
+
+   function categorizeBlogs(array, categories) {
+      let res = categories
+
+      // Adds to the catgories blogs array
+      array.forEach((item) => {
+         item.categories.forEach((id) => {
+            res[id].blogs.push(item)
+         })
+      })
+
+      // Slices category blog array into chunks
+      Object.entries(res).forEach(([key, item]) => {
+         res = {
+            ...res,
+            [key]: {
+               ...res[key],
+               blogs: sliceArrayByChunks(item.blogs, blogsPerPage),
+            },
+         }
+      })
+
+      return res
    }
 
    return (
