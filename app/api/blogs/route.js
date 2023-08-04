@@ -1,12 +1,23 @@
 import { NextResponse } from "next/server"
 export async function GET() {
-   const res = await fetch(
-      `https://blog.itisoverdue.org/wp-json/wp/v2/posts?_embed=author&per_page=100&order=desc&status=publish`
-   )
-   let data = await res.json()
-   data = sectionArray(data, 6)
+   const categories = {}
+   const _ = (
+      await (await fetch("http://localhost:3000/api/blogs/categories")).json()
+   ).forEach((item) => {
+      categories[item.id] = {
+         name: item.name,
+         slug: item.slug,
+         blogs: [],
+      }
+   })
 
-   return NextResponse.json(data)
+   const res = await fetch(
+      `https://blog.itisoverdue.org/wp-json/wp/v2/posts?_embed=author,wp:term&per_page=100&order=desc&status=publish`
+   )
+   const data = await res.json()
+   const normal = sliceArrayByChunks(data, 6)
+   const categorized = categorizeBlogs(data, categories)
+   return NextResponse.json({ normal, categorized })
 }
 
 /**
@@ -21,13 +32,37 @@ export async function GET() {
  *       2: [{...}]
  *    }
  */
-function sectionArray(array, chunkSize) {
+function sliceArrayByChunks(array, chunkSize) {
    let [res, pageCount] = [{}, 0]
 
    for (let i = 0; i < array.length; i += chunkSize) {
       res[pageCount] = array.slice(i, i + chunkSize)
       pageCount++
    }
+   return res
+}
+
+function categorizeBlogs(array, categories) {
+   let res = categories
+
+   // Adds to the catgories blogs array
+   array.forEach((item) => {
+      item.categories.forEach((id) => {
+         res[id].blogs.push(item)
+      })
+   })
+
+   // Slices category blog array into chunks
+   Object.entries(res).forEach(([key, item]) => {
+      res = {
+         ...res,
+         [key]: {
+            ...res[key],
+            blogs: sliceArrayByChunks(item.blogs, 6),
+         },
+      }
+   })
+
    return res
 }
 
@@ -67,4 +102,18 @@ function sectionArray(array, chunkSize) {
       rendered: string
    },
    type: string
+   _embedded: {
+      author: {
+         id: number,
+         name: string,
+         url: string,
+         description: string,
+         link: string,
+      }[],
+      wp:term: [
+         Category[{id: number, link: string, name: string, slug: string}],
+         Tag[{id: string, link: string, name: string, slug: string}]
+      ]
+
+   }
 */

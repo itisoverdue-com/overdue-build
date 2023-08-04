@@ -20,10 +20,13 @@ export default function BlogPage() {
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(null)
    const [blogs, setBlogs] = useState(null)
+   const [categories, setCategories] = useState(null)
+   const [filter, setFilter] = useState("all")
    const [page, setPage] = useState(0)
+   const originalBlogs = useRef(null)
    const blogSectionRef = useRef(null)
    const scrollToRef = (ref) => {
-      const offset = ref.current.offsetTop * 4.8
+      const offset = ref.current.offsetTop * 5
       window.scrollTo({
          top: offset,
          behavior: "smooth",
@@ -35,8 +38,10 @@ export default function BlogPage() {
          setLoading(true)
          try {
             const res = await fetch("/api/blogs")
-            const data = await res.json()
-            setBlogs(data)
+            const { normal, categorized } = await res.json()
+            originalBlogs.current = normal
+            setCategories(categorized)
+            setBlogs(normal)
          } catch (err) {
             setError(err)
          }
@@ -48,6 +53,17 @@ export default function BlogPage() {
    const handlePageChange = (newPage) => {
       setPage(newPage)
       scrollToRef(blogSectionRef)
+   }
+
+   const handleFilterChange = (type) => {
+      setPage(0)
+      if (type === "all") {
+         setFilter("all")
+         setBlogs(originalBlogs.current)
+      } else {
+         setFilter(type)
+         setBlogs(categories[type].blogs)
+      }
    }
 
    return (
@@ -68,6 +84,11 @@ export default function BlogPage() {
                   <Loading />
                ) : (
                   <>
+                     <CategoryFilters
+                        categories={categories}
+                        filter={filter}
+                        handleFilterChange={handleFilterChange}
+                     />
                      <ListOfBlogs blogs={blogs[page]} />
                      <Pagination
                         numberOfPages={Object.keys(blogs).length}
@@ -82,6 +103,41 @@ export default function BlogPage() {
    )
 }
 
+const CategoryFilters = ({ categories, filter, handleFilterChange }) => {
+   const handleClick = (e) => handleFilterChange(e.currentTarget.name)
+   return (
+      <ul className="mb-6 md:mb-12 inline-flex flex-wrap items-center bg-white rounded-md border-2 px-3 py-2 lg:py-0 lg:px-0">
+         <li className="inline-block mr-3 mb-1 text-light-grey lg:mb-0 lg:px-3 lg:bg-lightest-grey lg:text-dark-grey lg:py-3">
+            Filters:
+         </li>
+
+         {/* All - Remove Filters */}
+         <button
+            name="all"
+            onClick={handleClick}
+            className={`${
+               filter === "all" ? "bg-primary px-3 " : "bg-white"
+            } py-1 rounded-md  mr-4 mb-1 lg:mb-0 transition-all`}
+         >
+            All
+         </button>
+
+         {/* List of Categories */}
+         {Object.entries(categories).map(([key, item]) => (
+            <button
+               key={key}
+               name={key}
+               onClick={handleClick}
+               className={`${
+                  filter === key ? "bg-primary px-4" : "bg-white"
+               }  py-1 rounded-md  mr-4 mb-1 lg:mb-0 transition-all`}
+            >
+               {item.name}
+            </button>
+         ))}
+      </ul>
+   )
+}
 const ListOfBlogs = ({ blogs }) => {
    function formatDate(date) {
       const [month, day, year] = DateTime.fromISO(date)
@@ -124,7 +180,7 @@ const BlogCard = ({ date, title, author, slug, image }) => {
                   alt={slug}
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="450px"
+                  sizes="(min-width: 1024px) 470px, 360px"
                />
             </div>
             {/* Card: Content */}
