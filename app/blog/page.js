@@ -44,7 +44,9 @@ export default function BlogPage() {
 
             // Fetching Categories
             const categoryRes = await (
-               await fetch("/api/blogs/categories")
+               await fetch(
+                  "https://blog.itisoverdue.org/wp-json/wp/v2/categories?per_page=20&orderby=id&hide_empty=true"
+               )
             ).json()
 
             // Slicing Blogs by Chunks
