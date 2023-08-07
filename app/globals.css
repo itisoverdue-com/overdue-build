@@ -17,7 +17,7 @@
    */
 
    h1 {
-      @apply text-6xl md:text-7xl font-bold text-primary capitalize;
+      @apply text-[44px] md:text-6xl lg:text-7xl font-bold text-primary capitalize;
    }
    h2 {
       @apply text-4xl md:text-5xl font-bold;
