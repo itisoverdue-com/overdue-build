@@ -37,6 +37,7 @@ async function getBlog(id) {
 export default async function BlogSlugPage({ params: { id } }) {
    const _ = await getBlog(id)
    const blog = {
+      id: _.id,
       image: _.jetpack_featured_media_url,
       date: _.date,
       title: _.title.rendered,
@@ -52,37 +53,29 @@ export default async function BlogSlugPage({ params: { id } }) {
    return (
       <div>
          <PageHero
-            route="blog"
+            route={blog.id}
             segments={["blog"]}
             header={parse(blog.title)}
             backgroundImageSrc={`${blog.image}`}
          />
          <FullBleedContainer sx="bg-background" childSx="py-28 md:py-32">
-            {/* <--- Categories ---> */}
-            <ul className="flex justify-start items-center flex-wrap">
-               <span className="mr-2 mb-2 font-bold ">Topics:</span>
-               {blog.categories.map((item) => (
-                  <li
-                     key={item.id}
-                     className="bg-darkest-grey text-white px-2 py-1 rounded-md inline-block mr-2 mb-2"
-                  >
-                     {item.name}
-                  </li>
-               ))}
-            </ul>
-
-            {/* <--- Title, Author ---> */}
-            <div className="flex flex-col items-start space-y-5 mt-14 pb-7 mb-7 border-b-2 border-b-light-grey">
+            {/* <--- Title, Author, Categories---> */}
+            <div className="flex flex-col items-start space-y-5 pb-7 mb-7 border-b-2 border-b-light-grey">
                {/* Title */}
-               <h2 className="text-start text-6xl">{parse(blog.title)}</h2>
+               <h2 className="text-start text-4xl md:text-5xl lg:text-6xl">
+                  {parse(blog.title)}
+               </h2>
 
                {/* Author(s) */}
-               <h3 className="flex items-center text-2xl">
+               <h3 className="flex items-center text-lg md:text-xl lg:text-2xl">
                   <span className="bg-primary px-2 py-1 mr-3">Written by:</span>
 
-                  <ol className="after:content-[','] last:after:content-none">
+                  <ol>
                      {blog.authors.map((item) => (
-                        <li key={item.id}>
+                        <li
+                           key={item.id}
+                           className="after:content-[','] last:after:content-none"
+                        >
                            <Link
                               href={item.link}
                               target="_blank"
@@ -102,12 +95,28 @@ export default async function BlogSlugPage({ params: { id } }) {
                      ))}
                   </ol>
                </h3>
+
+               {/* Categories */}
+               <ul className="flex justify-start items-center flex-wrap ">
+                  <span className="mr-2 mb-2 font-bold bg-neutral-200 text-black border px-2 py-0.5">
+                     Topics:
+                  </span>
+                  {blog.categories.map((item) => (
+                     <li
+                        key={item.id}
+                        className="inline-block mr-2 mb-2 after:content-[','] last:after:content-none hover:underline"
+                     >
+                        {item.name}
+                     </li>
+                  ))}
+               </ul>
             </div>
 
             {/* <--- Content ---> */}
             <article className="flex flex-col">{parse(blog.content)}</article>
 
-            <p className="text-center mt-20 italic text-gray-400">
+            {/* Last Modified Date */}
+            <p className="text-center  italic text-gray-400 mt-10 lg:mt-20">
                Last updated on{" "}
                {DateTime.fromISO(blog.modified).toLocaleString()}
             </p>
