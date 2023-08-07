@@ -52,7 +52,7 @@ export default function PageHero({
          childSx="flex justify-center items-center h-full relative"
       >
          {/* Header w/ underline */}
-         <h1 className="capitalize">
+         <h1 className="capitalize text-center">
             {header}
             <span className="mt-2 block w-1/3 border-t-8 border-primary rounded-2xl mx-auto" />
          </h1>
