@@ -105,7 +105,7 @@ export default function Contact() {
 
 const ContactCard = ({ icon, header, content }) => {
    return (
-      <Card sx="w-full flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300">
+      <Card variant="actionItem">
          {/* Icon, Header */}
          <div className="mb-10">
             <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
