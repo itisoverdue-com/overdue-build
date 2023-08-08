@@ -4,8 +4,8 @@ import { NextResponse } from "next/server"
 const maxDistance = 50
 
 // URL Example - "http://localhost:3000/events/30.232,-118.23"
-export async function GET(request) {
-   const _ = request.url.split("events/")[1].split(",")
+export async function GET(request, { params: { coordinates } }) {
+   const _ = coordinates.split(",")
    const lat = parseInt(_[0])
    const lon = parseInt(_[1])
 
