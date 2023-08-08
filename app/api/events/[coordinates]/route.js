@@ -27,6 +27,7 @@ export async function GET(request, { params: { coordinates } }) {
       const eventLat = parseInt(item.venue.address.latitude)
       const eventLon = parseInt(item.venue.address.longitude)
       const withinDistance = calculateDistance(lat, lon, eventLat, eventLon)
+      console.log(withinDistance)
       withinDistance && data.push(item)
    })
 
@@ -36,17 +37,24 @@ export async function GET(request, { params: { coordinates } }) {
 function calculateDistance(lat1, lon1, lat2, lon2) {
    const R = 3958.8 // Radius of the Earth in miles
 
-   const dLat = (lat2 - lat1) * (Math.PI / 180)
-   const dLon = (lon2 - lon1) * (Math.PI / 180)
+   // Convert latitudes and longitudes to radians
+   lat1 *= Math.PI / 180
+   lon1 *= Math.PI / 180
+   lat2 *= Math.PI / 180
+   lon2 *= Math.PI / 180
 
+   // Calculate the difference in latitude and longitude
+   const dLat = lat2 - lat1
+   const dLon = lon2 - lon1
+
+   // Calculate the haversine
    const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1 * (Math.PI / 180)) *
-         Math.cos(lat2 * (Math.PI / 180)) *
-         Math.sin(dLon / 2) *
-         Math.sin(dLon / 2)
-
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-   const distance = R * c
+
+   // Calculate the distance in miles
+   var distance = R * c * 0.621371
+
    return distance <= maxDistance
 }
