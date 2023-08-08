@@ -34,6 +34,88 @@ export async function GET(request, { params: { coordinates } }) {
    return NextResponse.json(data)
 }
 
+/**
+ * EventBrite Event Interface
+ *
+ * capacity: number;
+ * category_id: string;
+ * changed: Date;
+ * created: Date;
+ * currency: string;
+ * description: {
+ *    text: string;
+ *    html: string;
+ * };
+ * end: {
+ *    timezone: string;
+ *    local: Date;
+ *    utc: Date;
+ * };
+ * format_id: string;
+ * id: string;
+ * inventory_type: string;
+ * invite_only: boolean;
+ * is_externally_ticketed: boolean;
+ * is_free: boolean
+ * is_locked: boolean;
+ * is_reserved_seating: boolean
+ * listed: boolean;
+ * locale: string;
+ * logo: {
+ *    aspect_ratio: string;
+ *    crop_mask: {
+ *       height: number
+ *       width: number
+ *       top_left: {
+ *          x: 0;
+ *          y: 0;
+ *       }
+ *    }
+ *    edge_color: string;
+ *    id: string
+ *    orginal: {
+ *       url: string
+ *       width: number;
+ *       height: number;
+ *    };
+ *    url: string;
+ * }
+ * name: {
+ *    text: string
+ *    html: string
+ * }
+ * online_event: boolean
+ * organization_id: string
+ * organizer_id: string
+ * published: Date
+ * start: {
+ *    timezone: string;
+ *    local: Date;
+ *    utc: Date;
+ * };
+ * status: string
+ * summary: string
+ * url: string
+ * venue: {
+ *    address: {
+ *       address_1: string
+ *       address_2: string
+ *       city: string
+ *       country: string
+ *       latitude: string
+ *       localized_address_display: string
+ *       localized_area_display: string
+ *       localized_multi_line_address_display: string[]
+ *       longitude: string
+ *       postal_code: string
+ *       region: string
+ *    }
+ *    id: string
+ *    latitude: string
+ *    longitude: string
+ *    name: string
+ * }
+ */
 function calculateDistance(lat1, lon1, lat2, lon2) {
    const R = 3958.8 // Radius of the Earth in miles
 
