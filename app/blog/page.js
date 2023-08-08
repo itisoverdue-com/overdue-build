@@ -125,7 +125,7 @@ export default function BlogPage() {
          />
          <FullBleedContainer
             sx="bg-background"
-            childSx="py-28 text-center md:py-32"
+            childSx="py-16 text-center md:py-32"
          >
             <section ref={blogSectionRef}>
                {error ? (
