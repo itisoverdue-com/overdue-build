@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Link from "next/link"
@@ -12,6 +12,7 @@ import {
    ClipboardIcon,
    ListBulletIcon,
 } from "@heroicons/react/24/outline"
+import { LOCATIONS } from "@/lib/data"
 const sampleData = {
    when: {
       date: "Thu, May 17",
@@ -34,7 +35,27 @@ const sampleData = {
 
 export default function EventLocationPage({ params: { location } }) {
    const [view, setView] = useState("calendar")
+   const [loading, setLoading] = useState(true)
+   const [error, setError] = useState(null)
+   const [eventData, setEventData] = useState(null)
 
+   console.log(location)
+   useEffect(() => {
+      async function fetchData() {
+         setLoading(true)
+         try {
+            const res = await fetch(`/api/events/${location}`)
+            const data = await res.json()
+            setEventData(data)
+         } catch (err) {
+            setError(err)
+         }
+         setLoading(false)
+      }
+      fetchData()
+   }, [location])
+
+   console.log(eventData)
    const handleViewChange = (e) => setView(e.currentTarget.name)
    const formatHeader = () =>
       location.split("%20").join(" ").split("-").join(", ")

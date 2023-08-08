@@ -48,13 +48,6 @@ const chapters = [
    },
 ]
 
-function linkExtension(location) {
-   const [city, stateWithSpace] = location.split(",")
-   const [_, state] = stateWithSpace.split(" ")
-
-   return `${city}-${state}`
-}
-
 export default function Events() {
    return (
       <div>
@@ -92,7 +85,7 @@ export default function Events() {
                   {chapters.map((item) => (
                      <Link
                         key={`${item.location}-textbox`}
-                        href={`/events/${linkExtension(item.location)}`}
+                        href={`/events/${item.location}`}
                         className="md:mr-5"
                      >
                         <li className="text-start p-3 mt-3 bg-white text-black  w-full block shadow-md rounded-md md:rounded-lg md:p-4 lg:p-6 md:mt-5  md:text-xl md:hover:bg-primary md:hover:shadow-lg md:hover:-translate-y-1.5 md:transition-all">
@@ -109,7 +102,7 @@ export default function Events() {
 
 const ChapterPin = ({ location, lat, lon, zIndex = "z-10" }) => {
    return (
-      <Link href={`/events/${linkExtension(location)}`}>
+      <Link href={`/events/${location}`}>
          <button
             className={`w-4 h-4 md:w-8 md:h-8 md:hover:scale-110 md:hover:-translate-y-2 md:transition-all lg:w-10 lg:h-10 absolute ${zIndex} ${lat} ${lon}`}
          >
