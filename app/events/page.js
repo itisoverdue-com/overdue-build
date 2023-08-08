@@ -23,8 +23,14 @@ const chapters = [
       zIndex: "z-[11]",
    },
    {
-      location: "Torrance/Long Beach, CA",
+      location: "Torrance, CA",
       lat: "left-[20%]",
+      lon: "bottom-[43%]",
+      zIndex: "z-[13]",
+   },
+   {
+      location: "Long Beach, CA",
+      lat: "left-[21%]",
       lon: "bottom-[43%]",
       zIndex: "z-[13]",
    },
