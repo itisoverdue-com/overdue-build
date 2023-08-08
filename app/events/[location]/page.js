@@ -53,9 +53,11 @@ export default function EventLocationPage({ params: { location } }) {
          }
          setLoading(false)
       }
-      fetchData()
-   }, [location])
-
+      if (eventData === null) {
+         fetchData()
+      }
+   })
+   console.log(eventData)
    const handleViewChange = (e) => setView(e.currentTarget.name)
    const formatHeader = () =>
       location.split("%20").join(" ").split("%2C").join(",")
