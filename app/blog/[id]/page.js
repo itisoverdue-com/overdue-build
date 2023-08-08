@@ -56,9 +56,10 @@ export default async function BlogSlugPage({ params: { id } }) {
             route={blog.id}
             segments={["blog"]}
             header={parse(blog.title)}
+            showHeader={false}
             backgroundImageSrc={`${blog.image}`}
          />
-         <FullBleedContainer sx="bg-background" childSx="py-28 md:py-32">
+         <FullBleedContainer sx="bg-background" childSx="py-16 md:py-32">
             {/* <--- Title, Author, Categories---> */}
             <div className="flex flex-col items-start space-y-5 pb-7 mb-7 border-b-2 border-b-light-grey">
                {/* Title */}
