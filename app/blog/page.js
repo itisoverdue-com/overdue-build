@@ -225,7 +225,7 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
       <Link href={`/blog/${blogId}`}>
          <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
             {/* Card: Image */}
-            <div className="relative aspect-video bg-light-grey">
+            <div className="relative aspect-video bg-light-grey flex-1">
                <Image
                   src={image}
                   alt={slug}
@@ -235,9 +235,11 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
                />
             </div>
             {/* Card: Content */}
-            <div className="px-5 pb-5 pt-12 text-start relative ">
+            <div className="px-5 text-start relative ring-8 h-full  max-h-[35%] ">
                {/* Blog - Title */}
-               <h3>{parse(title)}</h3>
+               <h3 className="h-full pt-8 pb-2 text-lg w-full text-ellipsis overflow-hidden md:text-xl lg:pt-12 lg:text-2xl">
+                  {parse(title)}
+               </h3>
                {/* Blog - Date */}
                <div className="bg-primary px-3 py-2 rounded-lg w-max absolute bottom-3/4 bg-opacity-75 backdrop-blur-sm left-5 shadow-md">
                   <span className="text-3xl block text-center font-bold tracking-tighter md:text-4xl lg:text-5xl">
