@@ -3,9 +3,11 @@ import { NextResponse } from "next/server"
 
 const maxDistance = 50
 
-export async function GET() {
-   const lat = 33.77005
-   const lon = -118.193741
+// URL Example - "http://localhost:3000/events/30.232,-118.23"
+export async function GET(request) {
+   const _ = request.url.split("events/")[1].split(",")
+   const lat = parseInt(_[0])
+   const lon = parseInt(_[1])
 
    const TOKEN = process.env.EVENTBRITE_API_KEY
    const ORG_ID = process.env.ORGANIZATION_ID

@@ -39,12 +39,13 @@ export default function EventLocationPage({ params: { location } }) {
    const [error, setError] = useState(null)
    const [eventData, setEventData] = useState(null)
 
-   console.log(location)
    useEffect(() => {
       async function fetchData() {
          setLoading(true)
          try {
-            const res = await fetch(`/api/events/${location}`)
+            const locationDetails = LOCATIONS[formatHeader()]
+            const extension = `${locationDetails.lat},${locationDetails.lon}`
+            const res = await fetch(`/api/events/${extension}`)
             const data = await res.json()
             setEventData(data)
          } catch (err) {
@@ -55,15 +56,14 @@ export default function EventLocationPage({ params: { location } }) {
       fetchData()
    }, [location])
 
-   console.log(eventData)
    const handleViewChange = (e) => setView(e.currentTarget.name)
    const formatHeader = () =>
-      location.split("%20").join(" ").split("-").join(", ")
+      location.split("%20").join(" ").split("%2C").join(",")
 
    return (
       <div>
          <PageHero
-            route={location}
+            route={formatHeader()}
             segments={["events"]}
             header={formatHeader()}
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
