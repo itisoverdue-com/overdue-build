@@ -16,8 +16,7 @@ import {
    ChevronDownIcon,
    ChevronUpIcon,
 } from "@heroicons/react/24/outline"
-
-import { CalendarIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/solid"
+import { CalendarIcon, MapPinIcon } from "@heroicons/react/24/solid"
 import { LOCATIONS } from "@/lib/data"
 import parse from "html-react-parser"
 import { DateTime } from "luxon"
@@ -50,6 +49,7 @@ export default function EventLocationPage({ params: { location } }) {
    })
 
    const handleViewChange = (e) => setView(e.currentTarget.name)
+
    const formatHeader = () =>
       location.split("%20").join(" ").split("%2C").join(",")
 
@@ -141,6 +141,7 @@ const EventDetails = ({ event }) => {
                   alt={title}
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}
+                  sizes="(min-width: 1024px) 900px, (min-width: 768px) 740px, 360px"
                />
             </div>
             <h3 className="text-4xl lg:text-5xl">{title}</h3>
@@ -230,7 +231,7 @@ const EventDetails = ({ event }) => {
          </div>
 
          {/* <--- EventBrite URL ---> */}
-         <div className="md:max-w-md">
+         <div className="lg:max-w-md">
             <Button
                href={link}
                size="lg"
@@ -238,8 +239,10 @@ const EventDetails = ({ event }) => {
                target="_blank"
                fullWidth
             >
-               <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1" />
-               <span>Sign Up</span>
+               <p className="mx-auto lg:mx-0">
+                  <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1 inline-block" />
+                  <span>Sign Up</span>
+               </p>
             </Button>
          </div>
       </section>
@@ -256,30 +259,30 @@ const CalendarList = ({
    const handleListOnClick = (index) => handleActiveChange(index)
 
    return (
-      <section className="flex flex-col justify-start items-center lg:items-end ">
+      <section className="mt-10 lg:mt-0 flex flex-col justify-start items-center lg:items-end ">
          {/* Container */}
          <div className="bg-white w-full  shadow-lg rounded-xl aspect-square h-auto max-w-lg relative  mt-20">
             {/* <--- Toggle: Calendar & List ---> */}
-            <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
+            <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md md:w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
                <button
                   name="calendar"
                   onClick={handleViewChange}
                   className={`${
                      view === "calendar" ? "bg-black text-primary" : ""
-                  } transition py-3 w-full flex items-center justify-center`}
+                  } transition p-3 w-full flex items-center justify-center`}
                >
-                  <CalendarDaysIcon className="w-4 h-4 inline-block mr-1" />
-                  <span>Calendar</span>
+                  <CalendarDaysIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                  <span className="hidden md:inline">Calendar</span>
                </button>
                <button
                   name="list"
                   onClick={handleViewChange}
                   className={`${
                      view === "list" ? "bg-black text-primary" : ""
-                  } transition py-3 w-full flex items-center justify-center`}
+                  } transition p-3 w-full flex items-center justify-center`}
                >
-                  <ListBulletIcon className="w-4 h-4 inline-block  mr-1" />
-                  <span>List</span>
+                  <ListBulletIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                  <span className="hidden md:inline">List</span>
                </button>
             </div>
 
