@@ -123,19 +123,19 @@ export default function EventLocationPage({ params: { location } }) {
 const EventDetails = ({ event }) => {
    const { title, when, location, description, link, image } = event
    const [showMore, setShowMore] = useState(false)
-
    const handleToggleShowMore = () => setShowMore((prevState) => !prevState)
+
    return (
       <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between lg:col-span-2">
          {/* <--- Header ---> */}
 
-         <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-md w-max shadow-md  lg:rounded-lg lg:px-6 lg:py-3 lg:text-4xl">
+         <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-md w-max shadow-sm lg:shadow-md  lg:rounded-lg lg:px-6 lg:py-3 lg:text-4xl">
             Upcoming Event:
          </h2>
 
          {/* <--- Title ---> */}
          <div>
-            <div className="w-full h-auto aspect-[6/2] relative mb-3 md:mb-5 overflow-hidden rounded-xl">
+            <div className="w-full h-auto aspect-[6/2] relative mb-3 md:mb-5 rounded-md overflow-hidden md:rounded-lg lg:rounded-xl">
                <Image
                   src={image}
                   alt={title}
