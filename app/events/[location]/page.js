@@ -182,7 +182,7 @@ export default function EventLocationPage({ params: { location } }) {
                         </h5>
                         <p>Be the first to learn about our upcoming events.</p>
                         <Button
-                           href={sampleData.signup}
+                           href={LOCATIONS[formatHeader()].newsletter}
                            size="xl"
                            variant="primary"
                            target="_blank"
