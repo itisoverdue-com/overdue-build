@@ -138,7 +138,11 @@ export default function Sponsor() {
                         better tomorrow.
                      </p>
                      <div className="mt-8 max-md:hidden">
-                        <Button variant="primary" size="xl">
+                        <Button
+                           href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                           variant="primary"
+                           size="xl"
+                        >
                            Become a Sponsor
                         </Button>
                      </div>
@@ -149,13 +153,17 @@ export default function Sponsor() {
                   >
                      <Image
                         alt="itisOVERDUE team gathered outside"
-                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor_iinfeq.jpg"
+                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor/sponsor_iinfeq.jpg"
                         fill
                         className="object-cover"
                      />
                   </Card>
                   <div className="mt-8 md:hidden">
-                     <Button variant="primary" size="xl">
+                     <Button
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                        variant="primary"
+                        size="xl"
+                     >
                         Become a Sponsor
                      </Button>
                   </div>
@@ -459,7 +467,11 @@ export default function Sponsor() {
                      </div>
                   </Card>
                   <div className="mt-12 sm:mt-16">
-                     <Button variant="primary" size="xl">
+                     <Button
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                        variant="primary"
+                        size="xl"
+                     >
                         Become a Sponsor
                      </Button>
                   </div>
