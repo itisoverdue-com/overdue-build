@@ -119,24 +119,21 @@ export default function Sponsor() {
             header="Sponsorship"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/backgrounds/sponsor_vaguav.jpg"
          />
-         <FullBleedContainer
-            sx="bg-background"
-            childSx="py-28 md:py-32 px-6 lg:px-12"
-         >
+         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
             {/* <------- BECOME A SPONSOR -------> */}
-            <section id="become-a-sponsor">
-               <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
+            <section>
+               <div className="flex flex-col justify-center items-center px-4 md:flex-row md:flex-wrap min-[1400px]:px-0 border border-red-400">
                   <SectionSubheader
                      header="Become a Sponsor"
                      sx="w-full"
-                     headerSx="text-center md:text-left"
+                     headerSx="text-center"
+                     borderSx="md:mx-auto"
                   />
-                  <div className="w-full md:w-[45%] md:pl-6 md:pr-8 lg:w-2/5 lg:pl-12 xl:pl-20 xl:pr-16">
-                     <h3 className="mt-4 text-2xl sm:text-3xl sm:text-center sm:mt-8 md:text-left">
+                  <div className="w-full md:w-[45%] md:pr-8 lg:w-2/5">
+                     <h3 className="mt-4 text-2xl text-center sm:text-3xl sm:mt-8 md:text-left">
                         Together
                      </h3>
-                     <div className="max-md:hidden border-t-8 border-primary w-20 rounded-full my-2 mx-0" />
-                     <p className="mt-4 text-left sm:max-md:text-center">
+                     <p className="text-dark-grey font-normal text-center mt-4 md:text-left">
                         Inspire and educate the community to take action for a
                         better tomorrow.
                      </p>
@@ -148,13 +145,13 @@ export default function Sponsor() {
                   </div>
                   <Card
                      variant="image"
-                     sx="w-[85vw] max-w-[550px] aspect-[800/388] mt-8 md:w-[55%] md:h-[270px] lg:w-3/5 lg:h-full lg:max-w-[720px]"
+                     sx="w-full max-w-[550px] aspect-[800/388] mt-8 md:w-[55%] md:h-[270px] lg:w-3/5 lg:h-full lg:max-w-[720px]"
                   >
                      <Image
                         alt="itisOVERDUE team gathered outside"
                         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor_iinfeq.jpg"
                         fill
-                        className="object-cover scale-125 lg:scale-100"
+                        className="object-cover"
                      />
                   </Card>
                   <div className="mt-8 md:hidden">

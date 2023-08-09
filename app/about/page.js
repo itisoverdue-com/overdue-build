@@ -20,7 +20,7 @@ export default function About() {
          <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
             {/* --- It Is Overdue --- */}
             <section>
-               <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap lg:px-4 min-[1400px]:px-0">
+               <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
                   <SectionSubheader
                      header="IT IS OVERDUE"
                      sx="md:w-[55%] md:pr-12 lg:w-[45%] xl:pr-4"
