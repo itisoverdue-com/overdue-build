@@ -67,7 +67,7 @@ function formatForClientSide(event) {
    const d1 = DateTime.fromISO(event.start.local)
    const d2 = DateTime.fromISO(event.end.local)
    when = {
-      date: d1.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY),
+      date: d1.toFormat("cccc, LLLL c"),
       time: `${d1.toLocaleString(DateTime.TIME_SIMPLE)} - ${d2.toLocaleString(
          DateTime.TIME_SIMPLE
       )} ${d2.toFormat("ZZZZ")}`,
