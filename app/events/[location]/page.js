@@ -37,7 +37,7 @@ export default function EventLocationPage({ params: { location } }) {
             const extension = `${locationDetails.lat},${locationDetails.lon}`
             const res = await fetch(`/api/events/${extension}`)
             const data = await res.json()
-            setEvents(data)
+            setEvents([...data])
          } catch (err) {
             setError(err)
          }
@@ -93,7 +93,7 @@ export default function EventLocationPage({ params: { location } }) {
                   {/* <--- Event Details, Calendar/List ---> */}
                   <div
                      ref={contentRef}
-                     className="grid grid-cols-1 lg:grid-cols-3 gap-8 backdrop-blur-md"
+                     className="grid grid-cols-1 lg:grid-cols-3 gap-10 backdrop-blur-md"
                   >
                      {events.length > 0 ? (
                         <EventDetails event={events[active]} />
@@ -128,8 +128,7 @@ const EventDetails = ({ event }) => {
    return (
       <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between lg:col-span-2">
          {/* <--- Header ---> */}
-
-         <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-md w-max shadow-sm lg:shadow-md  lg:rounded-lg lg:px-6 lg:py-3 lg:text-4xl">
+         <h2 className="text-xl  text-darkest-grey bg-primary w-max px-3 py-1 -mb-4 lg:text-4xl">
             Upcoming Event:
          </h2>
 
@@ -144,7 +143,7 @@ const EventDetails = ({ event }) => {
                   sizes="(min-width: 1024px) 900px, (min-width: 768px) 740px, 360px"
                />
             </div>
-            <h3 className="text-4xl lg:text-5xl">{title}</h3>
+            <h3 className="text-2xl md:text-3xl lg:text-5xl">{title}</h3>
          </div>
 
          {/* <--- When/Where ---> */}
@@ -256,12 +255,36 @@ const CalendarList = ({
    handleViewChange,
    handleActiveChange,
 }) => {
-   const handleListOnClick = (index) => handleActiveChange(index)
+   const handleListClick = (index) => handleActiveChange(index)
+
+   function formatDateList(date) {
+      const months = {
+         January: "1",
+         February: "2",
+         March: "3",
+         April: "4",
+         May: "5",
+         June: "6",
+         July: "7",
+         August: "8",
+         September: "9",
+         October: "10",
+         November: "11",
+         December: "12",
+      }
+      const _ = date.split(", ")
+      const weekday = _[0].slice(0, 3)
+      const __ = _[1].split(" ")
+      const month = months[__[0]]
+      const day = __[1]
+
+      return [weekday, `${month}/${day}`]
+   }
 
    return (
       <section className="mt-10 lg:mt-0 flex flex-col justify-start items-center lg:items-end ">
          {/* Container */}
-         <div className="bg-white w-full  shadow-lg rounded-xl aspect-square h-auto max-w-lg relative  mt-20">
+         <div className="bg-white w-full shadow-lg md:shadow-xl rounded-xl aspect-square h-auto max-w-lg relative mt-20">
             {/* <--- Toggle: Calendar & List ---> */}
             <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md md:w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
                <button
@@ -288,7 +311,7 @@ const CalendarList = ({
 
             {/* <--- View: Calendar --->*/}
             <div
-               className={`h-[98%] w-[98%]  absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+               className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
                   view === "calendar"
                      ? "scale-100 z-10 bg-lightest-grey text-black"
                      : "scale-75 z-0 bg-transparent text-transparent"
@@ -299,23 +322,48 @@ const CalendarList = ({
 
             {/* <--- View: List --->*/}
             <ul
-               className={`h-[98%] w-[98%]  absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+               className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
                   view === "list"
-                     ? "scale-100 z-10 bg-lightest-grey text-black"
+                     ? "scale-100 z-10 bg-inherit text-black"
                      : "scale-75 z-0 bg-transparent text-transparent"
-               } transition-all duration-300 `}
+               } transition-all duration-300 overflow-x-hidden  rounded-xl overflow-y-auto flex flex-col`}
             >
-               {events.map((item, index) => (
-                  <li
-                     key={item.id}
-                     className={`${
-                        active === index ? "bg-darkest-grey" : "bg-white"
-                     } py-3  cursor-pointer`}
-                     onClick={() => handleListOnClick(index)}
-                  >
-                     {item.title}
-                  </li>
-               ))}
+               {events.map((item, index) => {
+                  const [weekday, date] = formatDateList(item.when.date)
+                  return (
+                     <li
+                        key={item.id}
+                        className={`${
+                           active === index ? "bg-primary" : "bg-white"
+                        } py-3 px-2 cursor-pointer grid grid-cols-12 gap-2 items-center ${
+                           index === events.length - 1 ? "" : "border-b-2"
+                        }`}
+                        onClick={() => handleListClick(index)}
+                     >
+                        {/* Date */}
+                        <div className="col-span-2 flex flex-col items-center justify-center ">
+                           <span className="">{date}</span>
+                           <span className=" uppercase font-semibold">
+                              {weekday}
+                           </span>
+                        </div>
+
+                        {/* Time */}
+                        <span className="col-span-3 mx-auto">
+                           {item.when.time.split(" -")[0]}
+                        </span>
+
+                        {/* Title */}
+                        <span className="truncate col-span-7">
+                           {item.title}
+                        </span>
+                     </li>
+                  )
+               })}
+
+               <li className="text-light-grey text-sm italic w-full text-center py-5 bg-lightest-grey flex-1  ">
+                  End of Events
+               </li>
             </ul>
          </div>
       </section>
