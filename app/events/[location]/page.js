@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Link from "next/link"
+import Image from "next/image"
 import Button from "@/components/shared/Button"
 import Card from "@/components/shared/Card"
 import Loading from "@/components/shared/Loading"
@@ -12,6 +13,8 @@ import {
    CalendarDaysIcon,
    ClipboardIcon,
    ListBulletIcon,
+   ChevronDownIcon,
+   ChevronUpIcon,
 } from "@heroicons/react/24/outline"
 
 import { CalendarIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/solid"
@@ -70,9 +73,6 @@ export default function EventLocationPage({ params: { location } }) {
          />
          <FullBleedContainer
             sx="bg-white bg-opacity-90"
-            // backgroundImageSrc={`${
-            //    events && events.length > 0 ? events[active].image : ""
-            // }`}
             childSx="py-16 lg:py-28 "
          >
             {error ? (
@@ -82,7 +82,7 @@ export default function EventLocationPage({ params: { location } }) {
             ) : (
                <>
                   {/* <--- Event Details, Calendar/List ---> */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 backdrop-blur-md">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 backdrop-blur-md">
                      {events.length > 0 ? (
                         <EventDetails
                            event={events[active]}
@@ -118,12 +118,13 @@ const EventDetails = ({ event, active, handleActiveChange }) => {
 
    const handleNext = () => {
       setShowMore(false)
+      handleActiveChange(active + 1)
    }
 
    const handleToggleShowMore = () => setShowMore((prevState) => !prevState)
    return (
-      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between">
-         {/* Header */}
+      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between lg:col-span-2">
+         {/* <--- Header ---> */}
          <div className="flex">
             <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
                Upcoming Event:
@@ -131,12 +132,22 @@ const EventDetails = ({ event, active, handleActiveChange }) => {
             <div></div>
          </div>
 
-         {/* Title of Event */}
-         <h3 className="text-5xl lg:text-6xl">{title}</h3>
-
-         {/* Date and Time, Location/Parking */}
+         {/* <--- Title ---> */}
          <div>
-            <h4 className="mb-3 text-xl md:text-2xl">When and where:</h4>
+            <div className="w-full h-72 relative mb-6 overflow-hidden rounded-xl">
+               <Image
+                  src={event.image}
+                  alt={title}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+               />
+            </div>
+            <h3 className="text-4xl lg:text-5xl">{title}</h3>
+         </div>
+
+         {/* <--- When/Where ---> */}
+         <div className="flex flex-col space-y-2">
+            <h4 className="mb-4 text-xl md:text-2xl">When and where:</h4>
 
             <div className="grid grid-cols-2">
                {/* When */}
@@ -175,34 +186,47 @@ const EventDetails = ({ event, active, handleActiveChange }) => {
                   </div>
                </div>
             </div>
-
-            {/* Location */}
          </div>
 
-         {/* Description */}
-         <div className="flex flex-col">
+         {/* <--- Description ---> */}
+         <div className="flex flex-col space-y-2">
             <h4 className="mb-3 text-xl md:text-2xl">About this event:</h4>
             <div
                className={`${
-                  showMore ? "h-full" : "h-40"
-               } overflow-hidden transition-all duration-500`}
+                  showMore ? "h-full" : "h-48"
+               } overflow-hidden transition-all duration-500 ease-out relative`}
             >
+               {/* Gradient Effect */}
+               <div
+                  className={`${
+                     !showMore
+                        ? "from-transparent to-white bg-gradient-to-b "
+                        : "-z-10"
+                  } absolute w-full h-1/2 bottom-0`}
+               />
                {parse(description)}
             </div>
-            <button onClick={handleToggleShowMore} className="w-full ring-8">
+            <button
+               onClick={handleToggleShowMore}
+               className={`w-full outline-none text-sm font-semibold ${
+                  showMore ? "text-black" : "text-light-grey"
+               } `}
+            >
                {showMore ? (
                   <>
                      <span>Show Less</span>
+                     <ChevronUpIcon className="w-4 h-5 inline-block ml-1" />
                   </>
                ) : (
                   <>
                      <span>Show More</span>
+                     <ChevronDownIcon className="w-4 h-5 inline-block ml-1" />
                   </>
                )}
             </button>
          </div>
 
-         {/* Sign Up */}
+         {/* <--- EventBrite URL ---> */}
          <div className="md:max-w-md">
             <Button
                href={link}

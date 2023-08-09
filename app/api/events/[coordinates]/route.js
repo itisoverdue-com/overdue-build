@@ -34,7 +34,6 @@ export async function GET(request, { params: { coordinates } }) {
       const eventLat = parseInt(item.venue.address.latitude)
       const eventLon = parseInt(item.venue.address.longitude)
       const withinDistance = calculateDistance(lat, lon, eventLat, eventLon)
-      console.log(item)
       withinDistance && nearby.push(formatForClientSide(item))
    })
 
