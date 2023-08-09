@@ -1,11 +1,12 @@
-//https://www.eventbriteapi.com/v3
 import { NextResponse } from "next/server"
+import { DateTime, Interval } from "luxon"
 
 // API Docs - https://www.eventbrite.com/platform/api#/reference/event/list/list-events-by-organization
 // URL Example - "http://localhost:3000/events/30.232,-118.23"
 
 const maxDistance = 50
 const BASE_API = "https://www.eventbriteapi.com/v3"
+const BASE_GOOGLE_MAPS = "https://www.google.com/maps/place"
 
 export async function GET(request, { params: { coordinates } }) {
    const _ = coordinates.split(",")
@@ -33,11 +34,12 @@ export async function GET(request, { params: { coordinates } }) {
       const eventLat = parseInt(item.venue.address.latitude)
       const eventLon = parseInt(item.venue.address.longitude)
       const withinDistance = calculateDistance(lat, lon, eventLat, eventLon)
-      withinDistance && nearby.push(item)
+
+      withinDistance && nearby.push(formatForClientSide(item))
    })
 
    // Populate Events with Descriptions
-   const results = []
+   const populated = []
    for (const event of nearby) {
       const res = await fetch(
          `${BASE_API}/events/${event.id}/description`,
@@ -49,11 +51,77 @@ export async function GET(request, { params: { coordinates } }) {
             ...event,
             description: data.description,
          }
-         results.push(populatedItem)
+         populated.push(populatedItem)
       }
    }
 
-   return NextResponse.json(results)
+   // https://www.google.com/maps/place/6300+Balboa+Blvd,+Van+Nuys,+CA+91406
+
+   return NextResponse.json(populated)
+}
+
+function formatForClientSide(event) {
+   let when = {
+      date: "",
+      time: "",
+   }
+
+   const d1 = DateTime.fromISO(event.start.local)
+   const d2 = DateTime.fromISO(event.end.local)
+   when = {
+      date: d1.toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY),
+      time: `${d1.toLocaleString(DateTime.TIME_SIMPLE)} - ${d2.toLocaleString(
+         DateTime.TIME_SIMPLE
+      )} ${d2.toFormat("ZZZZ")}`,
+   }
+
+   // Checks if event is more than 1 day
+   if (Interval.fromDateTimes(d1, d2).length("hours") >= 24) {
+      when = {
+         ...when,
+         date: `${d1.toLocaleString({
+            month: "short",
+            day: "numeric",
+         })} - ${d2.toLocaleString({ month: "short", day: "numeric" })}`,
+      }
+   }
+
+   return {
+      title: event.name.text,
+      id: event.id,
+      location: {
+         name: event.venue.name,
+         href: `${BASE_GOOGLE_MAPS}${event.venue.address.localized_address_display
+            .split(" ")
+            .join("+")}`,
+      },
+      when,
+   }
+}
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+   const R = 3958.8 // Radius of the Earth in miles
+
+   // Convert latitudes and longitudes to radians
+   lat1 *= Math.PI / 180
+   lon1 *= Math.PI / 180
+   lat2 *= Math.PI / 180
+   lon2 *= Math.PI / 180
+
+   // Calculate the difference in latitude and longitude
+   const dLat = lat2 - lat1
+   const dLon = lon2 - lon1
+
+   // Calculate the haversine
+   const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
+   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+
+   // Calculate the distance in miles
+   var distance = R * c * 0.621371
+
+   return distance <= maxDistance
 }
 
 /**
@@ -64,10 +132,7 @@ export async function GET(request, { params: { coordinates } }) {
  * changed: Date;
  * created: Date;
  * currency: string;
- * description: {
- *    text: string;
- *    html: string;
- * };
+ * description: string
  * end: {
  *    timezone: string;
  *    local: Date;
@@ -138,28 +203,3 @@ export async function GET(request, { params: { coordinates } }) {
  *    name: string
  * }
  */
-
-function calculateDistance(lat1, lon1, lat2, lon2) {
-   const R = 3958.8 // Radius of the Earth in miles
-
-   // Convert latitudes and longitudes to radians
-   lat1 *= Math.PI / 180
-   lon1 *= Math.PI / 180
-   lat2 *= Math.PI / 180
-   lon2 *= Math.PI / 180
-
-   // Calculate the difference in latitude and longitude
-   const dLat = lat2 - lat1
-   const dLon = lon2 - lon1
-
-   // Calculate the haversine
-   const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
-   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-
-   // Calculate the distance in miles
-   var distance = R * c * 0.621371
-
-   return distance <= maxDistance
-}

@@ -15,6 +15,7 @@ import {
    ListBulletIcon,
 } from "@heroicons/react/24/outline"
 import { LOCATIONS } from "@/lib/data"
+import parse from "html-react-parser"
 
 const sampleData = {
    when: {
@@ -51,7 +52,7 @@ const sampleData = {
  *    name: "",
  *    href: ""
  * },
- * instruction: event.
+ * description: event.description
  */
 
 export default function EventLocationPage({ params: { location } }) {
@@ -221,7 +222,11 @@ const ListOfEvents = ({ events }) => {
    return (
       <ol>
          {events.map((item) => (
-            <EventDetails key={item.id} title={item.name.text} />
+            <EventDetails
+               key={item.id}
+               title={item.title}
+               description={item.description}
+            />
          ))}
       </ol>
    )
@@ -236,7 +241,7 @@ const EventDetails = ({
    addToCalendar,
 }) => {
    return (
-      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-0 justify-between">
+      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between">
          {/* Header */}
          <h2 className="text-xl bg-primary text-white py-2 px-5 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
             Upcoming Events:
@@ -292,9 +297,7 @@ const EventDetails = ({
             <h4 className="mb-2 underline underline-offset-2 text-xl md:text-2xl">
                Description:
             </h4>
-            <p className="md:text-lg px-4 py-2 bg-neutral-200 rounded-md md:rounded-lg">
-               {sampleData.instructions}
-            </p>
+            <div>{parse(description)}</div>
          </div>
 
          {/* Sign Up, Add To Calendar */}
