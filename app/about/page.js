@@ -61,9 +61,9 @@ export default function About() {
                <div className="flex flex-col justify-center items-center gap-x-8 text-center lg:flex-row lg:items-start min-[1400px]:gap-x-12">
                   {/* --- How We Got Started --- */}
                   <div className="relative w-full mt-16 lg:w-1/2 xl:mt-24">
-                     <h2 className="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl">
+                     <h3 className="text-3xl md:text-4xl">
                         How We Got Started?
-                     </h2>
+                     </h3>
                      <Card
                         variant="image"
                         sx="w-[65vw] max-w-[352px] aspect-[440/629] mt-8 md:ml-0"
@@ -100,9 +100,7 @@ export default function About() {
 
                   {/* --- Our Philosophy --- */}
                   <div className="relative w-full mt-16 lg:w-1/2 xl:mt-24">
-                     <h2 className="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl">
-                        Our Philosophy
-                     </h2>
+                     <h3 className="text-3xl md:text-4xl">Our Philosophy</h3>
                      <Card
                         variant="image"
                         sx="w-[75vw] max-w-[620px] aspect-[620/412] mt-8 md:ml-0 lg:w-[90%]"

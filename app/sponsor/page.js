@@ -1,4 +1,3 @@
-import { useMemo } from "react"
 import Image from "next/image"
 import {
    EnvelopeIcon,
@@ -120,9 +119,9 @@ export default function Sponsor() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/backgrounds/sponsor_vaguav.jpg"
          />
          <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
-            {/* <------- BECOME A SPONSOR -------> */}
+            {/* --- Become a Sponsor --- */}
             <section>
-               <div className="flex flex-col justify-center items-center px-4 md:flex-row md:flex-wrap min-[1400px]:px-0 border border-red-400">
+               <div className="flex flex-col justify-center items-center px-4 md:flex-row md:flex-wrap min-[1400px]:px-0">
                   <SectionSubheader
                      header="Become a Sponsor"
                      sx="w-full"
@@ -137,7 +136,7 @@ export default function Sponsor() {
                         Inspire and educate the community to take action for a
                         better tomorrow.
                      </p>
-                     <div className="mt-8 max-md:hidden">
+                     <div className="mt-8 w-fit max-md:hidden">
                         <Button
                            href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
                            variant="primary"
@@ -149,7 +148,7 @@ export default function Sponsor() {
                   </div>
                   <Card
                      variant="image"
-                     sx="w-full max-w-[550px] aspect-[800/388] mt-8 md:w-[55%] md:h-[270px] lg:w-3/5 lg:h-full lg:max-w-[720px]"
+                     sx="w-full max-w-[550px] aspect-[800/388] mt-8 md:w-[55%] md:h-[270px] md:mr-0 lg:w-3/5 lg:h-full lg:max-w-[720px]"
                   >
                      <Image
                         alt="itisOVERDUE team gathered outside"
@@ -170,15 +169,16 @@ export default function Sponsor() {
                </div>
             </section>
 
-            {/* <------- JOIN OUR SPONSORS -------> */}
-            <section id="join-our-sponsors" className="mt-24">
+            {/* --- Join Our Sponsors --- */}
+            <section className="mt-24">
                <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
                   <SectionSubheader
                      header="Join our Sponsors"
                      sx="w-full"
-                     headerSx="text-center md:text-left"
+                     headerSx="text-center"
+                     borderSx="md:mx-auto"
                   />
-                  {/* SPONSOR LOGOS */}
+                  {/* --- Sponsor Logos --- */}
                   <div className="flex flex-wrap items-center w-full mt-4 lg:px-12 xl:px-20">
                      {sponsors.map((logo) => {
                         return (
@@ -200,8 +200,8 @@ export default function Sponsor() {
                         )
                      })}
                   </div>
-                  {/* WHY CORPORATE CLEANUP */}
-                  <div className="w-full mt-12 lg:mt-16 xl:px-12">
+                  {/* --- Why Corporate Cleanup --- */}
+                  <div className="w-full mt-12 lg:mt-16">
                      <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
@@ -240,8 +240,8 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  <div className="w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
-                     {/* PRIVATE EVENT */}
+                  <div className="w-full mt-12 md:mt-20 xl:mt-24">
+                     {/* --- Private Event --- */}
                      <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
@@ -284,8 +284,8 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  <div className="w-full mt-12 md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24 xl:px-12">
-                     {/* SCHEDULE EXAMPLE */}
+                  <div className="w-full mt-12 md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24">
+                     {/* --- Schedule Example --- */}
                      <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
                         <Card
                            variant="image"
@@ -300,7 +300,7 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="textDark"
-                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:mt-[-250px] lg:ml-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
+                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:mt-[-250px] lg:ml-0 min-[1400px]:h-[336px] min-[1400px]:mt-[-336px]"
                         >
                            <h3 className="text-xl sm:text-2xl">
                               Schedule Example
@@ -329,7 +329,7 @@ export default function Sponsor() {
                            </ul>
                         </Card>
                      </div>
-                     {/* GOOD TO KNOW */}
+                     {/* --- Good To Know --- */}
                      <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
                         <Card
                            variant="image"
@@ -344,7 +344,7 @@ export default function Sponsor() {
                         </Card>
                         <Card
                            variant="textDark"
-                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:min-h-[250px] lg:mt-[-250px] lg:mr-0 min-[1512px]:h-[336px] min-[1512px]:mt-[-336px]"
+                           sx="max-w-[600px] mt-[-200px] sm:mt-[-390px] sm:h-[390px] sm:max-lg:w-[590px] lg:h-auto lg:min-h-[250px] lg:mt-[-250px] lg:mr-0 min-[1400px]:h-[336px] min-[1400px]:mt-[-336px]"
                         >
                            <h3 className="text-xl sm:text-2xl">Good To Know</h3>
                            <p className="py-4 text-sm sm:text-base">
@@ -359,8 +359,8 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  {/* FOR THE PARTICIPANTS */}
-                  <div className="relative w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                  {/* --- For the Participants --- */}
+                  <div className="relative w-full mt-12 md:mt-20 xl:mt-24">
                      <Card
                         variant="image"
                         sx="w-full h-[90vw] min-h-[416px] max-h-[576px] lg:h-[656px] lg:max-h-[656px] aspect-[1236/656]"
@@ -374,7 +374,7 @@ export default function Sponsor() {
                      </Card>
                      <Card
                         variant="textDark"
-                        sx="mt-[-150px] sm:mt-[-200px] lg:w-[65%] lg:h-[656px] lg:mt-[-656px] lg:ml-0 lg:rounded-l-3xl lg:rounded-r-none xl:w-[55%] min-[1512px]:w-[45%]"
+                        sx="mt-[-150px] sm:mt-[-200px] lg:w-[65%] lg:h-[656px] lg:mt-[-656px] lg:ml-0 lg:rounded-l-3xl lg:rounded-r-none xl:w-[55%] min-[1400px]:w-[45%]"
                      >
                         <h3 className="text-xl sm:text-2xl">
                            For the Participants
@@ -420,13 +420,14 @@ export default function Sponsor() {
                </div>
             </section>
 
-            {/* <------- LET'S DO THIS -------> */}
-            <section id="lets-do-this" className="mt-24">
+            {/* --- Let's Do This --- */}
+            <section className="mt-24">
                <div className="flex flex-col justify-center items-center">
                   <SectionSubheader
                      header="Let's Do This"
                      sx="w-full"
-                     headerSx="text-center md:text-left"
+                     headerSx="text-center"
+                     borderSx="md:mx-auto"
                   />
                   <Card
                      variant="image"
