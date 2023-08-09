@@ -34,7 +34,7 @@ export async function GET(request, { params: { coordinates } }) {
       const eventLat = parseInt(item.venue.address.latitude)
       const eventLon = parseInt(item.venue.address.longitude)
       const withinDistance = calculateDistance(lat, lon, eventLat, eventLon)
-
+      console.log(item)
       withinDistance && nearby.push(formatForClientSide(item))
    })
 
@@ -54,8 +54,6 @@ export async function GET(request, { params: { coordinates } }) {
          populated.push(populatedItem)
       }
    }
-
-   // https://www.google.com/maps/place/6300+Balboa+Blvd,+Van+Nuys,+CA+91406
 
    return NextResponse.json(populated)
 }
@@ -85,16 +83,21 @@ function formatForClientSide(event) {
          })} - ${d2.toLocaleString({ month: "short", day: "numeric" })}`,
       }
    }
-
    return {
       title: event.name.text,
       id: event.id,
       location: {
          name: event.venue.name,
-         href: `${BASE_GOOGLE_MAPS}${event.venue.address.localized_address_display
+         href: `${BASE_GOOGLE_MAPS}/${event.venue.address.localized_address_display // https://www.google.com/maps/place/6300+Balboa+Blvd,+Van+Nuys,+CA+91406
             .split(" ")
             .join("+")}`,
+         address: event.venue.address.localized_multi_line_address_display,
       },
+      image: event.logo.original.url,
+      link: event.url,
+      created: DateTime.fromISO(event.created).toLocaleString(),
+      updated: DateTime.fromISO(event.changed).toLocaleString(),
+      published: DateTime.fromISO(event.published).toLocaleString(),
       when,
    }
 }

@@ -226,20 +226,15 @@ const ListOfEvents = ({ events }) => {
                key={item.id}
                title={item.title}
                description={item.description}
+               location={item.location}
+               when={item.when}
+               signup={item.link}
             />
          ))}
       </ol>
    )
 }
-const EventDetails = ({
-   title,
-   when,
-   location,
-   parking,
-   description,
-   signup,
-   addToCalendar,
-}) => {
+const EventDetails = ({ title, when, location, description, signup }) => {
    return (
       <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between">
          {/* Header */}
@@ -251,44 +246,40 @@ const EventDetails = ({
          <h3 className="text-5xl lg:text-6xl">{title}</h3>
 
          {/* Date and Time, Location/Parking */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Date and Time */}
-            <div className="col-span-1">
+            <div className="md:text-lg">
                <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
                   Date and Time:
                </h4>
-               <p className="md:text-lg">{sampleData.when.date}</p>
-               <p className="md:text-lg">@ {sampleData.when.time}</p>
+               <p className="mb-1">{when.date}</p>
+               <p>@ {when.time}</p>
             </div>
 
-            {/* Location/Parking */}
-            <div className="col-span-2">
+            {/* Location */}
+            <div className="md:text-lg">
                <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
-                  Location/Parking
+                  Location
                </h4>
 
-               {/* Location */}
-               <p className="md:text-lg">
-                  <span className="mr-2">{sampleData.location.name}</span>
-
-                  <Link href={sampleData.location.href} target="_blank">
-                     <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
-                        <span>Open in Maps</span>
-                        <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
-                     </button>
-                  </Link>
-               </p>
-
-               {/* Parking */}
-               <p className="md:text-lg">
-                  <span className="mr-2">{sampleData.parking.name}</span>
-                  <Link href={sampleData.parking.href} target="_blank">
-                     <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
-                        <span>Open in Maps</span>
-                        <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
-                     </button>
-                  </Link>
-               </p>
+               <ul className="flex flex-col space-y-1">
+                  <li>{location.name}</li>
+                  <li>
+                     {location.address.map((item) => (
+                        <span key={item} className="block">
+                           {item}
+                        </span>
+                     ))}
+                  </li>
+                  <li>
+                     <Link href={location.href} target="_blank">
+                        <button className="hover:underline items-center space-x-1 inline-flex bg-primary px-2 rounded-sm md:text-lg">
+                           <span>Open in Maps</span>
+                           <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
+                        </button>
+                     </Link>
+                  </li>
+               </ul>
             </div>
          </div>
 
@@ -297,35 +288,20 @@ const EventDetails = ({
             <h4 className="mb-2 underline underline-offset-2 text-xl md:text-2xl">
                Description:
             </h4>
-            <div>{parse(description)}</div>
+            {parse(description)}
          </div>
 
-         {/* Sign Up, Add To Calendar */}
-         <div className="flex space-x-3 md:space-x-5 md:max-w-md">
+         {/* Sign Up */}
+         <div className="md:max-w-md">
             <Button
-               href={sampleData.signup}
+               href={signup}
                size="lg"
                variant="primary"
                target="_blank"
                fullWidth
-               style={{ fontSize: "1rem", padding: "0.5rem" }}
             >
                <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1" />
                <span>Sign Up</span>
-            </Button>
-            <Button
-               href={sampleData.signup}
-               size="lg"
-               variant="primary"
-               target="_blank"
-               fullWidth
-               style={{
-                  fontSize: "1rem",
-                  padding: "0.5rem",
-               }}
-            >
-               <CalendarIcon className="w-5 h-5 mb-0.5 mr-1" />
-               <span>Add to Calendar</span>
             </Button>
          </div>
       </section>

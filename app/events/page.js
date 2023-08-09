@@ -11,6 +11,12 @@ const chapters = [
       zIndex: "z-[10]",
    },
    {
+      location: "Woodland Hills, CA",
+      lat: "left-[18%]",
+      lon: "bottom-[47%]",
+      zIndex: "z-[11]",
+   },
+   {
       location: "Miami, FL",
       lat: "right-[10%]",
       lon: "bottom-[16%]",
