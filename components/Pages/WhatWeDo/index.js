@@ -11,11 +11,11 @@ import LARiverBoom from "./LARiverBoom"
 export default function WhatWeDo({ variant }) {
    return (
       <section>
-         <div className="flex flex-col justify-center text-center xl:px-12">
+         <div className="flex flex-col justify-center text-center">
             <SectionSubheader
                header="What We Do"
                sx="mt-24"
-               borderSx="md:mx-auto lg:ml-0"
+               borderSx="md:mx-auto"
             />
             <CleanupEvents variant={variant} />
             <EducationalPrograms variant={variant} />
