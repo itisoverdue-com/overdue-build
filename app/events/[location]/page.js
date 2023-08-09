@@ -115,7 +115,7 @@ export default function EventLocationPage({ params: { location } }) {
                   {/* <--- Event Details, Calendar/List ---> */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 backdrop-blur-md">
                      {events.length > 0 ? (
-                        <ListOfEvents events={events} active={active} />
+                        <EventDetails event={events[active]} />
                      ) : (
                         <h2>No Events</h2>
                      )}
@@ -225,23 +225,8 @@ export default function EventLocationPage({ params: { location } }) {
    )
 }
 
-const ListOfEvents = ({ events, active }) => {
-   return (
-      <ol>
-         {events.map((item) => (
-            <EventDetails
-               key={item.id}
-               title={item.title}
-               description={item.description}
-               location={item.location}
-               when={item.when}
-               signup={item.link}
-            />
-         ))}
-      </ol>
-   )
-}
-const EventDetails = ({ title, when, location, description, signup }) => {
+const EventDetails = ({ event }) => {
+   const { title, when, location, description, signup } = event
    return (
       <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between">
          {/* Header */}
