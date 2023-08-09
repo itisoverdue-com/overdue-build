@@ -59,7 +59,8 @@ export default function EventLocationPage({ params: { location } }) {
    const [view, setView] = useState("calendar")
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState(null)
-   const [eventData, setEventData] = useState(null)
+   const [events, setEvents] = useState(null)
+   const [active, setActive] = useState(0)
 
    useEffect(() => {
       async function fetchData() {
@@ -69,13 +70,13 @@ export default function EventLocationPage({ params: { location } }) {
             const extension = `${locationDetails.lat},${locationDetails.lon}`
             const res = await fetch(`/api/events/${extension}`)
             const data = await res.json()
-            setEventData(data)
+            setEvents(data)
          } catch (err) {
             setError(err)
          }
          setLoading(false)
       }
-      if (eventData === null) {
+      if (events === null) {
          fetchData()
       }
    })
@@ -84,8 +85,8 @@ export default function EventLocationPage({ params: { location } }) {
    const formatHeader = () =>
       location.split("%20").join(" ").split("%2C").join(",")
 
-   if (eventData) {
-      eventData.forEach((item) => {
+   if (events) {
+      events.forEach((item) => {
          console.log(item)
       })
    }
@@ -98,7 +99,13 @@ export default function EventLocationPage({ params: { location } }) {
             header={formatHeader()}
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
-         <FullBleedContainer sx="bg-background" childSx="py-16 lg:py-28 ">
+         <FullBleedContainer
+            sx="bg-white bg-opacity-90"
+            backgroundImageSrc={`${
+               events && events.length > 0 ? events[active].image : ""
+            }`}
+            childSx="py-16 lg:py-28 "
+         >
             {error ? (
                <Error />
             ) : loading ? (
@@ -106,9 +113,9 @@ export default function EventLocationPage({ params: { location } }) {
             ) : (
                <>
                   {/* <--- Event Details, Calendar/List ---> */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                     {eventData.length > 0 ? (
-                        <ListOfEvents events={[eventData[0]]} />
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 backdrop-blur-md">
+                     {events.length > 0 ? (
+                        <ListOfEvents events={events} active={active} />
                      ) : (
                         <h2>No Events</h2>
                      )}
@@ -218,7 +225,7 @@ export default function EventLocationPage({ params: { location } }) {
    )
 }
 
-const ListOfEvents = ({ events }) => {
+const ListOfEvents = ({ events, active }) => {
    return (
       <ol>
          {events.map((item) => (
@@ -239,7 +246,7 @@ const EventDetails = ({ title, when, location, description, signup }) => {
       <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between">
          {/* Header */}
          <h2 className="text-xl bg-primary text-white py-2 px-5 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
-            Upcoming Events:
+            Upcoming Event:
          </h2>
 
          {/* Title of Event */}
