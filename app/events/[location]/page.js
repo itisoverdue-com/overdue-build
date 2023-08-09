@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Link from "next/link"
@@ -28,6 +28,7 @@ export default function EventLocationPage({ params: { location } }) {
    const [error, setError] = useState(null)
    const [events, setEvents] = useState(null)
    const [active, setActive] = useState(0)
+   const contentRef = useRef(null)
 
    useEffect(() => {
       async function fetchData() {
@@ -55,14 +56,22 @@ export default function EventLocationPage({ params: { location } }) {
    const handleActiveChange = (index) => {
       if (index === events.length) {
          setActive(0)
+      } else if (index === -1 && active === 0) {
+         setActive(events.length - 1)
       } else {
          setActive(index)
       }
+      scrollToRef(contentRef)
    }
 
-   if (events) {
-      console.log(events[active])
+   const scrollToRef = (ref) => {
+      const offset = ref.current.offsetTop * 5
+      window.scrollTo({
+         top: offset,
+         behavior: "smooth",
+      })
    }
+
    return (
       <div>
          <PageHero
@@ -82,13 +91,12 @@ export default function EventLocationPage({ params: { location } }) {
             ) : (
                <>
                   {/* <--- Event Details, Calendar/List ---> */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 backdrop-blur-md">
+                  <div
+                     ref={contentRef}
+                     className="grid grid-cols-1 lg:grid-cols-3 gap-8 backdrop-blur-md"
+                  >
                      {events.length > 0 ? (
-                        <EventDetails
-                           event={events[active]}
-                           active={active}
-                           handleActiveChange={handleActiveChange}
-                        />
+                        <EventDetails event={events[active]} />
                      ) : (
                         <h2>No Events</h2>
                      )}
@@ -112,31 +120,24 @@ export default function EventLocationPage({ params: { location } }) {
    )
 }
 
-const EventDetails = ({ event, active, handleActiveChange }) => {
-   const { title, when, location, description, link } = event
+const EventDetails = ({ event }) => {
+   const { title, when, location, description, link, image } = event
    const [showMore, setShowMore] = useState(false)
-
-   const handleNext = () => {
-      setShowMore(false)
-      handleActiveChange(active + 1)
-   }
 
    const handleToggleShowMore = () => setShowMore((prevState) => !prevState)
    return (
-      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-10 justify-between lg:col-span-2">
+      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between lg:col-span-2">
          {/* <--- Header ---> */}
-         <div className="flex">
-            <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
-               Upcoming Event:
-            </h2>
-            <div></div>
-         </div>
+
+         <h2 className="text-xl bg-primary text-white py-2 px-5 mr-3 rounded-md w-max shadow-md  lg:rounded-lg lg:px-6 lg:py-3 lg:text-4xl">
+            Upcoming Event:
+         </h2>
 
          {/* <--- Title ---> */}
          <div>
-            <div className="w-full h-72 relative mb-6 overflow-hidden rounded-xl">
+            <div className="w-full h-auto aspect-[6/2] relative mb-3 md:mb-5 overflow-hidden rounded-xl">
                <Image
-                  src={event.image}
+                  src={image}
                   alt={title}
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -147,9 +148,11 @@ const EventDetails = ({ event, active, handleActiveChange }) => {
 
          {/* <--- When/Where ---> */}
          <div className="flex flex-col space-y-2">
-            <h4 className="mb-4 text-xl md:text-2xl">When and where:</h4>
+            <h4 className="mb-3 text-xl md:text-2xl md:mb-4 lg:mb-5">
+               When and where:
+            </h4>
 
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 gap-y-5 md:gap-y-0 md:grid-cols-2">
                {/* When */}
                <div className="flex space-x-3 items-start">
                   <span className="p-1 bg-lightest-grey w-10 h-10 inline-flex justify-center items-center">
