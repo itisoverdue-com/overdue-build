@@ -35,6 +35,24 @@ const sampleData = {
    calendar: "/",
 }
 
+/**
+ * eventData Interface
+ * when: {
+ *    date: event.start.local to event.end.local
+ *    time: event.start.local to event.end.local
+ * },
+ * title: event.name.text
+ * location: {
+ *    name: ""
+ *    href: ""
+ * }
+ * parking: {
+ *    name: "",
+ *    href: ""
+ * },
+ * instruction: event.
+ */
+
 export default function EventLocationPage({ params: { location } }) {
    const [view, setView] = useState("calendar")
    const [loading, setLoading] = useState(true)
@@ -59,10 +77,16 @@ export default function EventLocationPage({ params: { location } }) {
          fetchData()
       }
    })
-   console.log(eventData)
+
    const handleViewChange = (e) => setView(e.currentTarget.name)
    const formatHeader = () =>
       location.split("%20").join(" ").split("%2C").join(",")
+
+   if (eventData) {
+      eventData.forEach((item) => {
+         console.log(item)
+      })
+   }
 
    return (
       <div>

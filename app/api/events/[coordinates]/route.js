@@ -1,9 +1,12 @@
 //https://www.eventbriteapi.com/v3
 import { NextResponse } from "next/server"
 
-const maxDistance = 50
-
+// API Docs - https://www.eventbrite.com/platform/api#/reference/event/list/list-events-by-organization
 // URL Example - "http://localhost:3000/events/30.232,-118.23"
+
+const maxDistance = 50
+const BASE_API = "https://www.eventbriteapi.com/v3"
+
 export async function GET(request, { params: { coordinates } }) {
    const _ = coordinates.split(",")
    const lat = parseInt(_[0])
@@ -11,27 +14,46 @@ export async function GET(request, { params: { coordinates } }) {
 
    const TOKEN = process.env.EVENTBRITE_API_KEY
    const ORG_ID = process.env.ORGANIZATION_ID
+   const OPTIONS = {
+      method: "GET",
+      headers: {
+         Authorization: `Bearer ${TOKEN}`,
+      },
+   }
 
    const res = await fetch(
-      `https://www.eventbriteapi.com/v3/organizations/${ORG_ID}/events?status=live&expand=venue&name_filter=la`,
-      {
-         method: "GET",
-         headers: {
-            Authorization: `Bearer ${TOKEN}`,
-         },
-      }
+      `${BASE_API}/organizations/${ORG_ID}/events?expand=venue&status=live`,
+      OPTIONS
    )
    const { events } = await res.json()
-   const data = []
+
+   // Find Nearby Events based on maxDistance
+   const nearby = []
    events.forEach((item) => {
       const eventLat = parseInt(item.venue.address.latitude)
       const eventLon = parseInt(item.venue.address.longitude)
       const withinDistance = calculateDistance(lat, lon, eventLat, eventLon)
-      console.log(withinDistance)
-      withinDistance && data.push(item)
+      withinDistance && nearby.push(item)
    })
 
-   return NextResponse.json(data)
+   // Populate Events with Descriptions
+   const results = []
+   for (const event of nearby) {
+      const res = await fetch(
+         `${BASE_API}/events/${event.id}/description`,
+         OPTIONS
+      )
+      if (res.status === 200) {
+         const data = await res.json()
+         const populatedItem = {
+            ...event,
+            description: data.description,
+         }
+         results.push(populatedItem)
+      }
+   }
+
+   return NextResponse.json(results)
 }
 
 /**
@@ -116,6 +138,7 @@ export async function GET(request, { params: { coordinates } }) {
  *    name: string
  * }
  */
+
 function calculateDistance(lat1, lon1, lat2, lon2) {
    const R = 3958.8 // Radius of the Earth in miles
 
