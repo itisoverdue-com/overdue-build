@@ -15,6 +15,7 @@ import {
    ListBulletIcon,
 } from "@heroicons/react/24/outline"
 import { LOCATIONS } from "@/lib/data"
+
 const sampleData = {
    when: {
       date: "Thu, May 17",
@@ -105,113 +106,11 @@ export default function EventLocationPage({ params: { location } }) {
                <>
                   {/* <--- Event Details, Calendar/List ---> */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                     {/* Event Details */}
-                     <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-0 justify-between">
-                        {/* Header */}
-                        <h2 className="text-xl bg-primary text-white py-2 px-5 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
-                           Upcoming Events:
-                        </h2>
-
-                        {/* Title of Event */}
-                        <h3 className="text-5xl lg:text-6xl">
-                           {sampleData.title}
-                        </h3>
-
-                        {/* Date and Time, Location/Parking */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                           {/* Date and Time */}
-                           <div className="col-span-1">
-                              <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
-                                 Date and Time:
-                              </h4>
-                              <p className="md:text-lg">
-                                 {sampleData.when.date}
-                              </p>
-                              <p className="md:text-lg">
-                                 @ {sampleData.when.time}
-                              </p>
-                           </div>
-
-                           {/* Location/Parking */}
-                           <div className="col-span-2">
-                              <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
-                                 Location/Parking
-                              </h4>
-
-                              {/* Location */}
-                              <p className="md:text-lg">
-                                 <span className="mr-2">
-                                    {sampleData.location.name}
-                                 </span>
-
-                                 <Link
-                                    href={sampleData.location.href}
-                                    target="_blank"
-                                 >
-                                    <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
-                                       <span>Open in Maps</span>
-                                       <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
-                                    </button>
-                                 </Link>
-                              </p>
-
-                              {/* Parking */}
-                              <p className="md:text-lg">
-                                 <span className="mr-2">
-                                    {sampleData.parking.name}
-                                 </span>
-                                 <Link
-                                    href={sampleData.parking.href}
-                                    target="_blank"
-                                 >
-                                    <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
-                                       <span>Open in Maps</span>
-                                       <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
-                                    </button>
-                                 </Link>
-                              </p>
-                           </div>
-                        </div>
-
-                        {/* Instructions */}
-                        <div>
-                           <h4 className="mb-2 underline underline-offset-2 text-xl md:text-2xl">
-                              Instructions:
-                           </h4>
-                           <p className="md:text-lg px-4 py-2 bg-neutral-200 rounded-md md:rounded-lg">
-                              {sampleData.instructions}
-                           </p>
-                        </div>
-
-                        {/* Sign Up, Add To Calendar */}
-                        <div className="flex space-x-3 md:space-x-5 md:max-w-md">
-                           <Button
-                              href={sampleData.signup}
-                              size="lg"
-                              variant="primary"
-                              target="_blank"
-                              fullWidth
-                              style={{ fontSize: "1rem", padding: "0.5rem" }}
-                           >
-                              <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1" />
-                              <span>Sign Up</span>
-                           </Button>
-                           <Button
-                              href={sampleData.signup}
-                              size="lg"
-                              variant="primary"
-                              target="_blank"
-                              fullWidth
-                              style={{
-                                 fontSize: "1rem",
-                                 padding: "0.5rem",
-                              }}
-                           >
-                              <CalendarIcon className="w-5 h-5 mb-0.5 mr-1" />
-                              <span>Add to Calendar</span>
-                           </Button>
-                        </div>
-                     </section>
+                     {eventData.length > 0 ? (
+                        <ListOfEvents events={[eventData[0]]} />
+                     ) : (
+                        <h2>No Events</h2>
+                     )}
 
                      {/* Calendar, List */}
                      <section className="flex flex-col justify-center items-center lg:items-end ">
@@ -315,5 +214,117 @@ export default function EventLocationPage({ params: { location } }) {
             )}
          </FullBleedContainer>
       </div>
+   )
+}
+
+const ListOfEvents = ({ events }) => {
+   return (
+      <ol>
+         {events.map((item) => (
+            <EventDetails key={item.id} title={item.name.text} />
+         ))}
+      </ol>
+   )
+}
+const EventDetails = ({
+   title,
+   when,
+   location,
+   parking,
+   description,
+   signup,
+   addToCalendar,
+}) => {
+   return (
+      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-0 justify-between">
+         {/* Header */}
+         <h2 className="text-xl bg-primary text-white py-2 px-5 rounded-lg w-max shadow-md  lg:rounded-xl lg:px-6 lg:py-3 lg:text-4xl">
+            Upcoming Events:
+         </h2>
+
+         {/* Title of Event */}
+         <h3 className="text-5xl lg:text-6xl">{title}</h3>
+
+         {/* Date and Time, Location/Parking */}
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* Date and Time */}
+            <div className="col-span-1">
+               <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
+                  Date and Time:
+               </h4>
+               <p className="md:text-lg">{sampleData.when.date}</p>
+               <p className="md:text-lg">@ {sampleData.when.time}</p>
+            </div>
+
+            {/* Location/Parking */}
+            <div className="col-span-2">
+               <h4 className="mb-1 underline underline-offset-2 text-xl md:text-2xl">
+                  Location/Parking
+               </h4>
+
+               {/* Location */}
+               <p className="md:text-lg">
+                  <span className="mr-2">{sampleData.location.name}</span>
+
+                  <Link href={sampleData.location.href} target="_blank">
+                     <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
+                        <span>Open in Maps</span>
+                        <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
+                     </button>
+                  </Link>
+               </p>
+
+               {/* Parking */}
+               <p className="md:text-lg">
+                  <span className="mr-2">{sampleData.parking.name}</span>
+                  <Link href={sampleData.parking.href} target="_blank">
+                     <button className="hover:underline items-center space-x-1 inline-flex text-sm bg-neutral-200 rounded-lg px-2">
+                        <span>Open in Maps</span>
+                        <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
+                     </button>
+                  </Link>
+               </p>
+            </div>
+         </div>
+
+         {/* Instructions */}
+         <div>
+            <h4 className="mb-2 underline underline-offset-2 text-xl md:text-2xl">
+               Description:
+            </h4>
+            <p className="md:text-lg px-4 py-2 bg-neutral-200 rounded-md md:rounded-lg">
+               {sampleData.instructions}
+            </p>
+         </div>
+
+         {/* Sign Up, Add To Calendar */}
+         <div className="flex space-x-3 md:space-x-5 md:max-w-md">
+            <Button
+               href={sampleData.signup}
+               size="lg"
+               variant="primary"
+               target="_blank"
+               fullWidth
+               style={{ fontSize: "1rem", padding: "0.5rem" }}
+            >
+               <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1" />
+               <span>Sign Up</span>
+            </Button>
+            <Button
+               href={sampleData.signup}
+               size="lg"
+               variant="primary"
+               target="_blank"
+               fullWidth
+               style={{
+                  fontSize: "1rem",
+                  padding: "0.5rem",
+               }}
+            >
+               <CalendarIcon className="w-5 h-5 mb-0.5 mr-1" />
+               <span>Add to Calendar</span>
+            </Button>
+         </div>
+      </section>
    )
 }
