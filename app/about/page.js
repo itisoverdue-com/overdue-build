@@ -24,13 +24,13 @@ export default function About() {
             {/* IT IS OVERDUE */}
             <section id="about-it-is-overdue">
                {/* Subsection 1 */}
-               <div className="flex flex-col justify-center items-center text-center md:flex-row md:flex-wrap xl:px-12">
+               <div className="flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap xl:px-12">
                   <SectionSubheader
                      header="IT IS OVERDUE"
                      sx="md:w-[55%] md:pr-12 lg:w-[45%] xl:pr-4"
                      headerSx="md:text-left"
                   >
-                     <h3 className="mx-auto mt-8 px-4 sm:px-8 md:px-0 sm:text-2xl md:text-3xl md:leading-[3rem] font-medium text-left">
+                     <h3 className="mx-auto mt-8 px-4 text-left font-medium sm:px-8 sm:text-2xl md:px-0 md:text-3xl md:leading-[3rem]">
                         OVERDUE is a collective of individuals who pick up trash
                         together to make their communities cleaner, greener and
                         friendlier.
@@ -64,10 +64,10 @@ export default function About() {
                </div>
 
                {/* Subsection 2 */}
-               <div className="flex flex-col justify-center items-center text-center lg:flex-row lg:items-start xl:px-12">
+               <div className="flex flex-col items-center justify-center text-center lg:flex-row lg:items-start xl:px-12">
                   {/* How We Got Started */}
-                  <div className="relative w-full mt-16 lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
-                     <h2 className="text-3xl sm:text-5xl lg:text-4xl lg:text-left xl:text-5xl">
+                  <div className="relative mt-16 w-full lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
+                     <h2 className="text-3xl sm:text-5xl lg:text-left lg:text-4xl xl:text-5xl">
                         How We Got Started?
                      </h2>
                      <Card
@@ -105,8 +105,8 @@ export default function About() {
                   </div>
 
                   {/* Our Philosophy */}
-                  <div className="relative w-full mt-16 lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
-                     <h2 className="text-3xl sm:text-5xl lg:text-4xl lg:text-left xl:text-5xl">
+                  <div className="relative mt-16 w-full lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
+                     <h2 className="text-3xl sm:text-5xl lg:text-left lg:text-4xl xl:text-5xl">
                         Our Philosophy
                      </h2>
                      <Card
@@ -129,7 +129,7 @@ export default function About() {
                            litter around, they will feel less inclined to toss
                            it on the street.
                         </p>
-                        <p className="italic mt-4">
+                        <p className="mt-4 italic">
                            Power in the people is greater than people in power.
                         </p>
                         <p className="text-right">&mdash; Wael Ghonim</p>
@@ -153,7 +153,7 @@ export default function About() {
                      borderSx="md:mx-auto"
                   />
                </div>
-               <div className="mt-8 mx-auto w-fit">
+               <div className="mx-auto mt-8 w-fit">
                   <Button variant="primary" size="xl" href="/contact">
                      Contact Us
                   </Button>

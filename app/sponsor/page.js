@@ -125,23 +125,27 @@ export default function Sponsor() {
          >
             {/* <------- BECOME A SPONSOR -------> */}
             <section id="become-a-sponsor">
-               <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
+               <div className="flex flex-col items-center justify-center md:flex-row md:flex-wrap">
                   <SectionSubheader
                      header="Become a Sponsor"
                      sx="w-full"
                      headerSx="text-center md:text-left"
                   />
                   <div className="w-full md:w-[45%] md:pl-6 md:pr-8 lg:w-2/5 lg:pl-12 xl:pl-20 xl:pr-16">
-                     <h3 className="mt-4 text-2xl sm:text-3xl sm:text-center sm:mt-8 md:text-left">
+                     <h3 className="mt-4 text-2xl sm:mt-8 sm:text-center sm:text-3xl md:text-left">
                         Together
                      </h3>
-                     <div className="max-md:hidden border-t-8 border-primary w-20 rounded-full my-2 mx-0" />
+                     <div className="mx-0 my-2 w-20 rounded-full border-t-8 border-primary max-md:hidden" />
                      <p className="mt-4 text-left sm:max-md:text-center">
                         Inspire and educate the community to take action for a
                         better tomorrow.
                      </p>
                      <div className="mt-8 max-md:hidden">
-                        <Button variant="primary" size="xl">
+                        <Button
+                           href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                           variant="primary"
+                           size="xl"
+                        >
                            Become a Sponsor
                         </Button>
                      </div>
@@ -152,13 +156,17 @@ export default function Sponsor() {
                   >
                      <Image
                         alt="itisOVERDUE team gathered outside"
-                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor_iinfeq.jpg"
+                        src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor/sponsor_iinfeq.jpg"
                         fill
-                        className="object-cover scale-125 lg:scale-100"
+                        className="object-cover"
                      />
                   </Card>
                   <div className="mt-8 md:hidden">
-                     <Button variant="primary" size="xl">
+                     <Button
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                        variant="primary"
+                        size="xl"
+                     >
                         Become a Sponsor
                      </Button>
                   </div>
@@ -167,14 +175,14 @@ export default function Sponsor() {
 
             {/* <------- JOIN OUR SPONSORS -------> */}
             <section id="join-our-sponsors" className="mt-24">
-               <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap">
+               <div className="flex flex-col items-center justify-center md:flex-row md:flex-wrap">
                   <SectionSubheader
                      header="Join our Sponsors"
                      sx="w-full"
                      headerSx="text-center md:text-left"
                   />
                   {/* SPONSOR LOGOS */}
-                  <div className="flex flex-wrap items-center w-full mt-4 lg:px-12 xl:px-20">
+                  <div className="mt-4 flex w-full flex-wrap items-center lg:px-12 xl:px-20">
                      {sponsors.map((logo) => {
                         return (
                            <div
@@ -182,7 +190,7 @@ export default function Sponsor() {
                               className={`p-4 sm:p-6 ${logo.outerSx}`}
                            >
                               <div
-                                 className={`mx-auto relative ${logo.innerSx}`}
+                                 className={`relative mx-auto ${logo.innerSx}`}
                               >
                                  <Image
                                     alt={`${logo.name} logo`}
@@ -196,8 +204,8 @@ export default function Sponsor() {
                      })}
                   </div>
                   {/* WHY CORPORATE CLEANUP */}
-                  <div className="w-full mt-12 lg:mt-16 xl:px-12">
-                     <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
+                  <div className="mt-12 w-full lg:mt-16 xl:px-12">
+                     <div className="relative flex w-full flex-col items-center justify-center md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
                            sx="flex flex-col justify-center basis-full max-w-none md:basis-[70%] xl:basis-3/4 xl:min-h-[428px]"
@@ -205,7 +213,7 @@ export default function Sponsor() {
                            <h3 className="text-xl sm:text-2xl">
                               Why Corporate Cleanup?
                            </h3>
-                           <p className="mt-4 mb-6">
+                           <p className="mb-6 mt-4">
                               We love giving back to the community, and you know
                               what? A lot of businesses feel the same way, but
                               they typically have a hard time finding local
@@ -235,9 +243,9 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  <div className="w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                  <div className="mt-12 w-full md:mt-20 xl:mt-24 xl:px-12">
                      {/* PRIVATE EVENT */}
-                     <div className="relative flex flex-col justify-center items-center w-full md:flex-row md:gap-x-4">
+                     <div className="relative flex w-full flex-col items-center justify-center md:flex-row md:gap-x-4">
                         <Card
                            variant="text"
                            sx="flex flex-col justify-center basis-full max-w-none md:basis-[70%] lg:order-2 xl:basis-3/4 lg:min-h-[428px]"
@@ -245,7 +253,7 @@ export default function Sponsor() {
                            <h3 className="text-xl sm:text-2xl">
                               Private Event
                            </h3>
-                           <p className="text-lg py-4">
+                           <p className="py-4 text-lg">
                               $1250 tax deductible donation:
                            </p>
                            <div className="px-4">
@@ -279,9 +287,9 @@ export default function Sponsor() {
                         </Card>
                      </div>
                   </div>
-                  <div className="w-full mt-12 md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24 xl:px-12">
+                  <div className="mt-12 w-full md:mt-20 lg:flex lg:flex-row lg:items-start lg:gap-x-4 xl:mt-24 xl:px-12">
                      {/* SCHEDULE EXAMPLE */}
-                     <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
+                     <div className="mt-12 flex flex-col items-center justify-center lg:w-1/2">
                         <Card
                            variant="image"
                            sx="w-full max-w-[600px] aspect-[627/836] sm:w-[590px] lg:w-full lg:ml-0"
@@ -325,7 +333,7 @@ export default function Sponsor() {
                         </Card>
                      </div>
                      {/* GOOD TO KNOW */}
-                     <div className="flex flex-col justify-center items-center mt-12 lg:w-1/2">
+                     <div className="mt-12 flex flex-col items-center justify-center lg:w-1/2">
                         <Card
                            variant="image"
                            sx="w-full max-w-[600px] aspect-[627/836] sm:w-[590px] lg:w-full lg:mr-0"
@@ -355,7 +363,7 @@ export default function Sponsor() {
                      </div>
                   </div>
                   {/* FOR THE PARTICIPANTS */}
-                  <div className="relative w-full mt-12 md:mt-20 xl:mt-24 xl:px-12">
+                  <div className="relative mt-12 w-full md:mt-20 xl:mt-24 xl:px-12">
                      <Card
                         variant="image"
                         sx="w-full h-[90vw] min-h-[416px] max-h-[576px] lg:h-[656px] lg:max-h-[656px] aspect-[1236/656]"
@@ -364,7 +372,7 @@ export default function Sponsor() {
                            alt="itisOVERDUE team gathered outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690480845/sponsor/sponsor_sc9ez1.jpg"
                            fill
-                           className="object-cover scale-100"
+                           className="scale-100 object-cover"
                         />
                      </Card>
                      <Card
@@ -417,7 +425,7 @@ export default function Sponsor() {
 
             {/* <------- LET'S DO THIS -------> */}
             <section id="lets-do-this" className="mt-24">
-               <div className="flex flex-col justify-center items-center">
+               <div className="flex flex-col items-center justify-center">
                   <SectionSubheader
                      header="Let's Do This"
                      sx="w-full"
@@ -431,30 +439,30 @@ export default function Sponsor() {
                         alt="itisOVERDUE team gathered outside"
                         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690498715/sponsor/sponsor_zbhkww.jpg"
                         fill
-                        className="object-cover scale-110 md:scale-100"
+                        className="scale-110 object-cover md:scale-100"
                      />
                   </Card>
                   <Card
                      variant="text"
                      sx="w-full mt-[-30px] md:mt-[-60px] lg:w-[440px] lg:mt-[-90px] shadow-[10px_12px_2px_0px_rgba(0,0,0,0.8)]"
                   >
-                     <div className="w-fit mx-auto text-darker-grey">
+                     <div className="mx-auto w-fit text-darker-grey">
                         <div className="flex items-center">
-                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                           <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <EnvelopeIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
                            <span className="sm:text-lg">
                               admin@itisoverdue.org
                            </span>
                         </div>
-                        <div className="flex items-center my-2 sm:my-4">
-                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                        <div className="my-2 flex items-center sm:my-4">
+                           <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <AtSymbolIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
                            <span className="sm:text-lg">@itisoverdue</span>
                         </div>
                         <div className="flex items-center">
-                           <div className="flex justify-center items-center w-9 h-9 mr-2.5 bg-primary rounded-full sm:w-12 sm:h-12 sm:mr-4 lg:mr-10">
+                           <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <PhoneIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
                            <span className="sm:text-lg">(818) 854-5273</span>
@@ -462,7 +470,11 @@ export default function Sponsor() {
                      </div>
                   </Card>
                   <div className="mt-12 sm:mt-16">
-                     <Button variant="primary" size="xl">
+                     <Button
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
+                        variant="primary"
+                        size="xl"
+                     >
                         Become a Sponsor
                      </Button>
                   </div>

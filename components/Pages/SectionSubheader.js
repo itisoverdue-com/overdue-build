@@ -11,7 +11,7 @@ export default function SectionSubheader({
             {header}
          </h2>
          <div
-            className={`border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0 ${borderSx}`}
+            className={`mx-auto my-4 w-20 rounded-full border-t-8 border-primary md:mx-0 md:my-5 md:w-28 ${borderSx}`}
          />
          {children}
       </div>
