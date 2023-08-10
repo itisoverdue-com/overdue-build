@@ -9,6 +9,17 @@ import { SOCIALS } from "@/lib/constants"
 import Link from "next/link"
 import Card from "@/components/shared/Card"
 
+export const metadata = {
+   title: "Contact",
+   description:
+      "Phone: +1 818 854-5273; Email: admin@itisoverdue.org; Social Media: @itisoverdue;",
+   formatDetection: {
+      email: true,
+      address: true,
+      telephone: true,
+   },
+}
+
 export default function Contact() {
    const cards = [
       {

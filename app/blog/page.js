@@ -17,6 +17,10 @@ import {
 } from "@heroicons/react/24/outline"
 import { UserIcon } from "@heroicons/react/24/solid"
 
+export const metadata = {
+   title: "Overdue - Blog",
+}
+
 const blogsPerPage = 6
 export default function BlogPage() {
    const [loading, setLoading] = useState(true)
