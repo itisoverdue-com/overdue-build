@@ -64,8 +64,8 @@ export default function Events() {
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>Our Chapter Locations</h2>
-               <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28" />
-               <h3 className="text-dark-grey font-normal max-w-screen-xl">
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
+               <h3 className="max-w-screen-xl font-normal text-dark-grey">
                   We need volunteers to help us in cleaning the environment and
                   be a part of a greater good. You can subscribe to any of the
                   events mentioned below.
@@ -77,7 +77,7 @@ export default function Events() {
 
             {/* Chapter Locations */}
             <div className="w-full max-w-5xl">
-               <h4 className="text-start text-dark-grey underline underline-offset-8 mb-1">
+               <h4 className="mb-1 text-start text-dark-grey underline underline-offset-8">
                   Select a Chapter:
                </h4>
 
@@ -89,7 +89,7 @@ export default function Events() {
                         href={`/events/${linkExtension(item.location)}`}
                         className="md:mr-5"
                      >
-                        <li className="text-start p-3 mt-3 bg-white text-black  w-full block shadow-md rounded-md md:rounded-lg md:p-4 lg:p-6 md:mt-5  md:text-xl md:hover:bg-primary md:hover:shadow-lg md:hover:-translate-y-1.5 md:transition-all">
+                        <li className="mt-3 block w-full rounded-md bg-white  p-3 text-start text-black shadow-md md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg lg:p-6">
                            📍 {item.location}
                         </li>
                      </Link>
@@ -105,7 +105,7 @@ const ChapterPin = ({ location, lat, lon, zIndex = "z-10" }) => {
    return (
       <Link href={`/events/${linkExtension(location)}`}>
          <button
-            className={`w-4 h-4 md:w-8 md:h-8 md:hover:scale-110 md:hover:-translate-y-2 md:transition-all lg:w-10 lg:h-10 absolute ${zIndex} ${lat} ${lon}`}
+            className={`absolute h-4 w-4 md:h-8 md:w-8 md:transition-all md:hover:-translate-y-2 md:hover:scale-110 lg:h-10 lg:w-10 ${zIndex} ${lat} ${lon}`}
          >
             {/* Map Pin SVG */}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 71">
@@ -128,9 +128,9 @@ const ChapterPin = ({ location, lat, lon, zIndex = "z-10" }) => {
 const ChapterMap = () => {
    return (
       // Container for US Map + Chapter Pins
-      <section className="p-1 bg-white overflow-hidden rounded-3xl shadow-xl my-10 w-full max-w-5xl">
+      <section className="my-10 w-full max-w-5xl overflow-hidden rounded-3xl bg-white p-1 shadow-xl">
          {/* US Map + Chapter Pins */}
-         <div className="aspect-[5/3] h-auto relative w-full">
+         <div className="relative aspect-[5/3] h-auto w-full">
             <Image
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689879535/events/us-map_b2rpzs.png"
                alt="us-map"

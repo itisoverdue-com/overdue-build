@@ -61,7 +61,7 @@ export default async function BlogSlugPage({ params: { id } }) {
          />
          <FullBleedContainer sx="bg-background" childSx="py-16 md:py-32">
             {/* <--- Title, Author, Categories---> */}
-            <div className="flex flex-col items-start space-y-5 pb-7 mb-7 border-b-2 border-b-light-grey">
+            <div className="mb-7 flex flex-col items-start space-y-5 border-b-2 border-b-light-grey pb-7">
                {/* Title */}
                <h2 className="text-start text-4xl md:text-5xl lg:text-6xl">
                   {parse(blog.title)}
@@ -69,7 +69,7 @@ export default async function BlogSlugPage({ params: { id } }) {
 
                {/* Author(s) */}
                <h3 className="flex items-center text-lg md:text-xl lg:text-2xl">
-                  <span className="bg-primary px-2 py-1 mr-3">Written by:</span>
+                  <span className="mr-3 bg-primary px-2 py-1">Written by:</span>
 
                   <ol>
                      {blog.authors.map((item) => (
@@ -80,7 +80,7 @@ export default async function BlogSlugPage({ params: { id } }) {
                            <Link
                               href={item.link}
                               target="_blank"
-                              className="inline-flex items-center w-max hover:underline hover:underline-offset-2"
+                              className="inline-flex w-max items-center hover:underline hover:underline-offset-2"
                            >
                               <Image
                                  src={item.avatar_urls["24"]}
@@ -98,14 +98,14 @@ export default async function BlogSlugPage({ params: { id } }) {
                </h3>
 
                {/* Categories */}
-               <ul className="flex justify-start items-center flex-wrap ">
-                  <span className="mr-2 mb-2 font-bold bg-neutral-200 text-black border px-2 py-0.5">
+               <ul className="flex flex-wrap items-center justify-start ">
+                  <span className="mb-2 mr-2 border bg-neutral-200 px-2 py-0.5 font-bold text-black">
                      Topics:
                   </span>
                   {blog.categories.map((item) => (
                      <li
                         key={item.id}
-                        className="inline-block mr-2 mb-2 after:content-[','] last:after:content-none hover:underline"
+                        className="mb-2 mr-2 inline-block after:content-[','] last:after:content-none hover:underline"
                      >
                         {item.name}
                      </li>
@@ -117,7 +117,7 @@ export default async function BlogSlugPage({ params: { id } }) {
             <article className="flex flex-col">{parse(blog.content)}</article>
 
             {/* Last Modified Date */}
-            <p className="text-center  italic text-gray-400 mt-10 lg:mt-20">
+            <p className="mt-10  text-center italic text-gray-400 lg:mt-20">
                Last updated on{" "}
                {DateTime.fromISO(blog.modified).toLocaleString()}
             </p>

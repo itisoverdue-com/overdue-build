@@ -34,12 +34,12 @@ export default function PageHero({
       })
 
       return (
-         <ul className="absolute left-3 -bottom-6 flex item-center space-x-3 text-white bg-darker-grey px-3 py-2 rounded-md md:px-5 md:py-4 md:rounded-xl font-medium shadow-md max-w-xs text-sm md:text-base md:max-w-full lg:text-lg">
+         <ul className="item-center absolute -bottom-6 left-3 flex max-w-xs space-x-3 rounded-md bg-darker-grey px-3 py-2 text-sm font-medium text-white shadow-md md:max-w-full md:rounded-xl md:px-5 md:py-4 md:text-base lg:text-lg">
             {links.map((item, index) => (
                <li key={item.href} className="flex space-x-3">
                   <Link
                      href={item.href}
-                     className="hover:text-primary transition-colors duration-200 last:text-primary last:hover:text-primaryDark capitalize"
+                     className="capitalize transition-colors duration-200 last:text-primary hover:text-primary last:hover:text-primaryDark"
                   >
                      <span className="hidden md:inline-block">{item.text}</span>
                      <span className="md:hidden">{item.truncatedText}</span>
@@ -48,7 +48,7 @@ export default function PageHero({
                   {/* Last Child: No Arrow */}
                   {index !== links.length - 1 && (
                      <span>
-                        <ArrowLongRightIcon className="w-6 h-6 " />
+                        <ArrowLongRightIcon className="h-6 w-6 " />
                      </span>
                   )}
                </li>
@@ -66,9 +66,9 @@ export default function PageHero({
       >
          {/* Header w/ underline */}
          {showHeader && (
-            <h1 className="capitalize text-center">
+            <h1 className="text-center capitalize">
                {header}
-               <span className="mt-2 block w-1/3 border-t-8 border-primary rounded-2xl mx-auto" />
+               <span className="mx-auto mt-2 block w-1/3 rounded-2xl border-t-8 border-primary" />
             </h1>
          )}
 
