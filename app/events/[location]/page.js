@@ -20,6 +20,8 @@ import { CalendarIcon, MapPinIcon } from "@heroicons/react/24/solid"
 import { LOCATIONS } from "@/lib/data"
 import parse from "html-react-parser"
 import { DateTime } from "luxon"
+import Calendar from "react-calendar"
+import "./styles.css"
 
 export default function EventLocationPage({ params: { location } }) {
    const [view, setView] = useState("calendar")
@@ -93,7 +95,7 @@ export default function EventLocationPage({ params: { location } }) {
                   {/* <--- Event Details, Calendar/List ---> */}
                   <div
                      ref={contentRef}
-                     className="grid grid-cols-1 lg:grid-cols-3 gap-10 backdrop-blur-md"
+                     className="flex flex-col space-y-10 lg:space-y-0 lg:space-x-10 lg:flex-row"
                   >
                      {events.length > 0 ? (
                         <EventDetails event={events[active]} />
@@ -126,7 +128,7 @@ const EventDetails = ({ event }) => {
    const handleToggleShowMore = () => setShowMore((prevState) => !prevState)
 
    return (
-      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between lg:col-span-2">
+      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between">
          {/* <--- Header ---> */}
          <h2 className="text-xl  text-darkest-grey bg-primary w-max px-3 py-1 -mb-4 lg:text-4xl">
             Upcoming Event:
@@ -141,6 +143,7 @@ const EventDetails = ({ event }) => {
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   sizes="(min-width: 1024px) 900px, (min-width: 768px) 740px, 360px"
+                  priority
                />
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-5xl">{title}</h3>
@@ -163,7 +166,7 @@ const EventDetails = ({ event }) => {
                      <span className="block font-semibold mb-1">
                         Date and Time
                      </span>
-                     <span className="block mb-1">{when.date}</span>
+                     <span className="block mb-1">{when.dateFormatted}</span>
                      <span className="block">{when.time}</span>
                   </div>
                </div>
@@ -255,7 +258,56 @@ const CalendarList = ({
    handleViewChange,
    handleActiveChange,
 }) => {
+   const [calendarDay, setCalendarDay] = useState(new Date())
+   let allEventDates = {}
+
+   events.forEach((item, index) => {
+      const key = DateTime.fromISO(item.when.date).toLocaleString(
+         DateTime.DATE_FULL
+      )
+      allEventDates = {
+         ...allEventDates,
+         [key]: index,
+      }
+   })
+
    const handleListClick = (index) => handleActiveChange(index)
+   const handleCalendarChange = (e) => {
+      const calendarDate = DateTime.fromJSDate(e)
+      const key = calendarDate.toLocaleString(DateTime.DATE_FULL)
+      if (allEventDates.hasOwnProperty(key)) {
+         handleListClick(allEventDates[key])
+      }
+      setCalendarDay(e)
+   }
+
+   const renderTileContent = ({ activeStartDate, date: _, view }) => {
+      let content = "none"
+      const date = DateTime.fromJSDate(_)
+      const today = DateTime.fromJSDate(new Date())
+      const isToday =
+         today.diff(date, "hours").values.hours < 24 &&
+         today.diff(date, "hours").values.hours > 0
+
+      if (isToday) {
+         content = "Today"
+      }
+
+      if (
+         allEventDates.hasOwnProperty(date.toLocaleString(DateTime.DATE_FULL))
+      ) {
+         content = "Event"
+      }
+      return (
+         <span
+            className={`block text-xs ${
+               content !== "none" ? "" : "text-transparent"
+            }`}
+         >
+            {content}
+         </span>
+      )
+   }
 
    function formatDateList(date) {
       const months = {
@@ -282,91 +334,101 @@ const CalendarList = ({
    }
 
    return (
-      <section className="mt-10 lg:mt-0 flex flex-col justify-start items-center lg:items-end ">
-         {/* Container */}
-         <div className="bg-white w-full shadow-lg md:shadow-xl rounded-xl aspect-square h-auto max-w-lg relative mt-20">
-            {/* <--- Toggle: Calendar & List ---> */}
-            <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md md:w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
-               <button
-                  name="calendar"
-                  onClick={handleViewChange}
-                  className={`${
-                     view === "calendar" ? "bg-black text-primary" : ""
-                  } transition p-3 w-full flex items-center justify-center`}
-               >
-                  <CalendarDaysIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
-                  <span className="hidden md:inline">Calendar</span>
-               </button>
-               <button
-                  name="list"
-                  onClick={handleViewChange}
-                  className={`${
-                     view === "list" ? "bg-black text-primary" : ""
-                  } transition p-3 w-full flex items-center justify-center`}
-               >
-                  <ListBulletIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
-                  <span className="hidden md:inline">List</span>
-               </button>
-            </div>
+      <>
+         <section className="mt-10 lg:mt-0 flex flex-col justify-start items-center lg:items-end aspect-square md:min-w-[400px]">
+            {/* Container */}
+            <div className="bg-white w-full shadow-lg md:shadow-xl rounded-xl aspect-square h-auto max-w-lg relative mt-20">
+               {/* <--- Toggle: Calendar & List ---> */}
+               <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md md:w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
+                  <button
+                     name="calendar"
+                     onClick={handleViewChange}
+                     className={`${
+                        view === "calendar" ? "bg-black text-primary" : ""
+                     } transition p-3 w-full flex items-center justify-center`}
+                  >
+                     <CalendarDaysIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                     <span className="hidden md:inline">Calendar</span>
+                  </button>
+                  <button
+                     name="list"
+                     onClick={handleViewChange}
+                     className={`${
+                        view === "list" ? "bg-black text-primary" : ""
+                     } transition p-3 w-full flex items-center justify-center`}
+                  >
+                     <ListBulletIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                     <span className="hidden md:inline">List</span>
+                  </button>
+               </div>
 
-            {/* <--- View: Calendar --->*/}
-            <div
-               className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
-                  view === "calendar"
-                     ? "scale-100 z-10 bg-lightest-grey text-black"
-                     : "scale-75 z-0 bg-transparent text-transparent"
-               } transition-all duration-300`}
-            >
-               CALENDAR
-            </div>
+               {/* <--- View: Calendar --->*/}
+               <div
+                  className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+                     view === "calendar"
+                        ? "scale-100 z-10 bg-inherit text-black"
+                        : "scale-75 z-0 bg-transparent text-transparent"
+                  } transition-all duration-300 overflow-hidden rounded-xl `}
+               >
+                  <Calendar
+                     minDate={new Date()}
+                     tileContent={renderTileContent}
+                     // tileDisabled={isDisabled}
+                     onChange={handleCalendarChange}
+                     value={calendarDay}
+                  />
+               </div>
 
-            {/* <--- View: List --->*/}
-            <ul
-               className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
-                  view === "list"
-                     ? "scale-100 z-10 bg-inherit text-black"
-                     : "scale-75 z-0 bg-transparent text-transparent"
-               } transition-all duration-300 overflow-x-hidden  rounded-xl overflow-y-auto flex flex-col`}
-            >
-               {events.map((item, index) => {
-                  const [weekday, date] = formatDateList(item.when.date)
-                  return (
-                     <li
-                        key={item.id}
-                        className={`${
-                           active === index ? "bg-primary" : "bg-white"
-                        } py-3 px-2 cursor-pointer grid grid-cols-12 gap-2 items-center ${
-                           index === events.length - 1 ? "" : "border-b-2"
-                        }`}
-                        onClick={() => handleListClick(index)}
-                     >
-                        {/* Date */}
-                        <div className="col-span-2 flex flex-col items-center justify-center ">
-                           <span className="">{date}</span>
-                           <span className=" uppercase font-semibold">
-                              {weekday}
+               {/* <--- View: List --->*/}
+               <ul
+                  className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+                     view === "list"
+                        ? "scale-100 z-10 bg-inherit text-black"
+                        : "scale-75 z-0 bg-transparent text-transparent"
+                  } transition-all duration-300 overflow-x-hidden rounded-xl overflow-y-auto flex flex-col`}
+               >
+                  {events.map((item, index) => {
+                     const [weekday, date] = formatDateList(
+                        item.when.dateFormatted
+                     )
+                     return (
+                        <li
+                           key={item.id}
+                           className={`${
+                              active === index ? "bg-primary" : "bg-white"
+                           } py-3 px-2 cursor-pointer grid grid-cols-12 gap-2 items-center ${
+                              index === events.length - 1 ? "" : "border-b-2"
+                           }`}
+                           onClick={() => handleListClick(index)}
+                        >
+                           {/* Date */}
+                           <div className="col-span-2 flex flex-col items-center justify-center ">
+                              <span className="">{date}</span>
+                              <span className=" uppercase font-semibold">
+                                 {weekday}
+                              </span>
+                           </div>
+
+                           {/* Time */}
+                           <span className="col-span-3 mx-auto">
+                              {item.when.time.split(" -")[0]}
                            </span>
-                        </div>
 
-                        {/* Time */}
-                        <span className="col-span-3 mx-auto">
-                           {item.when.time.split(" -")[0]}
-                        </span>
+                           {/* Title */}
+                           <span className="truncate col-span-7">
+                              {item.title}
+                           </span>
+                        </li>
+                     )
+                  })}
 
-                        {/* Title */}
-                        <span className="truncate col-span-7">
-                           {item.title}
-                        </span>
-                     </li>
-                  )
-               })}
-
-               <li className="text-light-grey text-sm italic w-full text-center py-5 bg-lightest-grey flex-1  ">
-                  End of Events
-               </li>
-            </ul>
-         </div>
-      </section>
+                  <li className="text-light-grey text-sm italic w-full text-center py-5 bg-lightest-grey flex-1  ">
+                     End of Events
+                  </li>
+               </ul>
+            </div>
+         </section>
+      </>
    )
 }
 

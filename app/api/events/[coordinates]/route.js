@@ -66,22 +66,23 @@ function formatForClientSide(event) {
    const d1 = DateTime.fromISO(event.start.local)
    const d2 = DateTime.fromISO(event.end.local)
    when = {
-      date: d1.toFormat("cccc, LLLL c"),
+      date: d1,
+      dateFormatted: d1.toFormat("cccc, LLLL c"),
       time: `${d1.toLocaleString(DateTime.TIME_SIMPLE)} - ${d2.toLocaleString(
          DateTime.TIME_SIMPLE
       )} ${d2.toFormat("ZZZZ")}`,
    }
 
    // Checks if event is more than 1 day
-   if (Interval.fromDateTimes(d1, d2).length("hours") >= 24) {
-      when = {
-         ...when,
-         date: `${d1.toLocaleString({
-            month: "short",
-            day: "numeric",
-         })} - ${d2.toLocaleString({ month: "short", day: "numeric" })}`,
-      }
-   }
+   // if (Interval.fromDateTimes(d1, d2).length("hours") >= 24) {
+   //    when = {
+   //       ...when,
+   //       date: `${d1.toLocaleString({
+   //          month: "short",
+   //          day: "numeric",
+   //       })} - ${d2.toLocaleString({ month: "short", day: "numeric" })}`,
+   //    }
+   // }
    return {
       title: event.name.text,
       id: event.id,
