@@ -93,25 +93,26 @@ export default function EventLocationPage({ params: { location } }) {
             ) : (
                <>
                   {/* <--- Event Details, Calendar/List ---> */}
-                  <div
-                     ref={contentRef}
-                     className="flex flex-col space-y-10 lg:space-y-0 lg:space-x-10 lg:flex-row"
-                  >
-                     {events.length > 0 ? (
-                        <EventDetails event={events[active]} />
-                     ) : (
-                        <h2>No Events</h2>
-                     )}
 
-                     {/* Calendar, List */}
-                     <CalendarList
-                        events={events}
-                        view={view}
-                        active={active}
-                        handleViewChange={handleViewChange}
-                        handleActiveChange={handleActiveChange}
-                     />
-                  </div>
+                  {events.length > 0 ? (
+                     <div
+                        ref={contentRef}
+                        className="flex flex-col space-y-20 lg:space-y-0 lg:space-x-10 lg:flex-row"
+                     >
+                        <EventDetails event={events[active]} />
+                        <CalendarList
+                           events={events}
+                           view={view}
+                           active={active}
+                           handleViewChange={handleViewChange}
+                           handleActiveChange={handleActiveChange}
+                        />
+                     </div>
+                  ) : (
+                     <h2 className="text-center text-light-grey pt-10">
+                        No Nearby Events
+                     </h2>
+                  )}
 
                   {/* <--- Subscribe Card, Link to FAQ and Contact --->*/}
                   <NewsletterCard location={formatHeader()} />
@@ -166,7 +167,11 @@ const EventDetails = ({ event }) => {
                      <span className="block font-semibold mb-1">
                         Date and Time
                      </span>
-                     <span className="block mb-1">{when.dateFormatted}</span>
+                     <span className="block mb-1">
+                        {DateTime.fromISO(when.date).toLocaleString(
+                           DateTime.DATE_MED_WITH_WEEKDAY
+                        )}
+                     </span>
                      <span className="block">{when.time}</span>
                   </div>
                </div>
@@ -310,32 +315,15 @@ const CalendarList = ({
    }
 
    function formatDateList(date) {
-      const months = {
-         January: "1",
-         February: "2",
-         March: "3",
-         April: "4",
-         May: "5",
-         June: "6",
-         July: "7",
-         August: "8",
-         September: "9",
-         October: "10",
-         November: "11",
-         December: "12",
-      }
-      const _ = date.split(", ")
-      const weekday = _[0].slice(0, 3)
-      const __ = _[1].split(" ")
-      const month = months[__[0]]
-      const day = __[1]
-
-      return [weekday, `${month}/${day}`]
+      const [weekday, monthDay] = DateTime.fromISO(date)
+         .toFormat("ccc-L/d")
+         .split("-")
+      return [weekday, monthDay]
    }
 
    return (
       <>
-         <section className="mt-10 lg:mt-0 flex flex-col justify-start items-center lg:items-end aspect-square md:min-w-[400px]">
+         <section className=" flex flex-col justify-start items-center lg:items-end aspect-square md:min-w-[400px]">
             {/* Container */}
             <div className="bg-white w-full shadow-lg md:shadow-xl rounded-xl aspect-square h-auto max-w-lg relative mt-20">
                {/* <--- Toggle: Calendar & List ---> */}
@@ -388,9 +376,7 @@ const CalendarList = ({
                   } transition-all duration-300 overflow-x-hidden rounded-xl overflow-y-auto flex flex-col`}
                >
                   {events.map((item, index) => {
-                     const [weekday, date] = formatDateList(
-                        item.when.dateFormatted
-                     )
+                     const [weekday, date] = formatDateList(item.when.date)
                      return (
                         <li
                            key={item.id}
@@ -422,7 +408,7 @@ const CalendarList = ({
                      )
                   })}
 
-                  <li className="text-light-grey text-sm italic w-full text-center py-5 bg-lightest-grey flex-1  ">
+                  <li className="text-light-grey text-sm italic w-full text-center py-5 bg-[#F5F5F5] flex-1  ">
                      End of Events
                   </li>
                </ul>
@@ -434,7 +420,7 @@ const CalendarList = ({
 
 const NewsletterCard = ({ location }) => {
    return (
-      <section className="mt-32 mx-auto text-center">
+      <section className="mt-20 md:mt-0 lg:mt-28 mx-auto text-center">
          {/* Subscribe Card */}
          <Card variant="text" sx="flex flex-col space-y-5 text-center">
             <h5 className="text-3xl text-center">Stay Up to Date!</h5>

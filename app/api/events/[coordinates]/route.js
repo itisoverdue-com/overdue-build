@@ -67,7 +67,6 @@ function formatForClientSide(event) {
    const d2 = DateTime.fromISO(event.end.local)
    when = {
       date: d1,
-      dateFormatted: d1.toFormat("cccc, LLLL c"),
       time: `${d1.toLocaleString(DateTime.TIME_SIMPLE)} - ${d2.toLocaleString(
          DateTime.TIME_SIMPLE
       )} ${d2.toFormat("ZZZZ")}`,
