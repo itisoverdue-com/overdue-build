@@ -93,10 +93,10 @@ export default function FAQ() {
                      key={item.question}
                      sx={`flex flex-col space-y-4 p-6 md:p-8 lg:p-10 border mb-8 lg:mb-10 shadow-lg w-full h-auto overflow-hidden even:bg-darker-grey even:text-white`}
                   >
-                     <span className="text-primary text-4xl md:text-5xl font-black">
+                     <span className="text-4xl font-black text-primary md:text-5xl">
                         Q.
                      </span>
-                     <p className="text-2xl lg:text-3xl font-bold">
+                     <p className="text-2xl font-bold lg:text-3xl">
                         {item.question}
                      </p>
                      {item.lineBreak ? (

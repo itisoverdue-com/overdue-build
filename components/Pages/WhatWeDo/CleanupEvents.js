@@ -14,7 +14,7 @@ function generateText(variant) {
 export default function CleanupEvents({ variant }) {
    const text = generateText(variant)
    return (
-      <div className="mt-8 md:flex md:flex-wrap lg:flex-col lg:min-h-[535px]">
+      <div className="mt-8 md:flex md:flex-wrap lg:min-h-[535px] lg:flex-col">
          <Card
             variant="text"
             sx={`max-w-none md:order-1 md:w-[90%] md:mr-0 lg:order-2 lg:w-2/3 lg:mr-2 lg:mt-[-500px] lg:max-w-[800px]`}
@@ -35,7 +35,7 @@ export default function CleanupEvents({ variant }) {
                style={{ objectFit: "cover" }}
             />
          </Card>
-         <div className="relative flex items-center justify-center mx-auto mt-8 md:order-3 md:w-2/5 lg:w-2/3 lg:max-w-[800px] lg:mr-0 lg:mt-12 xl:mt-16">
+         <div className="relative mx-auto mt-8 flex items-center justify-center md:order-3 md:w-2/5 lg:mr-0 lg:mt-12 lg:w-2/3 lg:max-w-[800px] xl:mt-16">
             <Button variant="primary" size="xl" href="/events">
                Check Events
             </Button>
