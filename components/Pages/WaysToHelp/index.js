@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
@@ -55,11 +56,7 @@ export default function WaysToHelp() {
                   .sort((a, b) => a.id - b.id)
                   .map(({ id, text, lgText, imgSrc, page }) => {
                      return (
-                        <Card
-                           key={id}
-                           // variant="actionItem"
-                           sx="flex items-center w-full max-w-[560px] bg-white rounded-xl shadow-lg py-8 px-4 lg:flex-col lg:gap-y-20 xl:py-12"
-                        >
+                        <Card key={id} variant="actionItem">
                            <div className="flex w-1/2 items-center justify-center border-none border-blue-500 lg:w-[150px]">
                               <div className="relative aspect-square w-[65%] drop-shadow-[4px_2px_2px_rgba(50,48,42,.75)] lg:w-full ">
                                  <Image

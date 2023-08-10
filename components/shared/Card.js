@@ -10,7 +10,8 @@ function generateClassName(variant) {
       text: `z-[1] w-full sm:w-[95%] max-w-[700px] py-6 px-8 sm:py-8 sm:px-14 shadow-lg text-left leading-8 bg-white md:text-lg md:leading-10`,
       textDark: `z-[1] flex flex-col justify-center w-full text-white text-left leading-8 bg-black/[.85] py-6 px-8 rounded-b-3xl rounded-t-none sm:px-14 md:text-lg md:leading-10`,
       image: `overflow-hidden`,
-      actionItem: `w-full flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300`,
+      contactItem: `w-full flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300`,
+      actionItem: `flex items-center w-full max-w-[560px] bg-white rounded-xl shadow-lg py-8 px-4 lg:flex-col lg:gap-y-20 xl:py-12`,
    }
 
    return `${baseClasses} ${variantClasses[variant]}`
