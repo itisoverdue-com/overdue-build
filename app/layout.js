@@ -12,7 +12,10 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-   title: "Overdue",
+   title: {
+      template: "Overdue - %s",
+      default: "Overdue - Home", // a default is required when creating a template
+   },
    description:
       "itisOVERDUE - LA-based 501c3 nonprofit that focuses on cleanups, community gardens, and education. We love making an impact and making our community a better place.",
 }
