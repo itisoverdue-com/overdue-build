@@ -24,7 +24,8 @@ export default function LARiverBoom({ variant }) {
                alt="Trash on the ground in a wilderness area"
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441389/events/tertiaryevent_rhegxq.jpg"
                fill
-               style={{ objectFit: "cover" }}
+               sizes="75vw"
+               className="object-cover"
             />
          </Card>
          <Card

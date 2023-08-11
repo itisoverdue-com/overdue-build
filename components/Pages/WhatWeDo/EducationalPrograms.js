@@ -25,7 +25,8 @@ export default function EducationalPrograms({ variant }) {
                alt="itisOVERDUE team cleaning up trash at a beach"
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/events/secondaryevent_ww20ea.jpg"
                fill
-               style={{ objectFit: "cover" }}
+               sizes="65vw"
+               className="object-cover"
             />
          </Card>
          <Card
