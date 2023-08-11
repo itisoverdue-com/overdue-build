@@ -30,11 +30,11 @@ export default function WaysToHelp() {
    ]
    return (
       <section>
-         <div className="flex flex-col justify-center text-center xl:px-12">
+         <div className="flex flex-col justify-center text-center">
             <SectionSubheader
                header="Ways To Help"
                sx="mt-24"
-               borderSx="md:mx-auto lg:ml-0"
+               borderSx="md:mx-auto"
             />
             <div className="mt-8 flex flex-col items-center justify-evenly gap-y-12 md:flex-row md:flex-wrap md:gap-x-4 xl:flex-nowrap xl:justify-between">
                {cards.map((card) => {
