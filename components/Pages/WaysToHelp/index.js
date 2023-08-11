@@ -45,11 +45,11 @@ export default function WaysToHelp() {
 
    return (
       <section>
-         <div className="flex flex-col justify-center text-center xl:px-12">
+         <div className="flex flex-col justify-center text-center">
             <SectionSubheader
                header="Ways To Help"
                sx="mt-24"
-               borderSx="md:mx-auto lg:ml-0"
+               borderSx="md:mx-auto"
             />
             <div className="mt-8 flex flex-col items-center justify-evenly gap-y-10 lg:flex-row lg:gap-x-16 xl:gap-x-28 min-[1400px]:gap-x-40">
                {cards

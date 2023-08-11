@@ -16,20 +16,16 @@ export default function About() {
             header="About Us"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/about_avmkds.jpg"
          />
-         <FullBleedContainer
-            sx="bg-background"
-            childSx="py-28 md:py-32 px-6 lg:px-12"
-         >
-            {/* IT IS OVERDUE */}
-            <section id="about-it-is-overdue">
-               {/* Subsection 1 */}
-               <div className="flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap xl:px-12">
+         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+            {/* --- It Is Overdue --- */}
+            <section>
+               <div className="flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
                   <SectionSubheader
                      header="IT IS OVERDUE"
                      sx="md:w-[55%] md:pr-12 lg:w-[45%] xl:pr-4"
                      headerSx="md:text-left"
                   >
-                     <h3 className="mx-auto mt-8 px-4 text-left font-medium sm:px-8 sm:text-2xl md:px-0 md:text-3xl md:leading-[3rem]">
+                     <h3 className="mx-auto mt-8 text-center font-normal text-dark-grey sm:text-2xl md:text-left md:text-3xl md:leading-[3rem]">
                         OVERDUE is a collective of individuals who pick up trash
                         together to make their communities cleaner, greener and
                         friendlier.
@@ -50,7 +46,7 @@ export default function About() {
                   </Card>
                   <Card
                      variant="text"
-                     sx="mt-[-35px] md:top-0 md:mt-8 lg:mt-[-15px] lg:mr-12 xl:mt-[-35px] min-[1512px]:mt-[-70px]"
+                     sx="max-w-none mt-[-35px] md:top-0 md:mt-8 lg:mt-[-15px] lg:mr-12 xl:mt-[-35px]"
                   >
                      <p>
                         We started in October 2020 in the San Fernando Valley,
@@ -61,14 +57,12 @@ export default function About() {
                      </p>
                   </Card>
                </div>
-
-               {/* Subsection 2 */}
-               <div className="flex flex-col items-center justify-center text-center lg:flex-row lg:items-start xl:px-12">
-                  {/* How We Got Started */}
-                  <div className="relative mt-16 w-full lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
-                     <h2 className="text-3xl sm:text-5xl lg:text-left lg:text-4xl xl:text-5xl">
+               <div className="flex flex-col items-center justify-center gap-x-8 text-center lg:flex-row lg:items-start min-[1400px]:gap-x-12">
+                  {/* --- How We Got Started --- */}
+                  <div className="relative mt-16 w-full lg:w-1/2 xl:mt-24">
+                     <h3 className="text-3xl md:text-4xl">
                         How We Got Started?
-                     </h2>
+                     </h3>
                      <Card
                         variant="image"
                         sx="w-[65vw] max-w-[352px] aspect-[440/629] mt-8 md:ml-0"
@@ -82,7 +76,7 @@ export default function About() {
                      </Card>
                      <Card
                         variant="text"
-                        sx="mt-[-115px] max-w-none sm:mt-[-175px] md:w-[90%] md:mr-0 min-[1512px]:mt-[-180px]"
+                        sx="mt-[-115px] max-w-none sm:mt-[-175px] md:w-[90%] md:mr-0"
                      >
                         <p>It all begins with one person.</p>
                         <p className="my-4">
@@ -103,14 +97,12 @@ export default function About() {
                      </Card>
                   </div>
 
-                  {/* Our Philosophy */}
-                  <div className="relative mt-16 w-full lg:w-1/2 lg:px-4 xl:mt-24 min-[1512px]:px-8">
-                     <h2 className="text-3xl sm:text-5xl lg:text-left lg:text-4xl xl:text-5xl">
-                        Our Philosophy
-                     </h2>
+                  {/* --- Our Philosophy --- */}
+                  <div className="relative mt-16 w-full lg:w-1/2 xl:mt-24">
+                     <h3 className="text-3xl md:text-4xl">Our Philosophy</h3>
                      <Card
                         variant="image"
-                        sx="w-[75vw] max-w-[620px] aspect-[620/412] mt-8 md:ml-0 lg:w-[90%] min-[1512px]:w-4/5"
+                        sx="w-[75vw] max-w-[620px] aspect-[620/412] mt-8 md:ml-0 lg:w-[90%]"
                      >
                         <Image
                            alt="itisOVERDUE team gathered outside"
@@ -121,7 +113,7 @@ export default function About() {
                      </Card>
                      <Card
                         variant="text"
-                        sx="mt-4 max-w-none md:mr-0 md:w-[90%] lg:mx-auto"
+                        sx="mt-4 max-w-none md:mr-0 md:w-[90%]"
                      >
                         <p>
                            Our philosophy is that if people don&apos;t see
