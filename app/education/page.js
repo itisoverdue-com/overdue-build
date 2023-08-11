@@ -92,15 +92,15 @@ export default function Education() {
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>Education Events</h2>
-               <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28" />
-               <h3 className="text-dark-grey font-normal">
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
+               <h3 className="font-normal text-dark-grey">
                   Environment Arts Festival - Recycle art festival, Recycle arts
                   competition, kids exhibition, and more!
                </h3>
             </>
 
             {/* Events Grid Masonry */}
-            <section className="h-auto w-full columns-1 my-16 md:gap-6 md:columns-2 lg:columns-3 lg:gap-8 lg:my-20 ">
+            <section className="my-16 h-auto w-full columns-1 md:columns-2 md:gap-6 lg:my-20 lg:columns-3 lg:gap-8 ">
                {events.map((item, index) => (
                   <EventCard
                      key={`event-${index}`}
@@ -124,19 +124,19 @@ export default function Education() {
             </Button>
 
             {/* Student Chapter Locations */}
-            <section className="w-full mt-20">
+            <section className="mt-20 w-full">
                {/* Header, List of Locations */}
                <>
-                  <h4 className="text-3xl mb-8 md:text-4xl md:mb-10">
+                  <h4 className="mb-8 text-3xl md:mb-10 md:text-4xl">
                      Student Chapter Locations
                   </h4>
-                  <ul className="grid grid-cols-2 gap-3 md:gap-0 md:flex md:flex-wrap md:items-center md:justify-evenly">
+                  <ul className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-evenly md:gap-0">
                      {locations.map((item) => (
                         <li
                            key={item}
-                           className="text-start w-full md:text-center md:mb-6 md:w-1/4"
+                           className="w-full text-start md:mb-6 md:w-1/4 md:text-center"
                         >
-                           <span className="py-2 px-4 bg-darkest-grey block  text-white rounded-full text-sm md:text-base md:inline-block lg:text-lg">
+                           <span className="block rounded-full bg-darkest-grey px-4  py-2 text-sm text-white md:inline-block md:text-base lg:text-lg">
                               📍 {item}
                            </span>
                         </li>
@@ -145,7 +145,7 @@ export default function Education() {
                </>
 
                {/* Image of Students */}
-               <div className="relative aspect-video rounded-2xl overflow-hidden mt-10 md:mt-8 md:rounded-3xl">
+               <div className="relative mt-10 aspect-video overflow-hidden rounded-2xl md:mt-8 md:rounded-3xl">
                   <Image
                      src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441394/education/end_lbfetc.jpg"
                      alt="student-chapter-locations"
@@ -173,7 +173,7 @@ const EventCard = ({ image, aspect, title, text }) => {
          <p className="lg:text-lg">
             {text.split("\n").map((t, key) => {
                return (
-                  <span key={key} className="block mt-1">
+                  <span key={key} className="mt-1 block">
                      {t}
                   </span>
                )
@@ -195,8 +195,8 @@ const EventCard = ({ image, aspect, title, text }) => {
          />
 
          {/* Title, Text */}
-         <div className=" bg-black text-white bg-opacity-80  text-start p-6 w-full absolute left-1/2 -translate-x-1/2 bottom-0">
-            <h3 className="text-primary mb-1 text-2xl">{title}</h3>
+         <div className=" absolute bottom-0 left-1/2  w-full -translate-x-1/2 bg-black bg-opacity-80 p-6 text-start text-white">
+            <h3 className="mb-1 text-2xl text-primary">{title}</h3>
             {renderText(text)}
          </div>
       </Card>

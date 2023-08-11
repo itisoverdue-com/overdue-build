@@ -36,7 +36,7 @@ export default function WaysToHelp() {
                sx="mt-24"
                borderSx="md:mx-auto"
             />
-            <div className="flex flex-col items-center justify-evenly mt-8 gap-y-12 md:flex-row md:flex-wrap xl:flex-nowrap md:gap-x-4 xl:justify-between">
+            <div className="mt-8 flex flex-col items-center justify-evenly gap-y-12 md:flex-row md:flex-wrap md:gap-x-4 xl:flex-nowrap xl:justify-between">
                {cards.map((card) => {
                   return (
                      <Card
@@ -44,7 +44,7 @@ export default function WaysToHelp() {
                         variant="actionItem"
                         sx="max-w-[300px] mx-0 xl:max-w-[360px]"
                      >
-                        <div className="relative w-[150px] aspect-square xl:w-[180px]">
+                        <div className="relative aspect-square w-[150px] xl:w-[180px]">
                            <Image
                               alt={card.text}
                               src={card.imgSrc}

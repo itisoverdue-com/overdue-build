@@ -1,0 +1,33 @@
+figure > img {
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+}
+
+article > p {
+   margin-top: 0.625rem;
+   margin-bottom: 0.625rem;
+}
+.has-medium-font-size {
+   font-size: 1.5rem;
+}
+
+.has-large-font-size {
+   font-size: 1.875rem;
+}
+
+article > ol > li,
+article > ul > li {
+   margin-top: 0.625rem;
+   margin-bottom: 0.625rem;
+}
+
+article > h3 {
+   font-size: 1.5rem;
+   line-height: 2.25rem;
+}
+
+article > h3 > strong {
+   font-weight: 550;
+}

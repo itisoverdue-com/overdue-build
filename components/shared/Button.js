@@ -1,5 +1,5 @@
-'use client';
-import Link from "next/link";
+"use client"
+import Link from "next/link"
 
 /**
  * Function to generate the className string based on the given props.
@@ -21,31 +21,40 @@ function generateClassName(size, variant, fullWidth, disabled) {
       font-bold
       rounded-lg
       focus-visible:ring-white
-   `;
+   `
 
    const sizeClasses = {
       sm: "px-2 py-1 text-sm",
       md: "px-4 py-2 text-md",
       lg: "px-6 py-3 text-lg",
       xl: "px-8 py-4 text-xl",
-   };
+   }
 
    const variantClasses = {
       primary: "bg-primary text-black hover:bg-black hover:text-primary",
       dark: "bg-darker-grey text-white hover:bg-black hover:text-white",
-      outline: "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black",
-   };
+      outline:
+         "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black",
+   }
 
-   const fullWidthClass = fullWidth ? "w-full" : "";
+   const fullWidthClass = fullWidth ? "w-full" : ""
 
-   const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : "";
+   const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : ""
 
-   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${fullWidthClass} ${disabledClass}`;
+   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${fullWidthClass} ${disabledClass}`
 }
 
 // The Button component
-export default function Button({ children, variant, size, fullWidth = false, disabled = false, href, ...props }) {
-   const className = generateClassName(size, variant, fullWidth, disabled);
+export default function Button({
+   children,
+   variant,
+   size,
+   fullWidth = false,
+   disabled = false,
+   href,
+   ...props
+}) {
+   const className = generateClassName(size, variant, fullWidth, disabled)
 
    return href ? (
       <Link href={href} className={className} {...props}>
@@ -55,13 +64,11 @@ export default function Button({ children, variant, size, fullWidth = false, dis
       <button className={className} onClick={props.onClick} {...props}>
          {children}
       </button>
-   );
+   )
 }
 
-
-
-
-{/* 
+{
+   /* 
 All the examples below are for the Button component above.
    <h1>Button Variants</h1>
 
@@ -91,4 +98,5 @@ All the examples below are for the Button component above.
 
    <h2>Link Button</h2>
    <Button variant="primary" href="/otherPage" size="md" >Link Button to Other Page</Button> 
-*/}
+*/
+}

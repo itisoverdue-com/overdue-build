@@ -48,7 +48,7 @@ export default function Contact() {
          content: (
             <>
                <div className="w-full">
-                  <ul className="flex justify-around mb-8 md:justify-evenly">
+                  <ul className="mb-8 flex justify-around md:justify-evenly">
                      <SocialMediaIcon
                         link={SOCIALS.facebook}
                         value={"facebook"}
@@ -83,12 +83,12 @@ export default function Contact() {
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>IT IS OVERDUE</h2>
-               <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28" />
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
                <h3>We are a team based in Woodland Hills, CA.</h3>
             </>
 
             {/* Cards */}
-            <div className="grid grid-cols-1 max-w-lg gap-y-8 mt-20 lg:max-w-none lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
+            <div className="mt-20 grid max-w-lg grid-cols-1 gap-y-8 lg:max-w-none lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
                {cards.map((item) => (
                   <ContactCard
                      key={item.header}
@@ -108,7 +108,7 @@ const ContactCard = ({ icon, header, content }) => {
       <Card variant="actionItem">
          {/* Icon, Header */}
          <div className="mb-10">
-            <span className="w-16 h-16 bg-primary  rounded-full p-4 text-darker-grey block mx-auto mb-3">
+            <span className="mx-auto mb-3 block  h-16 w-16 rounded-full bg-primary p-4 text-darker-grey">
                {icon}
             </span>
             <h4>{header}</h4>
@@ -171,14 +171,14 @@ const SocialMediaIcon = ({ link, value }) => {
    return (
       <li>
          <Link href={link} target="_blank">
-            <button className="flex flex-col -space-y-1 items-center hover:fill-primary hover:text-primary">
+            <button className="flex flex-col items-center -space-y-1 hover:fill-primary hover:text-primary">
                {/* Icon */}
-               <span className="flex justify-center items-center fill-inherit">
+               <span className="flex items-center justify-center fill-inherit">
                   {icons[value]}
                </span>
 
                {/* Domain Name */}
-               <span className="capitalize text-xs">{value}</span>
+               <span className="text-xs capitalize">{value}</span>
             </button>
          </Link>
       </li>

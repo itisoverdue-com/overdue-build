@@ -1,44 +1,49 @@
 import Link from "next/link"
-
-import NavLink from "./NavLink"
+import { usePathname } from "next/navigation"
 
 export default function NavBar({ showNav, setShowNav }) {
+   const pathname = usePathname()
    const handleClick = () => setShowNav(false)
    const links = [
       {
          id: 1,
-         href: "about",
+         page: "about",
          text: "About Us",
       },
       {
          id: 2,
-         href: "events",
+         page: "events",
          text: "Events",
       },
       {
          id: 3,
-         href: "education",
+         page: "education",
          text: "Education",
       },
       {
          id: 4,
-         href: "blog",
+         page: "blog",
          text: "Blog",
       },
       {
          id: 5,
-         href: "#",
+         page: "#",
          text: "Shop",
       },
       {
          id: 6,
-         href: "faq",
+         page: "faq",
          text: "FAQ",
       },
       {
          id: 7,
-         href: "contact",
+         page: "contact",
          text: "Contact",
+      },
+      {
+         id: 8,
+         page: "donate",
+         text: "Donate",
       },
    ]
    return (
@@ -51,27 +56,35 @@ export default function NavBar({ showNav, setShowNav }) {
             <ul className="lg:flex lg:items-center lg:justify-end w-5/6 lg:w-full mx-auto md:text-lg lg:text-base">
                {links
                   .sort((a, b) => a.id - b.id)
-                  .map(({ id, href, text }) => {
+                  .map(({ id, page, text }) => {
                      return (
-                        <NavLink
+                        <div
                            key={id}
-                           href={href}
-                           text={text}
-                           handleClick={handleClick}
-                        />
+                           className={
+                              page === "donate"
+                                 ? "w-fit lg:mx-4 xl:mx-6 2xl:mx-8"
+                                 : "w-full lg:w-fit max-lg:mx-auto lg:mx-4 xl:mx-6 2xl:mx-8 border-b border-dark-grey lg:border-none"
+                           }
+                        >
+                           <Link href={`/${page}`}>
+                              <li
+                                 className={
+                                    page === "donate"
+                                       ? "w-fit py-2 md:py-2.5 px-4 mt-2.5 lg:mt-0 rounded-md bg-primary text-black lg:hover:scale-110 transition duration-300"
+                                       : `py-4 md:py-6 lg:py-0 pl-2 lg:pl-0 text-left lg:text-center lg:hover:text-primary ${
+                                            page === pathname.slice(1)
+                                               ? "text-primary"
+                                               : "text-white"
+                                         }`
+                                 }
+                                 onClick={handleClick}
+                              >
+                                 {text}
+                              </li>
+                           </Link>
+                        </div>
                      )
                   })}
-               {/* --- DONATE LINK --- */}
-               <div className="w-fit lg:mx-4 xl:mx-6 2xl:mx-8">
-                  <Link href="/donate">
-                     <li
-                        className="w-fit py-2 md:py-2.5 px-4 mt-2.5 lg:mt-0 rounded-md bg-primary text-black lg:hover:scale-110 transition duration-300"
-                        onClick={handleClick}
-                     >
-                        Donate
-                     </li>
-                  </Link>
-               </div>
             </ul>
          </nav>
       </div>
