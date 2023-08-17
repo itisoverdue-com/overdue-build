@@ -10,6 +10,11 @@ import DonationModal from "@/components/Pages/Donate/DonationModal"
 
 export default function Donate() {
    const [showModal, setShowModal] = useState(false)
+   const handleClick = (value) => {
+      setShowModal(true)
+      const wrapper = document.getElementById("wrapper")
+      wrapper.classList.add("is-fixed")
+   }
    return (
       <>
          {showModal && <DonationModal setShowModal={setShowModal} />}
@@ -44,7 +49,7 @@ export default function Donate() {
                               <Button
                                  variant="primary"
                                  size="xl"
-                                 sx="w-full mx-auto sm:w-3/5 lg:w-[320px]"
+                                 sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
                                  href="https://account.venmo.com/u/itisoverdue"
                               >
                                  <div className="mx-auto flex items-center justify-center">
@@ -63,8 +68,8 @@ export default function Donate() {
                               <Button
                                  variant="primary"
                                  size="xl"
-                                 sx="w-full mx-auto sm:w-3/5 lg:w-[320px]"
-                                 onClick={() => setShowModal((prev) => !prev)}
+                                 sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
+                                 onClick={handleClick}
                               >
                                  <div className="mx-auto flex items-center justify-center">
                                     Donate with Donorbox

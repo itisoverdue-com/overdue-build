@@ -17,13 +17,13 @@
    */
 
    h1 {
-      @apply text-[44px] md:text-6xl lg:text-7xl font-bold text-primary capitalize;
+      @apply text-[44px] font-bold capitalize text-primary md:text-6xl lg:text-7xl;
    }
    h2 {
-      @apply text-4xl md:text-5xl font-bold;
+      @apply text-4xl font-bold md:text-5xl;
    }
    h3 {
-      @apply text-xl md:text-2xl font-bold;
+      @apply text-xl font-bold md:text-2xl;
    }
    h4 {
       @apply text-2xl font-bold;
@@ -40,4 +40,11 @@
    box-sizing: border-box;
    padding: 0;
    margin: 0;
+}
+
+.is-fixed {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   overflow: auto;
 }
