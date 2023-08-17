@@ -6,6 +6,7 @@ import PageHero from "@/components/shared/PageHero"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 import Button from "@/components/shared/Button"
+import DonationModal from "@/components/Pages/Donate/DonationModal"
 
 export default function Donate() {
    const [showModal, setShowModal] = useState(false)
@@ -17,7 +18,7 @@ export default function Donate() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1692290089/backgrounds/donate-backbround_pphohl_7d94c3.png"
          />
          <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
-            {showModal && <div>Donation Modal</div>}
+            {showModal && <DonationModal setShowModal={setShowModal} />}
             <section>
                <div className="className=flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
                   <SectionSubheader header="Protect the environment for everyone">
