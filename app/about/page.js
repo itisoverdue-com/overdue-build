@@ -39,9 +39,8 @@ export default function About() {
                         alt="itisOVERDUE team gathered outside"
                         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/about/intro_ixa5ny.jpg"
                         fill
-                        style={{
-                           objectFit: "cover",
-                        }}
+                        sizes="75vw"
+                        className="object-cover"
                      />
                   </Card>
                   <Card
@@ -71,7 +70,8 @@ export default function About() {
                            alt="Faithful itisOVERDUE dog resting outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/about/started_fakhjz.jpg"
                            fill
-                           style={{ objectFit: "cover" }}
+                           sizes="65vw"
+                           className="object-cover"
                         />
                      </Card>
                      <Card
@@ -108,7 +108,8 @@ export default function About() {
                            alt="itisOVERDUE team gathered outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/about/philosophy_espfa8.jpg"
                            fill
-                           style={{ objectFit: "cover" }}
+                           sizes="75vw"
+                           className="object-cover"
                         />
                      </Card>
                      <Card

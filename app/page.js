@@ -63,9 +63,8 @@ export default function Home() {
                      alt="itisOVERDUE team gathered outside"
                      src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/landing/about1_sxanuf.jpg"
                      fill
-                     style={{
-                        objectFit: "cover",
-                     }}
+                     sizes="55vw"
+                     className="object-cover"
                   />
                </Card>
             </div>

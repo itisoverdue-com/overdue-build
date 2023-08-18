@@ -20,6 +20,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/yelp_vgatkb.png",
          outerSx: "order-1 w-2/3 sm:w-1/3 md:w-2/5",
          innerSx: "max-w-[300px] aspect-[1550/625]",
+         sizes: "(max-width: 640px) 66.6%, (max-width: 768px) 33.3%, 40%",
       },
       {
          id: 2,
@@ -28,6 +29,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/mercedes-benz-of-calabasas_bki1d6.jpg",
          outerSx: "order-5 w-1/3 sm:w-1/3 md:w-1/4",
          innerSx: "max-w-[150px] aspect-square",
+         sizes: "(max-width: 640px) 33.3%, (max-width: 768px) 33.3%, 25%",
       },
       {
          id: 3,
@@ -36,6 +38,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/uniqlo_pufdzo.png",
          outerSx: "order-2 w-1/3 sm:order-3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-[849/846]",
+         sizes: "(max-width: 768px) 33.3%, 20%",
       },
       {
          id: 4,
@@ -44,6 +47,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/the-well_fmbeue.webp",
          outerSx: "order-4 w-1/3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-[1097/1118]",
+         sizes: "(max-width: 768px) 33.3%, 20%",
       },
       {
          id: 5,
@@ -52,6 +56,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/8-one-8_g3qawz.png",
          outerSx: "order-3 w-1/3 sm:order-2 sm:w-1/3 md:w-1/5",
          innerSx: "max-w-[150px] aspect-square",
+         sizes: "(max-width: 768px) 33.3%, 20%",
       },
       {
          id: 6,
@@ -60,6 +65,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/intermix_vbabnv.png",
          outerSx: "order-6 w-2/3 sm:w-1/3 sm:order-7 md:w-1/2",
          innerSx: "max-w-[400px] aspect-[900/130]",
+         sizes: "(max-width: 640px) 66.6%, (max-width: 768px) 33.3%, 50%",
       },
       {
          id: 7,
@@ -68,6 +74,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/my-valley-pass_brmldx.png",
          outerSx: "order-7 w-1/3 sm:order-10 sm:order-6 sm:w-1/3 md:w-1/4",
          innerSx: "max-w-[150px] aspect-[194/161]",
+         sizes: "(max-width: 768px) 33.3%, 25%",
       },
       {
          id: 8,
@@ -76,6 +83,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/prostainable_nnocpx.png",
          outerSx: "order-8 w-2/3 sm:order-10 md:order-8 md:w-1/2",
          innerSx: "max-w-[440px] aspect-[1500/260] sm:max-w-[500px]",
+         sizes: "(max-width: 768px) 66.6%, 50%",
       },
       {
          id: 9,
@@ -84,6 +92,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/dentsu_rcmnp4.png",
          outerSx: "order-10 w-1/2 sm:order-8 sm:w-1/3 md:order-11 md:w-1/3",
          innerSx: "max-w-[200px] aspect-[1250/269]",
+         sizes: "(max-width: 640px) 50%, 33.3%",
       },
       {
          id: 10,
@@ -92,6 +101,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238619/sponsor/redone_d4jc5m.png",
          outerSx: "order-9 w-1/3 sm:order-11 sm:w-1/3 md:order-10",
          innerSx: "max-w-[200px] aspect-[1200/263]",
+         sizes: "33.3%",
       },
       {
          id: 11,
@@ -100,6 +110,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/carat-dentsu_pnbntp.png",
          outerSx: "order-11 w-1/2 sm:order-9 sm:w-1/3 md:order-12 md:w-1/3",
          innerSx: "max-w-[200px] aspect-[1305/429]",
+         sizes: "(max-width: 640px) 50%, 33.3%",
       },
       {
          id: 12,
@@ -108,6 +119,7 @@ export default function Sponsor() {
             "https://res.cloudinary.com/di7ejl8jx/image/upload/v1690238618/sponsor/topanga-new-times_aneghe.png",
          outerSx: "order-12 w-full md:order-9 md:w-1/2",
          innerSx: "max-w-[420px] aspect-[1854/190] sm:max-w-[600px]",
+         sizes: "(max-width: 768px) 100%, 50%",
       },
    ]
 
@@ -154,6 +166,7 @@ export default function Sponsor() {
                         alt="itisOVERDUE team gathered outside"
                         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1689971775/sponsor/sponsor_iinfeq.jpg"
                         fill
+                        sizes="(max-width: 768px) 100vw, 720px"
                         className="object-cover"
                      />
                   </Card>
@@ -193,6 +206,7 @@ export default function Sponsor() {
                                     alt={`${logo.name} logo`}
                                     src={logo.imgSrc}
                                     fill
+                                    sizes={logo.sizes}
                                     className="object-contain"
                                  />
                               </div>
@@ -235,6 +249,7 @@ export default function Sponsor() {
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690326666/sponsor/sponsor_mr8h5d.jpg"
                               fill
+                              sizes="70vw"
                               className="object-contain md:object-cover"
                            />
                         </Card>
@@ -279,6 +294,7 @@ export default function Sponsor() {
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690347288/sponsor/sponsor_c2f3a3.jpg"
                               fill
+                              sizes="70vw"
                               className="object-contain md:object-cover md:object-bottom"
                            />
                         </Card>
@@ -295,6 +311,7 @@ export default function Sponsor() {
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690417347/sponsor/sponsor_gb2taz.jpg"
                               fill
+                              sizes="(max-width: 640px) 100vw, 590px"
                               className="object-contain"
                            />
                         </Card>
@@ -339,6 +356,7 @@ export default function Sponsor() {
                               alt="itisOVERDUE volunteers working outside"
                               src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690431157/sponsor/sponsor_ax4esc.jpg"
                               fill
+                              sizes="(max-width: 640px) 100vw, 590px"
                               className="object-contain"
                            />
                         </Card>
@@ -369,6 +387,7 @@ export default function Sponsor() {
                            alt="itisOVERDUE team gathered outside"
                            src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690480845/sponsor/sponsor_sc9ez1.jpg"
                            fill
+                           sizes="(max-width: 1024px) 100vw, 1236px"
                            className="scale-100 object-cover"
                         />
                      </Card>
@@ -437,6 +456,7 @@ export default function Sponsor() {
                         alt="itisOVERDUE team gathered outside"
                         src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1690498715/sponsor/sponsor_zbhkww.jpg"
                         fill
+                        sizes="70vw"
                         className="scale-110 object-cover md:scale-100"
                      />
                   </Card>

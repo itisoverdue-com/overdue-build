@@ -63,6 +63,7 @@ export default function WaysToHelp() {
                                     alt={text}
                                     src={imgSrc}
                                     fill
+                                    sizes="(max-width: 1024px) 65%, 100%"
                                     className="object-contain"
                                  />
                               </div>

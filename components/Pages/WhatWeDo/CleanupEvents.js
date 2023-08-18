@@ -32,7 +32,8 @@ export default function CleanupEvents({ variant }) {
                alt="itisOVERDUE team gathered outside"
                src="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441387/events/primaryevent_tum70q.jpg"
                fill
-               style={{ objectFit: "cover" }}
+               sizes="75vw"
+               className="object-cover"
             />
          </Card>
          <div className="relative mx-auto mt-8 flex items-center justify-center md:order-3 md:w-2/5 lg:mr-0 lg:mt-12 lg:w-2/3 lg:max-w-[800px] xl:mt-16">
