@@ -10,7 +10,7 @@ import Link from "next/link"
  * @param {boolean} disabled - If true, the button appears disabled and won't accept clicks.
  * @return {string} The generated className string.
  */
-function generateClassName(size, variant, fullWidth, disabled) {
+function generateClassName(size, variant, fullWidth, disabled, sx) {
    const baseClasses = `
       transition-all
       hover:-translate-y-1
@@ -41,7 +41,7 @@ function generateClassName(size, variant, fullWidth, disabled) {
 
    const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : ""
 
-   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${fullWidthClass} ${disabledClass}`
+   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${fullWidthClass} ${disabledClass} ${sx}`
 }
 
 // The Button component
@@ -52,9 +52,10 @@ export default function Button({
    fullWidth = false,
    disabled = false,
    href,
+   sx,
    ...props
 }) {
-   const className = generateClassName(size, variant, fullWidth, disabled)
+   const className = generateClassName(size, variant, fullWidth, disabled, sx)
 
    return href ? (
       <Link href={href} className={className} {...props}>
