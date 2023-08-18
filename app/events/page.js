@@ -11,6 +11,12 @@ const chapters = [
       zIndex: "z-[10]",
    },
    {
+      location: "Woodland Hills, CA",
+      lat: "left-[18%]",
+      lon: "bottom-[47%]",
+      zIndex: "z-[11]",
+   },
+   {
       location: "Miami, FL",
       lat: "right-[10%]",
       lon: "bottom-[16%]",
@@ -23,8 +29,14 @@ const chapters = [
       zIndex: "z-[11]",
    },
    {
-      location: "Torrance/Long Beach, CA",
+      location: "Torrance, CA",
       lat: "left-[20%]",
+      lon: "bottom-[43%]",
+      zIndex: "z-[13]",
+   },
+   {
+      location: "Long Beach, CA",
+      lat: "left-[21%]",
       lon: "bottom-[43%]",
       zIndex: "z-[13]",
    },
@@ -41,13 +53,6 @@ const chapters = [
       zIndex: "z-[10]",
    },
 ]
-
-function linkExtension(location) {
-   const [city, stateWithSpace] = location.split(",")
-   const [_, state] = stateWithSpace.split(" ")
-
-   return `${city}-${state}`
-}
 
 export default function Events() {
    return (
@@ -86,7 +91,7 @@ export default function Events() {
                   {chapters.map((item) => (
                      <Link
                         key={`${item.location}-textbox`}
-                        href={`/events/${linkExtension(item.location)}`}
+                        href={`/events/${item.location}`}
                         className="md:mr-5"
                      >
                         <li className="mt-3 block w-full rounded-md bg-white  p-3 text-start text-black shadow-md md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg lg:p-6">
@@ -103,7 +108,7 @@ export default function Events() {
 
 const ChapterPin = ({ location, lat, lon, zIndex = "z-10" }) => {
    return (
-      <Link href={`/events/${linkExtension(location)}`}>
+      <Link href={`/events/${location}`}>
          <button
             className={`absolute h-4 w-4 md:h-8 md:w-8 md:transition-all md:hover:-translate-y-2 md:hover:scale-110 lg:h-10 lg:w-10 ${zIndex} ${lat} ${lon}`}
          >
