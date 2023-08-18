@@ -150,8 +150,8 @@ export default function Donate() {
                   </div>
                </section>
                <section>
-                  <div className="mx-auto mt-16 w-full text-center lg:w-3/5">
-                     <h5 className="lg:text-2xl">
+                  <div className="mx-auto mt-16 w-[92%] text-center md:w-3/4 lg:w-1/2">
+                     <h5 className="md:text-2xl lg:text-3xl">
                         Thank You for Being the Change!
                      </h5>
                      <p className="mt-6">
