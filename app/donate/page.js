@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 
 import PageHero from "@/components/shared/PageHero"
@@ -10,14 +10,36 @@ import DonationModal from "@/components/Pages/Donate/DonationModal"
 
 export default function Donate() {
    const [showModal, setShowModal] = useState(false)
-   const handleClick = (value) => {
-      setShowModal(true)
-      const wrapper = document.getElementById("wrapper")
-      wrapper.classList.add("is-fixed")
+   const [scrollTop, setScrollTop] = useState(0)
+   const [wrapper, setWrapper] = useState(null)
+
+   // lock body when modal is active
+   useEffect(() => setWrapper(document.getElementById("wrapper")), [])
+   const toggleModal = (value) => {
+      setShowModal(value)
+      // add scrollY value to state only if the modal is being activated
+      value && setScrollTop(window.scrollY)
+      // add "is-fixed" global style to wrapper div to lock body
+      value
+         ? wrapper.classList.add("is-fixed")
+         : wrapper.classList.remove("is-fixed")
    }
+   useEffect(() => {
+      // if showModal scroll the wrapper
+      // if !showModal scroll the entire window
+      wrapper && showModal
+         ? wrapper.scroll(0, scrollTop)
+         : window.scrollTo(0, scrollTop)
+   })
+
    return (
       <>
-         {showModal && <DonationModal setShowModal={setShowModal} />}
+         {showModal && (
+            <DonationModal
+               setShowModal={setShowModal}
+               toggleModal={toggleModal}
+            />
+         )}
          <div>
             <PageHero
                route="donate"
@@ -69,7 +91,7 @@ export default function Donate() {
                                  variant="primary"
                                  size="xl"
                                  sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
-                                 onClick={handleClick}
+                                 onClick={() => toggleModal(true)}
                               >
                                  <div className="mx-auto flex items-center justify-center">
                                     Donate with Donorbox
