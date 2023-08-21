@@ -53,12 +53,12 @@ export default function Header() {
                {/* --- select dark mode --- */}
                <button>
                   {isDark ? (
-                     <SunIcon
+                     <MoonIcon
                         className="h-8 w-8 text-white md:h-11 md:w-11"
                         onClick={handleClick}
                      />
                   ) : (
-                     <MoonIcon
+                     <SunIcon
                         className="h-7 w-7 text-white md:h-10 md:w-10"
                         onClick={handleClick}
                      />

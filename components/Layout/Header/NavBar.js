@@ -48,12 +48,12 @@ export default function NavBar({ showNav, setShowNav }) {
    ]
    return (
       <div
-         className={`max-lg:z-40 max-lg:fixed w-full h-full top-0 ${
+         className={`top-0 h-full w-full max-lg:fixed max-lg:z-40 ${
             showNav ? "left-0 duration-500" : "left-full duration-0"
-         } bg-black/90 lg:bg-transparent transition-left`}
+         } transition-left bg-black/90 lg:bg-transparent`}
       >
          <nav className="mt-[68px] md:mt-[80px] lg:mt-0">
-            <ul className="lg:flex lg:items-center lg:justify-end w-5/6 lg:w-full mx-auto md:text-lg lg:text-base">
+            <ul className="mx-auto w-5/6 md:text-lg lg:flex lg:w-full lg:items-center lg:justify-end lg:text-base">
                {links
                   .sort((a, b) => a.id - b.id)
                   .map(({ id, page, text }) => {
@@ -63,15 +63,15 @@ export default function NavBar({ showNav, setShowNav }) {
                            className={
                               page === "donate"
                                  ? "w-fit lg:mx-4 xl:mx-6 2xl:mx-8"
-                                 : "w-full lg:w-fit max-lg:mx-auto lg:mx-4 xl:mx-6 2xl:mx-8 border-b border-dark-grey lg:border-none"
+                                 : "w-full border-b border-dark-grey max-lg:mx-auto lg:mx-4 lg:w-fit lg:border-none xl:mx-6 2xl:mx-8"
                            }
                         >
                            <Link href={`/${page}`}>
                               <li
                                  className={
                                     page === "donate"
-                                       ? "w-fit py-2 md:py-2.5 px-4 mt-2.5 lg:mt-0 rounded-md bg-primary text-black lg:hover:scale-110 transition duration-300"
-                                       : `py-4 md:py-6 lg:py-0 pl-2 lg:pl-0 text-left lg:text-center lg:hover:text-primary ${
+                                       ? "mt-2.5 w-fit rounded-md bg-primary px-4 py-2 text-black transition duration-300 md:py-2.5 lg:mt-0 lg:hover:scale-110"
+                                       : `py-4 pl-2 text-left md:py-6 lg:py-0 lg:pl-0 lg:text-center lg:hover:text-primary ${
                                             page === pathname.slice(1)
                                                ? "text-primary"
                                                : "text-white"

@@ -92,7 +92,7 @@ export default function Education() {
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>Education Events</h2>
-               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:my-5 md:w-28" />
                <h3 className="font-normal text-dark-grey">
                   Environment Arts Festival - Recycle art festival, Recycle arts
                   competition, kids exhibition, and more!
