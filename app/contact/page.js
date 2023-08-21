@@ -77,7 +77,7 @@ export default function Contact() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/education_fbvmrv.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
          >
             {/* Title, Accent Line, Subheader */}

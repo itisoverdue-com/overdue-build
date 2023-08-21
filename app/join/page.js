@@ -37,7 +37,7 @@ export default function Join() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441392/backgrounds/volunteer_jo6rbb.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center"
          >
             {/* Image, Card to Apply Now */}

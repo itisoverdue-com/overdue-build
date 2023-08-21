@@ -124,7 +124,7 @@ export default function BlogPage() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/blog_up1rht.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-16 text-center md:py-32"
          >
             <section ref={blogSectionRef}>

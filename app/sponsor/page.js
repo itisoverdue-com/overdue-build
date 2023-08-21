@@ -130,7 +130,10 @@ export default function Sponsor() {
             header="Sponsorship"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441388/backgrounds/sponsor_vaguav.jpg"
          />
-         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+         <FullBleedContainer
+            sx="bg-background dark:bg-darkest-grey"
+            childSx="py-20 lg:py-32"
+         >
             {/* --- Become a Sponsor --- */}
             <section>
                <div className="flex flex-col items-center justify-center px-4 md:flex-row md:flex-wrap min-[1400px]:px-0">

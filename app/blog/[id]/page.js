@@ -59,7 +59,10 @@ export default async function BlogSlugPage({ params: { id } }) {
             showHeader={false}
             backgroundImageSrc={`${blog.image}`}
          />
-         <FullBleedContainer sx="bg-background" childSx="py-16 md:py-32">
+         <FullBleedContainer
+            sx="bg-background dark:bg-darkest-grey"
+            childSx="py-16 md:py-32"
+         >
             {/* <--- Title, Author, Categories---> */}
             <div className="mb-7 flex flex-col items-start space-y-5 border-b-2 border-b-light-grey pb-7">
                {/* Title */}

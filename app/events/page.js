@@ -63,7 +63,7 @@ export default function Events() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center  text-center"
          >
             {/* Title, Accent Line, Subheader */}

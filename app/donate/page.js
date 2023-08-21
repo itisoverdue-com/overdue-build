@@ -46,7 +46,10 @@ export default function Donate() {
                header="Donate To Us"
                backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1692290089/backgrounds/donate-backbround_pphohl_7d94c3.png"
             />
-            <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+            <FullBleedContainer
+               sx="bg-background dark:bg-darkest-grey"
+               childSx="py-20 lg:py-32"
+            >
                <section>
                   <div className="className=flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
                      <SectionSubheader
