@@ -144,11 +144,11 @@ export default function Footer() {
    return (
       <footer className="bg-primary  ">
          {/* Main Footer */}
-         <div className="flex flex-col items-start space-y-16 mx-auto p-5 py-10 md:space-y-0 md:px-10 lg:flex-row lg:max-w-screen-2xl lg:space-x-20 lg:p-20">
+         <div className="mx-auto flex flex-col items-start space-y-16 p-5 py-10 md:space-y-0 md:px-10 lg:max-w-screen-2xl lg:flex-row lg:space-x-20 lg:p-20">
             {/* Brand, Subheader, Social Links */}
             <div className="flex flex-col space-y-6 ">
                <Brand />
-               <p>
+               <p className="dark:text-black">
                   To inspire and educate communities to take action for a better
                   tomorrow.
                </p>
@@ -162,12 +162,12 @@ export default function Footer() {
             {/* Quick Links */}
             <div className="">
                <h6 className="mb-8 w-max">Quick Links</h6>
-               <ul className="space-y-4  w-max">
+               <ul className="w-max  space-y-4">
                   {quickLinks.map((item) => (
                      <li key={item.text}>
                         <Link
                            href={item.link}
-                           className="hover:underline underline-offset-2 inline"
+                           className="inline underline-offset-2 hover:underline"
                         >
                            {item.text}
                         </Link>
@@ -198,7 +198,7 @@ export default function Footer() {
             </div>
 
             {/* Call To Action: Join Our Team */}
-            <div className="h-fit bg-white rounded-2xl p-5 flex flex-col space-y-4 shadow-lg">
+            <div className="flex h-fit flex-col space-y-4 rounded-2xl bg-white p-5 shadow-lg">
                <div className="flex items-center">
                   {/* Icon */}
                   <svg
@@ -248,7 +248,7 @@ export default function Footer() {
 
                {/* Sign Up Link */}
                <Link href="/join">
-                  <button className="bg-primary w-full py-4 font-medium rounded-md transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
+                  <button className="w-full rounded-md bg-primary py-4 font-medium transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
                      Sign Up Now!
                   </button>
                </Link>
@@ -256,10 +256,11 @@ export default function Footer() {
          </div>
 
          {/* Copyright */}
-         <div className="py-6 px-3 bg-primaryDark">
-            <p className="text-center text-dark-grey text-sm">
-               © 2023 itisOVERDUE. Made with love and responsibility. All Rights
-               Reserved. itisOVERDUE is a 501(c)(3) nonprofit organization.
+         <div className="bg-primaryDark px-3 py-6">
+            <p className="text-center text-sm text-dark-grey dark:text-dark-grey">
+               © 2023 itisOVERDUE. Made with love and responsibility. All
+               Rights Reserved. itisOVERDUE is a 501(c)(3) nonprofit
+               organization.
             </p>
          </div>
       </footer>
@@ -316,7 +317,7 @@ const IconButton = ({ link, value }) => {
    }
    return (
       <Link href={link} target="_blank">
-         <button className="p-2 rounded-full bg-black bg-opacity-50 transition-all duration-200 hover:-translate-y-1 hover:bg-opacity-90 fill-white hover:fill-primary">
+         <button className="rounded-full bg-black bg-opacity-50 fill-white p-2 transition-all duration-200 hover:-translate-y-1 hover:bg-opacity-90 hover:fill-primary">
             {icons[value]}
          </button>
       </Link>

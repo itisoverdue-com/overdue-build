@@ -31,8 +31,9 @@ function generateClassName(size, variant, fullWidth, disabled, sx) {
    }
 
    const variantClasses = {
-      primary: "bg-primary text-black hover:bg-black hover:text-primary",
-      dark: "bg-darker-grey text-white hover:bg-black hover:text-white",
+      primary:
+         "bg-primary dark:bg-primaryDark text-black dark:text-darkest-grey hover:bg-black hover:text-primary dark:hover:bg-grey dark:hover:text-white",
+      dark: "bg-darker-grey dark:bg-primaryDark text-white dark:text-darkest-grey hover:bg-black dark:hover:bg-grey hover:text-white dark:hover:text-white",
       outline:
          "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black",
    }
