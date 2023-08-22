@@ -73,7 +73,7 @@ export default function WaysToHelp() {
                                  variant="primary"
                                  size={windowWidth < 420 ? "lg" : "xl"}
                                  href={`/${page}`}
-                                 sx="dark:hover:bg-dark-grey"
+                                 sx="dark:hover:bg-darkest-grey dark:hover:text-primaryDark"
                               >
                                  {windowWidth < 1280 ? text : lgText}
                               </Button>
