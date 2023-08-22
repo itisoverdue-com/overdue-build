@@ -36,11 +36,11 @@ export default function Footer() {
                <g clipPath="url(#clip0_1608_3660)">
                   <path
                      d="M12.3237 10.87L21.7837 5.32C21.5114 4.91706 21.1452 4.58636 20.7167 4.35641C20.2881 4.12646 19.8101 4.00414 19.3237 4H5.32375C4.83493 3.99979 4.35346 4.11902 3.92123 4.34734C3.48901 4.57565 3.11912 4.90612 2.84375 5.31L12.3237 10.87Z"
-                     fill="#333333"
+                     className="fill-[#333] dark:fill-white"
                   />
                   <path
                      d="M13.3203 12.59C13.0165 12.7662 12.6716 12.8593 12.3203 12.86C11.97 12.8624 11.6251 12.7727 11.3203 12.6L2.32031 7.32996V17C2.32031 17.7956 2.63638 18.5587 3.19899 19.1213C3.7616 19.6839 4.52466 20 5.32031 20H19.3203C20.116 20 20.879 19.6839 21.4416 19.1213C22.0042 18.5587 22.3203 17.7956 22.3203 17V7.32996L13.3203 12.59Z"
-                     fill="#333333"
+                     className="fill-[#333] dark:fill-white"
                   />
                </g>
                <defs>
@@ -55,7 +55,7 @@ export default function Footer() {
                </defs>
             </svg>
          ),
-         sx: "items-start border-b border-b-dark-grey",
+         sx: "items-start border-b border-b-dark-grey dark:border-b-white",
       },
       {
          link: null,
@@ -71,11 +71,11 @@ export default function Footer() {
                <g clipPath="url(#clip0_1608_3668)">
                   <path
                      d="M12.4908 0.171875C8.33407 0.171875 4.86719 3.52024 4.86719 7.79545C4.86719 9.42191 5.35593 10.8722 6.29391 12.2313L11.9074 20.9905C12.1797 21.4163 12.8024 21.4155 13.0742 20.9905L18.712 12.2015C19.6298 10.904 20.1143 9.38056 20.1143 7.79545C20.1143 3.59181 16.6944 0.171875 12.4908 0.171875ZM12.4908 11.2607C10.5801 11.2607 9.0255 9.70611 9.0255 7.79545C9.0255 5.8848 10.5801 4.33019 12.4908 4.33019C14.4014 4.33019 15.956 5.8848 15.956 7.79545C15.956 9.70611 14.4014 11.2607 12.4908 11.2607Z"
-                     fill="#333333"
+                     className="fill-[#333] dark:fill-white"
                   />
                   <path
                      d="M17.9076 16.0977L14.4178 21.5537C13.5144 22.9621 11.4596 22.9574 10.5606 21.555L7.06516 16.0991C3.98967 16.8102 2.09375 18.1128 2.09375 19.6694C2.09375 22.3706 7.45003 23.8277 12.4895 23.8277C17.5291 23.8277 22.8853 22.3706 22.8853 19.6694C22.8853 18.1117 20.9868 16.8084 17.9076 16.0977Z"
-                     fill="#333333"
+                     className="fill-[#333] dark:fill-white"
                   />
                </g>
                <defs>
@@ -90,7 +90,7 @@ export default function Footer() {
                </defs>
             </svg>
          ),
-         sx: "items-start border-b border-b-dark-grey",
+         sx: "items-start border-b border-b-dark-grey dark:border-b-white",
       },
       {
          link: null,
@@ -134,7 +134,10 @@ export default function Footer() {
                   />
                </mask>
                <g mask="url(#mask0_1608_3680)">
-                  <path d="M0.664062 0H24.6641V24H0.664062V0Z" fill="#333333" />
+                  <path
+                     d="M0.664062 0H24.6641V24H0.664062V0Z"
+                     className="fill-[#333] dark:fill-white"
+                  />
                </g>
             </svg>
          ),
@@ -142,13 +145,13 @@ export default function Footer() {
       },
    ]
    return (
-      <footer className="bg-primary  ">
+      <footer className="bg-primary dark:border-t dark:border-t-grey dark:bg-darkest-grey">
          {/* Main Footer */}
-         <div className="mx-auto flex flex-col items-start space-y-16 p-5 py-10 md:space-y-0 md:px-10 lg:max-w-screen-2xl lg:flex-row lg:space-x-20 lg:p-20">
+         <div className="mx-auto flex flex-col items-start space-y-16 p-5 py-10 dark:text-white md:space-y-0 md:px-10 lg:max-w-screen-2xl lg:flex-row lg:space-x-20 lg:p-20">
             {/* Brand, Subheader, Social Links */}
             <div className="flex flex-col space-y-6 ">
                <Brand />
-               <p className="dark:text-black">
+               <p className="">
                   To inspire and educate communities to take action for a better
                   tomorrow.
                </p>
@@ -198,7 +201,7 @@ export default function Footer() {
             </div>
 
             {/* Call To Action: Join Our Team */}
-            <div className="flex h-fit flex-col space-y-4 rounded-2xl bg-white p-5 shadow-lg">
+            <div className="flex h-fit flex-col space-y-4 rounded-2xl bg-white p-5 shadow-lg dark:bg-dark-grey dark:text-white">
                <div className="flex items-center">
                   {/* Icon */}
                   <svg
@@ -213,7 +216,8 @@ export default function Footer() {
                         width="64"
                         height="64"
                         rx="32"
-                        fill="#111111"
+                        className="fill-[#111] dark:fill-grey"
+                        // fill="#111111"
                      />
                      <g clipPath="url(#clip0_1608_3690)">
                         <path
@@ -241,14 +245,14 @@ export default function Footer() {
                </div>
 
                {/* Subheader */}
-               <p className="dark:text-black">
+               <p>
                   Learn how to become a team member and help make a better
                   future together!
                </p>
 
                {/* Sign Up Link */}
                <Link href="/join">
-                  <button className="w-full rounded-md bg-primary py-4 font-medium transition-colors duration-300 hover:bg-darkest-grey hover:text-primary">
+                  <button className="w-full rounded-md bg-primary py-4 font-medium transition-colors duration-300 hover:bg-darkest-grey hover:text-primary dark:bg-primaryDark dark:text-black dark:hover:bg-black dark:hover:text-primary">
                      Sign Up Now!
                   </button>
                </Link>
@@ -256,8 +260,8 @@ export default function Footer() {
          </div>
 
          {/* Copyright */}
-         <div className="bg-primaryDark px-3 py-6">
-            <p className="text-center text-sm text-dark-grey dark:text-dark-grey">
+         <div className="bg-primaryDark px-3 py-6 dark:bg-darker-grey">
+            <p className="text-center text-sm text-dark-grey">
                © 2023 itisOVERDUE. Made with love and responsibility. All
                Rights Reserved. itisOVERDUE is a 501(c)(3) nonprofit
                organization.
@@ -317,7 +321,7 @@ const IconButton = ({ link, value }) => {
    }
    return (
       <Link href={link} target="_blank">
-         <button className="rounded-full bg-black bg-opacity-50 fill-white p-2 transition-all duration-200 hover:-translate-y-1 hover:bg-opacity-90 hover:fill-primary">
+         <button className="rounded-full bg-black bg-opacity-50 fill-white p-2 transition-all duration-200 hover:-translate-y-1 hover:bg-opacity-90 hover:fill-primary dark:bg-grey">
             {icons[value]}
          </button>
       </Link>
