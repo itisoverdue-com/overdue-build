@@ -250,10 +250,10 @@ const EventDetails = ({ event }) => {
                target="_blank"
                fullWidth
             >
-               <p className="mx-auto lg:mx-0">
-                  <ClipboardIcon className="mb-0.5 mr-1 inline-block h-5 w-5 dark:text-darkest-grey" />
-                  <span className="dark:text-darkest-grey">Sign Up</span>
-               </p>
+               <div className="mx-auto lg:mx-0">
+                  <ClipboardIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
+                  <span>Sign Up</span>
+               </div>
             </Button>
          </div>
       </section>
@@ -336,7 +336,9 @@ const CalendarList = ({
                      name="calendar"
                      onClick={handleViewChange}
                      className={`${
-                        view === "calendar" ? "bg-black text-primary" : ""
+                        view === "calendar"
+                           ? "bg-black text-primary dark:bg-dark-grey dark:text-primaryDark"
+                           : ""
                      } flex w-full items-center justify-center p-3 transition`}
                   >
                      <CalendarDaysIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
@@ -346,7 +348,9 @@ const CalendarList = ({
                      name="list"
                      onClick={handleViewChange}
                      className={`${
-                        view === "list" ? "bg-black text-primary" : ""
+                        view === "list"
+                           ? "bg-black text-primary dark:bg-dark-grey dark:text-primaryDark"
+                           : ""
                      } flex w-full items-center justify-center p-3 transition`}
                   >
                      <ListBulletIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
@@ -427,7 +431,9 @@ const NewsletterCard = ({ location }) => {
       <section className="mx-auto mt-20 text-center md:mt-0 lg:mt-28">
          {/* Subscribe Card */}
          <Card variant="text" sx="flex flex-col space-y-5 text-center">
-            <h5 className="text-center text-3xl">Stay Up to Date!</h5>
+            <h5 className="text-center text-3xl dark:text-white">
+               Stay Up to Date!
+            </h5>
             <p>Be the first to learn about our upcoming events.</p>
             <Button
                href={LOCATIONS[location].newsletter}

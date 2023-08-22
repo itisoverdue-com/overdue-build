@@ -94,7 +94,7 @@ export default function Events() {
                         href={`/events/${item.location}`}
                         className="md:mr-5"
                      >
-                        <li className="mt-3 block w-full rounded-md bg-white p-3  text-start text-black shadow-md dark:bg-dark-grey dark:text-white md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg lg:p-6">
+                        <li className="mt-3 block w-full rounded-md bg-white p-3  text-start text-black shadow-md dark:bg-dark-grey dark:text-white md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg md:dark:hover:bg-primaryDark md:dark:hover:text-darkest-grey lg:p-6">
                            📍 {item.location}
                         </li>
                      </Link>
