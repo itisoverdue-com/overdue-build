@@ -93,7 +93,7 @@ export default function Education() {
             <>
                <h2>Education Events</h2>
                <div className="my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:my-5 md:w-28" />
-               <h3 className="font-normal text-dark-grey">
+               <h3 className="font-normal text-dark-grey dark:text-white">
                   Environment Arts Festival - Recycle art festival, Recycle arts
                   competition, kids exhibition, and more!
                </h3>
@@ -127,7 +127,7 @@ export default function Education() {
             <section className="mt-20 w-full">
                {/* Header, List of Locations */}
                <>
-                  <h4 className="mb-8 text-3xl md:mb-10 md:text-4xl">
+                  <h4 className="mb-8 text-3xl dark:text-white md:mb-10 md:text-4xl">
                      Student Chapter Locations
                   </h4>
                   <ul className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-evenly md:gap-0">
@@ -136,7 +136,7 @@ export default function Education() {
                            key={item}
                            className="w-full text-start md:mb-6 md:w-1/4 md:text-center"
                         >
-                           <span className="block rounded-full bg-darkest-grey px-4  py-2 text-sm text-white md:inline-block md:text-base lg:text-lg">
+                           <span className="block rounded-full bg-darkest-grey px-4 py-2  text-sm text-white dark:bg-dark-grey md:inline-block md:text-base lg:text-lg">
                               📍 {item}
                            </span>
                         </li>
@@ -196,7 +196,9 @@ const EventCard = ({ image, aspect, title, text }) => {
 
          {/* Title, Text */}
          <div className=" absolute bottom-0 left-1/2  w-full -translate-x-1/2 bg-black bg-opacity-80 p-6 text-start text-white">
-            <h3 className="mb-1 text-2xl text-primary">{title}</h3>
+            <h3 className="mb-1 text-2xl text-primary dark:text-primaryDark">
+               {title}
+            </h3>
             {renderText(text)}
          </div>
       </Card>

@@ -41,7 +41,7 @@ export default function Header() {
          <div className="flex items-center justify-between px-3 py-1.5 md:px-4 md:py-2 lg:px-6 lg:py-3 min-[3440px]:px-10 min-[3440px]:py-5">
             {/* --- logo --- */}
             <div
-               className={`z-50 w-[108px] md:w-[124px] lg:z-0 lg:w-[136px] lg:shrink-0 lg:grow-0 lg:basis-auto`}
+               className={`z-50 order-1 w-[108px] md:w-[124px] lg:z-0 lg:w-[136px] lg:shrink-0 lg:grow-0 lg:basis-auto`}
                onClick={() => setShowNav(false)}
             >
                <Link href="/">
@@ -49,23 +49,12 @@ export default function Header() {
                </Link>
             </div>
             {/* --- mobile icons --- */}
-            <div className="z-50 flex items-center gap-x-4 lg:hidden">
-               {/* --- select dark mode --- */}
-               <button>
-                  {isDark ? (
-                     <MoonIcon
-                        className="h-8 w-8 text-white md:h-11 md:w-11"
-                        onClick={handleClick}
-                     />
-                  ) : (
-                     <SunIcon
-                        className="h-7 w-7 text-white md:h-10 md:w-10"
-                        onClick={handleClick}
-                     />
-                  )}
-               </button>
+            <div className="z-50 order-2 flex items-center gap-x-4 lg:order-3">
                {/* --- select nav shelf --- */}
-               <button onClick={() => setShowNav(showNav ? false : true)}>
+               <button
+                  onClick={() => setShowNav(showNav ? false : true)}
+                  className="lg:hidden"
+               >
                   {showNav ? (
                      <div>
                         <XMarkIcon className="h-10 w-10 text-white md:h-14 md:w-14" />
@@ -74,6 +63,20 @@ export default function Header() {
                      <div>
                         <Bars3Icon className="h-10 w-10 text-white md:h-14 md:w-14" />
                      </div>
+                  )}
+               </button>
+               {/* --- select dark mode --- */}
+               <button>
+                  {isDark ? (
+                     <MoonIcon
+                        className="h-8 w-8 text-white md:h-10 md:w-10"
+                        onClick={handleClick}
+                     />
+                  ) : (
+                     <SunIcon
+                        className="h-8 w-8 text-white md:h-10 md:w-10"
+                        onClick={handleClick}
+                     />
                   )}
                </button>
             </div>

@@ -50,7 +50,7 @@ export default function NavBar({ showNav, setShowNav }) {
       <div
          className={`top-0 h-full w-full max-lg:fixed max-lg:z-40 ${
             showNav ? "left-0 duration-500" : "left-full duration-0"
-         } transition-left bg-black/90 lg:bg-transparent`}
+         } transition-left order-3 bg-black/90 lg:order-2 lg:bg-transparent`}
       >
          <nav className="mt-[68px] md:mt-[80px] lg:mt-0">
             <ul className="mx-auto w-5/6 md:text-lg lg:flex lg:w-full lg:items-center lg:justify-end lg:text-base">

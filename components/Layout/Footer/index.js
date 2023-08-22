@@ -241,7 +241,7 @@ export default function Footer() {
                </div>
 
                {/* Subheader */}
-               <p className="">
+               <p className="dark:text-black">
                   Learn how to become a team member and help make a better
                   future together!
                </p>
