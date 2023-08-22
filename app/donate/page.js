@@ -66,7 +66,7 @@ export default function Donate() {
                      </SectionSubheader>
                      {/* --- Donation Options --- */}
                      <div className="mt-16 w-full">
-                        <h4 className="text-3xl md:text-4xl">
+                        <h4 className="text-3xl dark:text-white md:text-4xl">
                            Donation Options
                         </h4>
                         <div className="mt-8 flex flex-col gap-y-8 lg:mt-12 lg:flex-row lg:justify-center lg:gap-x-12 lg:gap-y-0">
@@ -112,7 +112,9 @@ export default function Donate() {
                      </div>
                      {/* --- Scan to Donate --- */}
                      <div className="mt-16 w-full">
-                        <h4 className="text-3xl md:text-4xl">Scan to Donate</h4>
+                        <h4 className="text-3xl dark:text-white md:text-4xl">
+                           Scan to Donate
+                        </h4>
                         <div className="flex flex-col items-center justify-center lg:mt-4 lg:flex-row lg:gap-x-12">
                            <div className="mt-8 w-full max-w-[380px] rounded-xl border border-lighter-grey bg-white py-6 lg:h-[320px]">
                               <div className="mx-auto flex w-fit flex-col items-center justify-center gap-y-2">
@@ -154,7 +156,7 @@ export default function Donate() {
                </section>
                <section>
                   <div className="mx-auto mt-16 w-[92%] text-center md:w-3/4 lg:w-1/2">
-                     <h5 className="md:text-2xl lg:text-3xl">
+                     <h5 className="dark:text-white md:text-2xl lg:text-3xl">
                         Thank You for Being the Change!
                      </h5>
                      <p className="mt-6">

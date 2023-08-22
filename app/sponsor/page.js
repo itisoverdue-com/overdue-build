@@ -195,7 +195,7 @@ export default function Sponsor() {
                      borderSx="md:mx-auto"
                   />
                   {/* --- Sponsor Logos --- */}
-                  <div className="mt-4 flex w-full flex-wrap items-center lg:px-12 xl:px-20">
+                  <div className="mt-4 flex w-full flex-wrap items-center dark:rounded-3xl dark:bg-grey lg:px-12 xl:px-20">
                      {sponsors.map((logo) => {
                         return (
                            <div
@@ -272,7 +272,7 @@ export default function Sponsor() {
                               $1250 tax deductible donation:
                            </p>
                            <div className="px-4">
-                              <ul className="list-disc">
+                              <ul className="list-disc dark:text-white">
                                  <li>You pick the location</li>
                                  <li>
                                     You can bring as many as 50 people. If more
@@ -465,14 +465,14 @@ export default function Sponsor() {
                   </Card>
                   <Card
                      variant="text"
-                     sx="w-full mt-[-30px] md:mt-[-60px] lg:w-[440px] lg:mt-[-90px] shadow-[10px_12px_2px_0px_rgba(0,0,0,0.8)]"
+                     sx="w-full mt-[-30px] md:mt-[-60px] lg:w-[440px] lg:mt-[-90px] shadow-[10px_12px_2px_0px_rgba(0,0,0,0.8)] dark:shadow-none"
                   >
                      <div className="mx-auto w-fit text-darker-grey">
                         <div className="flex items-center">
                            <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <EnvelopeIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
-                           <span className="sm:text-lg">
+                           <span className="dark:text-white sm:text-lg">
                               admin@itisoverdue.org
                            </span>
                         </div>
@@ -480,13 +480,17 @@ export default function Sponsor() {
                            <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <AtSymbolIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
-                           <span className="sm:text-lg">@itisoverdue</span>
+                           <span className="dark:text-white sm:text-lg">
+                              @itisoverdue
+                           </span>
                         </div>
                         <div className="flex items-center">
                            <div className="mr-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-primary sm:mr-4 sm:h-12 sm:w-12 lg:mr-10">
                               <PhoneIcon className="h-6 w-6 sm:h-7 sm:w-7" />
                            </div>
-                           <span className="sm:text-lg">(818) 854-5273</span>
+                           <span className="dark:text-white sm:text-lg">
+                              (818) 854-5273
+                           </span>
                         </div>
                      </div>
                   </Card>
