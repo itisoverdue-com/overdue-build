@@ -439,6 +439,7 @@ const NewsletterCard = ({ location }) => {
                href={LOCATIONS[location].newsletter}
                size="xl"
                variant="primary"
+               sx="dark:hover:bg-black dark:hover:text-primary"
                target="_blank"
             >
                <span className="mx-auto">Subcribe to {location}</span>

@@ -68,7 +68,7 @@ export default function MembersCarousel() {
                </div>
             ))}
          </div>
-         <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden xl:px-12">
+         <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden dark:text-white xl:px-12">
             <button onClick={prev}>
                <ArrowLeftCircleIcon className="h-12 w-12" />
             </button>
