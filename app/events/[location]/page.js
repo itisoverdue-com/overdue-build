@@ -83,7 +83,7 @@ export default function EventLocationPage({ params: { location } }) {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
          <FullBleedContainer
-            sx="bg-white bg-opacity-90"
+            sx="bg-white bg-opacity-90 dark:bg-darkest-grey"
             childSx="py-16 lg:py-28 "
          >
             {error ? (
@@ -97,7 +97,7 @@ export default function EventLocationPage({ params: { location } }) {
                   {events.length > 0 ? (
                      <div
                         ref={contentRef}
-                        className="flex flex-col space-y-20 lg:space-y-0 lg:space-x-10 lg:flex-row"
+                        className="flex flex-col space-y-20 lg:flex-row lg:space-x-10 lg:space-y-0"
                      >
                         <EventDetails event={events[active]} />
                         <CalendarList
@@ -109,7 +109,7 @@ export default function EventLocationPage({ params: { location } }) {
                         />
                      </div>
                   ) : (
-                     <h2 className="text-center text-light-grey pt-10">
+                     <h2 className="pt-10 text-center text-light-grey">
                         No Nearby Events
                      </h2>
                   )}
@@ -129,15 +129,15 @@ const EventDetails = ({ event }) => {
    const handleToggleShowMore = () => setShowMore((prevState) => !prevState)
 
    return (
-      <section className="flex flex-col space-y-8 md:space-y-10 lg:space-y-12 justify-between">
+      <section className="flex flex-col justify-between space-y-8 md:space-y-10 lg:space-y-12">
          {/* <--- Header ---> */}
-         <h2 className="text-xl  text-darkest-grey bg-primary w-max px-3 py-1 -mb-4 lg:text-4xl">
+         <h2 className="-mb-4  w-max bg-primary px-3 py-1 text-xl text-darkest-grey dark:bg-dark-grey lg:text-4xl">
             Upcoming Event:
          </h2>
 
          {/* <--- Title ---> */}
          <div>
-            <div className="w-full h-auto aspect-[6/2] relative mb-3 md:mb-5 rounded-md overflow-hidden md:rounded-lg lg:rounded-xl">
+            <div className="relative mb-3 aspect-[6/2] h-auto w-full overflow-hidden rounded-md md:mb-5 md:rounded-lg lg:rounded-xl">
                <Image
                   src={image}
                   alt={title}
@@ -152,22 +152,22 @@ const EventDetails = ({ event }) => {
 
          {/* <--- When/Where ---> */}
          <div className="flex flex-col space-y-2">
-            <h4 className="mb-3 text-xl md:text-2xl md:mb-4 lg:mb-5">
+            <h4 className="mb-3 text-xl dark:text-white md:mb-4 md:text-2xl lg:mb-5">
                When and where:
             </h4>
 
-            <div className="grid grid-cols-1 gap-y-5 md:gap-y-0 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-y-5 dark:text-white md:grid-cols-2 md:gap-y-0">
                {/* When */}
-               <div className="flex space-x-3 items-start">
-                  <span className="p-1 bg-lightest-grey w-10 h-10 inline-flex justify-center items-center">
-                     <CalendarIcon className="w-5/6 h-5/6 text-darkest-grey" />
+               <div className="flex items-start space-x-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1 dark:bg-dark-grey">
+                     <CalendarIcon className="h-5/6 w-5/6 text-darkest-grey dark:text-white" />
                   </span>
 
                   <div>
-                     <span className="block font-semibold mb-1">
+                     <span className="mb-1 block font-semibold">
                         Date and Time
                      </span>
-                     <span className="block mb-1">
+                     <span className="mb-1 block">
                         {DateTime.fromISO(when.date).toLocaleString(
                            DateTime.DATE_MED_WITH_WEEKDAY
                         )}
@@ -177,21 +177,21 @@ const EventDetails = ({ event }) => {
                </div>
 
                {/* Where */}
-               <div className="flex space-x-3 items-start">
-                  <span className="p-1 bg-lightest-grey w-10 h-10 inline-flex justify-center items-center">
-                     <MapPinIcon className="w-5/6 h-5/6 text-darkest-grey" />
+               <div className="flex items-start space-x-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1 dark:bg-dark-grey">
+                     <MapPinIcon className="h-5/6 w-5/6 text-darkest-grey dark:text-white" />
                   </span>
 
                   <div>
-                     <span className="font-semibold block mb-1">Location</span>
-                     <span className="block mb-1">{location.name}</span>
+                     <span className="mb-1 block font-semibold">Location</span>
+                     <span className="mb-1 block">{location.name}</span>
                      {location.address.map((item) => (
                         <p key={item}>{item}</p>
                      ))}
                      <Link href={location.href} target="_blank">
-                        <button className="font-medium flex space-x-2 items-center mt-1">
+                        <button className="mt-1 flex items-center space-x-2 font-medium">
                            <span>Open in Maps</span>
-                           <ArrowTopRightOnSquareIcon className="w-4 h-5 " />
+                           <ArrowTopRightOnSquareIcon className="h-5 w-4 " />
                         </button>
                      </Link>
                   </div>
@@ -200,38 +200,42 @@ const EventDetails = ({ event }) => {
          </div>
 
          {/* <--- Description ---> */}
-         <div className="flex flex-col space-y-2">
-            <h4 className="mb-3 text-xl md:text-2xl">About this event:</h4>
+         <div className="flex flex-col space-y-2 dark:bg-dark-grey dark:p-2 dark:text-white">
+            <h4 className="mb-3 text-xl dark:text-white md:text-2xl">
+               About this event:
+            </h4>
             <div
                className={`${
                   showMore ? "h-full" : "h-48"
-               } overflow-hidden transition-all duration-500 ease-out relative`}
+               } relative overflow-hidden transition-all duration-500 ease-out`}
             >
                {/* Gradient Effect */}
                <div
                   className={`${
                      !showMore
-                        ? "from-transparent to-white bg-gradient-to-b "
+                        ? "bg-gradient-to-b from-transparent to-white dark:bg-none"
                         : "-z-10"
-                  } absolute w-full h-1/2 bottom-0`}
+                  } absolute bottom-0 h-1/2 w-full`}
                />
                {parse(description)}
             </div>
             <button
                onClick={handleToggleShowMore}
-               className={`w-full outline-none text-sm font-semibold ${
-                  showMore ? "text-black" : "text-light-grey"
+               className={`w-full text-sm font-semibold outline-none ${
+                  showMore
+                     ? "text-black dark:text-white"
+                     : "text-light-grey dark:text-white"
                } `}
             >
                {showMore ? (
                   <>
-                     <span>Show Less</span>
-                     <ChevronUpIcon className="w-4 h-5 inline-block ml-1" />
+                     <span className="dark:text-white">Show Less</span>
+                     <ChevronUpIcon className="ml-1 inline-block h-5 w-4" />
                   </>
                ) : (
                   <>
-                     <span>Show More</span>
-                     <ChevronDownIcon className="w-4 h-5 inline-block ml-1" />
+                     <span className="text-white">Show More</span>
+                     <ChevronDownIcon className="ml-1 inline-block h-5 w-4" />
                   </>
                )}
             </button>
@@ -247,8 +251,8 @@ const EventDetails = ({ event }) => {
                fullWidth
             >
                <p className="mx-auto lg:mx-0">
-                  <ClipboardIcon className="w-5 h-5 mb-0.5 mr-1 inline-block" />
-                  <span>Sign Up</span>
+                  <ClipboardIcon className="mb-0.5 mr-1 inline-block h-5 w-5 dark:text-darkest-grey" />
+                  <span className="dark:text-darkest-grey">Sign Up</span>
                </p>
             </Button>
          </div>
@@ -323,19 +327,19 @@ const CalendarList = ({
 
    return (
       <>
-         <section className=" flex flex-col justify-start items-center lg:items-end aspect-square md:min-w-[400px]">
+         <section className=" flex aspect-square flex-col items-center justify-start md:min-w-[400px] lg:items-end">
             {/* Container */}
-            <div className="bg-white w-full shadow-lg md:shadow-xl rounded-xl aspect-square h-auto max-w-lg relative mt-20">
+            <div className="relative mt-20 aspect-square h-auto w-full max-w-lg rounded-xl bg-white shadow-lg md:shadow-xl">
                {/* <--- Toggle: Calendar & List ---> */}
-               <div className="rounded-md overflow-hidden bg-white mb-10 shadow-md md:w-1/2 flex absolute left-1/2 -translate-x-1/2 -top-20">
+               <div className="absolute -top-20 left-1/2 mb-10 flex -translate-x-1/2 overflow-hidden rounded-md bg-white shadow-md md:w-1/2">
                   <button
                      name="calendar"
                      onClick={handleViewChange}
                      className={`${
                         view === "calendar" ? "bg-black text-primary" : ""
-                     } transition p-3 w-full flex items-center justify-center`}
+                     } flex w-full items-center justify-center p-3 transition`}
                   >
-                     <CalendarDaysIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                     <CalendarDaysIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
                      <span className="hidden md:inline">Calendar</span>
                   </button>
                   <button
@@ -343,20 +347,20 @@ const CalendarList = ({
                      onClick={handleViewChange}
                      className={`${
                         view === "list" ? "bg-black text-primary" : ""
-                     } transition p-3 w-full flex items-center justify-center`}
+                     } flex w-full items-center justify-center p-3 transition`}
                   >
-                     <ListBulletIcon className="w-6 h-6 md:w-4 md:h-4 inline-block mr-1" />
+                     <ListBulletIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
                      <span className="hidden md:inline">List</span>
                   </button>
                </div>
 
                {/* <--- View: Calendar --->*/}
                <div
-                  className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+                  className={`absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 ${
                      view === "calendar"
-                        ? "scale-100 z-10 bg-inherit text-black"
-                        : "scale-75 z-0 bg-transparent text-transparent"
-                  } transition-all duration-300 overflow-hidden rounded-xl `}
+                        ? "z-10 scale-100 bg-inherit text-black"
+                        : "z-0 scale-75 bg-transparent text-transparent"
+                  } overflow-hidden rounded-xl transition-all duration-300 `}
                >
                   <Calendar
                      minDate={new Date()}
@@ -369,11 +373,11 @@ const CalendarList = ({
 
                {/* <--- View: List --->*/}
                <ul
-                  className={`h-full w-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
+                  className={`absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 ${
                      view === "list"
-                        ? "scale-100 z-10 bg-inherit text-black"
-                        : "scale-75 z-0 bg-transparent text-transparent"
-                  } transition-all duration-300 overflow-x-hidden rounded-xl overflow-y-auto flex flex-col`}
+                        ? "z-10 scale-100 bg-inherit text-black"
+                        : "z-0 scale-75 bg-transparent text-transparent"
+                  } flex flex-col overflow-y-auto overflow-x-hidden rounded-xl transition-all duration-300`}
                >
                   {events.map((item, index) => {
                      const [weekday, date] = formatDateList(item.when.date)
@@ -382,7 +386,7 @@ const CalendarList = ({
                            key={item.id}
                            className={`${
                               active === index ? "bg-primary" : "bg-white"
-                           } py-3 px-2 cursor-pointer grid grid-cols-12 gap-2 items-center ${
+                           } grid cursor-pointer grid-cols-12 items-center gap-2 px-2 py-3 ${
                               index === events.length - 1 ? "" : "border-b-2"
                            }`}
                            onClick={() => handleListClick(index)}
@@ -390,7 +394,7 @@ const CalendarList = ({
                            {/* Date */}
                            <div className="col-span-2 flex flex-col items-center justify-center ">
                               <span className="">{date}</span>
-                              <span className=" uppercase font-semibold">
+                              <span className=" font-semibold uppercase">
                                  {weekday}
                               </span>
                            </div>
@@ -401,14 +405,14 @@ const CalendarList = ({
                            </span>
 
                            {/* Title */}
-                           <span className="truncate col-span-7">
+                           <span className="col-span-7 truncate">
                               {item.title}
                            </span>
                         </li>
                      )
                   })}
 
-                  <li className="text-light-grey text-sm italic w-full text-center py-5 bg-[#F5F5F5] flex-1  ">
+                  <li className="w-full flex-1 bg-[#F5F5F5] py-5 text-center text-sm italic text-light-grey  ">
                      End of Events
                   </li>
                </ul>
@@ -420,10 +424,10 @@ const CalendarList = ({
 
 const NewsletterCard = ({ location }) => {
    return (
-      <section className="mt-20 md:mt-0 lg:mt-28 mx-auto text-center">
+      <section className="mx-auto mt-20 text-center md:mt-0 lg:mt-28">
          {/* Subscribe Card */}
          <Card variant="text" sx="flex flex-col space-y-5 text-center">
-            <h5 className="text-3xl text-center">Stay Up to Date!</h5>
+            <h5 className="text-center text-3xl">Stay Up to Date!</h5>
             <p>Be the first to learn about our upcoming events.</p>
             <Button
                href={LOCATIONS[location].newsletter}
@@ -435,13 +439,13 @@ const NewsletterCard = ({ location }) => {
             </Button>
          </Card>
          {/* Link to FAQ and Contact */}
-         <p className="text-lg mt-20 text-dark-grey">
+         <p className="mt-20 text-lg text-dark-grey">
             Have any questions? Visit our{" "}
-            <Link href="/faq" className="underline text-sky-600 mr-1">
+            <Link href="/faq" className="mr-1 text-sky-600 underline">
                FAQ
             </Link>
             page or feel free to contact us{" "}
-            <Link href="/contact" className="underline text-sky-600">
+            <Link href="/contact" className="text-sky-600 underline">
                here
             </Link>
             .
