@@ -27,6 +27,7 @@ export default function EducationalPrograms({ variant }) {
                fill
                sizes="65vw"
                className="object-cover"
+               // quality={50}
             />
          </Card>
          <Card

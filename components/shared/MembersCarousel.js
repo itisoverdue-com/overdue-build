@@ -40,9 +40,9 @@ export default function MembersCarousel() {
    }, [isPlaying, currentIndex])
 
    return (
-      <div className="flex flex-col w-full xl:px-12 overflow-hidden mt-12 md:mt-20">
-         <h2 className="md:text-left mx-auto md:mx-0">Our Members!</h2>
-         <div className="border-t-8 border-primary w-20 rounded-full my-4 md:my-5 md:w-28 mx-auto md:mx-0" />
+      <div className="mt-12 flex w-full flex-col overflow-hidden md:mt-20 xl:px-12">
+         <h2 className="mx-auto md:mx-0 md:text-left">Our Members!</h2>
+         <div className="mx-auto my-4 w-20 rounded-full border-t-8 border-primary md:mx-0 md:my-5 md:w-28" />
          <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * ITEM_WIDTH}px)` }}
@@ -56,31 +56,32 @@ export default function MembersCarousel() {
                   <Image
                      src={item.profile}
                      alt={item.name}
-                     className="object-cover rounded-3xl"
+                     className="rounded-3xl object-cover"
                      width={250}
                      height={333}
+                     quality={50}
                   />
                   <h3 className="text-dark-grey">{item.name}</h3>
-                  <div className="font-regular text-sm max-w-[235px]">
+                  <div className="font-regular max-w-[235px] text-sm">
                      <p className="text-grey">{item.designation}</p>
                      <p className="text-light-grey">{item.location}</p>
                   </div>
                </div>
             ))}
          </div>
-         <div className="flex flex-row w-full justify-center items-center xl:px-12 overflow-hidden mt-2">
+         <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden xl:px-12">
             <button onClick={prev}>
-               <ArrowLeftCircleIcon className="w-12 h-12" />
+               <ArrowLeftCircleIcon className="h-12 w-12" />
             </button>
             <button onClick={() => setIsPlaying(!isPlaying)}>
                {isPlaying ? (
-                  <PauseIcon className="w-12 h-12" />
+                  <PauseIcon className="h-12 w-12" />
                ) : (
-                  <PlayIcon className="w-12 h-12" />
+                  <PlayIcon className="h-12 w-12" />
                )}
             </button>
             <button onClick={next}>
-               <ArrowRightCircleIcon className="w-12 h-12" />
+               <ArrowRightCircleIcon className="h-12 w-12" />
             </button>
          </div>
       </div>

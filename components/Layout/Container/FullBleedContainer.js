@@ -9,14 +9,15 @@ function FullBleedContainer({
    backgroundImageSrc = "",
 }) {
    return (
-      <div className={`w-full relative ${sx}`}>
+      <div className={`relative w-full ${sx}`}>
          {backgroundImageSrc && (
             <Image
                src={backgroundImageSrc}
                alt={backgroundImageSrc}
-               style={{ objectFit: "cover" }}
                fill
-               className="-z-10"
+               className="-z-10 object-cover"
+               priority
+               quality={40}
             />
          )}
          <Container sx={`z-10 ${childSx}`}>{children}</Container>
