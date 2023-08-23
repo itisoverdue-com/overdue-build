@@ -16,7 +16,7 @@ export default function Contact() {
          header: "Call Us",
          content: (
             <>
-               <div>
+               <div className="dark:text-white">
                   <h5 className="mb-8">+1 818 854-5273</h5>
                   <p className="">We are available 9:00 AM - 4 PM PST</p>
                </div>
@@ -28,7 +28,7 @@ export default function Contact() {
          header: "Email Us",
          content: (
             <>
-               <div className="flex flex-col space-y-8">
+               <div className="flex flex-col space-y-8 dark:text-white">
                   <div>
                      <h5>General/Administrative</h5>
                      <p>admin@itisoverdue.org</p>
@@ -47,7 +47,7 @@ export default function Contact() {
          header: "Social Media",
          content: (
             <>
-               <div className="w-full">
+               <div className="w-full dark:text-white">
                   <ul className="mb-8 flex justify-around md:justify-evenly">
                      <SocialMediaIcon
                         link={SOCIALS.facebook}
@@ -77,13 +77,13 @@ export default function Contact() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/education_fbvmrv.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-28 flex flex-col justify-center items-center text-center md:py-32"
          >
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>IT IS OVERDUE</h2>
-               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:my-5 md:w-28" />
                <h3>We are a team based in Woodland Hills, CA.</h3>
             </>
 
@@ -108,10 +108,10 @@ const ContactCard = ({ icon, header, content }) => {
       <Card variant="contactItem">
          {/* Icon, Header */}
          <div className="mb-10">
-            <span className="mx-auto mb-3 block  h-16 w-16 rounded-full bg-primary p-4 text-darker-grey">
+            <span className="mx-auto mb-3 block h-16 w-16 rounded-full bg-primary p-4 text-darker-grey dark:bg-primaryDark dark:text-black">
                {icon}
             </span>
-            <h4>{header}</h4>
+            <h4 className="dark:text-white">{header}</h4>
          </div>
 
          {/* Content */}

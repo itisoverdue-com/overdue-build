@@ -57,7 +57,7 @@ export default function WaysToHelp() {
                   .map(({ id, text, lgText, imgSrc, page }) => {
                      return (
                         <Card key={id} variant="actionItem">
-                           <div className="flex w-1/2 items-center justify-center border-none border-blue-500 lg:w-[150px]">
+                           <div className="flex w-1/2 items-center justify-center lg:w-[150px]">
                               <div className="relative aspect-square w-[65%] drop-shadow-[4px_2px_2px_rgba(50,48,42,.75)] lg:w-full ">
                                  <Image
                                     alt={text}
@@ -68,11 +68,12 @@ export default function WaysToHelp() {
                                  />
                               </div>
                            </div>
-                           <div className="mx-auto w-fit border-none border-red-500">
+                           <div className="mx-auto w-fit">
                               <Button
                                  variant="primary"
                                  size={windowWidth < 420 ? "lg" : "xl"}
                                  href={`/${page}`}
+                                 sx="dark:hover:bg-darkest-grey dark:hover:text-primaryDark"
                               >
                                  {windowWidth < 1280 ? text : lgText}
                               </Button>

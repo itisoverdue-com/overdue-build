@@ -37,7 +37,7 @@ export default function Join() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441392/backgrounds/volunteer_jo6rbb.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center"
          >
             {/* Image, Card to Apply Now */}
@@ -54,7 +54,7 @@ export default function Join() {
                </div>
 
                {/* Card to Apply */}
-               <div className="absolute  -bottom-40 left-1/2 z-10 flex w-11/12 -translate-x-1/2 flex-col space-y-3 rounded-3xl bg-white p-5 shadow-lg md:-bottom-20 md:w-3/4 lg:-bottom-10 lg:left-0 lg:w-1/2 lg:-translate-x-0 lg:space-y-6 lg:p-10 ">
+               <div className="absolute  -bottom-40 left-1/2 z-10 flex w-11/12 -translate-x-1/2 flex-col space-y-3 rounded-3xl bg-white p-5 shadow-lg dark:bg-dark-grey dark:text-white md:-bottom-20 md:w-3/4 lg:-bottom-10 lg:left-0 lg:w-1/2 lg:-translate-x-0 lg:space-y-6 lg:p-10">
                   {/* Card Header */}
                   <h3 className="text-start text-xl font-semibold lg:text-4xl">
                      Join a passionate team that cares about the environment!
@@ -74,6 +74,7 @@ export default function Join() {
                         target="_blank"
                         size="lg"
                         variant="primary"
+                        sx="dark:hover:bg-black dark:hover:text-primary"
                         fullWidth
                      >
                         <span>Apply Now</span>{" "}
@@ -83,6 +84,7 @@ export default function Join() {
                         onClick={() => scrollDown(rolesSection)}
                         size="lg"
                         variant="dark"
+                        sx="dark:hover:bg-black dark:hover:text-primary"
                         fullWidth
                      >
                         <span>View Roles</span>{" "}
@@ -94,7 +96,7 @@ export default function Join() {
 
             {/* Roles */}
             <section className="mt-12 w-full md:mt-14 lg:mt-28">
-               <div className="mx-auto flex w-full flex-col space-y-8 rounded-3xl bg-white px-10 pb-2 pt-10 shadow-lg md:space-y-10 lg:w-1/2">
+               <div className="mx-auto flex w-full flex-col space-y-8 rounded-3xl bg-white px-10 pb-2 pt-10 shadow-lg dark:bg-dark-grey dark:text-white md:space-y-10 lg:w-1/2">
                   <h4 className="text-center font-bold tracking-wide ">
                      Available Positions
                   </h4>
@@ -124,7 +126,7 @@ export default function Join() {
             </section>
 
             {/* Apply Card */}
-            <Card sx="py-6 px-8 mt-12 md:mt-14 lg:mt-28 bg-darker-grey text-white overflow-hidden rounded-3xl flex flex-col space-y-3 md:space-y-6 md:w-2/3 md:text-start lg:w-1/3">
+            <Card sx="py-6 px-8 mt-12 md:mt-14 lg:mt-28 bg-darker-grey text-white overflow-hidden rounded-3xl flex flex-col space-y-3 md:space-y-6 md:w-2/3 md:text-start lg:w-1/3 dark:bg-dark-grey">
                <h4>
                   Ready to join <span className="text-primary">OVERDUE</span>?
                </h4>
@@ -136,6 +138,7 @@ export default function Join() {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSc0Z5pflTL4IqI8AECPfMcTc6g9doGUrgr3ZUbp63BR-knRZA/viewform?usp=sharing"
                   size="lg"
                   variant="primary"
+                  sx="dark:hover:bg-black dark:hover:text-primary"
                   target="_blank"
                   fullWidth
                >

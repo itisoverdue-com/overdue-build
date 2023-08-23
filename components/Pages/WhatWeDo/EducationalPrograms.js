@@ -36,7 +36,12 @@ export default function EducationalPrograms({ variant }) {
             <h3 className="text-xl sm:text-2xl">Educational Programs</h3>
             <p className="mb-6 mt-4">{text}</p>
             <div className="mx-auto w-fit lg:ml-0">
-               <Button variant="dark" size="xl" href="/education">
+               <Button
+                  variant="dark"
+                  size="xl"
+                  href="/education"
+                  sx="dark:hover:bg-black dark:hover:text-primary"
+               >
                   Learn More
                </Button>
             </div>

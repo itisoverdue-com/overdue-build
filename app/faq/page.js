@@ -86,7 +86,10 @@ export default function FAQ() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441391/backgrounds/faq_z3arfk.jpg"
          />
 
-         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+         <FullBleedContainer
+            sx="bg-background dark:bg-darkest-grey"
+            childSx="py-20 lg:py-32"
+         >
             <div className="columns-1 md:columns-2 md:gap-8 lg:gap-10">
                {cards.map((item) => (
                   <Card
