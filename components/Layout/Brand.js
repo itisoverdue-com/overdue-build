@@ -9,6 +9,7 @@ function Brand({ styles }) {
          height={70}
          priority
          className={`inline-block ${styles}`}
+         quality={100}
       />
    )
 }

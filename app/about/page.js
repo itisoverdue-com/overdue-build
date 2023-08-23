@@ -41,6 +41,7 @@ export default function About() {
                         fill
                         sizes="75vw"
                         className="object-cover"
+                        quality={50}
                      />
                   </Card>
                   <Card
@@ -72,6 +73,7 @@ export default function About() {
                            fill
                            sizes="65vw"
                            className="object-cover"
+                           quality={50}
                         />
                      </Card>
                      <Card
@@ -110,6 +112,7 @@ export default function About() {
                            fill
                            sizes="75vw"
                            className="object-cover"
+                           quality={50}
                         />
                      </Card>
                      <Card

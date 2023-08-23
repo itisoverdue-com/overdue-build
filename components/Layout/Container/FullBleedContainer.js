@@ -17,7 +17,7 @@ function FullBleedContainer({
                fill
                className="-z-10 object-cover"
                priority
-               quality={40}
+               quality={50}
             />
          )}
          <Container sx={`z-10 ${childSx}`}>{children}</Container>
