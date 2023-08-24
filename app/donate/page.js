@@ -73,6 +73,7 @@ export default function Donate() {
                            <div>
                               <Button
                                  variant="primary"
+                                 darkVariant="grey"
                                  size="xl"
                                  sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
                                  href="https://account.venmo.com/u/itisoverdue"
@@ -92,6 +93,7 @@ export default function Donate() {
                            <div>
                               <Button
                                  variant="primary"
+                                 darkVariant="grey"
                                  size="xl"
                                  sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
                                  onClick={() => toggleModal(true)}

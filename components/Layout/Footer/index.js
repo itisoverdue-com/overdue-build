@@ -252,7 +252,7 @@ export default function Footer() {
 
                {/* Sign Up Link */}
                <Link href="/join">
-                  <button className="w-full rounded-md bg-primary py-4 font-medium transition-colors duration-300 hover:bg-darkest-grey hover:text-primary dark:bg-primaryDark dark:text-black dark:hover:bg-black dark:hover:text-primary">
+                  <button className="w-full rounded-md bg-primary py-4 font-medium transition-colors duration-300 hover:bg-darkest-grey hover:text-primary dark:bg-primaryDark dark:text-darkest-grey dark:hover:bg-darkest-grey dark:hover:text-primaryDark">
                      Sign Up Now!
                   </button>
                </Link>

@@ -44,6 +44,7 @@ export default function Home() {
                   >
                      <Button
                         variant="dark"
+                        darkVariant="grey"
                         href="/about"
                         size="md"
                         style={{

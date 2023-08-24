@@ -74,7 +74,7 @@ export default function Join() {
                         target="_blank"
                         size="lg"
                         variant="primary"
-                        sx="dark:hover:bg-black dark:hover:text-primary"
+                        darkVariant="black"
                         fullWidth
                      >
                         <span>Apply Now</span>{" "}
@@ -84,7 +84,7 @@ export default function Join() {
                         onClick={() => scrollDown(rolesSection)}
                         size="lg"
                         variant="dark"
-                        sx="dark:hover:bg-black dark:hover:text-primary"
+                        darkVariant="black"
                         fullWidth
                      >
                         <span>View Roles</span>{" "}
@@ -138,7 +138,7 @@ export default function Join() {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSc0Z5pflTL4IqI8AECPfMcTc6g9doGUrgr3ZUbp63BR-knRZA/viewform?usp=sharing"
                   size="lg"
                   variant="primary"
-                  sx="dark:hover:bg-black dark:hover:text-primary"
+                  darkVariant="black"
                   target="_blank"
                   fullWidth
                >

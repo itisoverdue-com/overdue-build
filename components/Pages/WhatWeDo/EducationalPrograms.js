@@ -38,9 +38,9 @@ export default function EducationalPrograms({ variant }) {
             <div className="mx-auto w-fit lg:ml-0">
                <Button
                   variant="dark"
+                  darkVariant="black"
                   size="xl"
                   href="/education"
-                  sx="dark:hover:bg-black dark:hover:text-primary"
                >
                   Learn More
                </Button>

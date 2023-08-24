@@ -70,7 +70,7 @@ export default function NavBar({ showNav, setShowNav }) {
                               <li
                                  className={
                                     page === "donate"
-                                       ? "mt-2.5 w-fit rounded-md bg-primary px-4 py-2 text-black transition duration-300 md:py-2.5 lg:mt-0 lg:hover:scale-110"
+                                       ? "mt-2.5 w-fit rounded-md bg-primary px-4 py-2 text-black transition duration-300 dark:bg-primaryDark md:py-2.5 lg:mt-0 lg:hover:scale-110"
                                        : `py-4 pl-2 text-left md:py-6 lg:py-0 lg:pl-0 lg:text-center lg:hover:text-primary ${
                                             page === pathname.slice(1)
                                                ? "text-primary"
