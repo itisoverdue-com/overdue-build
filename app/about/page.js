@@ -149,7 +149,12 @@ export default function About() {
                   />
                </div>
                <div className="mx-auto mt-8 w-fit">
-                  <Button variant="primary" size="xl" href="/contact">
+                  <Button
+                     variant="primary"
+                     darkVariant="grey"
+                     size="xl"
+                     href="/contact"
+                  >
                      Contact Us
                   </Button>
                </div>

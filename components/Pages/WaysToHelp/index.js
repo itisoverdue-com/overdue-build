@@ -71,9 +71,9 @@ export default function WaysToHelp() {
                            <div className="mx-auto w-fit">
                               <Button
                                  variant="primary"
+                                 darkVariant="black"
                                  size={windowWidth < 420 ? "lg" : "xl"}
                                  href={`/${page}`}
-                                 sx="dark:hover:bg-darkest-grey dark:hover:text-primaryDark"
                               >
                                  {windowWidth < 1280 ? text : lgText}
                               </Button>

@@ -155,6 +155,7 @@ export default function Sponsor() {
                         <Button
                            href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
                            variant="primary"
+                           darkVariant="grey"
                            size="xl"
                         >
                            Become a Sponsor
@@ -498,6 +499,7 @@ export default function Sponsor() {
                      <Button
                         href="https://docs.google.com/forms/d/e/1FAIpQLSepzdvzdtVuukRfvJOAFOVyJQOK6JHnLa8Pt5RqwoAX96gTYw/viewform?usp=sharing"
                         variant="primary"
+                        darkVariant="grey"
                         size="xl"
                      >
                         Become a Sponsor
