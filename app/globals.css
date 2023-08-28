@@ -17,13 +17,13 @@
    */
 
    h1 {
-      @apply text-[44px] font-bold capitalize text-primary md:text-6xl lg:text-7xl;
+      @apply text-[44px] font-bold capitalize text-primary dark:text-primaryDark md:text-6xl lg:text-7xl;
    }
    h2 {
-      @apply text-4xl font-bold md:text-5xl;
+      @apply text-4xl font-bold dark:text-white md:text-5xl;
    }
    h3 {
-      @apply text-xl font-bold md:text-2xl;
+      @apply text-xl font-bold dark:text-white md:text-2xl;
    }
    h4 {
       @apply text-2xl font-bold;
@@ -33,6 +33,9 @@
    }
    h6 {
       @apply text-2xl font-medium;
+   }
+   p {
+      @apply dark:text-white;
    }
 }
 

@@ -17,7 +17,7 @@ export default function Home() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441392/landing/hero_yntaig.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-28 md:py-32 px-6 lg:px-12"
          >
             {/* Who Are We? section */}
@@ -44,6 +44,7 @@ export default function Home() {
                   >
                      <Button
                         variant="dark"
+                        darkVariant="grey"
                         href="/about"
                         size="md"
                         style={{

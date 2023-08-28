@@ -63,13 +63,13 @@ export default function Events() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-20 lg:py-32 flex flex-col justify-center items-center  text-center"
          >
             {/* Title, Accent Line, Subheader */}
             <>
                <h2>Our Chapter Locations</h2>
-               <div className="my-4 w-20 rounded-full border-t-8 border-primary md:my-5 md:w-28" />
+               <div className="my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:my-5 md:w-28" />
                <h3 className="max-w-screen-xl font-normal text-dark-grey">
                   We need volunteers to help us in cleaning the environment and
                   be a part of a greater good. You can subscribe to any of the
@@ -82,7 +82,7 @@ export default function Events() {
 
             {/* Chapter Locations */}
             <div className="w-full max-w-5xl">
-               <h4 className="mb-1 text-start text-dark-grey underline underline-offset-8">
+               <h4 className="mb-1 text-start text-dark-grey underline underline-offset-8 dark:text-white">
                   Select a Chapter:
                </h4>
 
@@ -94,7 +94,7 @@ export default function Events() {
                         href={`/events/${item.location}`}
                         className="md:mr-5"
                      >
-                        <li className="mt-3 block w-full rounded-md bg-white  p-3 text-start text-black shadow-md md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg lg:p-6">
+                        <li className="mt-3 block w-full rounded-md bg-white p-3  text-start text-black shadow-md dark:bg-dark-grey dark:text-white md:mt-5 md:rounded-lg md:p-4 md:text-xl  md:transition-all md:hover:-translate-y-1.5 md:hover:bg-primary md:hover:shadow-lg md:dark:hover:bg-primaryDark md:dark:hover:text-darkest-grey lg:p-6">
                            📍 {item.location}
                         </li>
                      </Link>

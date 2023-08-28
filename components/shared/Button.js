@@ -10,7 +10,14 @@ import Link from "next/link"
  * @param {boolean} disabled - If true, the button appears disabled and won't accept clicks.
  * @return {string} The generated className string.
  */
-function generateClassName(size, variant, fullWidth, disabled, sx) {
+function generateClassName(
+   size,
+   variant,
+   darkVariant,
+   fullWidth,
+   disabled,
+   sx
+) {
    const baseClasses = `
       transition-all
       hover:-translate-y-1
@@ -21,6 +28,8 @@ function generateClassName(size, variant, fullWidth, disabled, sx) {
       font-bold
       rounded-lg
       focus-visible:ring-white
+      dark:bg-primaryDark
+      dark:text-darkest-grey
    `
 
    const sizeClasses = {
@@ -34,20 +43,26 @@ function generateClassName(size, variant, fullWidth, disabled, sx) {
       primary: "bg-primary text-black hover:bg-black hover:text-primary",
       dark: "bg-darker-grey text-white hover:bg-black hover:text-white",
       outline:
-         "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black",
+         "bg-transparent text-primary outline outline-primary outline-1 outline-offset-0 hover:bg-primary hover:text-black dark:bg-transparent dark:outline-primaryDark dark:text-primaryDark dark:hover:bg-darkest-grey dark:hover:outline-darkest-grey",
+   }
+
+   const darkModeClasses = {
+      grey: "dark:hover:bg-grey dark:hover:text-white",
+      black: "dark:hover:bg-darkest-grey dark:hover:text-primaryDark",
    }
 
    const fullWidthClass = fullWidth ? "w-full" : ""
 
    const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : ""
 
-   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${fullWidthClass} ${disabledClass} ${sx}`
+   return `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${darkModeClasses[darkVariant]} ${fullWidthClass} ${disabledClass} ${sx}`
 }
 
 // The Button component
 export default function Button({
    children,
    variant,
+   darkVariant,
    size,
    fullWidth = false,
    disabled = false,
@@ -55,7 +70,14 @@ export default function Button({
    sx,
    ...props
 }) {
-   const className = generateClassName(size, variant, fullWidth, disabled, sx)
+   const className = generateClassName(
+      size,
+      variant,
+      darkVariant,
+      fullWidth,
+      disabled,
+      sx
+   )
 
    return href ? (
       <Link href={href} className={className} {...props}>

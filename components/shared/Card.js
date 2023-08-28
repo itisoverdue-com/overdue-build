@@ -7,11 +7,11 @@ function generateClassName(variant) {
    const baseClasses = "relative mx-auto rounded-3xl"
 
    const variantClasses = {
-      text: `z-[1] w-full max-w-[700px] py-6 px-8 sm:py-8 sm:px-14 shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] text-left leading-8 bg-white md:text-lg md:leading-10`,
-      textDark: `z-[1] flex flex-col justify-center w-full text-white text-left leading-8 bg-black/[.85] py-6 px-8 rounded-b-3xl rounded-t-none sm:px-14 md:text-lg md:leading-10`,
+      text: `z-[1] w-full max-w-[700px] py-6 px-8 sm:py-8 sm:px-14 shadow-[0_4px_12px_0_rgba(0,0,0,0.2)] text-left leading-8 bg-white dark:bg-dark-grey md:text-lg md:leading-10`,
+      textDark: `z-[1] flex flex-col justify-center w-full text-white text-left leading-8 bg-black/[.85] py-6 px-8 rounded-b-3xl rounded-t-none sm:px-14 md:text-lg md:leading-10 dark:max-[1400px]:bg-dark-grey`,
       image: `overflow-hidden`,
-      contactItem: `w-full flex flex-col justify-start items-center bg-white fill-darker-grey rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300`,
-      actionItem: `flex items-center w-full max-w-[560px] bg-white rounded-xl shadow-lg py-8 px-4 lg:flex-col lg:gap-y-20 xl:py-12`,
+      contactItem: `w-full flex flex-col justify-start items-center bg-white fill-darker-grey dark:fill-white rounded-xl shadow-lg py-20 px-6 md:hover:shadow-2xl md:hover:scale-105 md:transition-all md:duration-300 dark:bg-grey`,
+      actionItem: `flex items-center w-full max-w-[560px] bg-white dark:bg-grey rounded-xl shadow-lg py-8 px-4 lg:flex-col lg:gap-y-20 xl:py-12`,
    }
 
    return `${baseClasses} ${variantClasses[variant]}`

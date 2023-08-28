@@ -59,9 +59,12 @@ export default async function BlogSlugPage({ params: { id } }) {
             showHeader={false}
             backgroundImageSrc={`${blog.image}`}
          />
-         <FullBleedContainer sx="bg-background" childSx="py-16 md:py-32">
+         <FullBleedContainer
+            sx="bg-background dark:bg-darkest-grey"
+            childSx="py-16 md:py-32"
+         >
             {/* <--- Title, Author, Categories---> */}
-            <div className="mb-7 flex flex-col items-start space-y-5 border-b-2 border-b-light-grey pb-7">
+            <div className="mb-7 flex flex-col items-start space-y-5 border-b-2 border-b-light-grey pb-7 dark:border-b-white">
                {/* Title */}
                <h2 className="text-start text-4xl md:text-5xl lg:text-6xl">
                   {parse(blog.title)}
@@ -69,7 +72,9 @@ export default async function BlogSlugPage({ params: { id } }) {
 
                {/* Author(s) */}
                <h3 className="flex items-center text-lg md:text-xl lg:text-2xl">
-                  <span className="mr-3 bg-primary px-2 py-1">Written by:</span>
+                  <span className="mr-3 bg-primary px-2 py-1 dark:bg-neutral-200 dark:text-black">
+                     Written by:
+                  </span>
 
                   <ol>
                      {blog.authors.map((item) => (
@@ -105,7 +110,7 @@ export default async function BlogSlugPage({ params: { id } }) {
                   {blog.categories.map((item) => (
                      <li
                         key={item.id}
-                        className="mb-2 mr-2 inline-block after:content-[','] last:after:content-none hover:underline"
+                        className="mb-2 mr-2 inline-block after:content-[','] last:after:content-none hover:underline dark:text-white"
                      >
                         {item.name}
                      </li>
@@ -114,7 +119,9 @@ export default async function BlogSlugPage({ params: { id } }) {
             </div>
 
             {/* <--- Content ---> */}
-            <article className="flex flex-col">{parse(blog.content)}</article>
+            <article className="flex flex-col dark:text-white">
+               {parse(blog.content)}
+            </article>
 
             {/* Last Modified Date */}
             <p className="mt-10  text-center italic text-gray-400 lg:mt-20">

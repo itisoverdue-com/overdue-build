@@ -42,7 +42,7 @@ export default function MembersCarousel() {
    return (
       <div className="mt-12 flex w-full flex-col overflow-hidden md:mt-20 xl:px-12">
          <h2 className="mx-auto md:mx-0 md:text-left">Our Members!</h2>
-         <div className="mx-auto my-4 w-20 rounded-full border-t-8 border-primary md:mx-0 md:my-5 md:w-28" />
+         <div className="mx-auto my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:mx-0 md:my-5 md:w-28" />
          <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * ITEM_WIDTH}px)` }}
@@ -69,7 +69,7 @@ export default function MembersCarousel() {
                </div>
             ))}
          </div>
-         <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden xl:px-12">
+         <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden dark:text-white xl:px-12">
             <button onClick={prev}>
                <ArrowLeftCircleIcon className="h-12 w-12" />
             </button>

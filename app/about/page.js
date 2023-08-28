@@ -16,7 +16,10 @@ export default function About() {
             header="About Us"
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/about_avmkds.jpg"
          />
-         <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+         <FullBleedContainer
+            sx="bg-background dark:bg-darkest-grey"
+            childSx="py-20 lg:py-32"
+         >
             {/* --- It Is Overdue --- */}
             <section>
                <div className="flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
@@ -149,7 +152,12 @@ export default function About() {
                   />
                </div>
                <div className="mx-auto mt-8 w-fit">
-                  <Button variant="primary" size="xl" href="/contact">
+                  <Button
+                     variant="primary"
+                     darkVariant="grey"
+                     size="xl"
+                     href="/contact"
+                  >
                      Contact Us
                   </Button>
                </div>

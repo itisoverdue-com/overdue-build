@@ -83,7 +83,7 @@ export default function EventLocationPage({ params: { location } }) {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/events_fpfx1s.jpg"
          />
          <FullBleedContainer
-            sx="bg-white bg-opacity-90"
+            sx="bg-white bg-opacity-90 dark:bg-darkest-grey"
             childSx="py-16 lg:py-28 "
          >
             {error ? (
@@ -131,7 +131,7 @@ const EventDetails = ({ event }) => {
    return (
       <section className="flex flex-col justify-between space-y-8 md:space-y-10 lg:space-y-12">
          {/* <--- Header ---> */}
-         <h2 className="-mb-4  w-max bg-primary px-3 py-1 text-xl text-darkest-grey lg:text-4xl">
+         <h2 className="-mb-4  w-max bg-primary px-3 py-1 text-xl text-darkest-grey dark:bg-dark-grey lg:text-4xl">
             Upcoming Event:
          </h2>
 
@@ -153,15 +153,15 @@ const EventDetails = ({ event }) => {
 
          {/* <--- When/Where ---> */}
          <div className="flex flex-col space-y-2">
-            <h4 className="mb-3 text-xl md:mb-4 md:text-2xl lg:mb-5">
+            <h4 className="mb-3 text-xl dark:text-white md:mb-4 md:text-2xl lg:mb-5">
                When and where:
             </h4>
 
-            <div className="grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-y-0">
+            <div className="grid grid-cols-1 gap-y-5 dark:text-white md:grid-cols-2 md:gap-y-0">
                {/* When */}
                <div className="flex items-start space-x-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1">
-                     <CalendarIcon className="h-5/6 w-5/6 text-darkest-grey" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1 dark:bg-dark-grey">
+                     <CalendarIcon className="h-5/6 w-5/6 text-darkest-grey dark:text-white" />
                   </span>
 
                   <div>
@@ -179,8 +179,8 @@ const EventDetails = ({ event }) => {
 
                {/* Where */}
                <div className="flex items-start space-x-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1">
-                     <MapPinIcon className="h-5/6 w-5/6 text-darkest-grey" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center bg-lightest-grey p-1 dark:bg-dark-grey">
+                     <MapPinIcon className="h-5/6 w-5/6 text-darkest-grey dark:text-white" />
                   </span>
 
                   <div>
@@ -201,8 +201,10 @@ const EventDetails = ({ event }) => {
          </div>
 
          {/* <--- Description ---> */}
-         <div className="flex flex-col space-y-2">
-            <h4 className="mb-3 text-xl md:text-2xl">About this event:</h4>
+         <div className="flex flex-col space-y-2 dark:bg-dark-grey dark:p-2 dark:text-white">
+            <h4 className="mb-3 text-xl dark:text-white md:text-2xl">
+               About this event:
+            </h4>
             <div
                className={`${
                   showMore ? "h-full" : "h-48"
@@ -212,7 +214,7 @@ const EventDetails = ({ event }) => {
                <div
                   className={`${
                      !showMore
-                        ? "bg-gradient-to-b from-transparent to-white "
+                        ? "bg-gradient-to-b from-transparent to-white dark:bg-none"
                         : "-z-10"
                   } absolute bottom-0 h-1/2 w-full`}
                />
@@ -221,17 +223,19 @@ const EventDetails = ({ event }) => {
             <button
                onClick={handleToggleShowMore}
                className={`w-full text-sm font-semibold outline-none ${
-                  showMore ? "text-black" : "text-light-grey"
+                  showMore
+                     ? "text-black dark:text-white"
+                     : "text-light-grey dark:text-white"
                } `}
             >
                {showMore ? (
                   <>
-                     <span>Show Less</span>
+                     <span className="dark:text-white">Show Less</span>
                      <ChevronUpIcon className="ml-1 inline-block h-5 w-4" />
                   </>
                ) : (
                   <>
-                     <span>Show More</span>
+                     <span className="text-white">Show More</span>
                      <ChevronDownIcon className="ml-1 inline-block h-5 w-4" />
                   </>
                )}
@@ -244,13 +248,14 @@ const EventDetails = ({ event }) => {
                href={link}
                size="lg"
                variant="primary"
+               darkVariant="grey"
                target="_blank"
                fullWidth
             >
-               <p className="mx-auto lg:mx-0">
+               <div className="mx-auto lg:mx-0">
                   <ClipboardIcon className="mb-0.5 mr-1 inline-block h-5 w-5" />
                   <span>Sign Up</span>
-               </p>
+               </div>
             </Button>
          </div>
       </section>
@@ -333,7 +338,9 @@ const CalendarList = ({
                      name="calendar"
                      onClick={handleViewChange}
                      className={`${
-                        view === "calendar" ? "bg-black text-primary" : ""
+                        view === "calendar"
+                           ? "bg-black text-primary dark:bg-dark-grey dark:text-primaryDark"
+                           : ""
                      } flex w-full items-center justify-center p-3 transition`}
                   >
                      <CalendarDaysIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
@@ -343,7 +350,9 @@ const CalendarList = ({
                      name="list"
                      onClick={handleViewChange}
                      className={`${
-                        view === "list" ? "bg-black text-primary" : ""
+                        view === "list"
+                           ? "bg-black text-primary dark:bg-dark-grey dark:text-primaryDark"
+                           : ""
                      } flex w-full items-center justify-center p-3 transition`}
                   >
                      <ListBulletIcon className="mr-1 inline-block h-6 w-6 md:h-4 md:w-4" />
@@ -424,12 +433,15 @@ const NewsletterCard = ({ location }) => {
       <section className="mx-auto mt-20 text-center md:mt-0 lg:mt-28">
          {/* Subscribe Card */}
          <Card variant="text" sx="flex flex-col space-y-5 text-center">
-            <h5 className="text-center text-3xl">Stay Up to Date!</h5>
+            <h5 className="text-center text-3xl dark:text-white">
+               Stay Up to Date!
+            </h5>
             <p>Be the first to learn about our upcoming events.</p>
             <Button
                href={LOCATIONS[location].newsletter}
                size="xl"
                variant="primary"
+               darkVariant="black"
                target="_blank"
             >
                <span className="mx-auto">Subcribe to {location}</span>

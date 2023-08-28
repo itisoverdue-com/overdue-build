@@ -46,7 +46,10 @@ export default function Donate() {
                header="Donate To Us"
                backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1692290089/backgrounds/donate-backbround_pphohl_7d94c3.png"
             />
-            <FullBleedContainer sx="bg-background" childSx="py-20 lg:py-32">
+            <FullBleedContainer
+               sx="bg-background dark:bg-darkest-grey"
+               childSx="py-20 lg:py-32"
+            >
                <section>
                   <div className="className=flex flex-col items-center justify-center text-center md:flex-row md:flex-wrap md:px-4 min-[1400px]:px-0">
                      <SectionSubheader
@@ -63,13 +66,14 @@ export default function Donate() {
                      </SectionSubheader>
                      {/* --- Donation Options --- */}
                      <div className="mt-16 w-full">
-                        <h4 className="text-3xl md:text-4xl">
+                        <h4 className="text-3xl dark:text-white md:text-4xl">
                            Donation Options
                         </h4>
                         <div className="mt-8 flex flex-col gap-y-8 lg:mt-12 lg:flex-row lg:justify-center lg:gap-x-12 lg:gap-y-0">
                            <div>
                               <Button
                                  variant="primary"
+                                 darkVariant="grey"
                                  size="xl"
                                  sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
                                  href="https://account.venmo.com/u/itisoverdue"
@@ -89,6 +93,7 @@ export default function Donate() {
                            <div>
                               <Button
                                  variant="primary"
+                                 darkVariant="grey"
                                  size="xl"
                                  sx="w-full mx-auto sm:w-3/5 lg:w-[380px]"
                                  onClick={() => toggleModal(true)}
@@ -109,7 +114,9 @@ export default function Donate() {
                      </div>
                      {/* --- Scan to Donate --- */}
                      <div className="mt-16 w-full">
-                        <h4 className="text-3xl md:text-4xl">Scan to Donate</h4>
+                        <h4 className="text-3xl dark:text-white md:text-4xl">
+                           Scan to Donate
+                        </h4>
                         <div className="flex flex-col items-center justify-center lg:mt-4 lg:flex-row lg:gap-x-12">
                            <div className="mt-8 w-full max-w-[380px] rounded-xl border border-lighter-grey bg-white py-6 lg:h-[320px]">
                               <div className="mx-auto flex w-fit flex-col items-center justify-center gap-y-2">
@@ -151,7 +158,7 @@ export default function Donate() {
                </section>
                <section>
                   <div className="mx-auto mt-16 w-[92%] text-center md:w-3/4 lg:w-1/2">
-                     <h5 className="md:text-2xl lg:text-3xl">
+                     <h5 className="dark:text-white md:text-2xl lg:text-3xl">
                         Thank You for Being the Change!
                      </h5>
                      <p className="mt-6">

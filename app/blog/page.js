@@ -124,7 +124,7 @@ export default function BlogPage() {
             backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441386/backgrounds/blog_up1rht.jpg"
          />
          <FullBleedContainer
-            sx="bg-background"
+            sx="bg-background dark:bg-darkest-grey"
             childSx="py-16 text-center md:py-32"
          >
             <section ref={blogSectionRef}>
@@ -156,8 +156,8 @@ export default function BlogPage() {
 const CategoryFilters = ({ categories, filter, handleFilterChange }) => {
    const handleClick = (e) => handleFilterChange(e.currentTarget.name)
    return (
-      <ul className="mb-6 inline-flex flex-wrap items-center rounded-md border-2 bg-white px-3 py-2 md:mb-12 lg:px-0 lg:py-0">
-         <li className="mb-1 mr-3 inline-block text-light-grey lg:mb-0 lg:bg-lightest-grey lg:px-3 lg:py-3 lg:text-dark-grey">
+      <ul className="mb-6 inline-flex flex-wrap items-center rounded-md border-2 bg-white px-3 py-2 dark:border-dark-grey dark:bg-dark-grey md:mb-12 lg:px-0 lg:py-0">
+         <li className="mb-1 mr-3 inline-block text-light-grey dark:bg-lighter-grey dark:text-black lg:mb-0 lg:bg-lightest-grey lg:px-3 lg:py-3 lg:text-dark-grey">
             Filters:
          </li>
 
@@ -166,7 +166,9 @@ const CategoryFilters = ({ categories, filter, handleFilterChange }) => {
             name="all"
             onClick={handleClick}
             className={`${
-               filter === "all" ? "bg-primary px-3 " : "bg-white"
+               filter === "all"
+                  ? "bg-primary px-3 "
+                  : "bg-white dark:bg-dark-grey dark:text-white"
             } mb-1 mr-4  rounded-md py-1 transition-all lg:mb-0`}
          >
             All
@@ -179,7 +181,9 @@ const CategoryFilters = ({ categories, filter, handleFilterChange }) => {
                name={key}
                onClick={handleClick}
                className={`${
-                  filter === key ? "bg-primary px-4" : "bg-white"
+                  filter === key
+                     ? "bg-primary px-4"
+                     : "bg-white dark:bg-dark-grey dark:text-white"
                }  mb-1 mr-4  rounded-md py-1 transition-all lg:mb-0`}
             >
                {item.name}
@@ -236,9 +240,9 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
                />
             </div>
             {/* Card: Content */}
-            <div className="relative h-full max-h-[35%] px-5 text-start  ring-8 ">
+            <div className="relative h-full max-h-[35%] px-5 text-start ring-8 ">
                {/* Blog - Title */}
-               <h3 className="h-full w-full overflow-hidden text-ellipsis pb-2 pt-8 text-lg md:text-xl lg:pt-12 lg:text-2xl">
+               <h3 className="h-full w-full overflow-hidden text-ellipsis pb-2 pt-8 text-lg dark:text-black md:text-xl lg:pt-12 lg:text-2xl">
                   {parse(title)}
                </h3>
                {/* Blog - Date */}
@@ -281,9 +285,9 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
                   onClick={handlePaginationClick}
                   className={`${
                      index === page
-                        ? "bg-primary "
+                        ? "bg-primary dark:bg-primaryDark"
                         : "bg-darker-grey text-white transition-all hover:bg-black hover:text-primary"
-                  }  aspect-square w-10 rounded-lg text-xl`}
+                  }  aspect-square w-10 rounded-lg text-xl dark:bg-dark-grey`}
                >
                   {index + 1}
                </button>
