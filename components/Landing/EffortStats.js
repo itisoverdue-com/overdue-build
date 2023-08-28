@@ -1,12 +1,13 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
-import { useState } from "react"
 import { useInterval } from "react-use"
+import { InView } from "react-intersection-observer"
 
 // StatItem component represents a single statistic item
 const StatItem = ({ stat }) => {
    const [displayedTotal, setDisplayedTotal] = useState(0)
+   const [isVisible, setIsVisible] = useState(false)
 
    // Check whether the stat is not 'Days since we started'
    const isNotDaysStat = stat.desc !== "Days since we started"
@@ -14,33 +15,40 @@ const StatItem = ({ stat }) => {
    const finalTotal = isNotDaysStat
       ? parseFloat(stat.total) * 1000 // Converting 'K' representation back to actual number
       : stat.total // Keep as is for 'Days since we started'
-
    useInterval(() => {
-      setDisplayedTotal((prev) => {
-         if (prev < finalTotal) {
-            return prev + Math.ceil(finalTotal / 100) // Increase by 1% each time
-         }
-         return finalTotal
-      })
+      isVisible &&
+         setDisplayedTotal((prev) => {
+            if (prev < finalTotal) {
+               return prev + Math.ceil(finalTotal / 100) // Increase by 1% each time
+            }
+            return finalTotal
+         })
    }, 20) // Update every 20 milliseconds
 
    return (
-      <li className="flex flex-col items-center justify-center text-center">
-         <div className="flex justify-center">
-            <Image
-               src={stat.image}
-               alt={`Icon for ${stat.desc}`}
-               width={80}
-               height={80}
-               placeholder="blur"
-               blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4Ii8+Cg=="
-            />
-         </div>
-         <div className="pt-4 text-4xl font-bold dark:text-white">
-            {isNotDaysStat ? toKFormat(displayedTotal) : displayedTotal}
-         </div>
-         <div className="text-md text-grey dark:text-white">{stat.desc}</div>
-      </li>
+      <InView
+         as="div"
+         threshold={0.75}
+         triggerOnce
+         onChange={(inView) => setIsVisible(inView)}
+      >
+         <li className="flex flex-col items-center justify-center text-center">
+            <div className="flex justify-center">
+               <Image
+                  src={stat.image}
+                  alt={`Icon for ${stat.desc}`}
+                  width={80}
+                  height={80}
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4Ii8+Cg=="
+               />
+            </div>
+            <div className="pt-4 text-4xl font-bold dark:text-white">
+               {isNotDaysStat ? toKFormat(displayedTotal) : displayedTotal}
+            </div>
+            <div className="text-md text-grey dark:text-white">{stat.desc}</div>
+         </li>
+      </InView>
    )
 }
 
