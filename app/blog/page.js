@@ -240,9 +240,9 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
                />
             </div>
             {/* Card: Content */}
-            <div className="relative h-full max-h-[35%] px-5 text-start ring-8 ">
+            <div className="relative h-full max-h-[30%] px-5 text-start">
                {/* Blog - Title */}
-               <h3 className="h-full w-full overflow-hidden text-ellipsis pb-2 pt-8 text-lg dark:text-black md:text-xl lg:pt-12 lg:text-2xl">
+               <h3 className="h-full w-full truncate pb-2 pt-8 text-lg dark:text-black md:text-xl lg:pt-12 lg:text-2xl">
                   {parse(title)}
                </h3>
                {/* Blog - Date */}
