@@ -236,6 +236,7 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(min-width: 1024px) 470px, 360px"
+                  quality={30}
                />
             </div>
             {/* Card: Content */}

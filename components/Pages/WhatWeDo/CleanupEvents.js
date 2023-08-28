@@ -34,6 +34,7 @@ export default function CleanupEvents({ variant }) {
                fill
                sizes="75vw"
                className="object-cover"
+               quality={50}
             />
          </Card>
          <div className="relative mx-auto mt-8 flex items-center justify-center md:order-3 md:w-2/5 lg:mr-0 lg:mt-12 lg:w-2/3 lg:max-w-[800px] xl:mt-16">

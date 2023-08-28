@@ -7,8 +7,8 @@ function Brand({ styles }) {
          alt="itisOVERDUE logo"
          width={136}
          height={70}
-         priority
          className={`inline-block ${styles}`}
+         quality={100}
       />
    )
 }

@@ -59,6 +59,7 @@ export default function MembersCarousel() {
                      className="rounded-3xl object-cover"
                      width={250}
                      height={333}
+                     quality={50}
                   />
                   <h3 className="text-dark-grey">{item.name}</h3>
                   <div className="font-regular max-w-[235px] text-sm">

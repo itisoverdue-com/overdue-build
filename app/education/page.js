@@ -192,6 +192,7 @@ const EventCard = ({ image, aspect, title, text }) => {
             fill
             style={{ objectFit: "cover" }}
             sizes="(min-width: 768px) 30vw, 100vw"
+            quality={50}
          />
 
          {/* Title, Text */}

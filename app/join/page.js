@@ -50,6 +50,7 @@ export default function Join() {
                      fill
                      style={{ objectFit: "cover" }}
                      sizes="80%"
+                     quality={40}
                   />
                </div>
 

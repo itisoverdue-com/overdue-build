@@ -145,6 +145,7 @@ const EventDetails = ({ event }) => {
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   sizes="(min-width: 1024px) 900px, (min-width: 768px) 740px, 360px"
                   priority
+                  quality={40}
                />
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-5xl">{title}</h3>

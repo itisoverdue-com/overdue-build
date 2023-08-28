@@ -26,6 +26,7 @@ export default function LARiverBoom({ variant }) {
                fill
                sizes="75vw"
                className="object-cover"
+               quality={50}
             />
          </Card>
          <Card

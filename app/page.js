@@ -66,6 +66,7 @@ export default function Home() {
                      fill
                      sizes="55vw"
                      className="object-cover"
+                     quality={75}
                   />
                </Card>
             </div>

@@ -172,6 +172,7 @@ export default function Sponsor() {
                         fill
                         sizes="(max-width: 768px) 100vw, 720px"
                         className="object-cover"
+                        quality={50}
                      />
                   </Card>
                   <div className="mt-8 md:hidden">
@@ -212,6 +213,7 @@ export default function Sponsor() {
                                     fill
                                     sizes={logo.sizes}
                                     className="object-contain"
+                                    quality={40}
                                  />
                               </div>
                            </div>
@@ -255,6 +257,7 @@ export default function Sponsor() {
                               fill
                               sizes="70vw"
                               className="object-contain md:object-cover"
+                              quality={50}
                            />
                         </Card>
                      </div>
@@ -300,6 +303,7 @@ export default function Sponsor() {
                               fill
                               sizes="70vw"
                               className="object-contain md:object-cover md:object-bottom"
+                              quality={50}
                            />
                         </Card>
                      </div>
@@ -317,6 +321,7 @@ export default function Sponsor() {
                               fill
                               sizes="(max-width: 640px) 100vw, 590px"
                               className="object-contain"
+                              quality={50}
                            />
                         </Card>
                         <Card
@@ -362,6 +367,7 @@ export default function Sponsor() {
                               fill
                               sizes="(max-width: 640px) 100vw, 590px"
                               className="object-contain"
+                              quality={50}
                            />
                         </Card>
                         <Card
@@ -393,6 +399,7 @@ export default function Sponsor() {
                            fill
                            sizes="(max-width: 1024px) 100vw, 1236px"
                            className="scale-100 object-cover"
+                           quality={50}
                         />
                      </Card>
                      <Card
@@ -462,6 +469,7 @@ export default function Sponsor() {
                         fill
                         sizes="70vw"
                         className="scale-110 object-cover md:scale-100"
+                        quality={50}
                      />
                   </Card>
                   <Card
