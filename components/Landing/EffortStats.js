@@ -62,7 +62,7 @@ const EffortStats = () => {
    // fetch data from google sheet
    useEffect(() => {
       Papa.parse(
-         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQuChf7IzzXoAzoP6kBF0nNYlmRiS5duwuYsrh-ZuCZ-xHaiQSWb70-pLOD2tKZi5Cixn59wvuHa8f4/pub?gid=0&single=true&output=csv",
+         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ78InTixyfD1RLkpfRpr833h9aEdn_YDURZseJxOaYOyO8anJgXmCuVmEMiLjBtuTYI6uQPVhqi9Sc/pub?gid=0&single=true&output=csv",
          {
             download: true,
             header: true,
@@ -113,7 +113,7 @@ const EffortStats = () => {
 
 // toKFormat function formats a number to K (for thousands) representation
 const toKFormat = (number) => {
-   return number >= 1000 ? `${(number / 1000).toFixed(1)}K` : number
+   return number >= 1000 ? `${(number / 1000).toFixed(2)}K` : number
 }
 
 // daysSince function calculates the number of days between a provided date and today
