@@ -1,8 +1,9 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { useInterval } from "react-use"
 import { InView } from "react-intersection-observer"
+import Papa from "papaparse"
 
 // StatItem component represents a single statistic item
 const StatItem = ({ stat }) => {
@@ -54,25 +55,46 @@ const StatItem = ({ stat }) => {
 
 // stats is the array of statistics data to display
 const EffortStats = () => {
+   const [collected, setCollected] = useState(0)
+   const [effort, setEffort] = useState(0)
+   const [volunteers, setVolunteers] = useState(0)
+
+   // fetch data from google sheet
+   useEffect(() => {
+      Papa.parse(
+         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQuChf7IzzXoAzoP6kBF0nNYlmRiS5duwuYsrh-ZuCZ-xHaiQSWb70-pLOD2tKZi5Cixn59wvuHa8f4/pub?gid=0&single=true&output=csv",
+         {
+            download: true,
+            header: true,
+            complete: (results) => {
+               const { collected, effort, volunteers } = results.data[0]
+               setCollected(Number(collected))
+               setEffort(Number(effort))
+               setVolunteers(Number(volunteers))
+            },
+         }
+      )
+   }, [])
+
    const stats = [
       {
          image: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1689626737/trash-collected_a4ux4r.svg",
-         total: toKFormat(64000),
+         total: toKFormat(collected),
          desc: "Lbs of Trash Collected",
       },
       {
          image: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1689626737/hours-effort_z0ngip.svg",
-         total: toKFormat(10000),
+         total: toKFormat(effort),
          desc: "Hours of Effort",
       },
       {
          image: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1689626737/volunteers-enrolled_p6x9no.svg",
-         total: toKFormat(5000),
+         total: toKFormat(volunteers),
          desc: "Volunteers Enrolled",
       },
       {
          image: "https://res.cloudinary.com/di7ejl8jx/image/upload/v1689626737/days-start_efmqvt.svg",
-         total: daysSince("10/18/2020"),
+         total: daysSince("10/18/2020", collected),
          desc: "Days since we started",
       },
    ]
@@ -95,13 +117,14 @@ const toKFormat = (number) => {
 }
 
 // daysSince function calculates the number of days between a provided date and today
-const daysSince = (date) => {
+const daysSince = (date, collected) => {
    const start = new Date(date)
    const end = new Date()
    const millisecondsPerDay = 24 * 60 * 60 * 1000
 
    // We divide by milliseconds per day and round down to ignore partial days
-   return Math.floor((end - start) / millisecondsPerDay)
+   // execution is delayed until google sheet prop is loaded
+   return collected ? Math.floor((end - start) / millisecondsPerDay) : 0
 }
 
 export default EffortStats
