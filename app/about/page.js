@@ -7,6 +7,7 @@ import Button from "@/components/shared/Button"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
+import MembersCarousel from "@/components/shared/MembersCarousel"
 
 export default function About() {
    return (
@@ -142,6 +143,8 @@ export default function About() {
             {/* WAYS TO HELP */}
             <WaysToHelp />
 
+               {/* OUR MEMBERS */}
+            <MembersCarousel />
             {/* GET IN TOUCH */}
             <section className="mx-auto mt-24">
                <div className="flex flex-col justify-center text-center xl:px-12">

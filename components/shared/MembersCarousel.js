@@ -17,7 +17,7 @@ export default function MembersCarousel() {
    // State variables
    const [currentIndex, setCurrentIndex] = useState(0)
    const [isPlaying, setIsPlaying] = useState(true)
-   const ITEM_WIDTH = 260 // 250px width + 10px right padding
+   const ITEM_WIDTH = 310 // 250px width + 10px right padding
 
    // Navigate to the next item
    function next() {
@@ -53,16 +53,25 @@ export default function MembersCarousel() {
                   className="flex-none"
                   style={{ width: `${ITEM_WIDTH}px` }}
                >
-                  <Image
+                  {/* 
+                     // Image component has a bug when scroll load in this carousel, so we use <img> instead
+                  <Image                            
                      src={item.profile}
                      alt={item.name}
                      className="rounded-3xl object-cover"
                      width={250}
                      height={333}
                      quality={50}
+                  /> */}
+                  <img 
+                     src={item.profile}
+                     alt={item.name}
+                     className="rounded-3xl"
+                     width={300}
+                     height={350}
                   />
-                  <h3 className="text-dark-grey">{item.name}</h3>
-                  <div className="font-regular max-w-[235px] text-sm">
+                  <h3 className="text-dark-grey pt-4">{item.name}</h3>
+                  <div className="font-regular max-w-[280px] text-sm ">
                      <p className="text-grey">{item.designation}</p>
                      <p className="text-light-grey">{item.location}</p>
                   </div>
