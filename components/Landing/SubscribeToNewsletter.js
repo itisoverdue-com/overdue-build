@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import FullBleedContainer from "../Layout/Container/FullBleedContainer"
+import Button from "../shared/Button"
 
 export default function SubscribeToNewsletter() {
    const [email, setEmail] = useState("")
@@ -13,18 +14,25 @@ export default function SubscribeToNewsletter() {
 
    return (
       <FullBleedContainer
-         sx=""
+         // add red border
+         sx="border-2 border-red-500 py-16"
          backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441393/backgrounds/subscribe_rsxz6i.jpg"
-         childSx="flex sm:items-start sm:justify-center sm:pl-20 items-center justify-center  flex-col h-full relative text-white
-     md:text-4xl lg:text-5xl xl:text-6xl font-bold flex-col space-y-5"
+         childSx="flex flex-col space-y-2 px-6"
       >
-         <h2 className="text-2xl font-bold">Subscribe to our Newsletter</h2>
-         <p>Get the latest updates about our ongoing and upcoming events!</p>
-         <form onSubmit={handleSubmit} className="mt-4">
+         <h2 className="text-4xl font-normal text-lightest-grey">
+            Subscribe to our Newsletter
+         </h2>
+         <p className="text- text-lg text-lighter-grey">
+            Get the latest updates about our ongoing and upcoming events!
+         </p>
+         <form
+            onSubmit={handleSubmit}
+            className="mb-4 mt-4 flex flex-col space-y-2"
+         >
             <select
                value={location}
                onChange={(e) => setLocation(e.target.value)}
-               className="mb-2 p-2"
+               className="mb-2 rounded-md p-4"
             >
                <option value="" disabled>
                   Select location
@@ -37,9 +45,17 @@ export default function SubscribeToNewsletter() {
                placeholder="Enter your email"
                value={email}
                onChange={(e) => setEmail(e.target.value)}
-               className="mb-2 w-full p-2"
+               className="mb-2 rounded-md p-4"
             />
-            <button type="submit">Subscribe</button>
+            <Button
+               variant="dark"
+               size="xl"
+               darkVariant="grey"
+               type="submit"
+               sx=" font-normal"
+            >
+               Subscribe
+            </Button>
          </form>
       </FullBleedContainer>
    )
