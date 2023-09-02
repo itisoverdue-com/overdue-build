@@ -8,6 +8,7 @@ import MembersCarousel from "@/components/shared/MembersCarousel"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
+import SubscribeToNewsletter from "@/components/Landing/SubscribeToNewsletter"
 
 export default function Home() {
    return (
@@ -80,6 +81,7 @@ export default function Home() {
             {/* Subscribe to Newsletter section */}
             <MembersCarousel />
          </FullBleedContainer>
+         <SubscribeToNewsletter />
       </main>
    )
 }
