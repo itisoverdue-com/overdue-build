@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import { useState } from "react"
 import FullBleedContainer from "../Layout/Container/FullBleedContainer"
 import Button from "../shared/Button"
 
@@ -14,48 +14,54 @@ export default function SubscribeToNewsletter() {
 
    return (
       <FullBleedContainer
-         // add red border
-         sx="border-2 border-red-500 py-16"
+         sx="py-20"
          backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441393/backgrounds/subscribe_rsxz6i.jpg"
-         childSx="flex flex-col space-y-2 px-6"
+         childSx="flex flex-col  
+          items-center 
+         md:flex-row md:justify-between gap-10 px-6 lg:px-12"
       >
-         <h2 className="text-4xl font-normal text-lightest-grey">
-            Subscribe to our Newsletter
-         </h2>
-         <p className="text- text-lg text-lighter-grey">
-            Get the latest updates about our ongoing and upcoming events!
-         </p>
+         <div className="flex flex-col ">
+            <h2 className="text-4xl font-normal text-lightest-grey">
+               Subscribe to our Newsletter
+            </h2>
+            <p className="text-lg text-lighter-grey">
+               Get the latest updates about our ongoing and upcoming events!
+            </p>
+         </div>
+
          <form
             onSubmit={handleSubmit}
-            className="mb-4 mt-4 flex flex-col space-y-2"
+            className="flex flex-col gap-2 lg:flex-row"
          >
             <select
                value={location}
                onChange={(e) => setLocation(e.target.value)}
-               className="mb-2 rounded-md p-4"
+               className="flex rounded-md p-5"
             >
                <option value="" disabled>
                   Select location
                </option>
-               <option value="New York">New York</option>
-               // Add more options as needed
+               <option value="SFV">San Fernando Valley, CA</option>
             </select>
-            <input
-               type="email"
-               placeholder="Enter your email"
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-               className="mb-2 rounded-md p-4"
-            />
-            <Button
-               variant="dark"
-               size="xl"
-               darkVariant="grey"
-               type="submit"
-               sx=" font-normal"
-            >
-               Subscribe
-            </Button>
+            <div className="n flex	justify-center rounded-md bg-white p-1">
+               <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="p-2"
+               />
+               <Button
+                  variant="dark"
+                  size="lg"
+                  darkVariant="grey"
+                  fullWidth={true}
+                  type="submit"
+                  sx="font-normal"
+               >
+                  Subscribe
+               </Button>
+            </div>
          </form>
       </FullBleedContainer>
    )
