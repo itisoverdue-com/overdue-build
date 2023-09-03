@@ -4,7 +4,6 @@ import Card from "@/components/shared/Card"
 import FullBleedContainer from "@/components/Layout/Container/FullBleedContainer"
 import Button from "@/components/shared/Button"
 import EffortStats from "@/components/Landing/EffortStats"
-import MembersCarousel from "@/components/shared/MembersCarousel"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
@@ -78,7 +77,6 @@ export default function Home() {
             {/* Our Partners section */}
             {/* Become a Sponsor section */}
             {/* Subscribe to Newsletter section */}
-            <MembersCarousel />
          </FullBleedContainer>
       </main>
    )
