@@ -7,6 +7,7 @@ import EffortStats from "@/components/Landing/EffortStats"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
+import SubscribeToNewsletter from "@/components/Landing/SubscribeToNewsletter"
 
 export default function Home() {
    return (
@@ -78,6 +79,7 @@ export default function Home() {
             {/* Become a Sponsor section */}
             {/* Subscribe to Newsletter section */}
          </FullBleedContainer>
+         <SubscribeToNewsletter />
       </main>
    )
 }
