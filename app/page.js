@@ -7,6 +7,7 @@ import EffortStats from "@/components/Landing/EffortStats"
 import SectionSubheader from "@/components/Pages/SectionSubheader"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
+import SubscribeToNewsletter from "@/components/Landing/SubscribeToNewsletter"
 import Partners from "@/components/Landing/Partners"
 
 export default function Home() {
@@ -76,8 +77,8 @@ export default function Home() {
             {/* Latest Updates & Blogs section */}
             {/* Fellow Volunteers! section */}
             <Partners />
-            {/* Subscribe to Newsletter section */}
          </FullBleedContainer>
+         <SubscribeToNewsletter />
       </main>
    )
 }
