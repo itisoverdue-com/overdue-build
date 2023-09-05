@@ -8,6 +8,7 @@ import SectionSubheader from "@/components/Pages/SectionSubheader"
 import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SubscribeToNewsletter from "@/components/Landing/SubscribeToNewsletter"
+import FellowVolunteers from "@/components/Landing/FellowVolunteers"
 
 export default function Home() {
    return (
@@ -74,10 +75,7 @@ export default function Home() {
             <WhatWeDo variant="home" />
             <WaysToHelp />
             {/* Latest Updates & Blogs section */}
-            {/* Fellow Volunteers! section */}
-            {/* Our Partners section */}
-            {/* Become a Sponsor section */}
-            {/* Subscribe to Newsletter section */}
+            <FellowVolunteers />
          </FullBleedContainer>
          <SubscribeToNewsletter />
       </main>
