@@ -76,7 +76,7 @@ export default function TestimonialCarousel() {
                         key={item.id}
                         className="w-full flex-none rounded-3xl bg-gradient-to-b from-primary p-4 md:p-8"
                      >
-                        <blockquote className="italic text-dark-grey">
+                        <blockquote className="italic text-dark-grey dark:text-white">
                            {item.quote}
                         </blockquote>
                         <div className="mt-4 flex items-center">
