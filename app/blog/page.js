@@ -328,7 +328,7 @@ export const Loading = () => {
    return (
       <div className="mx-auto w-1/2 py-36 text-light-grey md:w-1/4 lg:w-1/6">
          <GlobeAltIcon className="mx-auto  inline-block animate-pulse" />
-         <h3 className="mt-3 text-4xl">Loading...</h3>
+         <h3 className="mt-3 text-center text-4xl">Loading...</h3>
       </div>
    )
 }
