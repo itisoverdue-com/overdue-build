@@ -18,6 +18,9 @@ export default function MembersCarousel() {
    const [currentIndex, setCurrentIndex] = useState(0)
    const [isPlaying, setIsPlaying] = useState(true)
    const ITEM_WIDTH = 310 // 250px width + 10px right padding
+   //To keep track of touch movements
+   const [touchStartX, setTouchStartX] = useState(0)
+   const [touchEndX, setTouchEndX] = useState(0)
 
    // Navigate to the next item
    function next() {
@@ -32,6 +35,25 @@ export default function MembersCarousel() {
       })
    }
 
+   // Touch event handlers
+   function handleTouchStart(e) {
+      setTouchStartX(e.touches[0].clientX)
+   }
+
+   function handleTouchMove(e) {
+      setTouchEndX(e.touches[0].clientX)
+   }
+
+   function handleTouchEnd() {
+      if (touchStartX - touchEndX > 100) {
+         // moved right
+         next()
+      } else if (touchEndX - touchStartX > 100) {
+         // moved left
+         prev()
+      }
+   }
+
    // Auto-slide functionality when playing
    useEffect(() => {
       let timer
@@ -40,7 +62,12 @@ export default function MembersCarousel() {
    }, [isPlaying, currentIndex])
 
    return (
-      <div className="mt-12 flex w-full flex-col overflow-hidden md:mt-20 xl:px-12">
+      <div
+         className="mt-12 flex w-full flex-col overflow-hidden md:mt-20 xl:px-12"
+         onTouchStart={handleTouchStart}
+         onTouchMove={handleTouchMove}
+         onTouchEnd={handleTouchEnd}
+      >
          <h2 className="mx-auto md:mx-0 md:text-left">Our Members!</h2>
          <div className="mx-auto my-4 w-20 rounded-full border-t-8 border-primary dark:border-white md:mx-0 md:my-5 md:w-28" />
          <div
@@ -63,14 +90,14 @@ export default function MembersCarousel() {
                      height={333}
                      quality={50}
                   /> */}
-                  <img 
+                  <img
                      src={item.profile}
                      alt={item.name}
                      className="rounded-3xl"
                      width={300}
                      height={350}
                   />
-                  <h3 className="text-dark-grey pt-4">{item.name}</h3>
+                  <h3 className="pt-4 text-dark-grey">{item.name}</h3>
                   <div className="font-regular max-w-[280px] text-sm ">
                      <p className="text-grey">{item.designation}</p>
                      <p className="text-light-grey">{item.location}</p>
