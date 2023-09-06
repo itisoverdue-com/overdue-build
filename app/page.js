@@ -9,6 +9,8 @@ import WhatWeDo from "@/components/Pages/WhatWeDo"
 import WaysToHelp from "@/components/Pages/WaysToHelp"
 import SubscribeToNewsletter from "@/components/Landing/SubscribeToNewsletter"
 import FellowVolunteers from "@/components/Landing/FellowVolunteers"
+import Partners from "@/components/Landing/Partners"
+import LatestBlogs from "@/components/Pages/LatestBlogs"
 
 export default function Home() {
    return (
@@ -76,6 +78,9 @@ export default function Home() {
             <WaysToHelp />
             {/* Latest Updates & Blogs section */}
             <FellowVolunteers />
+            <LatestBlogs />
+            {/* Fellow Volunteers! section */}
+            <Partners />
          </FullBleedContainer>
          <SubscribeToNewsletter />
       </main>
