@@ -26,9 +26,9 @@ function LatestBlogs() {
    return (
       !error && (
          <section className="mt-32">
-            <h3 className="mb-14 w-max text-4xl">
+            <h3 className="mb-10 text-center text-3xl md:mb-14  lg:w-max lg:text-start lg:text-4xl">
                Latest Blogs & Updates
-               <span className="mt-4 block h-2 w-1/3 rounded-full bg-primary" />
+               <span className="mx-auto mt-4 block h-2 w-1/3 rounded-full bg-primary lg:mr-auto" />
             </h3>
             {blogs.length > 0 ? (
                <ol className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +48,7 @@ function LatestBlogs() {
             ) : (
                <Loading />
             )}
-            <div className="mx-auto mt-20 w-max">
+            <div className="mx-auto mt-10 w-max md:mt-20">
                <Button href="/blog" variant={"dark"} size={"xl"}>
                   See Our Latest Blog Post
                </Button>
