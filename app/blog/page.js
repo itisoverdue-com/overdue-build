@@ -211,7 +211,7 @@ const ListOfBlogs = ({ blogs }) => {
    )
 }
 
-export const BlogCard = ({ date, title, author, slug, image, blogId }) => {
+export const BlogCard = ({ date, title, author, slug, image, blogId, sx }) => {
    function formatDate(date) {
       const [month, day, year] = DateTime.fromISO(date)
          .toLocaleString({
@@ -228,7 +228,7 @@ export const BlogCard = ({ date, title, author, slug, image, blogId }) => {
    }
    const { day, monthYear } = formatDate(date)
    return (
-      <Link href={`/blog/${blogId}`}>
+      <Link href={`/blog/${blogId}`} className={`${sx}`}>
          <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
             {/* Card: Image */}
             <div className="relative aspect-video flex-1 bg-light-grey">
