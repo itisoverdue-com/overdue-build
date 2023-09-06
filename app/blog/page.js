@@ -192,7 +192,26 @@ const CategoryFilters = ({ categories, filter, handleFilterChange }) => {
       </ul>
    )
 }
+
 const ListOfBlogs = ({ blogs }) => {
+   return (
+      <ol className=" mb-12 grid w-full gap-6 md:grid-cols-2 lg:h-[800px] lg:grid-cols-3 lg:gap-10">
+         {blogs.map((item) => (
+            <BlogCard
+               key={item.id}
+               date={item.date}
+               image={item.jetpack_featured_media_url}
+               title={item.title.rendered}
+               author={item._embedded.author[0].name}
+               slug={item.slug}
+               blogId={item.id}
+            />
+         ))}
+      </ol>
+   )
+}
+
+export const BlogCard = ({ date, title, author, slug, image, blogId }) => {
    function formatDate(date) {
       const [month, day, year] = DateTime.fromISO(date)
          .toLocaleString({
@@ -207,24 +226,7 @@ const ListOfBlogs = ({ blogs }) => {
          day: `${day.slice(0, 2)}`,
       }
    }
-   return (
-      <ol className=" mb-12 grid w-full gap-6 md:grid-cols-2 lg:h-[800px] lg:grid-cols-3 lg:gap-10">
-         {blogs.map((item) => (
-            <BlogCard
-               key={item.id}
-               date={formatDate(item.date)}
-               image={item.jetpack_featured_media_url}
-               title={item.title.rendered}
-               author={item._embedded.author[0].name}
-               slug={item.slug}
-               blogId={item.id}
-            />
-         ))}
-      </ol>
-   )
-}
-
-const BlogCard = ({ date, title, author, slug, image, blogId }) => {
+   const { day, monthYear } = formatDate(date)
    return (
       <Link href={`/blog/${blogId}`}>
          <Card sx="flex flex-col overflow-hidden shadow-lg w-full aspect-[5/4] bg-white active:scale-95 active:bg-primary md:hover:ring-8 md:hover:ring-primary md:hover:bg-primary md:hover:-translate-y-4 md:hover:shadow-2xl transition-all">
@@ -248,10 +250,10 @@ const BlogCard = ({ date, title, author, slug, image, blogId }) => {
                {/* Blog - Date */}
                <div className="absolute bottom-3/4 left-5 w-max rounded-lg bg-primary bg-opacity-75 px-3 py-2 shadow-md backdrop-blur-sm">
                   <span className="block text-center text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
-                     {date.day}
+                     {day}
                   </span>
                   <span className="block  text-center md:text-lg lg:text-xl">
-                     {date.monthYear}
+                     {monthYear}
                   </span>
                </div>
                {/* Blog - Author */}
@@ -322,7 +324,7 @@ const Pagination = ({ numberOfPages, page, handlePageChange }) => {
    )
 }
 
-const Loading = () => {
+export const Loading = () => {
    return (
       <div className="mx-auto w-1/2 py-36 text-light-grey md:w-1/4 lg:w-1/6">
          <GlobeAltIcon className="mx-auto  inline-block animate-pulse" />
