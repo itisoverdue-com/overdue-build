@@ -147,7 +147,7 @@ export default function Footer() {
    return (
       <footer className="bg-primary dark:border-t dark:border-t-grey dark:bg-darkest-grey">
          {/* Main Footer */}
-         <div className="mx-auto flex flex-col items-start space-y-16 p-5 py-10 dark:text-white md:space-y-0 md:px-10 lg:max-w-screen-2xl lg:flex-row lg:space-x-20 lg:p-20">
+         <div className="mx-auto flex flex-col items-start space-y-2 p-5 py-10 dark:text-white md:space-y-0 md:px-10 lg:max-w-screen-2xl lg:flex-row lg:space-x-20 lg:p-20">
             {/* Brand, Subheader, Social Links */}
             <div className="flex flex-col space-y-6 ">
                <Brand />
@@ -164,7 +164,7 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="">
-               <h6 className="mb-8 w-max">Quick Links</h6>
+               <h6 className="mb-8 mt-10 w-max lg:mt-0">Quick Links</h6>
                <ul className="w-max  space-y-4">
                   {quickLinks.map((item) => (
                      <li key={item.text}>
@@ -181,7 +181,7 @@ export default function Footer() {
 
             {/* Contact Us */}
             <div>
-               <h6 className="mb-8">Contact Us</h6>
+               <h6 className="mb-8 mt-10 lg:mt-0">Contact Us</h6>
                <ul className="space-y-4">
                   {contactUs.map((item) => (
                      <li
