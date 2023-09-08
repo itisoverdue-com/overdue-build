@@ -25,13 +25,14 @@ export default function Hero({ page, backgroundImageSrc = "" }) {
          </div>
 
          <div className="flex flex-col items-center justify-center gap-8 sm:flex-row">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" href="/join">
                Join Our Team!
             </Button>
             <Button
                variant="primary"
                size="lg"
                sx="dark:bg-primary dark:hover:bg-black dark:hover:text-primary"
+               href="/donate"
             >
                Donate Now!
             </Button>
