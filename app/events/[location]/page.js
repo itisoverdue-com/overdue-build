@@ -216,7 +216,7 @@ const EventDetails = ({ event }) => {
                      !showMore
                         ? "bg-gradient-to-b from-transparent to-white dark:bg-none"
                         : "-z-10"
-                  } absolute bottom-0 h-1/2 w-full`}
+                  } absolute bottom-0 h-1/2 w-full leading-7`}
                />
                {parse(description)}
             </div>

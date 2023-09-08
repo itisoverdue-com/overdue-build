@@ -76,7 +76,7 @@ export default function TestimonialCarousel() {
                         key={item.id}
                         className="w-full flex-none rounded-3xl bg-gradient-to-b from-primary p-4 md:p-8"
                      >
-                        <blockquote className="italic text-dark-grey">
+                        <blockquote className="italic text-dark-grey dark:text-white">
                            {item.quote}
                         </blockquote>
                         <div className="mt-4 flex items-center">
@@ -93,7 +93,7 @@ export default function TestimonialCarousel() {
                   ))}
                </div>
 
-               <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden xl:px-12">
+               <div className="mt-2 flex w-full flex-row items-center justify-center overflow-hidden dark:text-white xl:px-12">
                   {RenderButton(prev, ArrowLeftCircleIcon)}
                   {RenderButton(
                      () => setIsPlaying(!isPlaying),

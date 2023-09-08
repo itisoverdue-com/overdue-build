@@ -27,7 +27,7 @@ export default function NavBar({ showNav, setShowNav }) {
       },
       {
          id: 5,
-         page: "#",
+         page: "/itsoverdue.myshopify.com/collections/all",
          text: "Shop",
       },
       {

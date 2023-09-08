@@ -16,7 +16,7 @@ export default function Hero({ page, backgroundImageSrc = "" }) {
       >
          <h1>
             {page}
-            <span className="mx-auto mt-2 block w-1/3 rounded-2xl border-t-8 border-primary" />
+            <span className="mx-auto mt-2 block w-1/3 rounded-2xl border-t-8 border-primary dark:border-primaryDark" />
          </h1>
 
          <div className="flex flex-col items-start justify-center">
