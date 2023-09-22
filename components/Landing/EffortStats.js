@@ -45,7 +45,15 @@ const StatItem = ({ stat }) => {
                />
             </div>
             <div className="pt-4 text-4xl font-bold dark:text-white">
-               {isNotDaysStat ? toKFormat(displayedTotal) : displayedTotal}
+               {displayedTotal === 0 ? (
+                  <span className="text-base font-light italic">
+                     Loading...
+                  </span>
+               ) : isNotDaysStat ? (
+                  toKFormat(displayedTotal)
+               ) : (
+                  displayedTotal
+               )}
             </div>
             <div className="text-md text-grey dark:text-white">{stat.desc}</div>
          </li>
