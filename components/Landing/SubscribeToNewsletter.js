@@ -13,7 +13,7 @@ export default function SubscribeToNewsletter() {
 
    // URL for the subscription iframe
    const iframeSrc =
-      "https://b9f7feb2.sibforms.com/serve/MUIFAFwiFEM9nwjq3EOwKxl-zv-fR9j4trEiltFi0cUcbZFiYjs8OzETq1vE6YUrCMNoMREJ0yy0c1sgn8h6R5nBcnpoyxQtl6P9QHDTlTOzzqcihN1BDfCSvRLle-wuA_DsmKH7v-MVcSHck1CRCc6YHtCRGNDmLPKqOuI-X6LqIqAhOmM2UBTm_XXGkI1-6qWlanP81sYAH6T-"
+      "https://b9f7feb2.sibforms.com/serve/MUIFAECC9xw99FkR3SQlCrPvcgyA4QPvnA0bkrlv_XAkTmt7dsnpv602rsmcY3hCys9hmoIj-ikXoz4jCyJjxCXd691madniWn1ygSxRBIjNBWQPy2mdJRTEN090FIw-gc4JBPTNR8ZprPFiw2Bg1s9O7-7n5UPzrG0OcTxpDJZMeXlsQqzBdbghKB1CguJ9N_aQyWqrJU7JaWC1"
 
    return (
       <FullBleedContainer
@@ -29,7 +29,7 @@ export default function SubscribeToNewsletter() {
                Get the latest updates about our ongoing and upcoming events!
             </p>
          </div>
-         <div className="h-[380px] w-full self-center md:self-start">
+         <div className="h-[580px] w-full self-center md:self-start">
             <iframe style={iframeStyle} src={iframeSrc}></iframe>
          </div>
       </FullBleedContainer>
