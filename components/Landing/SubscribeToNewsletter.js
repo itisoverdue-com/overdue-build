@@ -30,7 +30,11 @@ export default function SubscribeToNewsletter() {
             </p>
          </div>
          <div className="h-[580px] w-full self-center md:self-start">
-            <iframe style={iframeStyle} src={iframeSrc}></iframe>
+            <iframe
+               style={iframeStyle}
+               src={iframeSrc}
+               title="Sign-up form for the Overdue Newsletter"
+            ></iframe>
          </div>
       </FullBleedContainer>
    )
