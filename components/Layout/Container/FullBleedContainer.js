@@ -5,6 +5,7 @@ import Image from "next/image"
 function FullBleedContainer({
    children,
    sx = "",
+   imgSx = "",
    childSx = "",
    backgroundImageSrc = "",
 }) {
@@ -15,7 +16,7 @@ function FullBleedContainer({
                src={backgroundImageSrc}
                alt={backgroundImageSrc}
                fill
-               className="-z-10 object-cover"
+               className={`-z-10 object-cover ${imgSx}`}
                priority
                quality={50}
             />
