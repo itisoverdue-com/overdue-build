@@ -17,7 +17,7 @@ export default function Home() {
       <main>
          <Hero
             page="IT IS OVERDUE"
-            backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1688441392/landing/hero_yntaig.jpg"
+            backgroundImageSrc="https://res.cloudinary.com/di7ejl8jx/image/upload/v1711766310/landing/q137sq9gfhiyqghftjyi.webp"
          />
          <FullBleedContainer
             sx="bg-background dark:bg-darkest-grey"
