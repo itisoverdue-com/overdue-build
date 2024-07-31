@@ -52,6 +52,12 @@ const chapters = [
       lon: "top-[33%]",
       zIndex: "z-[10]",
    },
+   {
+      location: "San Francisco Bay Area, CA",
+      lat: "left-[13%]",
+      lon: "top-[23%]",
+      zIndex: "z-[10]",
+   }
 ]
 
 export default function Events() {
