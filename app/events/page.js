@@ -53,9 +53,9 @@ const chapters = [
       zIndex: "z-[10]",
    },
    {
-      location: "San Francisco Bay Area, CA",
-      lat: "left-[13%]",
-      lon: "top-[23%]",
+      location: "Bay Area, CA",
+      lat: "left-[15%]",
+      lon: "top-[33%]",
       zIndex: "z-[10]",
    }
 ]
